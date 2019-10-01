@@ -165,11 +165,11 @@
     </item>
     
     <item>
-      <title>typescript</title>
-      <link>https://cotutorial.github.io/tags/typescript/</link>
+      <title>angular</title>
+      <link>https://cotutorial.github.io/tags/angular/</link>
       <pubDate>Mon, 22 Oct 2018 12:46:35 +0100</pubDate>
       
-      <guid>https://cotutorial.github.io/tags/typescript/</guid>
+      <guid>https://cotutorial.github.io/tags/angular/</guid>
       <description></description>
     </item>
     
@@ -260,6 +260,15 @@
       <pubDate>Sun, 15 Jul 2018 09:13:28 +0100</pubDate>
       
       <guid>https://cotutorial.github.io/tags/socket.io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://cotutorial.github.io/tags/typescript/</link>
+      <pubDate>Tue, 19 Jun 2018 20:29:57 +0100</pubDate>
+      
+      <guid>https://cotutorial.github.io/tags/typescript/</guid>
       <description></description>
     </item>
     

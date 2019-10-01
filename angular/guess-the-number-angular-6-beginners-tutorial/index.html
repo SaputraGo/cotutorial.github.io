@@ -1,0 +1,2115 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description"
+        content="Hundreds of free tutorials for cutting edge languages and frameworks.">
+    
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>How to Create a Customary Hello Angular App – Guess the Number! | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="https://cotutorial.github.io/css/style.css"> 
+    <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins' />
+    <meta content="493615514813695" property="fb:app_id" />
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="CoTutorial">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+            </button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Courses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="../../artificial-intelligence/"><img alt="AI logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="../../angular/"><img alt="angular logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="../../cloud/"><img alt="cloud logo"
+                                    src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="../../compsci/"><img alt="computer science"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="../../python/"><img alt="python logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="../../golang/"><img alt="golang logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="../../rust/"><img alt="rust logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="../../webdev/"><img alt="webdev logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Projects
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="https://cotutorial.github.io/projects/hacker-news-clone-vuejs/"><img
+                                    alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in
+                                VueJS</a>
+                            <a class="dropdown-item"
+                                href="https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog
+                                on AWS</a>
+                            <a class="dropdown-item"
+                                href="https://cotutorial.github.io/projects/chat-system-in-go-and-react/"><img alt="VueJS logo"
+                                    src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                    data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat
+                                Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tutorials
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/artificial-intelligence/"><img
+                                            alt="AI logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/typescript/angular/"><img
+                                            alt="Angular logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/javascript/angularjs/"><img
+                                            alt="AngularJS logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/logos/angularjs.svg" />
+                                        AngularJS</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/cloud/"><img alt="Cloud logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/compsci/"><img
+                                            alt="Comp Sci logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/docker/"><img alt="Docker logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/gamedev/"><img alt="GameDev logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/golang/"><img alt="Golang logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/nodejs/"><img alt="Nodejs logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/javascript.svg" />
+                                        NodeJS</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/python/"><img alt="Python logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/rust/"> <img alt="Rust logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/typescript/"><img
+                                            alt="TypeScript logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="https://images.tutorialedge.net/images/typescript.svg" />
+                                        TypeScript</a>
+                                    <a class="dropdown-item" href="https://cotutorial.github.io/webdev/"><img alt="Web Dev logo"
+                                            src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                            data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav"
+                aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/angular/"><img alt="angular logo"
+                                src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/typescript/"><img alt="angular logo"
+                                src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="https://images.tutorialedge.net/images/typescript.png" /> TypeScript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/cloud/"><img alt="cloud logo"
+                                src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/python/"><img alt="python logo"
+                                src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/golang/"><img alt="golang logo"
+                                src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/rust/"><img alt="rust logo"
+                                src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://cotutorial.github.io/webdev/"><img alt="webdev logo"
+                                src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.png" alt="How to Create a Customary Hello Angular App – Guess the Number! Image" />  How to Create a Customary Hello Angular App – Guess the Number!
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="TutorialEdge Logo" />
+            
+            <a href="https://twitter.com/TutorialEdge">Kevin Hennessy</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>13 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Jul 25, 2018</span>
+
+                <span>
+            
+            <a href="../../tags/angular"
+              ><span class="badge badge-pill badge-info">angular</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">books</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="https://cotutorial.github.io/angular/best-books-for-learning-angular/">The Top Books For Learning Angular</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">socket.io</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="https://cotutorial.github.io/angular/angular-socket-io-tutorial/">Creating a Realtime App with Angular and Socket.io Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p><em>Learn how to create a customary Hello Angular App – Guess the Number! in this
+tutorial by Kevin Hennessy, a developer, team lead, and solutions architect,
+working on web-based projects, primarily using the Microsoft technology stack.</em></p>
+
+<p>This article will help you create a simple “Guess the Number!” game, which will
+serve as a platform to launch you into the world of Angular and showcase the
+framework&rsquo;s capabilities. The objective of the game is to guess a random
+computer-generated number in as few tries as possible.</p>
+
+<p>This is how the game looks:</p>
+
+<p><img src="https://images.tutorialedge.net/images/javascript/angular/guess-the-number-angular-6-01.png" alt="Angular 6 Guess the Number" /></p>
+
+<h1 id="building-guess-the-number">Building Guess the Number!</h1>
+
+<p>With component-based design, you’ll start by looking at the UI and expected
+behavior, and then encapsulate all of this into a building block called
+component. This component is then hosted on your page. Within the component, you
+can separate the UI into a view and the behavior into a class, with the
+appropriate properties and methods needed to support the behavior.</p>
+
+<p>Okay, now identify the UI and behavior that you’ll need for your application.</p>
+
+<h1 id="designing-your-first-component">Designing your first component</h1>
+
+<p>To determine what needs to go into your component, you’ll start by detailing the
+features that you want the app to support:</p>
+
+<ul>
+<li>Generating random numbers (<code>original</code>)</li>
+<li>Providing input for a user to guess the value (<code>guess</code>)</li>
+<li>Tracking the number of guesses already made (<code>noOfTries</code>)</li>
+<li>Giving the user hints to improve their guess based on their input
+(<code>deviation</code>)</li>
+<li>Giving a success message if the user guesses the number correctly
+(<code>deviation</code>)</li>
+</ul>
+
+<p>Now that you have your features, you can determine what you need to display to
+the user and what data you need to track. For the preceding feature set, the
+elements in parentheses denote the properties that will support those features
+and will need to be included in your component.</p>
+
+<h1 id="developing-your-first-component">Developing your first component</h1>
+
+<p>Now that you have a design for your first component, you can start developing it
+using the Angular Command Line Interface (Angular CLI). The Angular CLI enables
+you to start building Angular applications and deploying them through a series
+of console commands.</p>
+
+<p>To use the Angular CLI you must first install Node.js and npm (Node&rsquo;s package
+manager). Installing Node also installs npm. For this example, the versions used
+are Node.js version 8.9.4 and npm version 5.6.0.</p>
+
+<p>Once Node and npm are installed, open Command Prompt and type the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> npm install <span style="color:#f92672">-</span>g <span style="color:#f92672">@</span>angular<span style="color:#f92672">/</span>cli</code></pre></div>
+<p>This installs the Angular CLI that you’ll need use to start building your
+application. Now from a directory on your local machine, enter the following
+commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> ng new guessthenumber <span style="color:#f92672">--</span>inlineTemplate
+<span style="color:#f92672">$</span> cd guessthenumber
+<span style="color:#f92672">$</span> ng serve</code></pre></div>
+<p>With the first command, the Angular CLI will create a new Angular project on
+your local machine (the <code>--inlineTemplate</code> flag creates a template within your
+component). With the second command, you are navigating to the directory that
+the Angular CLI has created for your new project. The third command launches the
+application, which you can view at <code>http://localhost:4200/</code>. If you do that you
+should see a standard default Angular page in the browser.</p>
+
+<h1 id="installing-bootstrap">Installing Bootstrap</h1>
+
+<p>There is one more step before you build out the specifics of your application.
+Add the Bootstrap library to enhance the look and feel of your application.
+First, stop the application by typing Ctrl + C in the Terminal from which it was
+launched and enter Y when asked if you want to terminate the batch job. Next,
+from the guessthenumber directory, enter the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> npm install bootstrap <span style="color:#f92672">--</span><span style="color:#66d9ef">save</span></code></pre></div>
+<p>This will install the latest release of Bootstrap. You may see a few warning
+messages about unmet dependencies. You can ignore them.</p>
+
+<p>Next, configure your new project to include the Bootstrap stylesheet:</p>
+
+<p>In the guessthenumber directory, find and open the file angular.json.</p>
+
+<p>In that file, find the projects property, which contains the settings in your
+new project.</p>
+
+<p>Then, find the styles property within architect.build.options and you will see
+that it contains an array that holds styles.css, the default style sheet for
+your new project.</p>
+
+<p>Add to that array the location of the bootstrap.min.css style sheet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#e6db74">&#34;styles&#34;</span><span style="color:#f92672">:</span> [
+   <span style="color:#e6db74">&#34;node_modules/bootstrap/dist/css/bootstrap.min.css&#34;</span>,
+   <span style="color:#e6db74">&#34;src/styles.css&#34;</span>
+],
+</code></pre></div>
+<h1 id="what-do-you-have-so-far">What do you have so far?</h1>
+
+<p>If you take a look in the guessthenumber directory, where the Angular CLI has
+been created, you’ll see a large number of files. This may look overwhelming at
+first, but the important thing to understand is that the Angular CLI has
+generated all these files for you with just a few command line statements. In
+this way, it makes getting started with an Angular application much smoother and
+easier. It takes the grunt work out of the process and enables you to be able to
+build and serve your application with minimal effort.</p>
+
+<p>Before turning to build out the specifics of your application, take a look at
+one of the key files that will be used to get your application up and running.</p>
+
+<p>The example code is available on GitHub for downloading at
+<a href="https://github.com/chandermani/angular6byexample">https://github.com/chandermani/angular6byexample</a>. It is organized in checkpoints
+that allow you to follow along step by step as you build your sample project.
+The branch to download is GitHub&rsquo;s Branch: checkpoint1.1. Look in the
+guessthenumber folder for the code covered here. If you are not using Git,
+download the snapshot of Checkpoint 1.1 (a ZIP file) from the following GitHub
+location: <a href="https://github.com/chandermani/angular6byexample/tree/checkpoint1.1">https://github.com/chandermani/angular6byexample/tree/checkpoint1.1</a>.
+Refer to the readme.md file in the guessthenumber folder when setting up. the
+snapshot for the first time.</p>
+
+<h1 id="the-host-file-index-html">The host file - index.html</h1>
+
+<p>Navigate to the src folder in the guessthenumber directory and open index.html.
+You will see the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Guessthenumber&lt;/<span style="color:#f92672">title</span>&gt;
+    &lt;<span style="color:#f92672">base</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> /&gt;
+
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/x-icon&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;favicon.ico&#34;</span> /&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">app-root</span>&gt;&lt;/<span style="color:#f92672">app-root</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
+<p><code>index.html</code> is the host file for your application. It will be launched by the
+browser when the application is first run and will host the components in your
+application. If you have any exposure to web development, most of the HTML code
+in this file should look familiar. It has standard html, head, and body tags
+along with a couple of optional tags, one a meta tag for the viewport, which
+configures how the app will display in a mobile device, and the other a link to
+an Angular favicon image that will display on the tab in the browser in which
+the application is loaded.</p>
+
+<h1 id="custom-element">Custom element</h1>
+
+<p>However, there is one more important tag on the page that may not look as
+familiar to you:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">app-root</span>&gt;&lt;/<span style="color:#f92672">app-root</span>&gt;</code></pre></div>
+<p>This tag is a custom element. It instructs Angular where to inject the component
+that you build.</p>
+
+<h1 id="the-component-file">The component file</h1>
+
+<p>Now turn to build out the specifics of your application. The Angular CLI has
+already given us a start by generating a component file for us. Of course, that
+file does not contain any of the particulars of your application, so you’ll have
+to modify it. To do this, navigate to the src folder in the app directory and
+open app.component.ts.</p>
+
+<h1 id="the-import-statement">The import statement</h1>
+
+<p>At the top of the page, you will find the following line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>;
+</code></pre></div>
+<p>This is an import statement. It tells you what modules you’ll load and use in
+your component. In this case, you can select one module that you need to load
+from Angular: Component.</p>
+
+<p>You&rsquo;ll notice that the location from which you’ll importing is not identified as
+a path or directory within your application. Instead, it is identified as
+<code>@angular/core</code>. Angular has been divided into barrel modules that are prefixed
+with <code>@angular</code>.</p>
+
+<p>These barrels combine several modules that are logically related. In this case,
+you’ll indicate that you want to import the core barrel module, which in turn
+brings in the Component module.</p>
+
+<h1 id="decorator">Decorator</h1>
+
+<p>Next, replace the code block that starts with <code>@Component</code> with the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">@Component</span>({
+ <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;app-root&#39;</span>,
+ <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">  &lt;div class=&#34;container&#34;&gt;
+</span><span style="color:#e6db74">      &lt;h2&gt;Guess the Number !&lt;/h2&gt;
+</span><span style="color:#e6db74">        &lt;div class=&#34;card bg-light mb-3&#34;&gt;
+</span><span style="color:#e6db74">           &lt;div class=&#34;card-body&#34;&gt;
+</span><span style="color:#e6db74">              &lt;p class=&#34;card-text&#34;&gt;Guess the computer generated random number between 1
+</span><span style="color:#e6db74">                                                                          and 1000.&lt;/p&gt;
+</span><span style="color:#e6db74">           &lt;/div&gt;
+</span><span style="color:#e6db74">        &lt;/div&gt;
+</span><span style="color:#e6db74">       &lt;div&gt;
+</span><span style="color:#e6db74">         &lt;label&gt;Your Guess: &lt;/label&gt;
+</span><span style="color:#e6db74">         &lt;input type=&#34;number&#34; [value]=&#34;guess&#34; (input)=&#34;guess = $event.target.value&#34; /&gt;
+</span><span style="color:#e6db74">         &lt;button (click)=&#34;verifyGuess()&#34; class=&#34;btn btn-primary btn-sm&#34;&gt;Verify&lt;/button&gt;
+</span><span style="color:#e6db74">         &lt;button (click)=&#34;initializeGame()&#34; class=&#34;btn btn-warning btn-
+</span><span style="color:#e6db74">                                                               sm&#34;&gt;Restart&lt;/button&gt;
+</span><span style="color:#e6db74">       &lt;/div&gt;
+</span><span style="color:#e6db74">      &lt;div&gt;
+</span><span style="color:#e6db74">         &lt;p *ngIf=&#34;deviation&lt;0&#34; class=&#34;alert alert-warning&#34;&gt;Your guess is higher.&lt;/p&gt;
+</span><span style="color:#e6db74">         &lt;p *ngIf=&#34;deviation&gt;0&#34; class=&#34;alert alert-warning&#34;&gt;Your guess is lower.&lt;/p&gt;
+</span><span style="color:#e6db74">         &lt;p *ngIf=&#34;deviation===0&#34; class=&#34;alert alert-success&#34;&gt;Yes! That&#39;s it.&lt;/p&gt;
+</span><span style="color:#e6db74">      &lt;/div&gt;
+</span><span style="color:#e6db74">      &lt;p class=&#34;text-info&#34;&gt;No of guesses :
+</span><span style="color:#e6db74">        &lt;span class=&#34;badge&#34;&gt;{{noOfTries}}&lt;/span&gt;
+</span><span style="color:#e6db74">      &lt;/p&gt;
+</span><span style="color:#e6db74">  &lt;/div&gt;
+</span><span style="color:#e6db74">  `</span>
+})</code></pre></div>
+<p>This is the decorator for your component and it is placed directly above the
+class definition. The @ symbol is used to identify a decorator. The @Component
+decorator has a property called selector, and you may not be surprised to see
+that it is set to the <app-root> tag in your HTML page.</p>
+
+<p>This setting tells Angular to inject this component into that tag on the HTML
+page.</p>
+
+<p>The decorator also has a property called template, and this property identifies
+the HTML markup for your component. Notice the use of backticks for rendering
+the template string over multiple lines. Alternatively, you can set a
+templateUrl property that would point to a separate file.</p>
+
+<h1 id="defining-the-class">Defining the class</h1>
+
+<p>Now replace the code block that begins with export class AppComponent with the
+following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppComponent</span> {
+  <span style="color:#a6e22e">deviation</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">noOfTries</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">original</span>: <span style="color:#66d9ef">number</span>;
+  <span style="color:#a6e22e">guess</span>: <span style="color:#66d9ef">number</span>;
+
+  <span style="color:#66d9ef">constructor</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">initializeGame</span>();
+  }
+  <span style="color:#a6e22e">initializeGame() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">noOfTries</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">original</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">guess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deviation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  }
+  <span style="color:#a6e22e">verifyGuess() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deviation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">original</span> <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">guess</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">noOfTries</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">noOfTries</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+  }
+}</code></pre></div>
+<p>If you have been developing in ES5, the version of JavaScript that is supported
+in all current browsers, you may not be familiar with the use of classes here.</p>
+
+<p>The class file holds the code that you’ll need to use to run your component. At
+the top, you can give the class a name, which is AppComponent. Then, inside the
+curly braces, you have four lines that declare the properties for your class.
+These are similar to ES5 variables, and you can use them to hold the values that
+you’ll need to run the application (you&rsquo;ll notice that these are the four values
+that you identified when you designed your component).</p>
+
+<p>What makes these properties different from standard JavaScript variables is that
+each property name is followed by : and a number. These set the type of the
+property. This indicates that each of these four properties will be set to the
+number type, which means you’ll expect the values of all of these properties to
+be numbers. The ability to specify types for your properties is provided by
+TypeScript and it is not available in standard JavaScript.</p>
+
+<p>As you move down, you’ll see three blocks of the script that have names,
+followed by parentheses, and then curly braces with several lines of script
+inside them. These are the methods for your class, and they contain the
+operations that your component will support. They are a lot like standard
+JavaScript functions.</p>
+
+<p>The first of these methods is constructor(), which is a special method that will
+run when an instance of your component is first created. Here, the constructor
+does only one thing when the class is created; it calls another method in your
+class, called initializeGame().</p>
+
+<p>The initializeGame() method sets the starting values of the four properties in
+the class using the assignment operator =. You set these values to null or zero,
+except for original, in which you use a random number generator to create the
+number to be guessed.</p>
+
+<p>The class holds one more method called verifyGuess(), which updates the
+deviation and noOfTries properties. This method is not being called from within
+the component class; instead, it will be called from the view. You&rsquo;ll also
+notice that your methods refer to properties in the same class by prepending
+this to them.</p>
+
+<h1 id="the-module-file">The module file</h1>
+
+<p>Every Angular component must be contained within an Angular module. This means
+that at a minimum you must add at least one Angular module file to the root of
+your application. You can call this the root module. For a simple application
+like Guess the Number!, the root module may be the only module you’ll need.</p>
+
+<p>Now, take a look at your Angular module file. Again the Angular CLI has created
+this file for you. Open app.module.ts in the app directory within the src folder
+and you will see the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/platform-browser&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NgModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>;
+
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppComponent</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./app.component&#34;</span>;
+
+<span style="color:#66d9ef">@NgModule</span>({
+  <span style="color:#a6e22e">declarations</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">AppComponent</span>],
+  <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">BrowserModule</span>],
+  <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [],
+  <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">AppComponent</span>]
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppModule</span> {}</code></pre></div>
+<p>The first two statements import BrowserModule and NgModule. Notice that, while
+NgModule is being imported from @angular/core, BrowserModule is being imported
+from a different module: @angular/platform-browser. What&rsquo;s significant here is
+that the import is not coming from @angular/core, but from a separate module
+that is specific to browser-based applications. This is a reminder that Angular
+can support devices other than browsers, such as mobile devices, hence the need
+to place BrowserModule into a separate module.</p>
+
+<p>The other import in this file is your component AppComponent. If you go back to
+that component you’ll notice that export is added in front of the class
+definition, which means you’re using module loading within your own application.</p>
+
+<p>Next, define a new component AppModule. There is nothing in the class itself
+other than a few imports and a decorator: @ngModule. You can use this decorator
+to configure the module in your application. The first property is declarations
+and with that property, you can provide an array of the components that will be
+used in your application. In this case, you have only one component:
+AppComponent.</p>
+
+<p>Next, add imports, which in this case include the BrowserModule. As the name
+suggests, this module will provide the functionality needed to run your
+application in a browser. The next property is providers. This property is used
+to register providers (such as services and other objects) that will be
+available to be used throughout your application through dependency injection.
+You have no need for providers in the simple application you’re building here,
+so this property is empty.</p>
+
+<p>Finally, set the bootstrap property. This indicates the first component that
+will be loaded when your application starts up. Again this is the AppComponent.</p>
+
+<p>With this configuration in place, you’re now ready to bootstrap your component.</p>
+
+<h1 id="bootstrapping">Bootstrapping</h1>
+
+<p>The class definition for AppComponent operates as a blueprint for the component,
+but the script inside it does not run until you’ve created an instance of the
+component. In order to run your application, you need something in your
+application that creates this instance. The process of doing that requires you
+to add code that bootstraps your component.</p>
+
+<p>In the src folder, look for a file named main.ts. Open it and you will see the
+following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">enableProdMode</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">platformBrowserDynamic</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/platform-browser-dynamic&#34;</span>;
+
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./app/app.module&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">environment</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./environments/environment&#34;</span>;
+
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">environment</span>.<span style="color:#a6e22e">production</span>) {
+  <span style="color:#a6e22e">enableProdMode</span>();
+}
+
+<span style="color:#a6e22e">platformBrowserDynamic</span>()
+  .<span style="color:#a6e22e">bootstrapModule</span>(<span style="color:#a6e22e">AppModule</span>)
+  .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>));</code></pre></div>
+<p>As you can see, you’ll import enableProdMode from @angular/core and the
+platformBrowserDynamic module from @angular/platform-browser-dynamic. Like the
+import of BrowseModule in the appModule file, this latter import is specifically
+for browser-based applications. Next, add an import of your AppModule and a file
+called environment that is located in the environments directory of your
+application.</p>
+
+<p>In the next lines of code, check to see if the constant environment in the
+environment file has its production property set to true, and if so, call
+enableProdMode(), which as the name suggests enables production mode. The
+default setting for environment.production is false, which is fine for your
+purposes here since you’re not running the application in production mode.</p>
+
+<p>Finally, call the platformBrowserDynamic().boostrapModule method with your
+AppModule as a parameter. The bootstrapModule method then creates a new instance
+of your AppModule component, which in turn initializes your AppComponent, which
+you’ve marked as the component to bootstrap. It does that by calling your
+component&rsquo;s constructor method.</p>
+
+<h1 id="you-re-up-and-running">You&rsquo;re up and running!</h1>
+
+<p>Well, the app is complete and ready to be tested! From the guessthenumber
+directory, type the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> ng serve</code></pre></div>
+<p>The app should appear on your browser.</p>
+
+<p>If you glance at your component file and template, you should be mightily
+impressed with what you’ve achieved. You’re not writing any code to update the
+UI when the application is running. Still, everything works perfectly.</p>
+
+<p>If you found this article helpful, you can explore
+<a href="https://amzn.to/2LJU8uJ">Angular 6 by Example - Third Edition</a>. This book will
+help you harness the power of Angular components, router, forms, directives and
+much more to build professional-grade web apps with TypeScript.</p>
+ 
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments comments" id="comments" data-href="https://cotutorial.github.io/angular/guess-the-number-angular-6-beginners-tutorial/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#building-guess-the-number">Building Guess the Number!</a></li>
+<li><a href="#designing-your-first-component">Designing your first component</a></li>
+<li><a href="#developing-your-first-component">Developing your first component</a></li>
+<li><a href="#installing-bootstrap">Installing Bootstrap</a></li>
+<li><a href="#what-do-you-have-so-far">What do you have so far?</a></li>
+<li><a href="#the-host-file-index-html">The host file - index.html</a></li>
+<li><a href="#custom-element">Custom element</a></li>
+<li><a href="#the-component-file">The component file</a></li>
+<li><a href="#the-import-statement">The import statement</a></li>
+<li><a href="#decorator">Decorator</a></li>
+<li><a href="#defining-the-class">Defining the class</a></li>
+<li><a href="#the-module-file">The module file</a></li>
+<li><a href="#bootstrapping">Bootstrapping</a></li>
+<li><a href="#you-re-up-and-running">You&rsquo;re up and running!</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="https://cotutorial.github.io/python/">Python</a></li>
+                    <li><a href="https://cotutorial.github.io/angular/">Angular</a></li>
+                    <li><a href="https://cotutorial.github.io/golang/">Golang</a></li>
+                    <li><a href="https://cotutorial.github.io/artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="https://cotutorial.github.io/webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="https://cotutorial.github.io/search/">Search Page</a></li>
+                    <li><a href="https://cotutorial.github.io/about/">About</a></li>
+                    <li><a href="https://cotutorial.github.io/get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="https://cotutorial.github.io/uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="https://cotutorial.github.io/"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">6b9cc6d9a7bfae2c53ec3b29cb5fd0d0</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

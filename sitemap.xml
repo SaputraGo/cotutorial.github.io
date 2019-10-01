@@ -693,7 +693,12 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/</loc>
+    <loc>https://cotutorial.github.io/angular/</loc>
+    <lastmod>2018-10-22T12:46:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cotutorial.github.io/tags/angular/</loc>
     <lastmod>2018-10-22T12:46:35+01:00</lastmod>
   </url>
   
@@ -703,12 +708,7 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/stability-patterns-in-angular/</loc>
-    <lastmod>2018-10-22T12:46:35+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cotutorial.github.io/tags/typescript/</loc>
+    <loc>https://cotutorial.github.io/angular/stability-patterns-in-angular/</loc>
     <lastmod>2018-10-22T12:46:35+01:00</lastmod>
   </url>
   
@@ -748,12 +748,12 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/series/unity/</loc>
+    <loc>https://cotutorial.github.io/tags/unity/</loc>
     <lastmod>2018-10-01T18:49:06+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/tags/unity/</loc>
+    <loc>https://cotutorial.github.io/series/unity/</loc>
     <lastmod>2018-10-01T18:49:06+01:00</lastmod>
   </url>
   
@@ -788,7 +788,7 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/guess-the-number-angular-6-beginners-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/guess-the-number-angular-6-beginners-tutorial/</loc>
     <lastmod>2018-07-25T15:42:51+01:00</lastmod>
   </url>
   
@@ -813,12 +813,12 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/series/react/</loc>
+    <loc>https://cotutorial.github.io/tags/react/</loc>
     <lastmod>2018-07-15T09:13:28+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/tags/react/</loc>
+    <loc>https://cotutorial.github.io/series/react/</loc>
     <lastmod>2018-07-15T09:13:28+01:00</lastmod>
   </url>
   
@@ -854,6 +854,11 @@
   
   <url>
     <loc>https://cotutorial.github.io/typescript/</loc>
+    <lastmod>2018-06-19T20:29:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cotutorial.github.io/tags/typescript/</loc>
     <lastmod>2018-06-19T20:29:57+01:00</lastmod>
   </url>
   
@@ -1183,12 +1188,12 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/series/general/</loc>
+    <loc>https://cotutorial.github.io/tags/general/</loc>
     <lastmod>2017-11-28T20:18:29+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/tags/general/</loc>
+    <loc>https://cotutorial.github.io/series/general/</loc>
     <lastmod>2017-11-28T20:18:29+00:00</lastmod>
   </url>
   
@@ -1313,7 +1318,7 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-query-params-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-query-params-tutorial/</loc>
     <lastmod>2017-10-02T19:47:19+01:00</lastmod>
   </url>
   
@@ -1413,12 +1418,12 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/tags/hugo/</loc>
+    <loc>https://cotutorial.github.io/series/hugo/</loc>
     <lastmod>2017-06-12T08:49:04+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/series/hugo/</loc>
+    <loc>https://cotutorial.github.io/tags/hugo/</loc>
     <lastmod>2017-06-12T08:49:04+01:00</lastmod>
   </url>
   
@@ -1480,11 +1485,6 @@
   <url>
     <loc>https://cotutorial.github.io/javascript/angularjs/most-important-changes-angularjs-1-6/</loc>
     <lastmod>2017-04-15T14:31:36+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cotutorial.github.io/courses/</loc>
-    <lastmod>2017-04-15T09:55:57+01:00</lastmod>
   </url>
   
   <url>
@@ -1768,11 +1768,6 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/search/</loc>
-    <lastmod>2017-04-14T20:27:58+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://cotutorial.github.io/nodejs/converting-csv-json-node/</loc>
     <lastmod>2017-04-09T21:29:02+01:00</lastmod>
   </url>
@@ -1858,62 +1853,62 @@
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-modules-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-modules-tutorial/</loc>
     <lastmod>2017-04-09T21:05:28+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-components-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-components-tutorial/</loc>
     <lastmod>2017-04-09T21:04:56+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-services-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-services-tutorial/</loc>
     <lastmod>2017-04-09T21:04:22+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/best-books-for-learning-angular/</loc>
+    <loc>https://cotutorial.github.io/angular/best-books-for-learning-angular/</loc>
     <lastmod>2017-04-09T21:03:26+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-get-current-route-location/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-get-current-route-location/</loc>
     <lastmod>2017-04-09T20:56:49+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-detecting-route-changes/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-detecting-route-changes/</loc>
     <lastmod>2017-04-09T20:55:22+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-websockets-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-websockets-tutorial/</loc>
     <lastmod>2017-04-09T20:52:33+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-socket-io-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-socket-io-tutorial/</loc>
     <lastmod>2017-01-10T15:26:02+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-cookies-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-cookies-tutorial/</loc>
     <lastmod>2016-02-14T16:11:58+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-environment-configuration-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-environment-configuration-tutorial/</loc>
     <lastmod>2016-02-14T16:11:58+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-observables-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-observables-tutorial/</loc>
     <lastmod>2016-02-14T16:11:58+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://cotutorial.github.io/typescript/angular/angular-routing-tutorial/</loc>
+    <loc>https://cotutorial.github.io/angular/angular-routing-tutorial/</loc>
     <lastmod>2016-02-14T16:11:58+05:30</lastmod>
   </url>
   
