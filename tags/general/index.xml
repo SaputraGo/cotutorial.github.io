@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>general on My New Hugo Site</title>
-    <link>http://example.org/tags/general/</link>
-    <description>Recent content in general on My New Hugo Site</description>
+    <title>general on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/general/</link>
+    <description>Recent content in general on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Tue, 28 Nov 2017 20:18:29 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/general/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/general/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Top Books For Intermediate Level Programmers</title>
-      <link>http://example.org/general/top-books-for-intermediate-programmers/</link>
+      <link>https://cotutorial.github.io/general/top-books-for-intermediate-programmers/</link>
       <pubDate>Tue, 28 Nov 2017 20:18:29 +0000</pubDate>
       
-      <guid>http://example.org/general/top-books-for-intermediate-programmers/</guid>
+      <guid>https://cotutorial.github.io/general/top-books-for-intermediate-programmers/</guid>
       <description>This list is currently under construction, if you know of any books that are potentially missing from this list then please let me know in the comments section below!
  In this article we will be looking at some of the very top books you can buy as an intermediate level programmer to improve your skills and become a true master of your craft.
 Code Complete: A Practical Handbook of Software Construction (2nd Edition) This is without a doubt one of the best practical guides that any budding programmer should be reading in order to top up their programming skills.</description>
@@ -24,10 +24,10 @@ Code Complete: A Practical Handbook of Software Construction (2nd Edition) This 
     
     <item>
       <title>The Top Programming Books for Beginners</title>
-      <link>http://example.org/general/top-beginner-programming-books/</link>
+      <link>https://cotutorial.github.io/general/top-beginner-programming-books/</link>
       <pubDate>Tue, 28 Nov 2017 18:04:33 +0000</pubDate>
       
-      <guid>http://example.org/general/top-beginner-programming-books/</guid>
+      <guid>https://cotutorial.github.io/general/top-beginner-programming-books/</guid>
       <description>In this article we will be looking at the best books you can buy to help you learn the basics of computer programming.
 Code Complete: 2 This is without a doubt one of the best practical guides that any budding programmer should be reading in order to top up their programming skills. This book contains a massive number of practical points that touch upon a wide range of different topics.</description>
     </item>

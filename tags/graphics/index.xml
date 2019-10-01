@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>graphics on My New Hugo Site</title>
-    <link>http://example.org/tags/graphics/</link>
-    <description>Recent content in graphics on My New Hugo Site</description>
+    <title>graphics on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/graphics/</link>
+    <description>Recent content in graphics on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 15 Apr 2017 08:50:41 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/graphics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/graphics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With Shaders in OpenGL</title>
-      <link>http://example.org/gamedev/opengl/getting-started-with-shaders/</link>
+      <link>https://cotutorial.github.io/gamedev/opengl/getting-started-with-shaders/</link>
       <pubDate>Sat, 15 Apr 2017 08:50:41 +0100</pubDate>
       
-      <guid>http://example.org/gamedev/opengl/getting-started-with-shaders/</guid>
+      <guid>https://cotutorial.github.io/gamedev/opengl/getting-started-with-shaders/</guid>
       <description>The modern OpenGL rendering pipeline rely heavily on shaders to process the huge amounts of data that a highly demanding program like a game requires. These shaders are typically written using the OpenGL Shading Language - GLSL, this language is very similar to C in syntax. Learning shaders is just about one of the most important things you can do if you are going to get into graphical programming as it enables you to control just about everything when it comes to rendering your models in a game.</description>
     </item>
     

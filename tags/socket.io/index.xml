@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>socket.io on My New Hugo Site</title>
-    <link>http://example.org/tags/socket.io/</link>
-    <description>Recent content in socket.io on My New Hugo Site</description>
+    <title>socket.io on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/socket.io/</link>
+    <description>Recent content in socket.io on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sun, 15 Jul 2018 09:13:28 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/socket.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/socket.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Building Real-time ReactJS Applications with Socket.Io - Tutorial</title>
-      <link>http://example.org/react/react-socket-io-tutorial/</link>
+      <link>https://cotutorial.github.io/react/react-socket-io-tutorial/</link>
       <pubDate>Sun, 15 Jul 2018 09:13:28 +0100</pubDate>
       
-      <guid>http://example.org/react/react-socket-io-tutorial/</guid>
+      <guid>https://cotutorial.github.io/react/react-socket-io-tutorial/</guid>
       <description>In this article, we are going to be looking at how you can implement real-time websocket-based communication within your ReactJS web application.
 Why Websockets? I&amp;rsquo;ve covered this numerous times in previous articles on this site as to why we should use websockets within our applications.
 The benefits are numerous, and when we use socket.io, these benefits can be realized with minimal added complexity.
@@ -25,10 +25,10 @@ Let&amp;rsquo;s have a look at a real-life example.</description>
     
     <item>
       <title>Python Socket.io Tutorial</title>
-      <link>http://example.org/python/python-socket-io-tutorial/</link>
+      <link>https://cotutorial.github.io/python/python-socket-io-tutorial/</link>
       <pubDate>Sun, 01 Oct 2017 12:22:11 +0100</pubDate>
       
-      <guid>http://example.org/python/python-socket-io-tutorial/</guid>
+      <guid>https://cotutorial.github.io/python/python-socket-io-tutorial/</guid>
       <description>Last Updated December 22nd, 2018  This tutorial was written using Python 3.6. Some of the code used is not compatible with version 2.
  In this tutorial we&amp;rsquo;ll be exploring how one can create a socket.io based webserver in Python using the socketio module.
 What are WebSockets? WebSockets are an awesome bit of technology which enable us to do cool things such as perform real time communication between both a client and a server.</description>
@@ -36,10 +36,10 @@ What are WebSockets? WebSockets are an awesome bit of technology which enable us
     
     <item>
       <title>Creating a Realtime App with Angular and Socket.io Tutorial</title>
-      <link>http://example.org/typescript/angular/angular-socket-io-tutorial/</link>
+      <link>https://cotutorial.github.io/typescript/angular/angular-socket-io-tutorial/</link>
       <pubDate>Tue, 10 Jan 2017 15:26:02 +0100</pubDate>
       
-      <guid>http://example.org/typescript/angular/angular-socket-io-tutorial/</guid>
+      <guid>https://cotutorial.github.io/typescript/angular/angular-socket-io-tutorial/</guid>
       <description>The full source code for this tutorial can be found here: elliotforbes/angular-socket-io-example
  In this tutorial we are going to be looking at how we can build a realtime application using both Angular 4 and the Socket.io library. I&amp;rsquo;ve covered in the past how you can utilize raw websockets and convert them into observables using the RxJS library in a previous tutorial which can be found here: Angular Websockets Tutorial</description>
     </item>

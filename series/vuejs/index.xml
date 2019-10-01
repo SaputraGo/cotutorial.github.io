@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vuejs on My New Hugo Site</title>
-    <link>http://example.org/series/vuejs/</link>
-    <description>Recent content in vuejs on My New Hugo Site</description>
+    <title>vuejs on CoTutorial</title>
+    <link>https://cotutorial.github.io/series/vuejs/</link>
+    <description>Recent content in vuejs on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Wed, 30 Jan 2019 14:08:59 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/series/vuejs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/series/vuejs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Designing the EveryNote Web App with VueJS and Vuex</title>
-      <link>http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/designing-everynote-app-vuejs-vuex/</link>
       <pubDate>Fri, 27 Jul 2018 19:36:57 +0100</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/designing-everynote-app-vuejs-vuex/</guid>
       <description>In this article, you’ll learn to develop an application to take notes, called EveryNote, from scratch. You’ll analyze and design the application, as well as preparing the folder structure for the project. After that, you’ll build the application incrementally through tests and code, providing a real-world Vuex development example.
 The application can be downloaded by cloning the https://github.com/PacktPublishing/-Vuex-Condensed Git repository. You’ll require Node.js installed on a system. Finally, to use the Git repository, the user needs to install Git.</description>
     </item>
     
     <item>
       <title>Form Validation With Vuelidate Vuejs</title>
-      <link>http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/form-validation-with-vuelidate-vuejs/</link>
       <pubDate>Thu, 07 Jun 2018 19:36:57 +0100</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/form-validation-with-vuelidate-vuejs/</guid>
       <description>Learn how to validate forms using Vuelidate in this tutorial by Paul Halliday, the author of Vue.js 2 Design Patterns and Best Practices.
  In this post, you&amp;rsquo;ll use a third-party library named Vuelidate to perform model validation depending on a particular rule set
 Create a New Vue Project Create a playground project by running the following in your Terminal:
@@ -35,10 +35,10 @@ Create a New Vue Project Create a playground project by running the following in
     
     <item>
       <title>Managing State With Vuex in Vuejs</title>
-      <link>http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/managing-state-with-vuex-vuejs/</link>
       <pubDate>Sat, 31 Mar 2018 19:06:13 +0100</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/managing-state-with-vuex-vuejs/</guid>
       <description>State management is something you will ultimately have to deal with as you create increasingly complex frontend applications. Thankfully, with the help of Vuex, this isn&amp;rsquo;t as hard as you may think!
 Installation In order to install vuex, you will have to use either yarn or npm like so:
 # Npm $ npm install vuex # Yarn $ yarn add vuex Setting up Vuex Once you have successfully installed Vuex in your VueJS application, you can set your application to use it by doing the following within your main.</description>
@@ -46,10 +46,10 @@ Installation In order to install vuex, you will have to use either yarn or npm l
     
     <item>
       <title>Getting Started With VueJS</title>
-      <link>http://example.org/javascript/vuejs/getting-started-with-vuejs/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/getting-started-with-vuejs/</link>
       <pubDate>Wed, 28 Feb 2018 20:27:49 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/getting-started-with-vuejs/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/getting-started-with-vuejs/</guid>
       <description>In this tutorial, we are going to look at how you can setup your development environment so that you can get started writing your own VueJS.
 We will be utilizing the vue-cli in order to start our project off and then we&amp;rsquo;ll be diving in and making a few edits, before finally building it using the same vue-cli.
 Video Tutorial  A Simple Vue App Before I get started, it must be noted that you can get up and running really quickly with VueJS 2 in less than 30 lines of code.</description>
@@ -57,10 +57,10 @@ Video Tutorial  A Simple Vue App Before I get started, it must be noted that you
     
     <item>
       <title>Vuejs Components Tutorial</title>
-      <link>http://example.org/javascript/vuejs/vuejs-components-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/vuejs-components-tutorial/</link>
       <pubDate>Thu, 01 Mar 2018 12:26:40 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/vuejs-components-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/vuejs-components-tutorial/</guid>
       <description>This Tutorial builds off the starter application that we generated in the Getting Started with VueJS article.
  Video Tutorial This tutorial is also available in video format if you wish to watch it!
  Introduction In this tutorial, we are going to look at how you can work with components within your VueJS applications. We are going to start at looking at very simple components and then move on to your standard .</description>
@@ -68,10 +68,10 @@ Video Tutorial  A Simple Vue App Before I get started, it must be noted that you
     
     <item>
       <title>Vuejs Event Handling Tutorial</title>
-      <link>http://example.org/javascript/vuejs/vuejs-event-handling-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/vuejs-event-handling-tutorial/</link>
       <pubDate>Sun, 04 Mar 2018 15:03:41 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/vuejs-event-handling-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/vuejs-event-handling-tutorial/</guid>
       <description>The official documentation for VueJS event handling can be found here: VueJS Event Handling.
  In this tutorial, we are going to look at how you can successfully handle events within your VueJS applications. This is by no means a replacement for the official documentation, think of it more so as a suplementary guide filled with live examples!
 If you get through this I would love to hear your feedback either in the comments section or on twitter: @Elliot_F.</description>
@@ -79,50 +79,50 @@ If you get through this I would love to hear your feedback either in the comment
     
     <item>
       <title>Vuejs HTTP Requests with Axios Tutorial</title>
-      <link>http://example.org/javascript/vuejs/vuejs-http-requests-axios-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/vuejs-http-requests-axios-tutorial/</link>
       <pubDate>Thu, 01 Mar 2018 12:36:54 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/vuejs-http-requests-axios-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/vuejs-http-requests-axios-tutorial/</guid>
       <description>This Tutorial builds off the starter application that we generated in the Getting Started with VueJS article.
  In this article, we are going to look at how you can use the axios library to make HTTP requests within your VueJS 2 applications. The axios framework is without a doubt the most popular HTTP frameworks to use within the framework and makes the job of sending requests simple.</description>
     </item>
     
     <item>
       <title>Vue Router Beginners Tutorial</title>
-      <link>http://example.org/javascript/vuejs/vue-router-beginners-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/vue-router-beginners-tutorial/</link>
       <pubDate>Wed, 14 Mar 2018 19:12:49 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/vue-router-beginners-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/vue-router-beginners-tutorial/</guid>
       <description>The vue-router within VueJS allows you to create powerful Single Page Applications with minimal fuss. On a traditional website, each distinct page would constitute a request to the server to load the relevant file. So when someone navigated to http://myapp.com/page-1.html, the page-1.html file would be served up.
 However, when navigating through a single page application, you only have see one request made to the server which returns your entire JavaScript application.</description>
     </item>
     
     <item>
       <title>VueJS Animations and Transitions Tutorial</title>
-      <link>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/vuejs-transitions-animations-tutorial/</link>
       <pubDate>Thu, 01 Mar 2018 12:26:40 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/vuejs-transitions-animations-tutorial/</guid>
       <description>In this tutorial, we are going to explore how we can use animations and transitions to make our VueJS web application really stand out from the crowd.
 A Simple Transition Let&amp;rsquo;s start of by creating a few very simple transitions, these will simply fade in when a certain condition is met. I was watching Mission Impossible whilst writing this so the theme for this is a top secret mission. The finished product for this section is going to look something like this:</description>
     </item>
     
     <item>
       <title>Components, Templates, and Props in Vue 2</title>
-      <link>http://example.org/javascript/vuejs/components-templates-and-props-vue-2/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/components-templates-and-props-vue-2/</link>
       <pubDate>Wed, 30 Jan 2019 14:08:59 +0000</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/components-templates-and-props-vue-2/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/components-templates-and-props-vue-2/</guid>
       <description>To begin, let&amp;rsquo;s look at how to make a component in Vue. First, we specify the component, like this:
 Vue.component(&amp;#34;custom-article&amp;#34;, { template: ` &amp;lt;article&amp;gt; Our own custom article component!&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/article&amp;gt;` }); new Vue({ el: &amp;#34;#app&amp;#34; });  A component is a block of code that we give a custom name. This custom name can be anything we come up with, and it&amp;rsquo;s a single label for that entire block of code in the form of a custom HTML tag.</description>
     </item>
     
     <item>
       <title>The Best Books For Learning VueJS</title>
-      <link>http://example.org/javascript/vuejs/best-books-learning-vuejs/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/best-books-learning-vuejs/</link>
       <pubDate>Mon, 11 Sep 2017 20:00:19 +0100</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/best-books-learning-vuejs/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/best-books-learning-vuejs/</guid>
       <description>Vue.js is a fantastic lightweight javascript framework that is ideal for building user interfaces in an incremental fashion. This means you don&amp;rsquo;t need to start with a heavy full-fledged framework for what could be a small side-project.
 If you have followed the site for some time you will know that I&amp;rsquo;ve been a major fan of AngularJS and then Angular 2-4 in the early days and in fairness I have only just started to scratch the surface of Vue.</description>
     </item>

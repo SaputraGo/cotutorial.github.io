@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mongodb on My New Hugo Site</title>
-    <link>http://example.org/tags/mongodb/</link>
-    <description>Recent content in mongodb on My New Hugo Site</description>
+    <title>mongodb on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/mongodb/</link>
+    <description>Recent content in mongodb on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sun, 10 Jun 2018 18:56:37 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Typescript REST API And MongoDB Beginners Tutorial</title>
-      <link>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</link>
+      <link>https://cotutorial.github.io/typescript/typescript-mongodb-beginners-tutorial/</link>
       <pubDate>Sun, 10 Jun 2018 18:56:37 +0000</pubDate>
       
-      <guid>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</guid>
+      <guid>https://cotutorial.github.io/typescript/typescript-mongodb-beginners-tutorial/</guid>
       <description>Source Code - The full source code for this tutorial can be found here: github.com/TutorialEdge/TypeScript-MongoDB-REST-Tutorial
  Introduction In this tutorial, we&amp;rsquo;ll be building a very simple REST API that will allow you to store, query, update and delete books from a book table within your MongoDB instance. This will hopefully cover everything you need to get a basic project up yourself for your own side projects.
 Prerequisites In order to complete this tutorial, you are going to need the following:</description>

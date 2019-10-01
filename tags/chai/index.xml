@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>chai on My New Hugo Site</title>
-    <link>http://example.org/tags/chai/</link>
-    <description>Recent content in chai on My New Hugo Site</description>
+    <title>chai on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/chai/</link>
+    <description>Recent content in chai on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 09 Jun 2018 22:48:26 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/chai/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/chai/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testing a TypeScript API With Mocha and Chai</title>
-      <link>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</link>
+      <link>https://cotutorial.github.io/typescript/testing-typescript-api-with-mocha-chai/</link>
       <pubDate>Sat, 09 Jun 2018 22:48:26 +0100</pubDate>
       
-      <guid>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</guid>
+      <guid>https://cotutorial.github.io/typescript/testing-typescript-api-with-mocha-chai/</guid>
       <description>We are going to be using the very simple TypeScript API we developed in a previous tutorial in order to learn about Mocha and Chai Testing.
  In this tutorial, we&amp;rsquo;ll be looking at how you can get a very simple test framework up and running for your TypesScript based API using the mocha and chai testing libraries.
 Why Do We Test? Being able to accurately test any application you build is hugely important for any software developer regardless of the technology stack they are working with.</description>

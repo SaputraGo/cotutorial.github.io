@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vuejsawsblog on My New Hugo Site</title>
-    <link>http://example.org/series/vuejsawsblog/</link>
-    <description>Recent content in vuejsawsblog on My New Hugo Site</description>
+    <title>vuejsawsblog on CoTutorial</title>
+    <link>https://cotutorial.github.io/series/vuejsawsblog/</link>
+    <description>Recent content in vuejsawsblog on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Tue, 24 Jul 2018 21:19:40 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/series/vuejsawsblog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/series/vuejsawsblog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Part 1 - Setting Up Our CI/CD Pipeline to S3</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</guid>
       <description>If you know anything about me, you&amp;rsquo;ll know I am incredibly lazy. This means that it&amp;rsquo;s incredibly important to set up an automated deployment pipeline early in the project&amp;rsquo;s development.
 If we are serious about developing a decent website that will make us tonnes of money then we need to get this working from the start. Afterall, if it takes us about 5-10 minutes to deploy our site, by automating this we&amp;rsquo;ll be saving ourselves 5-10 minutes every time we wish to push up changes.</description>
     </item>
     
     <item>
       <title>Part 2 - Getting Started With AWS Lambda</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</link>
       <pubDate>Thu, 19 Apr 2018 21:42:29 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</guid>
       <description>So, in the last tutorial, we managed to get a simple CI/CD pipeline up and running so that whenever we commit anything to our github repo, it automatically builds and deploys these changes to our &amp;ldquo;production&amp;rdquo; environment.
 In this tutorial, we are going to continue to develop our blog and get started building up the first of our Lambda functions that we&amp;rsquo;ll need to make our blog work.
 Our First Lambda Function We&amp;rsquo;ll start by creating a hello world style lambda function that will later return a paginated list of blog posts.</description>
@@ -34,30 +34,30 @@ Our First Lambda Function We&amp;rsquo;ll start by creating a hello world style 
     
     <item>
       <title>Part 3 - Setting Up our RDS Database</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</link>
       <pubDate>Tue, 24 Jul 2018 21:19:40 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</guid>
       <description>Introduction Welcome back to part 3 of my course on building a blog with Vue.JS on AWS. In this part of the course, we are going to be setting up an RDS instance which will store all of our blog&amp;rsquo;s articles and posts.
 Once we have our database instance set up and our schema defined, we can then move on to building Lambda functions that will query this database and return the results to our frontend.</description>
     </item>
     
     <item>
       <title>Part 4 - Setting Up Our Dynamodb Table</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</link>
       <pubDate>Fri, 20 Apr 2018 12:31:40 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</guid>
       <description>In the previous tutorial, we managed to get our first Lambda tutorial up and running, however, it doesn&amp;rsquo;t do anything too exciting as it stands. This is where Dynamo comes in, we need to create a DynamoDB table where we can store everything we need for our blog. This includes new blog posts, any comments, ratings, and whatever else we can think of!
 Once we have this new table all defined, we can start to play about with inserting things and then retrieving them using our existing Lambda function.</description>
     </item>
     
     <item>
       <title>Part 5 - Getting Started With AWS Cognito</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</link>
       <pubDate>Fri, 20 Apr 2018 12:41:31 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</guid>
       <description>In the previous tutorial, we managed to get our DynamoDB table set up and populated with a couple of very simple posts. In this tutorial, we are going to set up a Cognito pool that will store all of the users that register for our Blog. We&amp;rsquo;ll also be able to improve our Lambda endpoints so that they aren&amp;rsquo;t open to the world, they require authentication before they start updating our database, this will stop unauthorized people potentially updating posts and doing malicious things.</description>
     </item>
     

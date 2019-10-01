@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>expressjs on My New Hugo Site</title>
-    <link>http://example.org/tags/expressjs/</link>
-    <description>Recent content in expressjs on My New Hugo Site</description>
+    <title>expressjs on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/expressjs/</link>
+    <description>Recent content in expressjs on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 15 Apr 2017 08:32:01 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/expressjs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/expressjs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Building a Webserver using ExpressJS and NodeJS</title>
-      <link>http://example.org/nodejs/creating-a-webserver-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/creating-a-webserver-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:32:01 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/creating-a-webserver-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/creating-a-webserver-with-nodejs/</guid>
       <description>This is the first tutorial in a series in which we’ll be building up a website for a domain name I’ve been sitting on for a few years now. This is intended to show you everything it takes in order to program your own website using NodeJS and the new Angular2 framework.
 Creating a Simple Web Server Using NodeJS and ExpressJS. So the very first thing we need for our site is the foundation and for this we can use a very simple ExpressJS server.</description>
     </item>

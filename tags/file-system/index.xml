@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>file system on My New Hugo Site</title>
-    <link>http://example.org/tags/file-system/</link>
-    <description>Recent content in file system on My New Hugo Site</description>
+    <title>file system on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/file-system/</link>
+    <description>Recent content in file system on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 15 Apr 2017 08:20:02 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/file-system/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/file-system/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Reading and Writing Files With NodeJS</title>
-      <link>http://example.org/nodejs/reading-writing-files-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/reading-writing-files-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:20:02 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/reading-writing-files-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/reading-writing-files-with-nodejs/</guid>
       <description>In this tutorial I’m going to be showing you exactly how we can read and write files on our local filesystem using NodeJS.
 Reading From Files Being able to read from files on your local file system can be hugely useful and there are a number of different things you can build on top of this. A log reader, importing information from spreadsheets and xml files or whatever you can think of, being able to read from files is hugely useful.</description>
     </item>

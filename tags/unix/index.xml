@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>unix on My New Hugo Site</title>
-    <link>http://example.org/tags/unix/</link>
-    <description>Recent content in unix on My New Hugo Site</description>
+    <title>unix on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/unix/</link>
+    <description>Recent content in unix on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 15 Apr 2017 08:26:02 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/unix/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Executing Shell Scripts With NodeJS</title>
-      <link>http://example.org/nodejs/executing-shell-scripts-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/executing-shell-scripts-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:26:02 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/executing-shell-scripts-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/executing-shell-scripts-with-nodejs/</guid>
       <description>One of the problems I’ve been faced with recently is how do I go about executing shell scripts using NodeJS. This essentially allows me to query the status of certain processes and utilize the full power of the unix shell commands. Implementation using NodeJS child_process Module Node thankfully already has a module which is designed specifically for executing shell scripts and can be found here in the documentation.
 This module essentially creates a child process in which we can execute our shell script and also sets everything up for us so that we can utilize stdin, stdout and stderr within our NodeJS application.</description>
     </item>

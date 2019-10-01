@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloud Development on My New Hugo Site</title>
-    <link>http://example.org/cloud/</link>
-    <description>Recent content in Cloud Development on My New Hugo Site</description>
+    <title>Cloud Development on CoTutorial</title>
+    <link>https://cotutorial.github.io/cloud/</link>
+    <description>Recent content in Cloud Development on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 24 Feb 2018 10:23:36 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/cloud/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/cloud/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Python Based Lambda Tutorial</title>
-      <link>http://example.org/cloud/aws/python-based-lambda-tutorial/</link>
+      <link>https://cotutorial.github.io/cloud/aws/python-based-lambda-tutorial/</link>
       <pubDate>Sat, 24 Feb 2018 10:23:36 +0000</pubDate>
       
-      <guid>http://example.org/cloud/aws/python-based-lambda-tutorial/</guid>
+      <guid>https://cotutorial.github.io/cloud/aws/python-based-lambda-tutorial/</guid>
       <description>If you&amp;rsquo;ve been following my Medium Blog recently, you&amp;rsquo;ll know that I&amp;rsquo;m a huge fan of Serverless and I genuinely believe that it will start to seriously take off in terms of popularity in the years to come.
 In this tutorial, we are going to be writing a very simple Python based AWS Lambda function that we&amp;rsquo;ll then deploy using the serverless.com CLI.
 Installing Serverless In order to install the serverless CLI you can do the following:</description>
@@ -24,39 +24,39 @@ Installing Serverless In order to install the serverless CLI you can do the foll
     
     <item>
       <title>Creating Go Based Lambda Functions in AWS - Tutorial</title>
-      <link>http://example.org/cloud/aws/creating-go-lambda-functions-tutorial/</link>
+      <link>https://cotutorial.github.io/cloud/aws/creating-go-lambda-functions-tutorial/</link>
       <pubDate>Sun, 21 Jan 2018 11:22:33 +0000</pubDate>
       
-      <guid>http://example.org/cloud/aws/creating-go-lambda-functions-tutorial/</guid>
+      <guid>https://cotutorial.github.io/cloud/aws/creating-go-lambda-functions-tutorial/</guid>
       <description>If you haven&amp;rsquo;t heard already AWS recently announced support for creating AWS Lambda functions using the Go programming language. As a huge fan of the language and of AWS itself I thought this would be the perfect opportunity to combine both and create a simple tutorial on how to create your own Lambda functions in Go.
 Video Tutorial  Conclusion If you found this tutorial useful or require further assistance then please feel free to let me know in the comments section below!</description>
     </item>
     
     <item>
       <title>An Introduction To Autoscaling Your Website or Service</title>
-      <link>http://example.org/cloud/an-introduction-to-autoscaling-your-website/</link>
+      <link>https://cotutorial.github.io/cloud/an-introduction-to-autoscaling-your-website/</link>
       <pubDate>Thu, 30 Nov 2017 21:21:51 +0000</pubDate>
       
-      <guid>http://example.org/cloud/an-introduction-to-autoscaling-your-website/</guid>
+      <guid>https://cotutorial.github.io/cloud/an-introduction-to-autoscaling-your-website/</guid>
       <description>In this article we are going to look at autoscalers. We are going to look at how they work and how they can enable your service to dynamically grow and shrink to cope with variable demands.
 The Scenario Imagine the scenario where you write a RESTful API that at first just requires a single server instance on AWS in order to sustain the initial demand placed on it. After a couple of weeks somebody who appreciates the your service posts it on a popular site such as /r/programming and you see demand double.</description>
     </item>
     
     <item>
       <title>How to use Terraform, Go, and AWS to build a scalable and resilient REST API</title>
-      <link>http://example.org/cloud/build-scalable-rest-api-go-terraform-aws/</link>
+      <link>https://cotutorial.github.io/cloud/build-scalable-rest-api-go-terraform-aws/</link>
       <pubDate>Thu, 30 Nov 2017 21:21:51 +0000</pubDate>
       
-      <guid>http://example.org/cloud/build-scalable-rest-api-go-terraform-aws/</guid>
+      <guid>https://cotutorial.github.io/cloud/build-scalable-rest-api-go-terraform-aws/</guid>
       <description>I&amp;rsquo;ve recently been exploring the power of Terraform - and wanted to apply what I&amp;rsquo;ve learned to build a scalable and resilient REST API. In just a few simple steps, we&amp;rsquo;ll be using Terraform to provision our underlying AWS infrastructure and deploy our microservice developed with Go. Creating the RESTful API with GO To get started, let&amp;rsquo;s build and compile a simple codebase using Go. Once we build this microservice, we&amp;rsquo;ll provision an AWS EC2 instance for our execution environment.</description>
     </item>
     
     <item>
       <title>Basic Website Resiliency Patterns - Load Balancers</title>
-      <link>http://example.org/cloud/basic-website-resiliency-load-balancers/</link>
+      <link>https://cotutorial.github.io/cloud/basic-website-resiliency-load-balancers/</link>
       <pubDate>Wed, 29 Nov 2017 19:48:57 +0000</pubDate>
       
-      <guid>http://example.org/cloud/basic-website-resiliency-load-balancers/</guid>
+      <guid>https://cotutorial.github.io/cloud/basic-website-resiliency-load-balancers/</guid>
       <description>In this article we are going to be looking at the concept of load balancers. We&amp;rsquo;ll be discussing what they are and how you can effectively use them to improve the reliability and resiliency of your websites and REST services and decrease downtime.
 Load Balancers - What Are They? So the first thing you may be asking is, &amp;ldquo;what is a load balancer?&amp;rdquo;. We&amp;rsquo;ll to answer your question, load balancers enable us to effectively balance all incoming traffic/requests to a given website or service across multiple instances of your website or service.</description>
     </item>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>misc on My New Hugo Site</title>
-    <link>http://example.org/tags/misc/</link>
-    <description>Recent content in misc on My New Hugo Site</description>
+    <title>misc on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/misc/</link>
+    <description>Recent content in misc on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 02 Mar 2019 18:52:03 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/misc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Hardware &#43; Software Setup for Recording YouTube Tutorials</title>
-      <link>http://example.org/uses/</link>
+      <link>https://cotutorial.github.io/uses/</link>
       <pubDate>Sat, 02 Mar 2019 18:52:03 +0000</pubDate>
       
-      <guid>http://example.org/uses/</guid>
+      <guid>https://cotutorial.github.io/uses/</guid>
       <description>I&amp;rsquo;m constantly getting questions on what software/plugins/hardware I use to record my YouTube videos so I thought I&amp;rsquo;d write it up in one convenient place and just link this whenever the question pops up!
  Note - This was inspired by Wes Bos, who I am huge fan of! This list will be a living document that I will update whenever anything changes!
  Here&amp;rsquo;s a photo of my setup as it stands today:</description>
@@ -24,50 +24,50 @@
     
     <item>
       <title>The Best Books For Learning Golang</title>
-      <link>http://example.org/golang/top-books-for-learning-golang/</link>
+      <link>https://cotutorial.github.io/golang/top-books-for-learning-golang/</link>
       <pubDate>Mon, 12 Jun 2017 21:29:27 +0100</pubDate>
       
-      <guid>http://example.org/golang/top-books-for-learning-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/top-books-for-learning-golang/</guid>
       <description>Go is a language that has drastically grown in popularity over the past few years. We&amp;rsquo;ve seen companies such as HashiCorp adopt it as their primary language of choice for all of their projects and with good reason. It&amp;rsquo;s undoubtedly an absolutely fantastic language to develop with.
 Getting started with Go is relatively straightforward and its syntax and language structure make it easy to adopt as your primary development language.</description>
     </item>
     
     <item>
       <title>Sending Email Using Go And Mailgun</title>
-      <link>http://example.org/golang/sending-email-using-go-and-mailgun/</link>
+      <link>https://cotutorial.github.io/golang/sending-email-using-go-and-mailgun/</link>
       <pubDate>Sat, 15 Apr 2017 08:44:00 +0100</pubDate>
       
-      <guid>http://example.org/golang/sending-email-using-go-and-mailgun/</guid>
+      <guid>https://cotutorial.github.io/golang/sending-email-using-go-and-mailgun/</guid>
       <description>In this tutorial I&#39;m going to be demonstrating how you can send mail with Go(Lang) and the mailgun api. Thankfully, mailgun&#39;s API is fantastic and sending mail is incredibly easy once you&#39;ve set everything up properly.
 Requirements  You&#39;ll need a mailgun account with your own verified domains Mailgun&#39;s Go Package: Downloadable from here  https://github.com/mailgun/mailgun-go Your Mailgun&#39;s Public API Key  Implementation package main import ( &amp;#34;github.com/mailgun/mailgun-go&amp;#34; ) func SendSimpleMessage(domain, apiKey string) (string, error) { mg := mailgun.</description>
     </item>
     
     <item>
       <title>Implementing the Bubble Sort Algorithm using Golang</title>
-      <link>http://example.org/golang/implementing-bubble-sort-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/implementing-bubble-sort-with-golang/</link>
       <pubDate>Sat, 15 Apr 2017 08:34:43 +0100</pubDate>
       
-      <guid>http://example.org/golang/implementing-bubble-sort-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/implementing-bubble-sort-with-golang/</guid>
       <description>What Is Bubble Sort? Bubble sort is a sorting algorithm that sequentially goes through an array n times. Each time the algorithm runs through our array, it looks at the first element and then the second element, if the first element is larger than the second element then it swaps them, it then proceeds through the entire list performing this action.
 Time Complexity The time complexity for this algorithm is O(n^2) where n is the number of items being sorted.</description>
     </item>
     
     <item>
       <title>Get Involved</title>
-      <link>http://example.org/get-involved/</link>
+      <link>https://cotutorial.github.io/get-involved/</link>
       <pubDate>Fri, 14 Apr 2017 20:28:13 +0100</pubDate>
       
-      <guid>http://example.org/get-involved/</guid>
+      <guid>https://cotutorial.github.io/get-involved/</guid>
       <description>Do you fancy contributing back to the site or writing a few of your own tutorials? Fork this entire site from our public github repo, make some changes and then submit a pull request and I&amp;rsquo;ll review it and if it meets our standards, it&amp;rsquo;ll get pushed live to the site.
 Authoring New Tutorials Authoring a new tutorial is simple with hugo. All you have to do is create a new file.</description>
     </item>
     
     <item>
       <title>Get Involved</title>
-      <link>http://example.org/test/</link>
+      <link>https://cotutorial.github.io/test/</link>
       <pubDate>Fri, 14 Apr 2017 20:28:13 +0100</pubDate>
       
-      <guid>http://example.org/test/</guid>
+      <guid>https://cotutorial.github.io/test/</guid>
       <description>What does this output?
 console.log(&amp;#34;hi&amp;#34;)   
 Sanguine Lapithae colla latus oracula ignibus Lorem markdownum coniugium levati sustollit tamen iuvenem, ignis aut paene quem per lacesse inde mihi: mea. Natalis aura, et undas hoc uberrima. Discedere maerenti virgine ut anilem opus, quae, enim sentit decurrere Nycteus sacrilegos Ecce numerandos, erat sententia. Quam nolet, e mortisque tegmine, laboris opus et domus. Plura audet; sensit unde Iunone summisque constiterant.
@@ -76,38 +76,38 @@ Alta hoc belli Lorem markdownum coniugium levati sustollit tamen iuvenem, ignis 
     
     <item>
       <title>Redirect</title>
-      <link>http://example.org/redirect/</link>
+      <link>https://cotutorial.github.io/redirect/</link>
       <pubDate>Fri, 14 Apr 2017 20:28:13 +0100</pubDate>
       
-      <guid>http://example.org/redirect/</guid>
+      <guid>https://cotutorial.github.io/redirect/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sign Up</title>
-      <link>http://example.org/signup/</link>
+      <link>https://cotutorial.github.io/signup/</link>
       <pubDate>Fri, 14 Apr 2017 20:28:13 +0100</pubDate>
       
-      <guid>http://example.org/signup/</guid>
+      <guid>https://cotutorial.github.io/signup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>http://example.org/about/</link>
+      <link>https://cotutorial.github.io/about/</link>
       <pubDate>Fri, 14 Apr 2017 20:27:58 +0100</pubDate>
       
-      <guid>http://example.org/about/</guid>
+      <guid>https://cotutorial.github.io/about/</guid>
       <description>The Story: Originally started in December of 2014 this site began as a side hobby of mine and has quickly grown into one of the most successful side projects I&amp;rsquo;ve ever worked upon. Since its conception it&amp;rsquo;s racked up well over 1,000,000 page views and it&amp;rsquo;s still growing.
 It&amp;rsquo;s undergone many changes since it was first created and overall I&amp;rsquo;ve probably commited well over 1,000 hours towards the site and it&amp;rsquo;s content.</description>
     </item>
     
     <item>
       <title>Golang Integer String Conversion Tutorial</title>
-      <link>http://example.org/golang/golang-integer-string-conversion-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/golang-integer-string-conversion-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:09:39 +0100</pubDate>
       
-      <guid>http://example.org/golang/golang-integer-string-conversion-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/golang-integer-string-conversion-tutorial/</guid>
       <description>In this tutorial we briefly look at how one can convert an integer to string and back again in GoLang. In order to do this we’ll be using the ‘strconv’ package and the Atoi and Itoa functions.
 Full documentation of the strconv package can be found here: Strconv Package
 String to Integer Conversion func strToIntConversion() { fmt.Println(&amp;#34;String to Integer Value Conversion&amp;#34;) var ourInteger int // use the strconv package to convert our string &amp;#39;12345&amp;#39; to an integer value  ourInteger, err := strconv.</description>

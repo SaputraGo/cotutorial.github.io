@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>typescript on My New Hugo Site</title>
-    <link>http://example.org/series/typescript/</link>
-    <description>Recent content in typescript on My New Hugo Site</description>
+    <title>typescript on CoTutorial</title>
+    <link>https://cotutorial.github.io/series/typescript/</link>
+    <description>Recent content in typescript on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Tue, 19 Jun 2018 20:29:57 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/series/typescript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/series/typescript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Async/Await in Typescript - Tutorial</title>
-      <link>http://example.org/typescript/async-await-in-typescript-tutorial/</link>
+      <link>https://cotutorial.github.io/typescript/async-await-in-typescript-tutorial/</link>
       <pubDate>Tue, 19 Jun 2018 20:29:57 +0100</pubDate>
       
-      <guid>http://example.org/typescript/async-await-in-typescript-tutorial/</guid>
+      <guid>https://cotutorial.github.io/typescript/async-await-in-typescript-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at how you can use both the async and await keywords within your TypeScript application and subsequently improve the readibility and succinctness of your code.
 Introduction If you have come from a Node.JS background, you&amp;rsquo;ll most likely be familiar with something we know as Callback Hell. This is where you end up with code within your Node.JS applications that look akin to the Pyramids from ancient Giza.</description>
     </item>
     
     <item>
       <title>Typescript REST API And MongoDB Beginners Tutorial</title>
-      <link>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</link>
+      <link>https://cotutorial.github.io/typescript/typescript-mongodb-beginners-tutorial/</link>
       <pubDate>Sun, 10 Jun 2018 18:56:37 +0000</pubDate>
       
-      <guid>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</guid>
+      <guid>https://cotutorial.github.io/typescript/typescript-mongodb-beginners-tutorial/</guid>
       <description>Source Code - The full source code for this tutorial can be found here: github.com/TutorialEdge/TypeScript-MongoDB-REST-Tutorial
  Introduction In this tutorial, we&amp;rsquo;ll be building a very simple REST API that will allow you to store, query, update and delete books from a book table within your MongoDB instance. This will hopefully cover everything you need to get a basic project up yourself for your own side projects.
 Prerequisites In order to complete this tutorial, you are going to need the following:</description>
@@ -34,10 +34,10 @@ Prerequisites In order to complete this tutorial, you are going to need the foll
     
     <item>
       <title>Testing a TypeScript API With Mocha and Chai</title>
-      <link>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</link>
+      <link>https://cotutorial.github.io/typescript/testing-typescript-api-with-mocha-chai/</link>
       <pubDate>Sat, 09 Jun 2018 22:48:26 +0100</pubDate>
       
-      <guid>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</guid>
+      <guid>https://cotutorial.github.io/typescript/testing-typescript-api-with-mocha-chai/</guid>
       <description>We are going to be using the very simple TypeScript API we developed in a previous tutorial in order to learn about Mocha and Chai Testing.
  In this tutorial, we&amp;rsquo;ll be looking at how you can get a very simple test framework up and running for your TypesScript based API using the mocha and chai testing libraries.
 Why Do We Test? Being able to accurately test any application you build is hugely important for any software developer regardless of the technology stack they are working with.</description>
@@ -45,10 +45,10 @@ Why Do We Test? Being able to accurately test any application you build is hugel
     
     <item>
       <title>Testing Typescript Api With Jest and Supertest</title>
-      <link>http://example.org/typescript/testing-typescript-api-with-jest/</link>
+      <link>https://cotutorial.github.io/typescript/testing-typescript-api-with-jest/</link>
       <pubDate>Sat, 09 Jun 2018 22:48:26 +0100</pubDate>
       
-      <guid>http://example.org/typescript/testing-typescript-api-with-jest/</guid>
+      <guid>https://cotutorial.github.io/typescript/testing-typescript-api-with-jest/</guid>
       <description>We are going to be using the very simple TypeScript API we developed in a previous tutorial in order to learn about Jest Testing.
  In this tutorial, we&amp;rsquo;ll be looking at how you can get a very simple test framework up and running for your TypesScript based API using the jest and supertest testing libraries.
 Installation Now that we have gotten the why? out of the way, let&amp;rsquo;s see how we can go about implementing our own testing framework:</description>
@@ -56,10 +56,10 @@ Installation Now that we have gotten the why? out of the way, let&amp;rsquo;s se
     
     <item>
       <title>Getting Started with Typescript and Socket.Io - Tutorial</title>
-      <link>http://example.org/typescript/typescript-socket-io-tutorial/</link>
+      <link>https://cotutorial.github.io/typescript/typescript-socket-io-tutorial/</link>
       <pubDate>Wed, 30 May 2018 18:09:26 +0100</pubDate>
       
-      <guid>http://example.org/typescript/typescript-socket-io-tutorial/</guid>
+      <guid>https://cotutorial.github.io/typescript/typescript-socket-io-tutorial/</guid>
       <description>Last Updated - 24th December, 2018
  Welcome friends! In this tutorial, we are going to be looking at how you can build a websocket based server using both TypeScript and Socket.io.
 We&amp;rsquo;ll be covering the following:
@@ -68,10 +68,10 @@ We&amp;rsquo;ll be covering the following:
     
     <item>
       <title>Building a RESTful API using Express and Typescript</title>
-      <link>http://example.org/typescript/creating-rest-api-express-typescript/</link>
+      <link>https://cotutorial.github.io/typescript/creating-rest-api-express-typescript/</link>
       <pubDate>Wed, 28 Mar 2018 20:25:53 +0100</pubDate>
       
-      <guid>http://example.org/typescript/creating-rest-api-express-typescript/</guid>
+      <guid>https://cotutorial.github.io/typescript/creating-rest-api-express-typescript/</guid>
       <description>In this tutorial, we are going to be building a REST API using both express and TypeScript! This REST API will simply return a status depending on what API endpoint we hit using our HTTP Client.
 Prerequisites You will require at least the following:
  TypeScript 2.8.1 The Yarn Package Manager ExpressJS  Our Project Layout So within our project, we are going to create a couple of incredibly simple endpoints that will simply return a few simple strings, depending on what HTTP verb is used to hit said route.</description>

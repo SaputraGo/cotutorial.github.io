@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang Development on My New Hugo Site</title>
-    <link>http://example.org/golang/</link>
-    <description>Recent content in Golang Development on My New Hugo Site</description>
+    <title>Golang Development on CoTutorial</title>
+    <link>https://cotutorial.github.io/golang/</link>
+    <description>Recent content in Golang Development on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Fri, 02 Aug 2019 08:05:10 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started With Go</title>
-      <link>http://example.org/golang/getting-started-with-go/</link>
+      <link>https://cotutorial.github.io/golang/getting-started-with-go/</link>
       <pubDate>Sat, 22 Sep 2018 15:23:16 +0100</pubDate>
       
-      <guid>http://example.org/golang/getting-started-with-go/</guid>
+      <guid>https://cotutorial.github.io/golang/getting-started-with-go/</guid>
       <description>Go is an absolutely incredible language to build a wide variety of different applications in. From command-line interfaces to distributed microsystems and even cloud platforms, its&amp;rsquo; simplicity and concurrency baked in makes it a powerful choice of language for many development teams.
 In this tutorial, I will be embarking on a mission to help get you up and running with the language so that you can go off and build ever-more brilliant applications and help push forward technology.</description>
     </item>
     
     <item>
       <title>Go Basic Types Tutorial</title>
-      <link>http://example.org/golang/go-basic-types-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-basic-types-tutorial/</link>
       <pubDate>Sat, 14 Jul 2018 22:24:26 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-basic-types-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-basic-types-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at all of the basic data types available to us within the Go language. By the end of this tutorial, you should be comfortable with the various different types available within the language and hopefully some understanding as to how you can use these within your own Go programs.
 This kind of material can be fairly dry and boring to learn so I&amp;rsquo;ll try and spice things up and make it somewhat interesting whilst also covering the necessary basics.</description>
     </item>
     
     <item>
       <title>Go Composite Types Tutorial</title>
-      <link>http://example.org/golang/go-complex-types-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-complex-types-tutorial/</link>
       <pubDate>Sat, 14 Jul 2018 22:24:26 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-complex-types-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-complex-types-tutorial/</guid>
       <description>Welcome All! In this tutorial, we are going to be looking at the various different composite data types that are available in the Go programming language.
 If you haven&amp;rsquo;t already, I&amp;rsquo;d suggest you check out my other tutorial in this course on Basic Data Types. You&amp;rsquo;ll need to know about these basic data types in order to understand some of the composite data types.
 Arrays Let&amp;rsquo;s dive into our first Composite data type, the array and see how we can declare arrays and work with them.</description>
@@ -44,10 +44,10 @@ Arrays Let&amp;rsquo;s dive into our first Composite data type, the array and se
     
     <item>
       <title>Go Functions Tutorial</title>
-      <link>http://example.org/golang/go-functions-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-functions-tutorial/</link>
       <pubDate>Sat, 14 Jul 2018 22:23:10 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-functions-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-functions-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at functions in Golang and hopefully, by the end of this tutorial, you will have a firm grasp as to what they are and how you can use them in your own projects.
 We&amp;rsquo;ll be covering the following topics within this tutorial:
  The basics on Function Declaration Working with multiple return values  At the end of this tutorial, there will be challenges that you can attempt to complete on your own working machine that will help to validate what we have covered and give you a taste of writing your own functions in Go.</description>
@@ -55,20 +55,20 @@ We&amp;rsquo;ll be covering the following topics within this tutorial:
     
     <item>
       <title>Go Methods Tutorial</title>
-      <link>http://example.org/golang/go-methods-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-methods-tutorial/</link>
       <pubDate>Sat, 14 Jul 2018 22:23:10 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-methods-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-methods-tutorial/</guid>
       <description>In this tutorial, we are going to first of all look at what methods are and how they work within the confines of the Go programming language. We&amp;rsquo;ll then take a look at demystifying the differences between both methods and functions and when you should ideally use them within your Go programs.
 A Simple Example Let&amp;rsquo;s start off by covering what methods and how we can implement our own in our Go systems.</description>
     </item>
     
     <item>
       <title>Go Interfaces Tutorial</title>
-      <link>http://example.org/golang/go-interfaces-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-interfaces-tutorial/</link>
       <pubDate>Sat, 14 Jul 2018 22:24:26 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-interfaces-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-interfaces-tutorial/</guid>
       <description>Welcome all, in this tutorial we are going to be taking a look at interfaces within the Go programming language.
 By the end of this tutorial, we&amp;rsquo;ll have covered the following topics:
  The Basics of Interfaces Defining Your Own Interfaces  There will be a number of challenges at the end of this tutorial that you are free to try and complete on your own machine to try and validate some of the topics we have covered in this tutorial.</description>
@@ -76,10 +76,10 @@ By the end of this tutorial, we&amp;rsquo;ll have covered the following topics:
     
     <item>
       <title>Reading And Writing To Files in Go</title>
-      <link>http://example.org/golang/reading-writing-files-in-go/</link>
+      <link>https://cotutorial.github.io/golang/reading-writing-files-in-go/</link>
       <pubDate>Sat, 17 Feb 2018 21:56:17 +0000</pubDate>
       
-      <guid>http://example.org/golang/reading-writing-files-in-go/</guid>
+      <guid>https://cotutorial.github.io/golang/reading-writing-files-in-go/</guid>
       <description>Note - If you are interested in working with JSON in Go, you may also like my other tutorial - Go JSON Tutorial
  Within this tutorial, we are going to look at how you can effectively read and write to files within your filesystem using the go programming language.
 The method we are going to use to read and write to these files will be file format-agnostic. What this means is that you&amp;rsquo;ll be able to use the techniques we&amp;rsquo;ll be covering in order to read and write, .</description>
@@ -87,20 +87,20 @@ The method we are going to use to read and write to these files will be file for
     
     <item>
       <title>Reading in Console Input in Golang</title>
-      <link>http://example.org/golang/reading-console-input-golang/</link>
+      <link>https://cotutorial.github.io/golang/reading-console-input-golang/</link>
       <pubDate>Sat, 15 Apr 2017 08:48:49 +0100</pubDate>
       
-      <guid>http://example.org/golang/reading-console-input-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/reading-console-input-golang/</guid>
       <description>This is a quick and simple tutorial on how to read in console text input into your Go (GoLang) program. In this tutorial, we&amp;rsquo;ll be creating the basis for a very simple shell that will take in all user input and simply echo it back to the user.
 Reading in Full Sentences We&amp;rsquo;ll use Go&amp;rsquo;s while loop equivalent of a for loop without any parameters to ensure our program continues on forever.</description>
     </item>
     
     <item>
       <title>Executing System Commands With Golang</title>
-      <link>http://example.org/golang/executing-system-commands-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/executing-system-commands-with-golang/</link>
       <pubDate>Sat, 15 Apr 2017 08:47:48 +0100</pubDate>
       
-      <guid>http://example.org/golang/executing-system-commands-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/executing-system-commands-with-golang/</guid>
       <description>Last Updated - 6th December, 2018
  In this tutorial, we are going to be taking a look at the os/exec package in the standard library and how we can use this to successfully execute system commands within our Go applications.
  Note - The official documentation for executing system commands can be found under the exec package: os/exec package.
@@ -109,20 +109,20 @@ Reading in Full Sentences We&amp;rsquo;ll use Go&amp;rsquo;s while loop equivale
     
     <item>
       <title>Parsing JSON files With Golang</title>
-      <link>http://example.org/golang/parsing-json-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/parsing-json-with-golang/</link>
       <pubDate>Sun, 09 Apr 2017 21:07:11 +0100</pubDate>
       
-      <guid>http://example.org/golang/parsing-json-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/parsing-json-with-golang/</guid>
       <description>Welcome all, in this tutorial, we are going to be taking a look at how you can read in JSON files, or JSON HTTP responses and parse them to your hearts desire.
 JSON or Javascript Object Notation as it is short for, is a standard format for sending and receiving information. We could represent the same information with either XML or JSON, but JSON provides one advantage in the fact it is far more compact and in my personal experience, more readable.</description>
     </item>
     
     <item>
       <title>Parsing XML Files With Golang</title>
-      <link>http://example.org/golang/parsing-xml-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/parsing-xml-with-golang/</link>
       <pubDate>Sun, 09 Apr 2017 21:07:45 +0100</pubDate>
       
-      <guid>http://example.org/golang/parsing-xml-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/parsing-xml-with-golang/</guid>
       <description>In this tutorial we look at how you can effectively read in an XML file from the file system and then parse this file using Go’s “encoding/xml” Package. We’ll look at how you can traverse multiple nested xml elements and then we’ll simply print this out to our terminal window.
 Our Example XML File So to begin with, we’ll need an xml file that we can traverse.
 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?</description>
@@ -130,20 +130,20 @@ Our Example XML File So to begin with, we’ll need an xml file that we can trav
     
     <item>
       <title>An Introduction to Testing in Go</title>
-      <link>http://example.org/golang/intro-testing-in-go/</link>
+      <link>https://cotutorial.github.io/golang/intro-testing-in-go/</link>
       <pubDate>Fri, 09 Feb 2018 17:27:18 +0000</pubDate>
       
-      <guid>http://example.org/golang/intro-testing-in-go/</guid>
+      <guid>https://cotutorial.github.io/golang/intro-testing-in-go/</guid>
       <description>Testing is hugely important in all software. Being able to ensure the correctness of your code and ensure that any changes you make don&amp;rsquo;t end up breaking anything else in different parts of your codebase is hugely important.
 By taking the time to adequately test your go programs you allow yourself to develop faster with a greater sense of confidence that what you are developing will continue to work when you release it to production.</description>
     </item>
     
     <item>
       <title>Advanced Go Testing Tutorial</title>
-      <link>http://example.org/golang/advanced-go-testing-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/advanced-go-testing-tutorial/</link>
       <pubDate>Wed, 29 Aug 2018 21:57:53 +0100</pubDate>
       
-      <guid>http://example.org/golang/advanced-go-testing-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/advanced-go-testing-tutorial/</guid>
       <description>Welcome fellow coders! In this tutorial, we are going to be taking a look at selection of more advanced testing practices used by the likes of the Go core language developers and in popular production-level tools.
 I feel this approach, of actually studying what has been done in a production system, will hopefully give you some insight into the best ways to test your own production-level Go programs.
  Note - If you are entirely new to testing your Go-based programs, then I suggest you check out my other tutorial: an introduction to testing in go</description>
@@ -151,70 +151,70 @@ I feel this approach, of actually studying what has been done in a production sy
     
     <item>
       <title>The Go init Function</title>
-      <link>http://example.org/golang/the-go-init-function/</link>
+      <link>https://cotutorial.github.io/golang/the-go-init-function/</link>
       <pubDate>Thu, 04 Oct 2018 10:44:54 +0100</pubDate>
       
-      <guid>http://example.org/golang/the-go-init-function/</guid>
+      <guid>https://cotutorial.github.io/golang/the-go-init-function/</guid>
       <description>There are times, when creating applications in Go, that you need to be able to set up some form of state on the initial startup of your program. This could involve creating connections to databases, or loading in configuration from locally stored configuration files.
 When it comes to doing this in Go, this is where your init() functions come into play. In this tutorial, we&amp;rsquo;ll be looking at how you can use this init() function to achieve fame and glory, or more likely to help you to build your next Go based project.</description>
     </item>
     
     <item>
       <title>An Intro to Go Dep</title>
-      <link>http://example.org/golang/an-intro-to-go-dep/</link>
+      <link>https://cotutorial.github.io/golang/an-intro-to-go-dep/</link>
       <pubDate>Sun, 18 Feb 2018 09:16:39 +0000</pubDate>
       
-      <guid>http://example.org/golang/an-intro-to-go-dep/</guid>
+      <guid>https://cotutorial.github.io/golang/an-intro-to-go-dep/</guid>
       <description>In this tutorial, we are going to look at how you can use the Dep tool in go to manage your Go&amp;rsquo;s project dependencies.
 Why dep? The dep tool is the &amp;ldquo;official experiment&amp;rdquo; dependency management tool for the go programming language. It helps you to manage the ever-growing list of dependencies your project needs to maintain without a lot of overhead and it can pin you to specific versions of dependencies to ensure stability in your systems.</description>
     </item>
     
     <item>
       <title>An Introduction to Benchmarking Your Go Programs</title>
-      <link>http://example.org/golang/benchmarking-your-go-programs/</link>
+      <link>https://cotutorial.github.io/golang/benchmarking-your-go-programs/</link>
       <pubDate>Sat, 10 Feb 2018 08:48:40 +0000</pubDate>
       
-      <guid>http://example.org/golang/benchmarking-your-go-programs/</guid>
+      <guid>https://cotutorial.github.io/golang/benchmarking-your-go-programs/</guid>
       <description>In this article, we are going to be having a look at benchmarking. More specifically, we are going to be looking at how you can benchmark your Go-based programs.
 In times where performance is important, being able to benchmark how your program performs and analyze where potential bottlenecks are, is really valuable. By understanding where these bottlenecks lie, we can more effectively determine where to focus our efforts in order to improve the performance of our systems.</description>
     </item>
     
     <item>
       <title>Go Maps Tutorial</title>
-      <link>http://example.org/golang/go-maps-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-maps-tutorial/</link>
       <pubDate>Sat, 29 Jun 2019 23:00:00 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-maps-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-maps-tutorial/</guid>
       <description>In this tutorial, we are going to look at maps in Go and how you can use them to achieve world domination!
 We are going to be covering just about everything you need to know about maps to get started using them within your own Go applications. We are going to be looking at all of the various ways you interact with maps in Go and by the end of this tutorial, you will be a master when it comes to using them.</description>
     </item>
     
     <item>
       <title>Consuming A RESTful API With Go</title>
-      <link>http://example.org/golang/consuming-restful-api-with-go/</link>
+      <link>https://cotutorial.github.io/golang/consuming-restful-api-with-go/</link>
       <pubDate>Sun, 23 Apr 2017 08:56:56 +0100</pubDate>
       
-      <guid>http://example.org/golang/consuming-restful-api-with-go/</guid>
+      <guid>https://cotutorial.github.io/golang/consuming-restful-api-with-go/</guid>
       <description>Note - For a Tutorial on how to build a RESTful API in Go click here
  In this tutorial, I&amp;rsquo;m going to be demonstrating how we can consume an already running RESTful API using go. There are currently hundreds upon thousands of open REST APIs out there that are just waiting to be consumed and turned into something more meaningful. Todd Motto has put together quite an active repo on Github that lists all the public APIs that are available for consumption by us and he&amp;rsquo;s categorized them so that we can easily drill down to what we want to check out, you can find that here.</description>
     </item>
     
     <item>
       <title>Creating a RESTful API With Golang</title>
-      <link>http://example.org/golang/creating-restful-api-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/creating-restful-api-with-golang/</link>
       <pubDate>Sat, 15 Apr 2017 08:45:15 +0100</pubDate>
       
-      <guid>http://example.org/golang/creating-restful-api-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/creating-restful-api-with-golang/</guid>
       <description>If you are writing any form of web application, then you are most likely interfacing with 1 or more REST APIs in order to populate the dynamic parts of your application and to perform tasks such as updating or deleting data within a database.
 In this tutorial, you are going to be building a fully-fledged REST API that exposes GET, POST, DELETE and PUT endpoints that will subsequently allow you to perform the full range of CRUD operations.</description>
     </item>
     
     <item>
       <title>Creating A Simple Web Server With Golang</title>
-      <link>http://example.org/golang/creating-simple-web-server-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/creating-simple-web-server-with-golang/</link>
       <pubDate>Sat, 15 Apr 2017 08:46:33 +0100</pubDate>
       
-      <guid>http://example.org/golang/creating-simple-web-server-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/creating-simple-web-server-with-golang/</guid>
       <description>Last Updated - 3rd December, 2018
  Web servers are always a really cool and relatively simple project to get up and running when trying to learn a new language. In Go, this is no different, and building a web server using the net/http package is an excellent way to come to grips with some of the basics.
 In this tutorial, we&amp;rsquo;ll be focusing on creating a very simple web server using the net/http package.</description>
@@ -222,20 +222,20 @@ In this tutorial, we&amp;rsquo;ll be focusing on creating a very simple web serv
     
     <item>
       <title>Building a Network Command Line Interface in Go</title>
-      <link>http://example.org/golang/building-a-cli-in-go/</link>
+      <link>https://cotutorial.github.io/golang/building-a-cli-in-go/</link>
       <pubDate>Sun, 29 Jul 2018 09:41:15 +0100</pubDate>
       
-      <guid>http://example.org/golang/building-a-cli-in-go/</guid>
+      <guid>https://cotutorial.github.io/golang/building-a-cli-in-go/</guid>
       <description>In this article, we are going to be building a very simple Command Line Interface in Go using the urfave/cli package available on Github here: https://github.com/urfave/cli.
 I&amp;rsquo;ve been doing one or two domain migrations across various hosting providers recently and thought it would be a cool idea to build a tool or program that could be used to query things like the Nameservers of a website, the CNAMEs, the IP addresses and so on.</description>
     </item>
     
     <item>
       <title>Writing A Twitter Bot in Golang</title>
-      <link>http://example.org/golang/writing-a-twitter-bot-golang/</link>
+      <link>https://cotutorial.github.io/golang/writing-a-twitter-bot-golang/</link>
       <pubDate>Sun, 09 Apr 2017 21:33:19 +0100</pubDate>
       
-      <guid>http://example.org/golang/writing-a-twitter-bot-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/writing-a-twitter-bot-golang/</guid>
       <description>In this tutorial I’m going to be demonstrating how to build a twitter bot using go-twitter, a popular Go client library for the Twitter API.
 I’ll be demonstrating how you can build a go based twitter bot that will be able to do such things as automatically reply to tweets and favorite tweets that contain a specific hashtag.
 Setting Up Your Project  Note - We&amp;rsquo;ll be using go modules which is an experimental feature of Go 1.</description>
@@ -243,20 +243,20 @@ Setting Up Your Project  Note - We&amp;rsquo;ll be using go modules which is an 
     
     <item>
       <title>Golang ORM Tutorial</title>
-      <link>http://example.org/golang/golang-orm-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/golang-orm-tutorial/</link>
       <pubDate>Wed, 07 Feb 2018 20:57:06 +0000</pubDate>
       
-      <guid>http://example.org/golang/golang-orm-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/golang-orm-tutorial/</guid>
       <description>In this tutorial, we are going to look at how we can use the Go-ORM or GORM to interact with a sqlite3 database in a simple manner.
 ORM&#39;s or Object Relationship Managers act almost as brokers between us developers and our underlying database technology. They allow us to essentially work with object&amp;rsquo;s, much as we normally would and then save these objects without having to craft complex SQL statements.</description>
     </item>
     
     <item>
       <title>Golang MySQL Tutorial</title>
-      <link>http://example.org/golang/golang-mysql-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/golang-mysql-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:28:15 +0100</pubDate>
       
-      <guid>http://example.org/golang/golang-mysql-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/golang-mysql-tutorial/</guid>
       <description>As you continue your Golang learning journey, it becomes almost inevitable that you will have to interact with some form of database.
 In this tutorial I’ll be demonstrating how you can connect to a MySQL database and perform basic SQL statements using Go.
 Why MySQL? MySQL is one of the most well-known and well-used database technologies available to developers at the present point in time. It has an absolutely massive community around it and it&amp;rsquo;s quite possibly powering half the web as the main database technology for Wordpress.</description>
@@ -264,30 +264,30 @@ Why MySQL? MySQL is one of the most well-known and well-used database technologi
     
     <item>
       <title>Concurrency With Golang Goroutines</title>
-      <link>http://example.org/golang/concurrency-with-golang-goroutines/</link>
+      <link>https://cotutorial.github.io/golang/concurrency-with-golang-goroutines/</link>
       <pubDate>Sun, 09 Apr 2017 21:06:27 +0100</pubDate>
       
-      <guid>http://example.org/golang/concurrency-with-golang-goroutines/</guid>
+      <guid>https://cotutorial.github.io/golang/concurrency-with-golang-goroutines/</guid>
       <description>Now, Go is an incredibly performant language that features a hell of a lot of great features that allow you to build incredibly fast applications. It redefines what it means to build concurrent programs by providing us with these goroutines and channels.
 Using goroutines is a very quick way to turn what would be a sequential program into a concurrent program without having to worry about things like creating threads or thread-pools.</description>
     </item>
     
     <item>
       <title>Go Mutex Tutorial</title>
-      <link>http://example.org/golang/go-mutex-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-mutex-tutorial/</link>
       <pubDate>Sat, 25 Aug 2018 14:21:04 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-mutex-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-mutex-tutorial/</guid>
       <description>The use of Go when programming highly concurrent applications doesn&amp;rsquo;t preclude the possibility of you writing a system that features race conditions. These race conditions can cause unexpected issues with your systems that are both hard to debug and at times, even harder to fix.
 Thus, we need to be able to write Go programs that can execute concurrently in a safe manner without impacting performance. This is where the mutex comes into play.</description>
     </item>
     
     <item>
       <title>Go Channels Tutorial</title>
-      <link>http://example.org/golang/go-channels-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-channels-tutorial/</link>
       <pubDate>Sat, 25 Aug 2018 14:47:06 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-channels-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-channels-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at how you can use channels within your Go-based applications.
 Channels are pipes that link between goroutines within your Go based applications that allow communication and subsequently the passing of values to and from variables.
 They are incredibly handy and can help you craft incredibly high performance, highly concurrent applications in Go with minimal fuss compared to other programming languages. This was by no means a fluke, when designing the language, the core developers decided that they wanted concurrency within their language to be a first class citizen and to make it as simple to work with as possible, without going too far and not allowing developers the freedom they need to work in.</description>
@@ -295,29 +295,29 @@ They are incredibly handy and can help you craft incredibly high performance, hi
     
     <item>
       <title>Working with Websockets and Socket.IO in Go - Tutorial</title>
-      <link>http://example.org/golang/golang-websockets-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/golang-websockets-tutorial/</link>
       <pubDate>Wed, 23 Aug 2017 19:29:11 +0100</pubDate>
       
-      <guid>http://example.org/golang/golang-websockets-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/golang-websockets-tutorial/</guid>
       <description>Note - This tutorial was written using Go version 1.9 and googollee/go-socket.io
  Websockets are something I find interesting in the sense that they provide us with an alternative option to communication between applications as opposed to the standard RESTful API solution. With Sockets we can do cool things such as real-time communication between thousands to hundreds of thousands of different clients without having to incur the expense of hundreds of thousands of RESTful API calls hitting our servers every minute.</description>
     </item>
     
     <item>
       <title>Go Protocol Buffer Tutorial</title>
-      <link>http://example.org/golang/go-protocol-buffer-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-protocol-buffer-tutorial/</link>
       <pubDate>Sat, 01 Sep 2018 18:53:06 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-protocol-buffer-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-protocol-buffer-tutorial/</guid>
       <description>Welcome fellow coders! In this tutorial, we are going to be looking at how you can utilize the Protocol Buffers data format within your Go-based applications. We&amp;rsquo;ll be covering what the data format is, and why it is an improvement over more traditional data formats such as XML or even JSON. And we&amp;rsquo;ll dive into a simple example to get us up and running before trying our hands at a more complex example.</description>
     </item>
     
     <item>
       <title>Go WebAssembly Tutorial - Building a Calculator Tutorial</title>
-      <link>http://example.org/golang/go-webassembly-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-webassembly-tutorial/</link>
       <pubDate>Sat, 25 Aug 2018 15:54:23 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-webassembly-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-webassembly-tutorial/</guid>
       <description>Update - The code in this tutorial has been updated to work with the breaking changes in Go v1.12
  Welcome All! With Go v1.11 having just been released with an experimental port to WebAssembly included, I thought it would be awesome to see how we can write our own Go programs that compile straight to WebAssembly!
 So, in this article, we are going to be building a really simple calculator to give us an idea as to how we can write functions that can be exposed to the frontend, evaluate DOM elements and subsequently update any DOM elements with the results from any functions we call.</description>
@@ -325,10 +325,10 @@ So, in this article, we are going to be building a really simple calculator to g
     
     <item>
       <title>Go Oauth2 Tutorial</title>
-      <link>http://example.org/golang/go-oauth2-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-oauth2-tutorial/</link>
       <pubDate>Mon, 10 Sep 2018 20:04:14 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-oauth2-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-oauth2-tutorial/</guid>
       <description>Welcome fellow coders! In this tutorial, we are going to be taking a look at how you can implement your own OAuth2 Server and client using the go-oauth2/oauth2 package.
 This is without a doubt one of the most requested topics from commentors on my YouTube videos and it&amp;rsquo;s certainly something that I myself find incredibly interesting.
 Security is without doubt a very important feature for any public and even private facing service or API and it&amp;rsquo;s something that you need to pay a lot of attention to in order to get it right.</description>
@@ -336,50 +336,50 @@ Security is without doubt a very important feature for any public and even priva
     
     <item>
       <title>Go Face Recognition Tutorial - Part 1</title>
-      <link>http://example.org/golang/go-face-recognition-tutorial-part-one/</link>
+      <link>https://cotutorial.github.io/golang/go-face-recognition-tutorial-part-one/</link>
       <pubDate>Thu, 27 Sep 2018 10:48:51 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-face-recognition-tutorial-part-one/</guid>
+      <guid>https://cotutorial.github.io/golang/go-face-recognition-tutorial-part-one/</guid>
       <description>The whole area of Face Recognition is something I love reading about. Implementing a facial recognition system yourself makes you sound like you are Tony Stark and you can use them for a variety of different projects such as an automatic lock on your door, or building a surveillance system for your office to name but a few.
 In this tutorial, we are going to be building our own, really simple face recognition based system in Go using a few existing libraries.</description>
     </item>
     
     <item>
       <title>Go Encryption and Decryption using AES - Tutorial</title>
-      <link>http://example.org/golang/go-encrypt-decrypt-aes-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-encrypt-decrypt-aes-tutorial/</link>
       <pubDate>Thu, 27 Sep 2018 10:48:51 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-encrypt-decrypt-aes-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-encrypt-decrypt-aes-tutorial/</guid>
       <description>Objectives By the end of this tutorial, you will be able to&amp;hellip;
  Encrypt text using the AES - Advanced Encryption Standard in Go We&amp;rsquo;ll then look at writing this encrypted message to a file Finally we&amp;rsquo;ll look at how we can decrypt this message using a shared secret  From this, you should be able to build your own simple encryption systems that can do various things like, encrypt files on your file system and protect them with a passphrase only you know or add simple encryption to various parts of the systems that you are working on.</description>
     </item>
     
     <item>
       <title>Building a Solid Continuous Integration Pipeline with TravisCI for Your Go Projects</title>
-      <link>http://example.org/golang/building-ci-cd-pipeline-go-projects/</link>
+      <link>https://cotutorial.github.io/golang/building-ci-cd-pipeline-go-projects/</link>
       <pubDate>Tue, 16 Oct 2018 20:10:30 +0100</pubDate>
       
-      <guid>http://example.org/golang/building-ci-cd-pipeline-go-projects/</guid>
+      <guid>https://cotutorial.github.io/golang/building-ci-cd-pipeline-go-projects/</guid>
       <description>So, I recently partook in Hacktoberfest which is an event that helps to support thousands of different Open Source projects. Usually, I tend to get caught up in other projects or can&amp;rsquo;t find the time or make up a hundred other excuses for not taking part.
 This year however, is different, and I&amp;rsquo;ve made an attempt at doing more Open Source work just so I can earn myself a free t-shirt.</description>
     </item>
     
     <item>
       <title>Improving Your Go Development Workflow With Git Hooks</title>
-      <link>http://example.org/golang/improving-go-workflow-with-git-hooks/</link>
+      <link>https://cotutorial.github.io/golang/improving-go-workflow-with-git-hooks/</link>
       <pubDate>Fri, 02 Aug 2019 08:05:10 +0100</pubDate>
       
-      <guid>http://example.org/golang/improving-go-workflow-with-git-hooks/</guid>
+      <guid>https://cotutorial.github.io/golang/improving-go-workflow-with-git-hooks/</guid>
       <description>Git hooks are a pretty powerful way of improving your development workflow without having to remember to run additional scripts or perform additional tasks. In this article, we are going to be taking a look at how you can define your own simple git hooks within a project repository that can automatically perform the task of linting + formating your Go code.
 This fairly simple example should give you a flavour as to how you can leverage git hooks for your own devious plans.</description>
     </item>
     
     <item>
       <title>Getting Started with Redis and Go - Tutorial</title>
-      <link>http://example.org/golang/go-redis-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-redis-tutorial/</link>
       <pubDate>Sun, 28 Jul 2019 09:44:24 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-redis-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-redis-tutorial/</guid>
       <description>Hi everyone, in this tutorial, we are going to be looking at how you can effectively use Redis as a backend solution for your Go applications.
 Prerequisites If you wish to follow this tutorial on your local machine, you&amp;rsquo;ll need to have the following installed on your machine:
  Docker - this will be needed to run a local instance of redis, if you already have a redis service then Docker is not needed.</description>
@@ -387,50 +387,50 @@ Prerequisites If you wish to follow this tutorial on your local machine, you&amp
     
     <item>
       <title>Check Key Exists in Map Go</title>
-      <link>http://example.org/golang/snippets/check-key-exists-in-map-go/</link>
+      <link>https://cotutorial.github.io/golang/snippets/check-key-exists-in-map-go/</link>
       <pubDate>Wed, 17 Jul 2019 07:58:40 +0000</pubDate>
       
-      <guid>http://example.org/golang/snippets/check-key-exists-in-map-go/</guid>
+      <guid>https://cotutorial.github.io/golang/snippets/check-key-exists-in-map-go/</guid>
       <description>In this code snippet, we are going to look at how you can check to see if a key exists within a Map in Go
  main.go  package main import &amp;#34;fmt&amp;#34; func main() { mymap := make(map[string]int) mymap[&amp;#34;elliot&amp;#34;] = 25 // we can use this if statement to check to see if  // a given key &amp;#34;elliot&amp;#34; exists within a map in Go  if _, ok := mymap[&amp;#34;elliot&amp;#34;]; ok { // the key &amp;#39;elliot&amp;#39; exists within the map  fmt.</description>
     </item>
     
     <item>
       <title>Concatenate Strings in Go</title>
-      <link>http://example.org/golang/snippets/concatenate-strings-in-go/</link>
+      <link>https://cotutorial.github.io/golang/snippets/concatenate-strings-in-go/</link>
       <pubDate>Mon, 15 Jul 2019 19:30:49 +0100</pubDate>
       
-      <guid>http://example.org/golang/snippets/concatenate-strings-in-go/</guid>
+      <guid>https://cotutorial.github.io/golang/snippets/concatenate-strings-in-go/</guid>
       <description>In this code snippet, we are going to look at how you can efficiently concatenate strings in Go using the string.Builder type.
  main.go  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;strings&amp;#34; ) func main() { fmt.Println(&amp;#34;String Concatenation Tutorial&amp;#34;) var myString strings.Builder // we can use the WriteString method to append 	// to our existing strings.Builder string  myString.WriteString(&amp;#34;Hello &amp;#34;) // here we append to the end of our string  myString.</description>
     </item>
     
     <item>
       <title>Sort Map by Value</title>
-      <link>http://example.org/golang/snippets/sort-map-by-value/</link>
+      <link>https://cotutorial.github.io/golang/snippets/sort-map-by-value/</link>
       <pubDate>Mon, 15 Jul 2019 19:30:49 +0100</pubDate>
       
-      <guid>http://example.org/golang/snippets/sort-map-by-value/</guid>
+      <guid>https://cotutorial.github.io/golang/snippets/sort-map-by-value/</guid>
       <description>In this code snippet, we are going to look at how you can quickly and easily sort maps in Go using the sort package.
  Sort Map by Length of Keys main.go  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) func main() { mymap := map[string]int{&amp;#34;Elliot&amp;#34;: 25, &amp;#34;Sophie&amp;#34;: 24, &amp;#34;Fraser&amp;#34;: 20} // make an array of type string to store our keys 	keys := []string{} // iterate over the map and append all keys to our 	// string array of keys 	for key := range mymap { keys = append(keys, key) } // use the sort method to sort our keys array 	sort.</description>
     </item>
     
     <item>
       <title>Makefiles for Go Developers</title>
-      <link>http://example.org/golang/makefiles-for-go-developers/</link>
+      <link>https://cotutorial.github.io/golang/makefiles-for-go-developers/</link>
       <pubDate>Thu, 06 Jun 2019 20:02:23 +0000</pubDate>
       
-      <guid>http://example.org/golang/makefiles-for-go-developers/</guid>
+      <guid>https://cotutorial.github.io/golang/makefiles-for-go-developers/</guid>
       <description>In this tutorial, we are going to be looking at how you, as a Go developer, can leverage the wonderful bit of technology that is Makefiles for fame and fortune when developing your own Go applications.
 What are Makefiles? Let&amp;rsquo;s start by looking at what Makefiles are first of all. Makefiles are an incredibly useful automation tool that you can use to run and build not just your Go applications, but for most programming languages.</description>
     </item>
     
     <item>
       <title>Go Sorting With the sort Package - Tutorial</title>
-      <link>http://example.org/golang/go-sorting-with-sort-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-sorting-with-sort-tutorial/</link>
       <pubDate>Sun, 26 May 2019 07:49:44 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-sorting-with-sort-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-sorting-with-sort-tutorial/</guid>
       <description>Sorting items to be in order is something that every programmer will undoubtedly have to do at one point in their career. There are different approaches and many different sorting algorithms available for you to choose from, but typically it is better to rely on already implemented packages to do your sorting for you.
 Goals By the end of this tutorial, you will know how to:
  Implement basic sorting within your Go applications using the &amp;quot;sort&amp;quot; package.</description>
@@ -438,10 +438,10 @@ Goals By the end of this tutorial, you will know how to:
     
     <item>
       <title>Go Tickers Tutorial</title>
-      <link>http://example.org/golang/go-ticker-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-ticker-tutorial/</link>
       <pubDate>Thu, 02 May 2019 08:00:17 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-ticker-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-ticker-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at tickers in Go and how you can use tickers effectively within your own Go applications.
 Tickers are exceptionally helpful when you need to perform an action repeatedly at given time intervals and we can use tickers, in combination with goroutines in order to run these tasks in the background of our applications.
 Tickers vs Timers Before we dive in, it&amp;rsquo;s useful to know the distinction between both tickers and timers.</description>
@@ -449,20 +449,20 @@ Tickers vs Timers Before we dive in, it&amp;rsquo;s useful to know the distincti
     
     <item>
       <title>Go Modules Tutorial</title>
-      <link>http://example.org/golang/go-modules-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-modules-tutorial/</link>
       <pubDate>Fri, 19 Apr 2019 08:34:10 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-modules-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-modules-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at how you can use Go modules in your Go applications to simplify the way you work with dependencies for your Go applications. We will be looking at how Go Modules work, and also what problems they solve for us, before finally going into developing a simple Go application which uses Go Modules.
 Goals By the end of this tutorial:</description>
     </item>
     
     <item>
       <title>Go Multi-Stage Docker Tutorial</title>
-      <link>http://example.org/golang/go-multi-stage-docker-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-multi-stage-docker-tutorial/</link>
       <pubDate>Sat, 16 Mar 2019 11:16:25 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-multi-stage-docker-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-multi-stage-docker-tutorial/</guid>
       <description>Welcome fellow coders! In this tutorial, we are going to be looking at multi-stage Docker images and how you can use them to minimize the size of the container needed for your production Go applications.
 By the end of this tutorial, we will have covered the following concepts:
  What Multi-stage Dockerfiles are. How we can build simple multi-stage Dockerfiles for our Go Apps  Docker is a seriously power containerization technology that can be used to easily spin up isolated and reproducible environments in which our applications can be built and run.</description>
@@ -470,10 +470,10 @@ By the end of this tutorial, we will have covered the following concepts:
     
     <item>
       <title>Go Websocket Tutorial</title>
-      <link>http://example.org/golang/go-websocket-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-websocket-tutorial/</link>
       <pubDate>Thu, 14 Mar 2019 20:40:33 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-websocket-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-websocket-tutorial/</guid>
       <description>Hi Fellow Devs! In this tutorial, we are going to be looking at how we can use WebSockets within our own Go-based programs to do some cool real-time stuff.
 By the end of this tutorial, we should have covered the following:
  What WebSockets are How we can build simple WebSocket Applications in Go  For the purpose of this tutorial, we&amp;rsquo;ll be working with the gorilla/websocket package as I&amp;rsquo;ve used it personally in a few production applications to great success.</description>
@@ -481,40 +481,40 @@ By the end of this tutorial, we should have covered the following:
     
     <item>
       <title>Containerizing your Go Applications with Docker - Tutorial</title>
-      <link>http://example.org/golang/go-docker-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-docker-tutorial/</link>
       <pubDate>Sat, 02 Mar 2019 22:36:27 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-docker-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-docker-tutorial/</guid>
       <description>Docker is a truly excellent bit of tech that allows us to specify the environment in which we want all of our applications to live within a simple Dockerfile. This effectively allows for easier collaboration and rids us of the &amp;ldquo;it works on my machine&amp;rdquo; problem that is soo prevalent in development teams across the globe.
 As such, I felt it would be a great idea to write a tutorial on how you can effectively containerize your Go applications using the Docker containerization technology.</description>
     </item>
     
     <item>
       <title>Building a Real-time YouTube Subscriber Monitor in Go</title>
-      <link>http://example.org/golang/building-realtime-youtube-sub-monitor-go/</link>
+      <link>https://cotutorial.github.io/golang/building-realtime-youtube-sub-monitor-go/</link>
       <pubDate>Sat, 23 Feb 2019 09:45:55 +0000</pubDate>
       
-      <guid>http://example.org/golang/building-realtime-youtube-sub-monitor-go/</guid>
+      <guid>https://cotutorial.github.io/golang/building-realtime-youtube-sub-monitor-go/</guid>
       <description>Welcome Everyone! In this tutorial, we are going to be having a bit of fun and we are going to be creating a real-time YouTube stats monitoring system in Go.
 So, we are going to be looking at a number of different topics within this tutorial such as creating a WebSocket server and using WebSockets to communicate in real-time with a frontend application, as well as how you can interact with an existing REST API to get the subscriber stats we need.</description>
     </item>
     
     <item>
       <title>Uploading Files in Go - Tutorial</title>
-      <link>http://example.org/golang/go-file-upload-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-file-upload-tutorial/</link>
       <pubDate>Sat, 09 Feb 2019 18:32:11 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-file-upload-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-file-upload-tutorial/</guid>
       <description>Hi everybody! In this tutorial, we are going to be building a really simple file-upload HTTP server that allows you to upload your files to the server running your Go application.
 There are countless different reasons why you would want to do this, you could be uploading CSV reports for further processing within your complex financial system, or you could be creating a cool image manipulation app that allows you to modify various aspects of any photos you want to upload.</description>
     </item>
     
     <item>
       <title>Go JSON Tutorial</title>
-      <link>http://example.org/golang/go-json-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-json-tutorial/</link>
       <pubDate>Mon, 21 Jan 2019 19:07:28 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-json-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-json-tutorial/</guid>
       <description>Welcome fellow Gophers! In this tutorial, we are going to be taking a comprehensive look at how we can work with JSON in our Go applications.
 JSON, or JavaScript Object Notation, is without a doubt the most popular data format for sending and receiving data across the web. All major languages support the data format by default and Go is no different.
  Source Code - The full source code for this tutorial can be found here: TutorialEdge/go-json-tutorial</description>
@@ -522,20 +522,20 @@ JSON, or JavaScript Object Notation, is without a doubt the most popular data fo
     
     <item>
       <title>Working with Temporary Files and Directories in Go 1.11</title>
-      <link>http://example.org/golang/temporary-files-directories-go-111/</link>
+      <link>https://cotutorial.github.io/golang/temporary-files-directories-go-111/</link>
       <pubDate>Thu, 10 Jan 2019 11:21:58 +0000</pubDate>
       
-      <guid>http://example.org/golang/temporary-files-directories-go-111/</guid>
+      <guid>https://cotutorial.github.io/golang/temporary-files-directories-go-111/</guid>
       <description>Go 1.11 brought some very cool new functionality such as the experimental Go Modules feature as well as the ability to create temporary files and directories using the new TempFile and TempDir functions within the ioutil package.
 The temporary files and directories created from these function calls are globally unique and this is awesome as it simplifies the way we handle hundreds or even thousands of files within our Go programs.</description>
     </item>
     
     <item>
       <title>Go Graphql Beginners Tutorial - Part 2</title>
-      <link>http://example.org/golang/go-graphql-beginners-tutorial-part-2/</link>
+      <link>https://cotutorial.github.io/golang/go-graphql-beginners-tutorial-part-2/</link>
       <pubDate>Fri, 28 Dec 2018 20:56:55 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-graphql-beginners-tutorial-part-2/</guid>
+      <guid>https://cotutorial.github.io/golang/go-graphql-beginners-tutorial-part-2/</guid>
       <description>Note - This tutorial is part of a 2-part mini-series on GraphQL, the first part of this tutorial can be found here: Go GraphQL Beginners Tutorial - Part 1
  Welcome fellow Gophers! In this tutorial, we are going to be expanding upon the work we did in our previous GraphQL Go tutorial and looking at mutations and implementing proper data-sources behind our GraphQL API.
 In the previous tutorial, we looked at some of the major benefits of GraphQL and how it could greatly improve the way we retrieve data for particular components within our applications.</description>
@@ -543,20 +543,20 @@ In the previous tutorial, we looked at some of the major benefits of GraphQL and
     
     <item>
       <title>Go GraphQL Beginners Tutorial</title>
-      <link>http://example.org/golang/go-graphql-beginners-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-graphql-beginners-tutorial/</link>
       <pubDate>Thu, 27 Dec 2018 18:46:19 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-graphql-beginners-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-graphql-beginners-tutorial/</guid>
       <description>Welcome fellow Gophers! In this tutorial, we are going to be looking at how we can interact with a GraphQL server within our Go-based programs. By the end of this tutorial, we should hopefully know how to do the following:
  The basics of GraphQL Build a Simple GraphQL Server in Go Perform basic queries against GraphQL  We&amp;rsquo;ll be focused on the data-retrieval side of GraphQL in this tutorial and we&amp;rsquo;ll back it with an in-memory data source.</description>
     </item>
     
     <item>
       <title>An Introduction to Go Closures - Tutorial</title>
-      <link>http://example.org/golang/go-closures-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-closures-tutorial/</link>
       <pubDate>Sat, 08 Dec 2018 13:33:45 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-closures-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-closures-tutorial/</guid>
       <description>In this tutorial, we are going to be looking at closures in Go. We&amp;rsquo;ll be covering the theory behind them, and we&amp;rsquo;ll look at how you can use them in your own Go applications.
 Closures - The Theory So, let&amp;rsquo;s dive in the theory.
 We can create and use closures within any programming language that supports functions as first-class object. Go, just so happens to be one such language, otherwise this article would be pointless.</description>
@@ -564,10 +564,10 @@ We can create and use closures within any programming language that supports fun
     
     <item>
       <title>Go Variadic Function Tutorial</title>
-      <link>http://example.org/golang/go-variadic-function-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-variadic-function-tutorial/</link>
       <pubDate>Thu, 06 Dec 2018 21:38:44 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-variadic-function-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-variadic-function-tutorial/</guid>
       <description>Note - This tutorial is a follow on from my previous article on regular functions in go: Go Functions Tutorial
  In this tutorial, we are going to be looking at Variadic Functions in Go. We&amp;rsquo;ll be covering how to implement and how to use these functions within your own Go applications.
 Variadic Functions There are times, when we do not know how many string arguments we will require for our functions.</description>
@@ -575,10 +575,10 @@ Variadic Functions There are times, when we do not know how many string argument
     
     <item>
       <title>Go WaitGroup Tutorial</title>
-      <link>http://example.org/golang/go-waitgroup-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-waitgroup-tutorial/</link>
       <pubDate>Wed, 05 Dec 2018 13:03:31 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-waitgroup-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-waitgroup-tutorial/</guid>
       <description>If you are just starting your journey about learning Go and how to implement highly concurrent, high-performance applications, then an understanding of WaitGroups is vital.
 In this tutorial, we are going to be covering the following:
  What WaitGroups are and when we should use them A simple example of working with WaitGroups A real world example of WaitGroups  By the end of this, you should have a solid grasp as to how to employ WaitGroups within your own concurrent Go applications.</description>
@@ -586,10 +586,10 @@ In this tutorial, we are going to be covering the following:
     
     <item>
       <title>Working With Environment Variables in Go</title>
-      <link>http://example.org/golang/working-with-environment-variables-in-go/</link>
+      <link>https://cotutorial.github.io/golang/working-with-environment-variables-in-go/</link>
       <pubDate>Tue, 04 Dec 2018 16:15:42 +0000</pubDate>
       
-      <guid>http://example.org/golang/working-with-environment-variables-in-go/</guid>
+      <guid>https://cotutorial.github.io/golang/working-with-environment-variables-in-go/</guid>
       <description>As we start to build ever more complex Go-based applications, we start to face challenges when it comes to safely introducing new features, or handling credentials for the likes of databases, or brokers.
 Using environment variables is an excellent way to simplify a number of different aspects such as handling credentials across various different environments, as well as simplifying the implementation of feature flags in your system.
 In this tutorial, we will be covering:</description>
@@ -597,20 +597,20 @@ In this tutorial, we will be covering:</description>
     
     <item>
       <title>Writing a Frontend Web Framework with WebAssembly And Go</title>
-      <link>http://example.org/golang/writing-frontend-web-framework-webassembly-go/</link>
+      <link>https://cotutorial.github.io/golang/writing-frontend-web-framework-webassembly-go/</link>
       <pubDate>Sun, 28 Oct 2018 10:28:34 +0000</pubDate>
       
-      <guid>http://example.org/golang/writing-frontend-web-framework-webassembly-go/</guid>
+      <guid>https://cotutorial.github.io/golang/writing-frontend-web-framework-webassembly-go/</guid>
       <description>JavaScript Frontend frameworks have undoubtedly helped to push the boundaries of what was previously possible in the context of a browser. Ever more complex applications have come out built on top of the likes of React, Angular and VueJS to name but a few and there&amp;rsquo;s the well known joke about how a new frontend framework seems to come out every day.
 However, this pace of development is exceptionally good news for developers around the world.</description>
     </item>
     
     <item>
       <title>Securing Your Go REST APIs With JWTs</title>
-      <link>http://example.org/golang/authenticating-golang-rest-api-with-jwts/</link>
+      <link>https://cotutorial.github.io/golang/authenticating-golang-rest-api-with-jwts/</link>
       <pubDate>Mon, 22 Oct 2018 19:26:44 +0100</pubDate>
       
-      <guid>http://example.org/golang/authenticating-golang-rest-api-with-jwts/</guid>
+      <guid>https://cotutorial.github.io/golang/authenticating-golang-rest-api-with-jwts/</guid>
       <description>Note - The full source code for this tutorial can be found here: TutorialEdge/go-jwt-tutorial
  JWTs, or JSON Web Tokens as they are more formally known, are a compact, URL-safe means of representing claims to be transferred between two parties. This is essentially a confusing way of saying that JWTs allow you to transmit information from a client to the server in a stateless, but secure way.
 Prerequisites Before you can follow this article, you will need the following:</description>
@@ -618,10 +618,10 @@ Prerequisites Before you can follow this article, you will need the following:</
     
     <item>
       <title>Go Decorator Function Pattern Tutorial</title>
-      <link>http://example.org/golang/go-decorator-function-pattern-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-decorator-function-pattern-tutorial/</link>
       <pubDate>Sat, 20 Oct 2018 21:34:14 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-decorator-function-pattern-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-decorator-function-pattern-tutorial/</guid>
       <description>Decorators are certainly more prominent in other programming languages such as Python and TypeScript, but that&amp;rsquo;s not to say you can&amp;rsquo;t use them in Go. In fact, for certain problems, using decorators is the perfect solution as we&amp;rsquo;ll hopefully be finding out in this tutorial.
 Understanding the Decorator Pattern  Decorators essentially allow you to wrap existing functionality and append or prepend your own custom functionality on top.
  In Go, functions are deemed as first class objects which essentially means you can pass them around just as you would a variable.</description>
@@ -629,30 +629,30 @@ Understanding the Decorator Pattern  Decorators essentially allow you to wrap ex
     
     <item>
       <title>Improving Your Go Tests and Mocks With Testify</title>
-      <link>http://example.org/golang/improving-your-tests-with-testify-go/</link>
+      <link>https://cotutorial.github.io/golang/improving-your-tests-with-testify-go/</link>
       <pubDate>Sat, 13 Oct 2018 09:53:51 +0100</pubDate>
       
-      <guid>http://example.org/golang/improving-your-tests-with-testify-go/</guid>
+      <guid>https://cotutorial.github.io/golang/improving-your-tests-with-testify-go/</guid>
       <description>Assertions are something that I genuinely feel the standard library in Go is missing. You can most definitely achieve the same results with the likes of if comparisons and whatever else, but it&amp;rsquo;s not the cleanest way to write your test files.
 This is where the likes of stretchr/testify comes in to save the day. This package has quickly become one of the most popular testing packages, if not the most popular testing package for Go developers around the world.</description>
     </item>
     
     <item>
       <title>The Best Books For Learning Golang</title>
-      <link>http://example.org/golang/top-books-for-learning-golang/</link>
+      <link>https://cotutorial.github.io/golang/top-books-for-learning-golang/</link>
       <pubDate>Mon, 12 Jun 2017 21:29:27 +0100</pubDate>
       
-      <guid>http://example.org/golang/top-books-for-learning-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/top-books-for-learning-golang/</guid>
       <description>Go is a language that has drastically grown in popularity over the past few years. We&amp;rsquo;ve seen companies such as HashiCorp adopt it as their primary language of choice for all of their projects and with good reason. It&amp;rsquo;s undoubtedly an absolutely fantastic language to develop with.
 Getting started with Go is relatively straightforward and its syntax and language structure make it easy to adopt as your primary development language.</description>
     </item>
     
     <item>
       <title>Hugo Adding Images To Markdown Posts</title>
-      <link>http://example.org/golang/hugo/hugo-adding-images-to-posts/</link>
+      <link>https://cotutorial.github.io/golang/hugo/hugo-adding-images-to-posts/</link>
       <pubDate>Mon, 12 Jun 2017 08:49:04 +0100</pubDate>
       
-      <guid>http://example.org/golang/hugo/hugo-adding-images-to-posts/</guid>
+      <guid>https://cotutorial.github.io/golang/hugo/hugo-adding-images-to-posts/</guid>
       <description>In this quick tutorial we are going to look at the various ways you can add images to your markdown content in hugo.
 Markdown Annotation The quickest and simplest way of adding images to your content would be to use markdown annotation. Place the image you want to display in your post within your static/ directory and then reference it in your markdown like so:
 ![image alt text](/my_image.png) Using HTML Tags In the situation where you need to add say a custom css class to the image then your second option is to simply use an &amp;lt;img/&amp;gt; tag within your markdown content.</description>
@@ -660,49 +660,49 @@ Markdown Annotation The quickest and simplest way of adding images to your conte
     
     <item>
       <title>Hugo Deployment Workflow Tutorial</title>
-      <link>http://example.org/golang/hugo/hugo-deployment-workflow-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/hugo/hugo-deployment-workflow-tutorial/</link>
       <pubDate>Mon, 12 Jun 2017 08:48:26 +0100</pubDate>
       
-      <guid>http://example.org/golang/hugo/hugo-deployment-workflow-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/hugo/hugo-deployment-workflow-tutorial/</guid>
       <description>When developing websites with Hugo, having a solid automated deployment strategy can save you hundreds of hours of performing repetitive manual tasks. This site itself uses hugo and an automated deployment strategy in order to automatically deploy any changes made to it&amp;rsquo;s underlying git repo: elliotforbes/tutorialedge.net. Whenever I wish to make a change to any of the content on my site I follow these steps:
  Make the changes to a local version of hugo running on my laptop Verify the changes look good in my browser.</description>
     </item>
     
     <item>
       <title>Getting Started With Hugo</title>
-      <link>http://example.org/golang/hugo/getting-started-with-hugo/</link>
+      <link>https://cotutorial.github.io/golang/hugo/getting-started-with-hugo/</link>
       <pubDate>Sat, 27 May 2017 11:13:46 +0100</pubDate>
       
-      <guid>http://example.org/golang/hugo/getting-started-with-hugo/</guid>
+      <guid>https://cotutorial.github.io/golang/hugo/getting-started-with-hugo/</guid>
       <description>Hugo is an incredibly popular static site generator written primarily in Go and it is currently running this site. With Hugo you would typically define all of your content in the form of markdown files. These markdown files are then parsed and combined with a number of template files and you are left with a fully functioning html page that you can easily host anywhere. There are a number of key advantages to this approach such as:</description>
     </item>
     
     <item>
       <title>Sending Email Using Go And Mailgun</title>
-      <link>http://example.org/golang/sending-email-using-go-and-mailgun/</link>
+      <link>https://cotutorial.github.io/golang/sending-email-using-go-and-mailgun/</link>
       <pubDate>Sat, 15 Apr 2017 08:44:00 +0100</pubDate>
       
-      <guid>http://example.org/golang/sending-email-using-go-and-mailgun/</guid>
+      <guid>https://cotutorial.github.io/golang/sending-email-using-go-and-mailgun/</guid>
       <description>In this tutorial I&#39;m going to be demonstrating how you can send mail with Go(Lang) and the mailgun api. Thankfully, mailgun&#39;s API is fantastic and sending mail is incredibly easy once you&#39;ve set everything up properly.
 Requirements  You&#39;ll need a mailgun account with your own verified domains Mailgun&#39;s Go Package: Downloadable from here  https://github.com/mailgun/mailgun-go Your Mailgun&#39;s Public API Key  Implementation package main import ( &amp;#34;github.com/mailgun/mailgun-go&amp;#34; ) func SendSimpleMessage(domain, apiKey string) (string, error) { mg := mailgun.</description>
     </item>
     
     <item>
       <title>Implementing the Bubble Sort Algorithm using Golang</title>
-      <link>http://example.org/golang/implementing-bubble-sort-with-golang/</link>
+      <link>https://cotutorial.github.io/golang/implementing-bubble-sort-with-golang/</link>
       <pubDate>Sat, 15 Apr 2017 08:34:43 +0100</pubDate>
       
-      <guid>http://example.org/golang/implementing-bubble-sort-with-golang/</guid>
+      <guid>https://cotutorial.github.io/golang/implementing-bubble-sort-with-golang/</guid>
       <description>What Is Bubble Sort? Bubble sort is a sorting algorithm that sequentially goes through an array n times. Each time the algorithm runs through our array, it looks at the first element and then the second element, if the first element is larger than the second element then it swaps them, it then proceeds through the entire list performing this action.
 Time Complexity The time complexity for this algorithm is O(n^2) where n is the number of items being sorted.</description>
     </item>
     
     <item>
       <title>Golang Integer String Conversion Tutorial</title>
-      <link>http://example.org/golang/golang-integer-string-conversion-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/golang-integer-string-conversion-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:09:39 +0100</pubDate>
       
-      <guid>http://example.org/golang/golang-integer-string-conversion-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/golang-integer-string-conversion-tutorial/</guid>
       <description>In this tutorial we briefly look at how one can convert an integer to string and back again in GoLang. In order to do this we’ll be using the ‘strconv’ package and the Atoi and Itoa functions.
 Full documentation of the strconv package can be found here: Strconv Package
 String to Integer Conversion func strToIntConversion() { fmt.Println(&amp;#34;String to Integer Value Conversion&amp;#34;) var ourInteger int // use the strconv package to convert our string &amp;#39;12345&amp;#39; to an integer value  ourInteger, err := strconv.</description>

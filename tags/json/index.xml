@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>json on My New Hugo Site</title>
-    <link>http://example.org/tags/json/</link>
-    <description>Recent content in json on My New Hugo Site</description>
+    <title>json on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/json/</link>
+    <description>Recent content in json on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Mon, 25 Dec 2017 11:51:47 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/json/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/json/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Working with JSON in Rust - Tutorial</title>
-      <link>http://example.org/rust/rust-working-with-json-tutorial/</link>
+      <link>https://cotutorial.github.io/rust/rust-working-with-json-tutorial/</link>
       <pubDate>Mon, 25 Dec 2017 11:51:47 +0000</pubDate>
       
-      <guid>http://example.org/rust/rust-working-with-json-tutorial/</guid>
+      <guid>https://cotutorial.github.io/rust/rust-working-with-json-tutorial/</guid>
       <description>This tutorial was built using Rust Version: 1.22.1
  Introduction Most programming languages support JSON as part of the core language by default. It&amp;rsquo;s an incredibly popular data format that is used in millions of different applications.
 In this tutorial we&amp;rsquo;ll be looking at how you can effectively work with JSON objects within our own Rust based systems. In order to do this we&amp;rsquo;ll be creating a very simple REST API that will do a variety of different things with JSON objects.</description>
@@ -24,10 +24,10 @@ In this tutorial we&amp;rsquo;ll be looking at how you can effectively work with
     
     <item>
       <title>Converting CSV to JSON using NodeJS</title>
-      <link>http://example.org/nodejs/converting-csv-json-node/</link>
+      <link>https://cotutorial.github.io/nodejs/converting-csv-json-node/</link>
       <pubDate>Sun, 09 Apr 2017 21:29:02 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/converting-csv-json-node/</guid>
+      <guid>https://cotutorial.github.io/nodejs/converting-csv-json-node/</guid>
       <description>In this tutorial I’m going to be showing you how we can create a NodeJS script that takes in a csv file and outputs the contents of that CSV file as JSON.
 In order to do this conversion we’ll be using the csvtojson node package. This package will do pretty much all the heavy lifting for us and having used it in production environments I can say that it’s remarkably easy to implement into a project.</description>
     </item>

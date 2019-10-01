@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data-science on My New Hugo Site</title>
-    <link>http://example.org/tags/data-science/</link>
-    <description>Recent content in data-science on My New Hugo Site</description>
+    <title>data-science on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/data-science/</link>
+    <description>Recent content in data-science on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 19 Jan 2019 11:11:06 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting Up your Development Environment for Building a Genetic Adversarial Network</title>
-      <link>http://example.org/python/data-science/setting-up-dev-environment-building-gan/</link>
+      <link>https://cotutorial.github.io/python/data-science/setting-up-dev-environment-building-gan/</link>
       <pubDate>Sat, 19 Jan 2019 11:11:06 +0000</pubDate>
       
-      <guid>http://example.org/python/data-science/setting-up-dev-environment-building-gan/</guid>
+      <guid>https://cotutorial.github.io/python/data-science/setting-up-dev-environment-building-gan/</guid>
       <description>What&amp;rsquo;s a development environment? Everyone thinks setting up a development environment needs to be this incredibly arduous process. The installation process could be worse. It&amp;rsquo;s actually quite simple and this article intends to show you the basics.
 Getting ready Let&amp;rsquo;s lay out the requirements for the equipment you&amp;rsquo;ll need:
  GPU: 10 series CUDA-enabled Nidea GPU Operating system: Ubuntu Linux 16.04+ CPU/RAM: i5 or i7 with at least 8 GB of RAM  First and foremost, the GPU is a requirement.</description>
@@ -24,20 +24,20 @@ Getting ready Let&amp;rsquo;s lay out the requirements for the equipment you&amp
     
     <item>
       <title>Preparing a Dataset for Machine Learning with scikit-learn</title>
-      <link>http://example.org/python/data-science/preparing-dataset-machine-learning-scikit-learn/</link>
+      <link>https://cotutorial.github.io/python/data-science/preparing-dataset-machine-learning-scikit-learn/</link>
       <pubDate>Sat, 19 Jan 2019 10:53:22 +0000</pubDate>
       
-      <guid>http://example.org/python/data-science/preparing-dataset-machine-learning-scikit-learn/</guid>
+      <guid>https://cotutorial.github.io/python/data-science/preparing-dataset-machine-learning-scikit-learn/</guid>
       <description>The first step to implementing any machine learning algorithm with scikit-learn is data preparation. Scikit-learn comes with a set of constraints to implementation. The dataset that we will be using is based on mobile payments and is found on the world&amp;rsquo;s most popular competitive machine learning website – Kaggle. You can download the dataset from: https://www.kaggle.com/ntnu-testimon/paysim1.
 Once downloaded, open a new Jupyter Notebook using the following code in Terminal (macOS/Linux) or Anaconda Prompt/PowerShell (Windows):</description>
     </item>
     
     <item>
       <title>Building an IMDB Top 250 Clone with Pandas</title>
-      <link>http://example.org/python/building-imdb-top-250-clone-pandas/</link>
+      <link>https://cotutorial.github.io/python/building-imdb-top-250-clone-pandas/</link>
       <pubDate>Sun, 21 Oct 2018 19:20:13 +0100</pubDate>
       
-      <guid>http://example.org/python/building-imdb-top-250-clone-pandas/</guid>
+      <guid>https://cotutorial.github.io/python/building-imdb-top-250-clone-pandas/</guid>
       <description>The Internet Movie Database (IMDB) maintains a chart called the IMDB Top 250, which is a ranking of the top 250 movies according to a certain scoring metric. All the movies in this list are non-documentary, theatrical releases with a runtime of at least 45 minutes and over 250,000 ratings:
 This chart can be considered the simplest of recommenders. It doesn&amp;rsquo;t take into consideration the tastes of a particular user nor does it try to deduce similarities between different movies.</description>
     </item>

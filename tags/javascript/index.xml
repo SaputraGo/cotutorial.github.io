@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>javascript on My New Hugo Site</title>
-    <link>http://example.org/tags/javascript/</link>
-    <description>Recent content in javascript on My New Hugo Site</description>
+    <title>javascript on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Tue, 24 Jul 2018 21:19:40 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Part 1 - Setting Up Our CI/CD Pipeline to S3</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</guid>
       <description>If you know anything about me, you&amp;rsquo;ll know I am incredibly lazy. This means that it&amp;rsquo;s incredibly important to set up an automated deployment pipeline early in the project&amp;rsquo;s development.
 If we are serious about developing a decent website that will make us tonnes of money then we need to get this working from the start. Afterall, if it takes us about 5-10 minutes to deploy our site, by automating this we&amp;rsquo;ll be saving ourselves 5-10 minutes every time we wish to push up changes.</description>
     </item>
     
     <item>
       <title>Part 1 - Setting Up Our VueJS Project</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</guid>
       <description>In this first tutorial, we will be covering exactly how you set up your development machine so that we can start working on our HackerNews clone.
 We&amp;rsquo;ll get a basic VueJS application up and running and we&amp;rsquo;ll also cover how you can build this simple project so that you end up with files that are deployable to the likes of and S3 bucket, or a server that can serve your files.</description>
     </item>
     
     <item>
       <title>Part 2 - Getting Started With AWS Lambda</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</link>
       <pubDate>Thu, 19 Apr 2018 21:42:29 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</guid>
       <description>So, in the last tutorial, we managed to get a simple CI/CD pipeline up and running so that whenever we commit anything to our github repo, it automatically builds and deploys these changes to our &amp;ldquo;production&amp;rdquo; environment.
 In this tutorial, we are going to continue to develop our blog and get started building up the first of our Lambda functions that we&amp;rsquo;ll need to make our blog work.
 Our First Lambda Function We&amp;rsquo;ll start by creating a hello world style lambda function that will later return a paginated list of blog posts.</description>
@@ -44,89 +44,89 @@ Our First Lambda Function We&amp;rsquo;ll start by creating a hello world style 
     
     <item>
       <title>Part 2 - Creating a Few Components</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</guid>
       <description>In the previous tutorial, we not only managed to set up our base project and get it running on http://localhost:8080, but we also managed to build it so that it&amp;rsquo;s ready for deployment to production. We now have a strong base project from which we can build up up our HackerNews clone.
 In this tutorial, we are going to create our first Single Page component which will be our Navbar.</description>
     </item>
     
     <item>
       <title>Part 3 - Setting Up our RDS Database</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</link>
       <pubDate>Tue, 24 Jul 2018 21:19:40 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</guid>
       <description>Introduction Welcome back to part 3 of my course on building a blog with Vue.JS on AWS. In this part of the course, we are going to be setting up an RDS instance which will store all of our blog&amp;rsquo;s articles and posts.
 Once we have our database instance set up and our schema defined, we can then move on to building Lambda functions that will query this database and return the results to our frontend.</description>
     </item>
     
     <item>
       <title>Part 4 - Setting Up Our Dynamodb Table</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</link>
       <pubDate>Fri, 20 Apr 2018 12:31:40 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</guid>
       <description>In the previous tutorial, we managed to get our first Lambda tutorial up and running, however, it doesn&amp;rsquo;t do anything too exciting as it stands. This is where Dynamo comes in, we need to create a DynamoDB table where we can store everything we need for our blog. This includes new blog posts, any comments, ratings, and whatever else we can think of!
 Once we have this new table all defined, we can start to play about with inserting things and then retrieving them using our existing Lambda function.</description>
     </item>
     
     <item>
       <title>Part 3 - Adding a Few Routes To Our App</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</guid>
       <description>In the previous tutorial of this series, we covered single page components and how you could build your own components and subsequently render them within your Vue.js application. We created a simple Navbar component and registered it within our App.vue component and subsequently rendered it within our application.
 In this tutorial, we are going to be creating a few more single-page components and setting up a vue-router so that we can navigate between different views on our site.</description>
     </item>
     
     <item>
       <title>Part 5 - Getting Started With AWS Cognito</title>
-      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</link>
+      <link>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</link>
       <pubDate>Fri, 20 Apr 2018 12:41:31 +0100</pubDate>
       
-      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</guid>
+      <guid>https://cotutorial.github.io/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</guid>
       <description>In the previous tutorial, we managed to get our DynamoDB table set up and populated with a couple of very simple posts. In this tutorial, we are going to set up a Cognito pool that will store all of the users that register for our Blog. We&amp;rsquo;ll also be able to improve our Lambda endpoints so that they aren&amp;rsquo;t open to the world, they require authentication before they start updating our database, this will stop unauthorized people potentially updating posts and doing malicious things.</description>
     </item>
     
     <item>
       <title>Part 4 - Hitting The HackerNews API</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</guid>
       <description>The documentation for the API we will be hitting can be found here: HackerNews/API
  In most frontend web applications, you will need to start making HTTP requests in order to retrieve data from a database or get information from a RESTful API. Being able to do this is considered almost essential these days and thus, in this section of the course, we are going to look at how you can extend the HackerNews project in order to make HTTP requests out to the HackerNews API.</description>
     </item>
     
     <item>
       <title>Part 5 - Viewing Individual News Articles</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</guid>
       <description>In the previous tutorial, we looked at how we could show all of the latest HackerNews stories on our Homepage component and showed information like the score and the URL of that story. Whilst this is pretty cool, it doesn&amp;rsquo;t let us see the discussion going on around any of the stories, as we all know, this can be the best bit!
 In this tutorial, we&amp;rsquo;ll be adding a new route to our VueJS application which will be able to render an individual story and the comments associated with it.</description>
     </item>
     
     <item>
       <title>Part 6 - Advanced Components</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-6-advanced-components/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-6-advanced-components/</guid>
       <description>As we continue to build this HackerNews clone up, the code within some of our components is going to increasingly grow. We need to start splitting our application up into multiple smaller components and in order for us to do this, we&amp;rsquo;ll first have to learn some new concepts such as passing data into components using props.
 Video Tutorial  In this tutorial, we are going to create an Item.</description>
     </item>
     
     <item>
       <title>Part 7 - Managing State with Vuex in your VueJS Applications</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</guid>
       <description>In this tutorial, we are going to be adding Vuex to our VueJS application. We&amp;rsquo;ll be looking at how we can improve the performance of our application and persist data between route changes.
 Why Vuex? Vuex is a state management pattern + library for Vue.js applications. Essentially, it acts as a centralized store for all components in an application.
 Vuex Core Concepts Before we continue to flesh out our VueJS application, we should really ground ourselves with the core concepts of Vuex.</description>
@@ -134,10 +134,10 @@ Vuex Core Concepts Before we continue to flesh out our VueJS application, we sho
     
     <item>
       <title>Part 8 - Deploying Our HackerNews Client To AWS</title>
-      <link>http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</link>
+      <link>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</link>
       <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
       
-      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</guid>
+      <guid>https://cotutorial.github.io/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</guid>
       <description>In this final lesson in the series, we are going to be taking a look at how you can deploy your finished application up to AWS so that it is available for the world.
 We&amp;rsquo;ll cover how to do this in an automated fashion using the Travis-CI platform and we&amp;rsquo;ll also cover some of the various methods of improving performance using services such as CloudFront.
 Setting up a CI/CD Pipeline Now that we have a basic level of functionality within our application, it makes sense to deploy it, have our users see it, and interact with it and hopefully provide feedback on it as soon as possible.</description>
@@ -145,10 +145,10 @@ Setting up a CI/CD Pipeline Now that we have a basic level of functionality with
     
     <item>
       <title>Building Real-time ReactJS Applications with Socket.Io - Tutorial</title>
-      <link>http://example.org/react/react-socket-io-tutorial/</link>
+      <link>https://cotutorial.github.io/react/react-socket-io-tutorial/</link>
       <pubDate>Sun, 15 Jul 2018 09:13:28 +0100</pubDate>
       
-      <guid>http://example.org/react/react-socket-io-tutorial/</guid>
+      <guid>https://cotutorial.github.io/react/react-socket-io-tutorial/</guid>
       <description>In this article, we are going to be looking at how you can implement real-time websocket-based communication within your ReactJS web application.
 Why Websockets? I&amp;rsquo;ve covered this numerous times in previous articles on this site as to why we should use websockets within our applications.
 The benefits are numerous, and when we use socket.io, these benefits can be realized with minimal added complexity.
@@ -157,20 +157,20 @@ Let&amp;rsquo;s have a look at a real-life example.</description>
     
     <item>
       <title>Working With Docker and NodeJS - Tutorial</title>
-      <link>http://example.org/docker/working-with-docker-nodejs/</link>
+      <link>https://cotutorial.github.io/docker/working-with-docker-nodejs/</link>
       <pubDate>Sun, 27 May 2018 21:40:20 +0100</pubDate>
       
-      <guid>http://example.org/docker/working-with-docker-nodejs/</guid>
+      <guid>https://cotutorial.github.io/docker/working-with-docker-nodejs/</guid>
       <description>The full source code for this tutorial can be found here: TutorialEdge/Docker/node-docker
  In this tutorial, we are going to be looking at how you can dockerize an existing NodeJS application and ultimately leverage the benefits of Docker. We&amp;rsquo;ll be creating a Docker image that will dynamically pick up changes to a NodeJS application and automatically recompile and rerun our application without having to rebuild and re-run our docker image.</description>
     </item>
     
     <item>
       <title>NodeJS 404 Checker Tutorial</title>
-      <link>http://example.org/nodejs/nodejs-404-checker-tutorial/</link>
+      <link>https://cotutorial.github.io/nodejs/nodejs-404-checker-tutorial/</link>
       <pubDate>Sun, 11 Mar 2018 14:08:54 +0000</pubDate>
       
-      <guid>http://example.org/nodejs/nodejs-404-checker-tutorial/</guid>
+      <guid>https://cotutorial.github.io/nodejs/nodejs-404-checker-tutorial/</guid>
       <description>Introduction In this tutorial, we&amp;rsquo;ll be looking at how you can create a nice and simple 404 broken link checker in NodeJS using the axios library as well as cheerio and is-relative-url.
  We will be taking advantage of the async and await keywords in this tutorial. You can find out more on them here: JavaScript async and await Tutorial
  Let&amp;rsquo;s begin by creating a simple async function that will retrieve all of the links from a passed in URL.</description>
@@ -178,49 +178,49 @@ Let&amp;rsquo;s have a look at a real-life example.</description>
     
     <item>
       <title>Javascript Async Await Tutorial</title>
-      <link>http://example.org/javascript/javascript-async-await-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/javascript-async-await-tutorial/</link>
       <pubDate>Sat, 10 Mar 2018 20:59:31 +0000</pubDate>
       
-      <guid>http://example.org/javascript/javascript-async-await-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/javascript-async-await-tutorial/</guid>
       <description>In this tutorial, we are going to have a look at how you can make your JavaScript programs more syntactically beautiful with the use of both the async and await keywords. Both of these keywords were introduced into Node in version 7.6. Hopefully, by the end of the tutorial, you will be going back to refactor all of your old NodeJS based applications to replace all of your chained callbacks and promises.</description>
     </item>
     
     <item>
       <title>The Best Books For Learning React and React Native</title>
-      <link>http://example.org/react/best-books-for-learning-react/</link>
+      <link>https://cotutorial.github.io/react/best-books-for-learning-react/</link>
       <pubDate>Mon, 11 Sep 2017 18:53:10 +0100</pubDate>
       
-      <guid>http://example.org/react/best-books-for-learning-react/</guid>
+      <guid>https://cotutorial.github.io/react/best-books-for-learning-react/</guid>
       <description>  This List is Currently under Construction
  Learning React Native Buy Now: Learning React Native Learning React Buy Now: Learning React: Functional Web Development with React and Redux React Up &amp;amp; Running Buy Now: React Up &amp;amp; Running Mastering React Buy Now: Mastering React React and React Native Buy Now: React and React Native React Native Cookbook Buy Now: React Native Cookbook React.js Essentials Buy Now: React.js Essentials </description>
     </item>
     
     <item>
       <title>The Best Books for Learning JavaScript</title>
-      <link>http://example.org/javascript/best-books-learning-javascript/</link>
+      <link>https://cotutorial.github.io/javascript/best-books-learning-javascript/</link>
       <pubDate>Tue, 05 Sep 2017 19:20:04 +0100</pubDate>
       
-      <guid>http://example.org/javascript/best-books-learning-javascript/</guid>
+      <guid>https://cotutorial.github.io/javascript/best-books-learning-javascript/</guid>
       <description>Under Construction
  JavaScript: The Good Parts Douglas Crockford is one of the most prominent experts in the field of JavaScript by many in the development community and his book JavaScript: The Good Parts is an excellent addition to any JavaScript developers library. The book goes over some of the best parts of the JavaScript language and is exceptionally well written. With an average review of 4.4 out of 5 stars on Amazon, this is definitely a safe purchase for those wanting to master the art of JavaScript programming and create absolutely beautiful software systems.</description>
     </item>
     
     <item>
       <title>AngularJS Promises Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-promises-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-promises-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 14:41:31 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-promises-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-promises-tutorial/</guid>
       <description>In this tutorial we&amp;rsquo;ll be looking at how to work with and define promises in AngularJS. For more information check out the official AngularJS Documentation
 What are Promises in Javascript? Essentially when you create a promise, you are ensuring that a certain order is followed in the execution of your code. Javascript is asynchronous by nature and in the execution of a method it’s not guaranteed what part of it will finish execution first.</description>
     </item>
     
     <item>
       <title>Most Important Changes to AngularJS in 1.6</title>
-      <link>http://example.org/javascript/angularjs/most-important-changes-angularjs-1-6/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/most-important-changes-angularjs-1-6/</link>
       <pubDate>Sat, 15 Apr 2017 14:31:36 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/most-important-changes-angularjs-1-6/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/most-important-changes-angularjs-1-6/</guid>
       <description>The changelog with the AngularJS 1.6 release notes can be found here: AngularJS 1.6-RC.0 After having a look at the AngularJS release notes for 1.6, I thought I’d compile my thoughts together as to the most important changes to the framework in the coming release.
 Expression Sandbox Removal Expression Sandbox Removal Full Notes
 The expression sandbox removal was essentially something that checked to see if your code was accidentally accessing arbitrary javascript and discourage you from placing any business logic inside your templates.</description>
@@ -228,10 +228,10 @@ The expression sandbox removal was essentially something that checked to see if 
     
     <item>
       <title>AngularJS ng-model in ng-if Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-ng-model-in-ng-if-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-ng-model-in-ng-if-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 09:17:38 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-ng-model-in-ng-if-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-ng-model-in-ng-if-tutorial/</guid>
       <description>a quick tip for those trying to get the ng-model directive working in your angularjs application within ng-if.
 ng-if Child Scopes If you are wanting to use an ng-model scope within an ng-if then you&#39;ll have to access that scope using $parent
 Our html page will look something like so:
@@ -240,10 +240,10 @@ Our html page will look something like so:
     
     <item>
       <title>AngularJS Data Binding Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-data-binding-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-data-binding-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 09:16:16 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-data-binding-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-data-binding-tutorial/</guid>
       <description>AngularJS Official Docs on Data Binding can be found here: AngularJS Data Binding
  Please note that the use of scope is somewhat frowned upon. Check out my article on Working with Components and how you should use one way data-binding.
  What is Data Binding? Data binding is incredibly useful due to the fact it automatically synchronizes the data in both our model and view components. Any changes made to something in the frontend will automatically be reflected in the backend and vice versa.</description>
@@ -251,10 +251,10 @@ Our html page will look something like so:
     
     <item>
       <title>AngularJS Controllers Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-controllers-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-controllers-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 09:10:12 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-controllers-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-controllers-tutorial/</guid>
       <description>AngularJS controllers are somewhat similar to classes in Object Oriented programming and as such you can define the functionality of your applications in these controllers. When a controller is attached to the DOM via the ng-controller directive it instantiates a new Controller object.
  Check out my article on Working with Components and see how you should use controllers within a component based system.
  Instantiating a Controller We’ll begin by creating a very simple controller that contains a function that we’ll call every time we click a button.</description>
@@ -262,20 +262,20 @@ Our html page will look something like so:
     
     <item>
       <title>AngularJS Templating Tutorial Using ng-view</title>
-      <link>http://example.org/javascript/angularjs/angularjs-template-tutorial-using-ng-view/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-template-tutorial-using-ng-view/</link>
       <pubDate>Sat, 15 Apr 2017 09:09:12 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-template-tutorial-using-ng-view/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-template-tutorial-using-ng-view/</guid>
       <description>Templating is fantastic for reducing the amount of code you have to maintain, if you have a defined structure to all of your webapp&amp;rsquo;s pages then templating allows you to create one master page for this structure and then just replace pieces of the page with different content based on the url.
 For instance, say we had a blog. If our blog had the same nav bar, the same header image, the same footer, then it makes sense to put this in one place instead of constantly repeating it throughout every page in your application.</description>
     </item>
     
     <item>
       <title>AngularJS Directives Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-directives-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-directives-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 09:08:03 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-directives-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-directives-tutorial/</guid>
       <description>The official documentation for AngularJS’s directives can be found here: AngularJS Directives
 What Are Directives? Directives essentially allow you to attach behaviors to specific DOM elements. This means you can define your own custom html-like tags and attach all of the functionality you desire to that tag which is perfect for creating breaking up your applications into distinct modules which can be worked on simultaneously in teams of developers.
 Directives are an essential part of the AngularJS framework and if you want a bit of background behind why you should define your own directives rather than use the ng-controller directive then check out this post by one of Paypal’s engineers - Lessons learned from rebuilding Paypal&#39;s checkout in AngularJS</description>
@@ -283,10 +283,10 @@ Directives are an essential part of the AngularJS framework and if you want a bi
     
     <item>
       <title>AngularJS Template Route Provider Tutorial</title>
-      <link>http://example.org/javascript/angularjs/template-route-provider-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/template-route-provider-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 09:04:56 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/template-route-provider-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/template-route-provider-tutorial/</guid>
       <description>This tutorial covers how you can utilize AngularJS’s $routeProvider in order to create a multiple page application that features one master page. The official documentation for Routing and multiple views can be found here: https://docs.angularjs.org/tutorial/step_07 
 Our Project The structure of our project for this tutorial is going to look a little something like this:
 index.html scripts.js view/ -- home.html -- contact.html -- about.html With our index.html being our master page in which we define all javascript dependencies and styling for things like the nav bar and footer etc.</description>
@@ -294,86 +294,86 @@ index.html scripts.js view/ -- home.html -- contact.html -- about.html With our 
     
     <item>
       <title>Interacting With RESTful APIs Using $http in AngularJS</title>
-      <link>http://example.org/javascript/angularjs/interacting-with-apis-using-http-angularjs/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/interacting-with-apis-using-http-angularjs/</link>
       <pubDate>Sat, 15 Apr 2017 09:03:47 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/interacting-with-apis-using-http-angularjs/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/interacting-with-apis-using-http-angularjs/</guid>
       <description>In this tutorial I will be showing you how we can create a frontend angularjs application that could interact with a RESTful API. In order for our Angular applications to be able to make API calls, we’ll have to use the $http service which gives us the ability to perform GET, POST, PUT and DELETE api calls, there are other types of calls but for now we’ll focus on these 4.</description>
     </item>
     
     <item>
       <title>AngularJS Filter Search Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-filter-search-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-filter-search-tutorial/</link>
       <pubDate>Sat, 15 Apr 2017 08:59:44 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-filter-search-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-filter-search-tutorial/</guid>
       <description>Links: Full Source Code: https://github.com/emforce/AngularFuzzySearch In this tutorial I’ll be showing you how you can create a tool which allows you to type in a search query in an input box and see all matches below that input box without having to reload the page and we’ll be leveraging AngularJS’s filter mechanic to do so.
 To get us started we’ll start with mocking up what our page will look like, this is just going to be a basic no-frills design to get us started but feel free to modify it to suit.</description>
     </item>
     
     <item>
       <title>Retrieving Website Visitor Information Using Javascript</title>
-      <link>http://example.org/javascript/retrieving-visitor-information-javascript/</link>
+      <link>https://cotutorial.github.io/javascript/retrieving-visitor-information-javascript/</link>
       <pubDate>Sat, 15 Apr 2017 08:40:42 +0100</pubDate>
       
-      <guid>http://example.org/javascript/retrieving-visitor-information-javascript/</guid>
+      <guid>https://cotutorial.github.io/javascript/retrieving-visitor-information-javascript/</guid>
       <description>In this tutorial I&#39;ll be demonstrating how you can retrieve key information about all your website visitors using a very simple javascript snippet. This could in theory be placed on all your website&#39;s pages and then returned to a REST API which then stores this information for you to analyse in the future. I thought this would be an interesting little snippet for those of you thinking of rolling your own google analytics-like tracking.</description>
     </item>
     
     <item>
       <title>Keeping NodeJS Applications Running Forever Using PM2</title>
-      <link>http://example.org/nodejs/keeping-node-apps-running-forever-pm2/</link>
+      <link>https://cotutorial.github.io/nodejs/keeping-node-apps-running-forever-pm2/</link>
       <pubDate>Sat, 15 Apr 2017 08:38:40 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/keeping-node-apps-running-forever-pm2/</guid>
+      <guid>https://cotutorial.github.io/nodejs/keeping-node-apps-running-forever-pm2/</guid>
       <description>If you write an application that you need to keep running forever on your servers then this is the tutorial for you. If you&#39;re a software developer working on business critical applications and have to adhere to strict Service Level Agreements (SLAs for short) then you know just how vital it is to have your applications back up and running the second they fall over, every second counts when trying to achieve the 5 9&#39;s or 99.</description>
     </item>
     
     <item>
       <title>Setting a Default Value for Select Elements in AngularJS</title>
-      <link>http://example.org/javascript/angularjs/setting-default-select-value-angularjs/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/setting-default-select-value-angularjs/</link>
       <pubDate>Sat, 15 Apr 2017 08:37:21 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/setting-default-select-value-angularjs/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/setting-default-select-value-angularjs/</guid>
       <description>This is just a quick code snippet for those of you facing this slight problem when developing your applications using AngularJS 1.5. This works for those of you &amp;lt;select ng-model=&amp;#34;selection&amp;#34; ng-init=&amp;#34;selection =&amp;#39;The First Default Option&amp;#39;&amp;#34;&amp;gt; &amp;lt;option&amp;gt;The First Default Option&amp;lt;/option&amp;gt; &amp;lt;option&amp;gt;The Second non-default option&amp;lt;/option&amp;gt; &amp;lt;/select&amp;gt;</description>
     </item>
     
     <item>
       <title>Using Hidden Input in a Form in AngularJS</title>
-      <link>http://example.org/javascript/angularjs/hidden-input-form-angularjs/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/hidden-input-form-angularjs/</link>
       <pubDate>Sat, 15 Apr 2017 08:35:56 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/hidden-input-form-angularjs/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/hidden-input-form-angularjs/</guid>
       <description> This ended up being an interesting little problem for me during one of my programming sessions. Below you&#39;ll find a couple of different methods that you can use to pass hidden data to any form submission using AngularJS.
 Method 1 &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;someData&amp;#34; ng-model=&amp;#34;data&amp;#34; style=&amp;#34;display: none;&amp;#34; /&amp;gt;</description>
     </item>
     
     <item>
       <title>Building a Webserver using ExpressJS and NodeJS</title>
-      <link>http://example.org/nodejs/creating-a-webserver-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/creating-a-webserver-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:32:01 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/creating-a-webserver-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/creating-a-webserver-with-nodejs/</guid>
       <description>This is the first tutorial in a series in which we’ll be building up a website for a domain name I’ve been sitting on for a few years now. This is intended to show you everything it takes in order to program your own website using NodeJS and the new Angular2 framework.
 Creating a Simple Web Server Using NodeJS and ExpressJS. So the very first thing we need for our site is the foundation and for this we can use a very simple ExpressJS server.</description>
     </item>
     
     <item>
       <title>Executing Shell Scripts With NodeJS</title>
-      <link>http://example.org/nodejs/executing-shell-scripts-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/executing-shell-scripts-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:26:02 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/executing-shell-scripts-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/executing-shell-scripts-with-nodejs/</guid>
       <description>One of the problems I’ve been faced with recently is how do I go about executing shell scripts using NodeJS. This essentially allows me to query the status of certain processes and utilize the full power of the unix shell commands. Implementation using NodeJS child_process Module Node thankfully already has a module which is designed specifically for executing shell scripts and can be found here in the documentation.
 This module essentially creates a child process in which we can execute our shell script and also sets everything up for us so that we can utilize stdin, stdout and stderr within our NodeJS application.</description>
     </item>
     
     <item>
       <title>Creating and Deleting Directories With NodeJS</title>
-      <link>http://example.org/nodejs/creating-deleting-directories-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/creating-deleting-directories-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:17:02 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/creating-deleting-directories-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/creating-deleting-directories-with-nodejs/</guid>
       <description>In this tutorial I’ll be showing you how to create and delete directories using NodeJS and we’ll be using the mkdirp and the rimraf node package in order to achieve this.
 Creating Directories In order to create a directory we’ll need first download the mkdirp npm package, we can do this like so:
 npm install mkdirp --local  This should install the mkdirp package as well as any of it’s dependencies in a node_modules directory within your current directory.</description>
@@ -381,30 +381,30 @@ npm install mkdirp --local  This should install the mkdirp package as well as an
     
     <item>
       <title>Editing XML Files With NodeJS</title>
-      <link>http://example.org/nodejs/editing-xml-files-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/editing-xml-files-with-nodejs/</link>
       <pubDate>Sat, 15 Apr 2017 08:14:10 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/editing-xml-files-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/editing-xml-files-with-nodejs/</guid>
       <description>XML files are still widely used in enterprise programs and being able to manipulate xml files can be incredibly important.
 XML2JS Node Package In this tutorial I’ll be demonstrating how you can easily manipulate XML files using the xml2js node package. This package is great due to the fact it reads in an xml string and converts it to a far easier to use json structure. Reading in our XML File Create a new js file and type the following: var fs = require(&amp;#34;fs&amp;#34;); fs.</description>
     </item>
     
     <item>
       <title>Converting CSV to JSON using NodeJS</title>
-      <link>http://example.org/nodejs/converting-csv-json-node/</link>
+      <link>https://cotutorial.github.io/nodejs/converting-csv-json-node/</link>
       <pubDate>Sun, 09 Apr 2017 21:29:02 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/converting-csv-json-node/</guid>
+      <guid>https://cotutorial.github.io/nodejs/converting-csv-json-node/</guid>
       <description>In this tutorial I’m going to be showing you how we can create a NodeJS script that takes in a csv file and outputs the contents of that CSV file as JSON.
 In order to do this conversion we’ll be using the csvtojson node package. This package will do pretty much all the heavy lifting for us and having used it in production environments I can say that it’s remarkably easy to implement into a project.</description>
     </item>
     
     <item>
       <title>Building Software using A Microservice Based Architecture</title>
-      <link>http://example.org/general/building-software-using-microservice-architecture/</link>
+      <link>https://cotutorial.github.io/general/building-software-using-microservice-architecture/</link>
       <pubDate>Sun, 09 Apr 2017 21:27:23 +0100</pubDate>
       
-      <guid>http://example.org/general/building-software-using-microservice-architecture/</guid>
+      <guid>https://cotutorial.github.io/general/building-software-using-microservice-architecture/</guid>
       <description>In this tutorial I’m going to be showing an example of how you could go about building your own software following a microservice based architecture.
 I’m going to be discussing key things such as communication between services, asynchronous vs synchronous and most importantly managing your services. I’m going to be writing everything using Google’s Go(GoLang) programming language but these concepts will be transferable across to other language domains.
 Why Should We Use Microservice Based Architecture?</description>
@@ -412,40 +412,40 @@ Why Should We Use Microservice Based Architecture?</description>
     
     <item>
       <title>Writing Your Own Logging System NodeJS</title>
-      <link>http://example.org/nodejs/writing-your-own-logging-system-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/writing-your-own-logging-system-nodejs/</link>
       <pubDate>Sun, 09 Apr 2017 21:26:14 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/writing-your-own-logging-system-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/writing-your-own-logging-system-nodejs/</guid>
       <description>Logging - Why Is It Important? Logs are an invaluable resource when it comes to effectively maintaining applications. Think of them as breadcrumbs you can follow to find out where your application has faltered. In simple applications this may be unnecessary and overkill, but in production applications that work with highly sensitive and valuable data, logs are priceless.
 Logging in NodeJS Applications In this tutorial I’m going to be demonstrating a quick and simple method of logging a very simple server program.</description>
     </item>
     
     <item>
       <title>Monitoring Server Stats With NodeJS</title>
-      <link>http://example.org/nodejs/monitoring-server-stats-with-nodejs/</link>
+      <link>https://cotutorial.github.io/nodejs/monitoring-server-stats-with-nodejs/</link>
       <pubDate>Sun, 09 Apr 2017 21:25:15 +0100</pubDate>
       
-      <guid>http://example.org/nodejs/monitoring-server-stats-with-nodejs/</guid>
+      <guid>https://cotutorial.github.io/nodejs/monitoring-server-stats-with-nodejs/</guid>
       <description>In production environments having visibility over how your systems are performing is vital. Being able to watch memory usage and ensure that servers are not being brought down by memory leaks and greedy programs can be hugely beneficial and can help you deal with issues before they become real headaches.
 In this tutorial I’m going to be demonstrating how you can build a simple, yet effective NodeJS based monitoring system that will monitor your servers CPU usage, the total memory for a system and the current free memory for a system, the system uptime and possibly most importantly the average load for the last 15 minutes.</description>
     </item>
     
     <item>
       <title>AngularJS Factory Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-factory-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-factory-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:22:46 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-factory-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-factory-tutorial/</guid>
       <description>What Are Factories Services are essentially ways we can share code across our AngularJS applications. Say for instance you have an application that interacts with a RESTful API, you would typically create a factory which would return an object that contains all the functions necessary to interact with that API.
 By using a factory object, we can standardise the way we interact with the REST API and reduce the amount of duplicate code we have scattered around our application.</description>
     </item>
     
     <item>
       <title>AngularJS Filter Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-filter-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-filter-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:22:03 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-filter-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-filter-tutorial/</guid>
       <description>Introduction Filters allow us to perform a number of incredibly useful things on bindings in views within our AngularJS applications. By definition filters select a subset of items from an array and returns it as a new array.
 By employing filters we are able to easily manipulate entire arrays in the front-end giving us far more power in the way we wish to display our data.
 The Official Documentation for filters can be found here: AngularJS Filter Documentation</description>
@@ -453,20 +453,20 @@ The Official Documentation for filters can be found here: AngularJS Filter Docum
     
     <item>
       <title>AngularJS Form Validation Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-form-validation-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-form-validation-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:20:37 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-form-validation-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-form-validation-tutorial/</guid>
       <description>In this tutorial I’m going to be demonstrating how we can implement form validation using the AngularJS framework.
 Form validation is a user experience designers best friend when ensuring application users are inputting the correct data into your form. If you had a web application that took in email addresses from prospective clients then you could employ form validation to ensure that they email addresses they are putting in look like standard email addresses.</description>
     </item>
     
     <item>
       <title>AngularJS Project Structure Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-project-structure-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-project-structure-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:18:27 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-project-structure-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-project-structure-tutorial/</guid>
       <description>Project organization is important for all angularjs applications. Having a well defined and easy to traverse project structure can be hugely beneficial further down the line when you have to deal with maintenance and enhancements.
 I&amp;rsquo;m going to start off by showing you sub-optimal project structures and then move on to the most recommended way of structuring your angularjs projects.
 Simple PoCs and Tiny Applications There are multiple ways we can structure applications and of course different structures are better suited for different applications.</description>
@@ -474,10 +474,10 @@ Simple PoCs and Tiny Applications There are multiple ways we can structure appli
     
     <item>
       <title>Automating Your AngularJS Workflow With Gulp</title>
-      <link>http://example.org/javascript/angularjs/automating-your-angularjs-workflow-with-gulp/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/automating-your-angularjs-workflow-with-gulp/</link>
       <pubDate>Sun, 09 Apr 2017 21:17:41 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/automating-your-angularjs-workflow-with-gulp/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/automating-your-angularjs-workflow-with-gulp/</guid>
       <description>Automate the Repeatable Things Gulp is a task runner that allows you to define a series repeatable tasks that can be run any time you need. You can automate boring things like the minification and uglification of your javascript or whatever else you do in order to make your code production ready.
 Setting Up Gulp Thankfully, Gulp is easily installable using npm.
 npm install --global gulp-cli Once this has successfully run, type gulp into your command line and you should be presented with a list of different options if it was installed successfully.</description>
@@ -485,10 +485,10 @@ npm install --global gulp-cli Once this has successfully run, type gulp into you
     
     <item>
       <title>Working With AngularJS Component Based Applications</title>
-      <link>http://example.org/javascript/angularjs/working-with-angularjs-component-applications/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/working-with-angularjs-component-applications/</link>
       <pubDate>Sun, 09 Apr 2017 21:15:58 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/working-with-angularjs-component-applications/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/working-with-angularjs-component-applications/</guid>
       <description>If you haven’t read my article on using a different architecture styles in your AngularJS applications then I recommend you check it out here: Structuring AngularJS Applications
 In this article we will be having a look at the key features present in my AngularJS Admin Panel application. This application utilizes a component based architecture and follows some of the best practices outlined in Todd Motto’s Style Guide
 Getting the Code If you have git installed on your local machine then getting the code is just a case of doing:</description>
@@ -496,40 +496,40 @@ Getting the Code If you have git installed on your local machine then getting th
     
     <item>
       <title>Integrating Highcharts-ng into your AngularJS Applications</title>
-      <link>http://example.org/javascript/angularjs/integrating-highcharts-ng-angularjs/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/integrating-highcharts-ng-angularjs/</link>
       <pubDate>Sun, 09 Apr 2017 21:14:45 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/integrating-highcharts-ng-angularjs/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/integrating-highcharts-ng-angularjs/</guid>
       <description>In this tutorial we’ll be having a look at how you can effectively implement highcharts.js into your angularjs applications. We’ll be following a component based architecture and enforcing things like one-way data-binding as is suggested in Todd Mottos AngularJS Style Guide.
 If you already follow a component based architecture, then it should should be very easy to integrate the code in this tutorial straight into your application without too much fuss.</description>
     </item>
     
     <item>
       <title>AngularJS Event Handling Tutorial</title>
-      <link>http://example.org/javascript/angularjs/angularjs-event-handling-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-event-handling-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:13:59 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-event-handling-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-event-handling-tutorial/</guid>
       <description>In this tutorial we’ll be looking at the different ways we can handle events in AngularJS. We’ll be exploring several of the event listening directives that AngularJS has on offer and how we can use these to create cool behaviours in our AngularJS Applications.
 All code in this tutorial can be found in this github repo: Github Repo  Browser Events In most modern web browsers, every time something interesting happens in either the Document or the browser an event is generated.</description>
     </item>
     
     <item>
       <title>Passing Data Between Routes in AngularJS</title>
-      <link>http://example.org/javascript/angularjs/passing-data-between-routes-angularjs/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/passing-data-between-routes-angularjs/</link>
       <pubDate>Sun, 09 Apr 2017 21:13:23 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/passing-data-between-routes-angularjs/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/passing-data-between-routes-angularjs/</guid>
       <description>In this tutorial we’ll be looking at how we can store or pass information between routes in an AngularJS application. This can be useful in a number of different applications and is actually quite simple.
 This tutorial will be using the code from this github repo: AngularJS Fundamentals  If you want to see a working example of this then simply clone the repo to your local machine and run it.</description>
     </item>
     
     <item>
       <title>angularjs most important changes 1 6</title>
-      <link>http://example.org/javascript/angularjs/angularjs-most-important-changes-1-6/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-most-important-changes-1-6/</link>
       <pubDate>Sun, 09 Apr 2017 21:12:25 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-most-important-changes-1-6/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-most-important-changes-1-6/</guid>
       <description>The changelog with the AngularJS 1.6 release notes can be found here: AngularJS 1.6-RC.0 After having a look at the AngularJS release notes for 1.6, I thought I’d compile my thoughts together as to the most important changes to the framework in the coming release.
 Expression Sandbox Removal Expression Sandbox Removal Full Notes
 The expression sandbox removal was essentially something that checked to see if your code was accidentally accessing arbitrary javascript and discourage you from placing any business logic inside your templates.</description>
@@ -537,20 +537,20 @@ The expression sandbox removal was essentially something that checked to see if 
     
     <item>
       <title>How To Store Information in Cookies in AngularJS</title>
-      <link>http://example.org/javascript/angularjs/angularjs-store-cookies-tutorial/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/angularjs-store-cookies-tutorial/</link>
       <pubDate>Sun, 09 Apr 2017 21:11:31 +0100</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/angularjs-store-cookies-tutorial/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/angularjs-store-cookies-tutorial/</guid>
       <description>In this tutorial we look at how you can store information in cookies in your AngularJS application.
 A cookie is a small piece of data that’s typically sent from a website you may be viewing and stored by your web browser. We can use these cookies for a wide range of things, from storing the last viewed items of a visitor to authentication cookies. These cookies persist across requests and thus are advantageous over using parent components or services to store information between routes as is detailed here: Passing Information Between Routes using Services</description>
     </item>
     
     <item>
       <title>Removing Duplicate Entries from ng-repeat in AngularJS</title>
-      <link>http://example.org/javascript/angularjs/removing-duplicates-from-ng-repeat/</link>
+      <link>https://cotutorial.github.io/javascript/angularjs/removing-duplicates-from-ng-repeat/</link>
       <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
       
-      <guid>http://example.org/javascript/angularjs/removing-duplicates-from-ng-repeat/</guid>
+      <guid>https://cotutorial.github.io/javascript/angularjs/removing-duplicates-from-ng-repeat/</guid>
       <description>This tutorial was built using Angular 1.6. Earlier or later versions of the code may not work as intended.
  This tutorial will show you how you can filter out duplicates when using the ng-repeat directive in AngularJS. We&amp;rsquo;ll be passing in an array of JSON Objects and filtering based on multiple different things within each object.
 Implementing our Test Controller We’ll start off with a very simple angular controller that will have a list of item names, some of which are duplicates.</description>

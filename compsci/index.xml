@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Computer Science on My New Hugo Site</title>
-    <link>http://example.org/compsci/</link>
-    <description>Recent content in Computer Science on My New Hugo Site</description>
+    <title>Computer Science on CoTutorial</title>
+    <link>https://cotutorial.github.io/compsci/</link>
+    <description>Recent content in Computer Science on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Wed, 20 Dec 2017 22:22:37 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/compsci/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/compsci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Data Structures - Sets For Beginners</title>
-      <link>http://example.org/compsci/data-structures/sets-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/sets-for-beginners/</link>
       <pubDate>Wed, 20 Dec 2017 22:22:37 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/sets-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/sets-for-beginners/</guid>
       <description>Under Construction
  In this tutorial we are going to look at the set data structure in computer science and how you can leverage it within your applications. We&amp;rsquo;ll be covering this concept using the Python programming language.
 Sets in Mathematics Understanding Sets and basic Set Theory in Mathematics is a fundamental skill. The idea of a Set has been translated directly from mathematics into programming languages such as Python, and with this Set data structure, comes some incredibly useful functions such as union(), issubset(), intersection(), isdisjoint() that have also been translated directly over from Mathematics.</description>
@@ -24,10 +24,10 @@ Sets in Mathematics Understanding Sets and basic Set Theory in Mathematics is a 
     
     <item>
       <title>Data Structures - Priority Queues For Beginners</title>
-      <link>http://example.org/compsci/data-structures/priority-queues-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/priority-queues-for-beginners/</link>
       <pubDate>Wed, 20 Dec 2017 22:22:26 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/priority-queues-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/priority-queues-for-beginners/</guid>
       <description>This article uses Python 3.6 in order to demonstrate some of the concepts.
  In this article we&amp;rsquo;ll be covering Priority Queues and how they differ from your standard Queue data structure.
 Why Do We Need Them? In order to explain this better, let&amp;rsquo;s think about a real-world example where a normal queueing system may not be the best idea. Let&amp;rsquo;s imagine you were implementing a queuing system for a hospital&amp;rsquo;s Accident and Emergency ward.</description>
@@ -35,10 +35,10 @@ Why Do We Need Them? In order to explain this better, let&amp;rsquo;s think abou
     
     <item>
       <title>Data Structures - Arrays for Beginners</title>
-      <link>http://example.org/compsci/data-structures/arrays-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/arrays-for-beginners/</link>
       <pubDate>Wed, 20 Dec 2017 22:03:08 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/arrays-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/arrays-for-beginners/</guid>
       <description>Under Construction
  In this article we are going to be looking at the array data structure. We&amp;rsquo;ll be looking at some of the fundamental characteristics of the structure and how we can best leverage this within our own programs.
 Intro Arrays represent a collection of elements, these elements can be of different types; integers, characters, strings, floating-point values and even composite types such as arrays which allows you to create nested array structures should you wish.</description>
@@ -46,10 +46,10 @@ Intro Arrays represent a collection of elements, these elements can be of differ
     
     <item>
       <title>Data Structures - Queues For Beginners</title>
-      <link>http://example.org/compsci/data-structures/queues-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/queues-for-beginners/</link>
       <pubDate>Wed, 20 Dec 2017 22:02:47 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/queues-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/queues-for-beginners/</guid>
       <description>Under Construction
  In this tutorial we are going to look at the queue data structure. We&amp;rsquo;ll take a look at how this data structure can be used for various tasks and the various sort of things you can do with queues.
 Introduction The queue data structure is typically used in scenarios where you want things to be processed in the same order that they were inputted into a system.</description>
@@ -57,10 +57,10 @@ Introduction The queue data structure is typically used in scenarios where you w
     
     <item>
       <title>Data Structures - Graphs For Beginners</title>
-      <link>http://example.org/compsci/data-structures/compsci-graphs-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/compsci-graphs-for-beginners/</link>
       <pubDate>Wed, 20 Dec 2017 22:02:28 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/compsci-graphs-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/compsci-graphs-for-beginners/</guid>
       <description>Under Construction
  Graphs and graph traversal algorithms are a cornerstone of every computer scientists education. Every reputable university will feature one or more classes dedicated to this topic and with good reason, the theory covered within these topics branches into a number of practical uses.
 If you are interested in going into something like Game Development then graphs feature pretty heavily.
@@ -69,10 +69,10 @@ If you are interested in going into something like Game Development then graphs 
     
     <item>
       <title>Data Structures - Stacks For Beginners</title>
-      <link>http://example.org/compsci/data-structures/stacks-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/stacks-for-beginners/</link>
       <pubDate>Wed, 20 Dec 2017 21:29:51 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/stacks-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/stacks-for-beginners/</guid>
       <description>Under Construction
  In this tutorial, we are going to be taking a look at stacks in Computer Science and how they can be used to effectively solve problems that we may face as software developers.
 Stacks - The Theory I think the best way to imagine the stack data structure is to imagine a stack of pancakes. Typically, when you add a new pancake, it has to go on to the top of the existing pile.</description>
@@ -80,10 +80,10 @@ Stacks - The Theory I think the best way to imagine the stack data structure is 
     
     <item>
       <title>Implementing Quicksort in Python</title>
-      <link>http://example.org/compsci/sorting/quicksort-in-python/</link>
+      <link>https://cotutorial.github.io/compsci/sorting/quicksort-in-python/</link>
       <pubDate>Mon, 20 Nov 2017 18:09:47 +0000</pubDate>
       
-      <guid>http://example.org/compsci/sorting/quicksort-in-python/</guid>
+      <guid>https://cotutorial.github.io/compsci/sorting/quicksort-in-python/</guid>
       <description>This tutorial was built using Python 3.6
  Quicksort is one of the most popular sorting algorithms you will come across in computer science. This is because of it&amp;rsquo;s average case performance of O(n log n).
 The Quicksorting algorithm uses a divide-and-conquer approach and recursively partitions the elements in an unsorted array around a randomly picked pivot element.
@@ -92,10 +92,10 @@ The Quicksorting algorithm uses a divide-and-conquer approach and recursively pa
     
     <item>
       <title>Implementing Selection Sort in Python</title>
-      <link>http://example.org/compsci/sorting/selection-sort-in-python/</link>
+      <link>https://cotutorial.github.io/compsci/sorting/selection-sort-in-python/</link>
       <pubDate>Mon, 20 Nov 2017 18:09:47 +0000</pubDate>
       
-      <guid>http://example.org/compsci/sorting/selection-sort-in-python/</guid>
+      <guid>https://cotutorial.github.io/compsci/sorting/selection-sort-in-python/</guid>
       <description>Welcome all! In this tutorial, we are going to be looking at how you can implement the selection sort in Python!
 Theory How does the selection sorting algorithm work? Well it sorts data by finding the smallest item and swapping it into the array in the first unsorted location.
  It enumerates the array from the first unsorted element to the end Identifies the smallest item Swaps the smallest item with the first unsorted item  The selection sorting algorithm typically performs better than the bubble sort and typically worse than the insertion sorting algorithm.</description>
@@ -103,20 +103,20 @@ Theory How does the selection sorting algorithm work? Well it sorts data by find
     
     <item>
       <title>Getting Started With Tries in Python</title>
-      <link>http://example.org/compsci/data-structures/getting-started-with-tries-in-python/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/getting-started-with-tries-in-python/</link>
       <pubDate>Sun, 19 Nov 2017 17:17:29 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/getting-started-with-tries-in-python/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/getting-started-with-tries-in-python/</guid>
       <description>This tutorial uses Python 3.6 in order to convey the concepts that I will be covering.
  A Trie in computer science is a tree structure that allows you to do things such as very quick lookup of words within the english language. Typically if you were to write a word processor that did spell checks against words in a document, you would implement a trie and perform a very quick lookup to check whether or not the words in your word document are indeed valid words.</description>
     </item>
     
     <item>
       <title>Data Structures - Hash Tables For Beginners</title>
-      <link>http://example.org/compsci/data-structures/hash-tables-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/data-structures/hash-tables-for-beginners/</link>
       <pubDate>Sun, 19 Nov 2017 08:57:29 +0000</pubDate>
       
-      <guid>http://example.org/compsci/data-structures/hash-tables-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/data-structures/hash-tables-for-beginners/</guid>
       <description>This tutorial will use Python 3.6 to convey the concepts covered.
  So, in this tutorial, we are going to be looking at Hash Tables and how they can be used within our applications for fame and fortune. By the end of this tutorial, you should have a solid grasp of these Hash Tables and how they work under the covers.
 An Introduction So, the first place we should start with is, what are hash tables?</description>
@@ -124,10 +124,10 @@ An Introduction So, the first place we should start with is, what are hash table
     
     <item>
       <title>Bit Manipulation For Beginners</title>
-      <link>http://example.org/compsci/bit-manipulation-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/bit-manipulation-for-beginners/</link>
       <pubDate>Sat, 18 Nov 2017 17:42:32 +0000</pubDate>
       
-      <guid>http://example.org/compsci/bit-manipulation-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/bit-manipulation-for-beginners/</guid>
       <description>In this tutorial we will be taking a look at bit manipulation and how you can use it to optimize some of the different parts of your systems when you are programming.
  In this tutorial we will be using Python 3.6 in order to demonstrate some of the concepts covered.
  Shift Left By shifting left we are essentially multiplying our original number by 2 * the number of times we shift left.</description>
@@ -135,20 +135,20 @@ An Introduction So, the first place we should start with is, what are hash table
     
     <item>
       <title>Memoization For Beginners</title>
-      <link>http://example.org/compsci/memoization-for-beginners/</link>
+      <link>https://cotutorial.github.io/compsci/memoization-for-beginners/</link>
       <pubDate>Sat, 18 Nov 2017 16:10:25 +0000</pubDate>
       
-      <guid>http://example.org/compsci/memoization-for-beginners/</guid>
+      <guid>https://cotutorial.github.io/compsci/memoization-for-beginners/</guid>
       <description>In this tutorial we are going to look at a concept in computer science called memoization. This is a really cool concept that allows us to optimize the runtime performance of some of our recursive algorithms by effectively caching the results of previous computations so that they don&amp;rsquo;t have to be continuously re-computed.
 The Fibonacci Example Calculating Fibonacci in a recursive manner is quite possibly the best example I&amp;rsquo;ve come across when it comes to showing the power of memoization.</description>
     </item>
     
     <item>
       <title>Implementing The Insertion Sort Algorithm in Python</title>
-      <link>http://example.org/compsci/sorting/insertion-sort-in-python/</link>
+      <link>https://cotutorial.github.io/compsci/sorting/insertion-sort-in-python/</link>
       <pubDate>Wed, 15 Nov 2017 18:12:50 +0000</pubDate>
       
-      <guid>http://example.org/compsci/sorting/insertion-sort-in-python/</guid>
+      <guid>https://cotutorial.github.io/compsci/sorting/insertion-sort-in-python/</guid>
       <description>This tutorial was built using Python 3.6
  In this tutorial we are going to be taking a look at the insertion sorting algorithm and how it works as well as how you can implement this algorithm in the Python programming language.
 Insertion Sorting So the insertion sorting algorithm is a well known sorting algorithm that can sort an unsorted array in a worst case time of O(N^2) time.</description>
@@ -156,10 +156,10 @@ Insertion Sorting So the insertion sorting algorithm is a well known sorting alg
     
     <item>
       <title>Implementing The Bubble Sort Algorithm in Python</title>
-      <link>http://example.org/compsci/sorting/bubble-sort-in-python/</link>
+      <link>https://cotutorial.github.io/compsci/sorting/bubble-sort-in-python/</link>
       <pubDate>Wed, 15 Nov 2017 18:10:37 +0000</pubDate>
       
-      <guid>http://example.org/compsci/sorting/bubble-sort-in-python/</guid>
+      <guid>https://cotutorial.github.io/compsci/sorting/bubble-sort-in-python/</guid>
       <description>Note - This tutorial was built on top of Python 3.6
  In this tutorial we are going to be taking a quick look at the bubble sort sorting algorithm. This algorithm is another very well known sorting algorithm that is quite often referenced in technical interviews. It is amongst the worst performing sorting algorithm with an average and a worst case sorting complexity of O(N^2).
 How It Works Bubble sort works by constantly iterating through an unsorted array and swapping values within that array until such times as no swaps are made within a full pass through the array.</description>

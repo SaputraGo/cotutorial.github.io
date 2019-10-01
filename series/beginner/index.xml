@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>beginner on My New Hugo Site</title>
-    <link>http://example.org/series/beginner/</link>
-    <description>Recent content in beginner on My New Hugo Site</description>
+    <title>beginner on CoTutorial</title>
+    <link>https://cotutorial.github.io/series/beginner/</link>
+    <description>Recent content in beginner on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Mon, 12 Jun 2017 15:29:30 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/series/beginner/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/series/beginner/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RESTful API Design - Best Practices</title>
-      <link>http://example.org/general/rest-api-best-practices/</link>
+      <link>https://cotutorial.github.io/general/rest-api-best-practices/</link>
       <pubDate>Mon, 12 Jun 2017 15:29:30 +0100</pubDate>
       
-      <guid>http://example.org/general/rest-api-best-practices/</guid>
+      <guid>https://cotutorial.github.io/general/rest-api-best-practices/</guid>
       <description>In this article we look at some of the key concepts that everyone should bear in mind when designing RESTful APIs. These are based off my own experience with designing and building RESTful APIs in a number of projects and should be taken with a pinch of salt, I am in no way telling you that you must do it this way. I am merely
 Versioning Versioning is incredibly important in pretty much every scenario, be it a personal project or an enterprise scale service that other teams will be interfacing with.</description>
     </item>
     
     <item>
       <title>Learning to Code in 2017</title>
-      <link>http://example.org/general/learning-to-code-2017/</link>
+      <link>https://cotutorial.github.io/general/learning-to-code-2017/</link>
       <pubDate>Sat, 15 Apr 2017 09:53:07 +0100</pubDate>
       
-      <guid>http://example.org/general/learning-to-code-2017/</guid>
+      <guid>https://cotutorial.github.io/general/learning-to-code-2017/</guid>
       <description>Programming has changed a hell of a lot in the last few years and we’ve seen multiple new languages pop up all addressing different problem sets and skill levels. The main goal for this article is clarifying some of the basic concepts and guiding you as to where to start if you are wanting to learn how to program in 2017.
 Choosing a Language There are literally hundreds of languages out there, from C++ to Python to Go.</description>
     </item>
     
     <item>
       <title>What is a RESTful API?</title>
-      <link>http://example.org/general/what-is-a-rest-api/</link>
+      <link>https://cotutorial.github.io/general/what-is-a-rest-api/</link>
       <pubDate>Sat, 15 Apr 2017 09:53:07 +0100</pubDate>
       
-      <guid>http://example.org/general/what-is-a-rest-api/</guid>
+      <guid>https://cotutorial.github.io/general/what-is-a-rest-api/</guid>
       <description>As a developer I spend a lot of time developing new or improving on existing RESTful APIs and one of the big questions I’ve been asked is - What is a REST API?
 This tutorial will try to explain in layman’s terms what a REST API is and how we can utilize these APIs in order to build our own systems.
 REST Basics REST - Representational State Transfer.

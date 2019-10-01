@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blog on My New Hugo Site</title>
-    <link>http://example.org/series/blog/</link>
-    <description>Recent content in blog on My New Hugo Site</description>
+    <title>blog on CoTutorial</title>
+    <link>https://cotutorial.github.io/series/blog/</link>
+    <description>Recent content in blog on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 02 Mar 2019 18:52:03 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/series/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/series/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Hardware &#43; Software Setup for Recording YouTube Tutorials</title>
-      <link>http://example.org/uses/</link>
+      <link>https://cotutorial.github.io/uses/</link>
       <pubDate>Sat, 02 Mar 2019 18:52:03 +0000</pubDate>
       
-      <guid>http://example.org/uses/</guid>
+      <guid>https://cotutorial.github.io/uses/</guid>
       <description>I&amp;rsquo;m constantly getting questions on what software/plugins/hardware I use to record my YouTube videos so I thought I&amp;rsquo;d write it up in one convenient place and just link this whenever the question pops up!
  Note - This was inspired by Wes Bos, who I am huge fan of! This list will be a living document that I will update whenever anything changes!
  Here&amp;rsquo;s a photo of my setup as it stands today:</description>
@@ -24,19 +24,19 @@
     
     <item>
       <title>My Notes for the Certified Kubernetes Application Developer - Part 1, Core Concepts</title>
-      <link>http://example.org/blog/my-notes-for-certified-kubernetes/</link>
+      <link>https://cotutorial.github.io/blog/my-notes-for-certified-kubernetes/</link>
       <pubDate>Wed, 29 Nov 2017 19:48:57 +0000</pubDate>
       
-      <guid>http://example.org/blog/my-notes-for-certified-kubernetes/</guid>
+      <guid>https://cotutorial.github.io/blog/my-notes-for-certified-kubernetes/</guid>
       <description>Recently, I’ve started studying for the Certified Kubernetes Application Developer certificate, CKAD for short, and I thought I would share some of the notes I took in an effort to try and pass this certification. This won’t be a comprehensive view of Kubernetes, but it should give anyone reading it a solid-enough grounding to base their own studies off of. If you find any mistakes here, LET ME KNOW ASAP, as I’m hoping to sit the test in the coming few weeks!</description>
     </item>
     
     <item>
       <title>Migrating to Hugo</title>
-      <link>http://example.org/blog/migrating-to-hugo/</link>
+      <link>https://cotutorial.github.io/blog/migrating-to-hugo/</link>
       <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
       
-      <guid>http://example.org/blog/migrating-to-hugo/</guid>
+      <guid>https://cotutorial.github.io/blog/migrating-to-hugo/</guid>
       <description>If you&amp;rsquo;ve frequented this site in the past you should hopefully have noticed a huge change to the way the site looks and hopefully the speed at which the site serves content. Over the past 2 weeks I&amp;rsquo;ve been working with a static site tool, similar to that of Jekyll, called Hugo.
 Reasons for the Migration Ease The first and biggest reason I&amp;rsquo;m moving to a github based site is due to the ease with which I can make changes.</description>
     </item>

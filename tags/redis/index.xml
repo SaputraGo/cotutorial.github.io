@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Redis on My New Hugo Site</title>
-    <link>http://example.org/tags/redis/</link>
-    <description>Recent content in Redis on My New Hugo Site</description>
+    <title>Redis on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/redis/</link>
+    <description>Recent content in Redis on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sun, 28 Jul 2019 09:44:24 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with Redis and Go - Tutorial</title>
-      <link>http://example.org/golang/go-redis-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-redis-tutorial/</link>
       <pubDate>Sun, 28 Jul 2019 09:44:24 +0100</pubDate>
       
-      <guid>http://example.org/golang/go-redis-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-redis-tutorial/</guid>
       <description>Hi everyone, in this tutorial, we are going to be looking at how you can effectively use Redis as a backend solution for your Go applications.
 Prerequisites If you wish to follow this tutorial on your local machine, you&amp;rsquo;ll need to have the following installed on your machine:
  Docker - this will be needed to run a local instance of redis, if you already have a redis service then Docker is not needed.</description>

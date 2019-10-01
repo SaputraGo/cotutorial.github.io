@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>VueX on My New Hugo Site</title>
-    <link>http://example.org/tags/vuex/</link>
-    <description>Recent content in VueX on My New Hugo Site</description>
+    <title>VueX on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/vuex/</link>
+    <description>Recent content in VueX on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Fri, 27 Jul 2018 19:36:57 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/vuex/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/vuex/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Designing the EveryNote Web App with VueJS and Vuex</title>
-      <link>http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/designing-everynote-app-vuejs-vuex/</link>
       <pubDate>Fri, 27 Jul 2018 19:36:57 +0100</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/designing-everynote-app-vuejs-vuex/</guid>
       <description>In this article, you’ll learn to develop an application to take notes, called EveryNote, from scratch. You’ll analyze and design the application, as well as preparing the folder structure for the project. After that, you’ll build the application incrementally through tests and code, providing a real-world Vuex development example.
 The application can be downloaded by cloning the https://github.com/PacktPublishing/-Vuex-Condensed Git repository. You’ll require Node.js installed on a system. Finally, to use the Git repository, the user needs to install Git.</description>
     </item>
     
     <item>
       <title>Managing State With Vuex in Vuejs</title>
-      <link>http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/</link>
+      <link>https://cotutorial.github.io/javascript/vuejs/managing-state-with-vuex-vuejs/</link>
       <pubDate>Sat, 31 Mar 2018 19:06:13 +0100</pubDate>
       
-      <guid>http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/</guid>
+      <guid>https://cotutorial.github.io/javascript/vuejs/managing-state-with-vuex-vuejs/</guid>
       <description>State management is something you will ultimately have to deal with as you create increasingly complex frontend applications. Thankfully, with the help of Vuex, this isn&amp;rsquo;t as hard as you may think!
 Installation In order to install vuex, you will have to use either yarn or npm like so:
 # Npm $ npm install vuex # Yarn $ yarn add vuex Setting up Vuex Once you have successfully installed Vuex in your VueJS application, you can set your application to use it by doing the following within your main.</description>

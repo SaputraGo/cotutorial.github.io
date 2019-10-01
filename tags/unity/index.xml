@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>unity on My New Hugo Site</title>
-    <link>http://example.org/tags/unity/</link>
-    <description>Recent content in unity on My New Hugo Site</description>
+    <title>unity on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/unity/</link>
+    <description>Recent content in unity on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Mon, 01 Oct 2018 18:49:06 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/unity/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/unity/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Creating a Custom Diffuse Lighting Model in Unity - Tutorial</title>
-      <link>http://example.org/gamedev/unity/custom-diffuse-lighting-model-unity-tutorial/</link>
+      <link>https://cotutorial.github.io/gamedev/unity/custom-diffuse-lighting-model-unity-tutorial/</link>
       <pubDate>Mon, 01 Oct 2018 18:49:06 +0100</pubDate>
       
-      <guid>http://example.org/gamedev/unity/custom-diffuse-lighting-model-unity-tutorial/</guid>
+      <guid>https://cotutorial.github.io/gamedev/unity/custom-diffuse-lighting-model-unity-tutorial/</guid>
       <description>If you are familiar with Unity 4, you may know that the default shader provided by it was based on a lighting model called the Lambertian reflectance. This article shows you how you can create a shader with a custom lighting model and explains the mathematics involved along with the implementation. The following diagram shows the same geometry rendered with a standard shader (right) and a diffuse Lambert one (left):</description>
     </item>
     

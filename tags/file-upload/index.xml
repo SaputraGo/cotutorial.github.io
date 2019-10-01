@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>File Upload on My New Hugo Site</title>
-    <link>http://example.org/tags/file-upload/</link>
-    <description>Recent content in File Upload on My New Hugo Site</description>
+    <title>File Upload on CoTutorial</title>
+    <link>https://cotutorial.github.io/tags/file-upload/</link>
+    <description>Recent content in File Upload on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>Sat, 09 Feb 2019 18:32:11 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/file-upload/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cotutorial.github.io/tags/file-upload/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Uploading Files in Go - Tutorial</title>
-      <link>http://example.org/golang/go-file-upload-tutorial/</link>
+      <link>https://cotutorial.github.io/golang/go-file-upload-tutorial/</link>
       <pubDate>Sat, 09 Feb 2019 18:32:11 +0000</pubDate>
       
-      <guid>http://example.org/golang/go-file-upload-tutorial/</guid>
+      <guid>https://cotutorial.github.io/golang/go-file-upload-tutorial/</guid>
       <description>Hi everybody! In this tutorial, we are going to be building a really simple file-upload HTTP server that allows you to upload your files to the server running your Go application.
 There are countless different reasons why you would want to do this, you could be uploading CSV reports for further processing within your complex financial system, or you could be creating a cool image manipulation app that allows you to modify various aspects of any photos you want to upload.</description>
     </item>
