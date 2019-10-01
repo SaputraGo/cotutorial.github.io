@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Creating A Simple Web Server With Golang | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" alt="Creating A Simple Web Server With Golang Image" />  Creating A Simple Web Server With Golang
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>6 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Apr 15, 2017</span>
+
+                <span>
+            
+            <a href="../../tags/intermediate"
+              ><span class="badge badge-pill badge-info">intermediate</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-websockets-tutorial/">Working with Websockets and Socket.IO in Go - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-protocol-buffer-tutorial/">Go Protocol Buffer Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-webassembly-tutorial/">Go WebAssembly Tutorial - Building a Calculator Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-oauth2-tutorial/">Go Oauth2 Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-face-recognition-tutorial-part-one/">Go Face Recognition Tutorial - Part 1</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-encrypt-decrypt-aes-tutorial/">Go Encryption and Decryption using AES - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-ci-cd-pipeline-go-projects/">Building a Solid Continuous Integration Pipeline with TravisCI for Your Go Projects</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-frontend-web-framework-webassembly-go/">Writing a Frontend Web Framework with WebAssembly And Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/authenticating-golang-rest-api-with-jwts/">Securing Your Go REST APIs With JWTs</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/getting-started-with-go/">Getting Started With Go</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-basic-types-tutorial/">Go Basic Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-complex-types-tutorial/">Go Composite Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-functions-tutorial/">Go Functions Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-methods-tutorial/">Go Methods Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-interfaces-tutorial/">Go Interfaces Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-console-input-golang/">Reading in Console Input in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/executing-system-commands-with-golang/">Executing System Commands With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-json-with-golang/">Parsing JSON files With Golang</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-xml-with-golang/">Parsing XML Files With Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/the-go-init-function/">The Go init Function</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-sorting-with-sort-tutorial/">Go Sorting With the sort Package - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-ticker-tutorial/">Go Tickers Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-modules-tutorial/">Go Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-json-tutorial/">Go JSON Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/concurrency-with-golang-goroutines/">Concurrency With Golang Goroutines</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-mutex-tutorial/">Go Mutex Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-channels-tutorial/">Go Channels Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-waitgroup-tutorial/">Go WaitGroup Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">docker</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-multi-stage-docker-tutorial/">Go Multi-Stage Docker Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-docker-tutorial/">Containerizing your Go Applications with Docker - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">file-upload</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-file-upload-tutorial/">Uploading Files in Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-writing-files-in-go/">Reading And Writing To Files in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/temporary-files-directories-go-111/">Working with Temporary Files and Directories in Go 1.11</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">graphql</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial-part-2/">Go Graphql Beginners Tutorial - Part 2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial/">Go GraphQL Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/an-intro-to-go-dep/">An Intro to Go Dep</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/consuming-restful-api-with-go/">Consuming A RESTful API With Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-restful-api-with-golang/">Creating a RESTful API With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-simple-web-server-with-golang/">Creating A Simple Web Server With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-a-cli-in-go/">Building a Network Command Line Interface in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-a-twitter-bot-golang/">Writing A Twitter Bot in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-orm-tutorial/">Golang ORM Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-mysql-tutorial/">Golang MySQL Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-closures-tutorial/">An Introduction to Go Closures - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-variadic-function-tutorial/">Go Variadic Function Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/working-with-environment-variables-in-go/">Working With Environment Variables in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-decorator-function-pattern-tutorial/">Go Decorator Function Pattern Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">misc</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/top-books-for-learning-golang/">The Best Books For Learning Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/sending-email-using-go-and-mailgun/">Sending Email Using Go And Mailgun</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/implementing-bubble-sort-with-golang/">Implementing the Bubble Sort Algorithm using Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-integer-string-conversion-tutorial/">Golang Integer String Conversion Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">redis</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-redis-tutorial/">Getting Started with Redis and Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">snippets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/check-key-exists-in-map-go/">Check Key Exists in Map Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/concatenate-strings-in-go/">Concatenate Strings in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/sort-map-by-value/">Sort Map by Value</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/intro-testing-in-go/">An Introduction to Testing in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/advanced-go-testing-tutorial/">Advanced Go Testing Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/benchmarking-your-go-programs/">An Introduction to Benchmarking Your Go Programs</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-your-tests-with-testify-go/">Improving Your Go Tests and Mocks With Testify</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">tools</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-go-workflow-with-git-hooks/">Improving Your Go Development Workflow With Git Hooks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/makefiles-for-go-developers/">Makefiles for Go Developers</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">websockets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-websocket-tutorial/">Go Websocket Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-realtime-youtube-sub-monitor-go/">Building a Real-time YouTube Subscriber Monitor in Go</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<blockquote>
+<p><strong>Last Updated -</strong> 3rd December, 2018</p>
+</blockquote>
+
+<p>Web servers are always a really cool and relatively simple project to get up and
+running when trying to learn a new language. In Go, this is no different, and
+building a web server using the <code>net/http</code> package is an excellent way to come
+to grips with some of the basics.</p>
+
+<p>In this tutorial, we&rsquo;ll be focusing on creating a very simple web server using
+the <a href="https://golang.org/pkg/net/http/">net/http</a> package. If you&rsquo;ve ever used
+something like Node&rsquo;s ExpressJS or Python&rsquo;s Tornado, then you should hopefully
+see some similarities to how things are handled.</p>
+
+<p>We&rsquo;ll first focus on building a simple server that can serve some really simple
+content back to a client making requests to our server. Once we have achieved
+this, we&rsquo;ll then look at how we can serve static files before finally moving on
+to how we can serve these files using HTTP over TLS or <code>https</code> for short.</p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<ul>
+<li>You will need Go version 1.11+ installed on your development machine.</li>
+</ul>
+
+<h1 id="creating-a-basic-web-server">Creating a Basic Web Server</h1>
+
+<p>Ok, so to begin with, we’ll create a very simple web server that will just
+return whatever the URL path is of your query. This will be a good base from
+which we can build on top of.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;html&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Hello, %q&#34;</span>, <span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">EscapeString</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span>))
+    })
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/hi&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>){
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>)
+    })
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8081&#34;</span>, <span style="color:#66d9ef">nil</span>))
+
+}</code></pre></div>
+<p>In the above code, we essentially define two different Handlers. These handlers
+are what respond to any <code>HTTP</code> request that matches the string pattern we define
+as the first parameter. So essentially whenever a request is made for the home
+page or <em><a href="http://localhost:8081/">http://localhost:8081/</a></em>, we&rsquo;ll see our first handler respond as the
+query matches that pattern.</p>
+
+<h1 id="running-our-server">Running Our Server</h1>
+
+<p>Ok so now that we&rsquo;ve created our own very simplistic server we can try running
+it by typing <code>go run server.go</code> in to our console. Once this is done head over
+to your browser and head to <code>http://localhost:8081/world</code>. On this page, you
+should hopefully see your query string echoed back to you in true &ldquo;hello world&rdquo;
+fashion.</p>
+
+<h1 id="adding-a-bit-of-complexity">Adding a bit of Complexity</h1>
+
+<p>So now that we&rsquo;ve got a basic web server set up, let&rsquo;s try incrementing a
+counter every time a specific URL is hit. Due to the fact that the web server is
+asynchronous, we&rsquo;ll have to guard our counter using a <code>mutex</code> in order to
+prevent us from being hit with race-condition bugs.</p>
+
+<blockquote>
+<p><strong>Note -</strong> If you are unsure as to what a mutex is, don&rsquo;t worry, this is just
+being used to highlight that these servers aren&rsquo;t guarded against race
+conditions. If you want to learn more on mutexes, you can check out my other
+tutorial here: <a href="../../golang/go-mutex-tutorial/">Go Mutex Tutorial</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+    <span style="color:#e6db74">&#34;strconv&#34;</span>
+    <span style="color:#e6db74">&#34;sync&#34;</span>
+)
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">counter</span> <span style="color:#66d9ef">int</span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mutex</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">Mutex</span>{}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">echoString</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;hello&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">incrementCounter</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#a6e22e">mutex</span>.<span style="color:#a6e22e">Lock</span>()
+    <span style="color:#a6e22e">counter</span><span style="color:#f92672">++</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Itoa</span>(<span style="color:#a6e22e">counter</span>))
+    <span style="color:#a6e22e">mutex</span>.<span style="color:#a6e22e">Unlock</span>()
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">echoString</span>)
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/increment&#34;</span>, <span style="color:#a6e22e">incrementCounter</span>)
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/hi&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>)
+    })
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8081&#34;</span>, <span style="color:#66d9ef">nil</span>))
+
+}</code></pre></div>
+<p>Run this and then navigate to <a href="http://localhost:8081/increment">http://localhost:8081/increment</a> and you should see
+the current count which will be locked, incremented and then unlocked every time
+you make a request to that page.</p>
+
+<h1 id="serving-static-files">Serving Static Files</h1>
+
+<p>Now that we&rsquo;ve had a look at the asynchronous nature of a Go based web server,
+we can move on to serving some static files.</p>
+
+<p>First, create a static folder within your project&rsquo;s directory and then create
+some simple HTML files. For this example I&rsquo;m just serving back the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Hello World&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h2</span>&gt;Hello World!&lt;/<span style="color:#f92672">h2</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
+<p>Once you&rsquo;ve got this then we can then modify our web server code to use the
+http.ServeFile method. Essentially this will take in the url of the request made
+to the server, and if it contains say index.html then it would return the
+index.html file, rendered as HTML in the browser.</p>
+
+<p>If we were to create an edit.html page and send a request to
+<a href="http://localhost:8081/edit.html">http://localhost:8081/edit.html</a> then it would return whatever HTML content you
+choose to put in that edit.html page.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+        <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ServeFile</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">Path</span>[<span style="color:#ae81ff">1</span>:])
+    })
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/hi&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Hi&#34;</span>)
+    })
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8081&#34;</span>, <span style="color:#66d9ef">nil</span>))
+
+}</code></pre></div>
+<h2 id="checking-it-works">Checking it Works</h2>
+
+<p>Again run the server and navigate to <a href="http://localhost:8081/index.html">http://localhost:8081/index.html</a> and you
+should hopefully see your very simple index.html file rendered in all its glory.</p>
+
+<h1 id="serving-content-from-a-directory">Serving Content from a Directory</h1>
+
+<p>So, the above method works at serving files based on it&rsquo;s path, but doing it
+this way means we have a directory structure that looks a little like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">-</span> main.go <span style="color:#75715e"># our webserver</span>
+<span style="color:#f92672">-</span> index.html
+<span style="color:#f92672">-</span> styles<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> style.css
+<span style="color:#f92672">-</span> images<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> image1.png
+<span style="color:#f92672">-</span> <span style="color:#66d9ef">...</span></code></pre></div>
+<p>This isn&rsquo;t too bad, but if our Go web server grows in complexity, we may want to
+move our website content into a directory of it&rsquo;s own. Let&rsquo;s create a directory
+within our project called <code>static/</code> which will contain all of our website&rsquo;s
+static files.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#75715e"># Our Updated project structure</span>
+<span style="color:#f92672">-</span> main.go
+<span style="color:#f92672">-</span> static<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> index.html
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> styles<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> <span style="color:#f92672">-</span> style.css
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> images<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> <span style="color:#f92672">-</span> image1.png
+<span style="color:#f92672">-</span> <span style="color:#66d9ef">...</span></code></pre></div>
+<p>If we want to do this, we&rsquo;ll need to modify our existing web server code like
+so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">FileServer</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Dir</span>(<span style="color:#e6db74">&#34;./static&#34;</span>)))
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8081&#34;</span>, <span style="color:#66d9ef">nil</span>))
+}</code></pre></div>
+<p>As you can see, we&rsquo;ve moved away from using the <code>HandleFunc</code> method and we&rsquo;ve
+started using <code>http.Handle()</code> passing in our path and <code>http.Dir()</code> which points
+to our newly created <code>static/</code> directory.</p>
+
+<h2 id="checking-it-works-1">Checking it Works</h2>
+
+<p>Now that we&rsquo;ve updated our code, let&rsquo;s try running it once again using
+<code>go run main.go</code>. This will kick off our web server once again at
+<code>http://localhost:8081</code> and if we try and navigate to that URL, we should see
+the <code>index.html</code> that we have within our newly created <code>static</code> directory.</p>
+
+<h1 id="serving-content-over-https">Serving Content over HTTPS</h1>
+
+<p>Perfect, so we&rsquo;ve been able to create a really simple web server that can serve
+any of the static files we want, but we&rsquo;ve not yet thought about security. How
+do we go about securing our web server and serving our content using <code>HTTPS</code>?</p>
+
+<p>With Go, we can modify our existing web server to use <code>http.ListenAndServeTLS</code>
+like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">FileServer</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Dir</span>(<span style="color:#e6db74">&#34;./static&#34;</span>)))
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServeTLS</span>(<span style="color:#e6db74">&#34;:443&#34;</span>, <span style="color:#e6db74">&#34;server.crt&#34;</span>, <span style="color:#e6db74">&#34;server.key&#34;</span>, <span style="color:#66d9ef">nil</span>))
+}</code></pre></div>
+<blockquote>
+<p><strong>Note -</strong> In this example, I pass in already generated <code>server.crt</code> and
+<code>server.key</code> certificate files.</p>
+</blockquote>
+
+<h2 id="generating-keys">Generating Keys</h2>
+
+<p>If you don&rsquo;t have keys already generated, you can generate self-signed certs
+locally using <code>openssl</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> openssl genrsa <span style="color:#f92672">-</span>out server.key <span style="color:#ae81ff">2048</span>
+<span style="color:#f92672">$</span> openssl ecparam <span style="color:#f92672">-</span>genkey <span style="color:#f92672">-</span>name secp384r1 <span style="color:#f92672">-</span>out server.key
+<span style="color:#f92672">$</span> openssl req <span style="color:#f92672">-</span>new <span style="color:#f92672">-</span>x509 <span style="color:#f92672">-</span>sha256 <span style="color:#f92672">-</span>key server.key <span style="color:#f92672">-</span>out server.crt <span style="color:#f92672">-</span>days <span style="color:#ae81ff">3650</span></code></pre></div>
+<p>This should generate self-signed certs for your locally and you can then try
+start your <code>https</code> web server by typing <code>go run main.go</code>. When you navigate to
+<code>https://localhost:8081</code> you should see that the connection is now secured based
+on your self-signed cert.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I hope you found this tutorial useful and if you did then please let me know in
+the comments section below! This is part one of a series of GoLang tutorials in
+which we play around with APIs and creating servers so stay tuned for more!</p>
+
+<h2 id="recommended-reading"><strong>Recommended Reading:</strong></h2>
+
+<ul>
+<li><a href="../../golang/authenticating-golang-rest-api-with-jwts/">Authenticating your REST API with JWTs</a></li>
+<li><a href="../../golang/golang-mysql-tutorial/">Go MySQL Tutorial</a></li>
+</ul>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/golang/creating-simple-web-server-with-golang/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#creating-a-basic-web-server">Creating a Basic Web Server</a></li>
+<li><a href="#running-our-server">Running Our Server</a></li>
+<li><a href="#adding-a-bit-of-complexity">Adding a bit of Complexity</a></li>
+<li><a href="#serving-static-files">Serving Static Files</a>
+<ul>
+<li><a href="#checking-it-works">Checking it Works</a></li>
+</ul></li>
+<li><a href="#serving-content-from-a-directory">Serving Content from a Directory</a>
+<ul>
+<li><a href="#checking-it-works-1">Checking it Works</a></li>
+</ul></li>
+<li><a href="#serving-content-over-https">Serving Content over HTTPS</a>
+<ul>
+<li><a href="#generating-keys">Generating Keys</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#recommended-reading"><strong>Recommended Reading:</strong></a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">6e69e2bb93635065b955a062cfd032fe</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

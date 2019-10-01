@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Go Maps Tutorial | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" alt="Go Maps Tutorial Image" />  Go Maps Tutorial
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="TutorialEdge Logo" />
+            
+            <a href="https://twitter.com/elliot_f">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>4 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Jun 29, 2019</span>
+
+                <span>
+            
+            <a href="../../tags/beginner"
+              ><span class="badge badge-pill badge-info">beginner</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-maps-tutorial/">Go Maps Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>In this tutorial, we are going to look at maps in Go and how you can use them to achieve world domination!</p>
+
+<p>We are going to be covering just about everything you need to know about maps to get started using them within your own Go applications. We are going to be looking at all of the various ways you interact with maps in Go and by the end of this tutorial, you will be a master when it comes to using them.</p>
+
+<h1 id="the-map-data-structure">The Map Data Structure</h1>
+
+<p>Maps are an incredibly useful data structure when you need incredibly quick key-value lookups. They are used in an incredibly diverse number of ways and they are an invaluable tool in any programmer&rsquo;s belt regardless of the underlying language used.</p>
+
+<blockquote>
+<p>Maps in Go can be considered the equivalent of <code>dict</code> in Python, or <code>HashMap</code> in Java.</p>
+</blockquote>
+
+<h1 id="map-basic-syntax">Map Basic Syntax</h1>
+
+<p>Maps in Go can be defined using the <code>map</code> keyword followed by a <code>key</code> type and a <code>value</code> type. These types can be any of the basic types that Go supports and you can initialise a new map in Go using the <code>make</code> keyword which takes in the map type.</p>
+
+<blockquote>
+<p><strong>Note:</strong> The <code>make</code> builtin function takes an optional second <code>capacity</code> parameter, however for maps in Go this is ignored as maps will automatically grow and shrink</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// a map of string to int which has
+</span><span style="color:#75715e">// no set capacity
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">mymap</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>)
+
+<span style="color:#75715e">// a map of bool to int which has a 
+</span><span style="color:#75715e">// set capacity of 2
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">boolmap</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">bool</span>]<span style="color:#66d9ef">int</span>)</code></pre></div>
+<p>Once we have a map initialised, you can set keys in the map with their respective values like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">mymap</span>[<span style="color:#e6db74">&#34;mykey&#34;</span>] = <span style="color:#ae81ff">10</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">mymap</span>[<span style="color:#e6db74">&#34;mykey&#34;</span>]) <span style="color:#f92672">//</span> <span style="color:#a6e22e">prints</span> <span style="color:#a6e22e">out</span> <span style="color:#ae81ff">10</span></code></pre></div>
+<h1 id="iterating-over-keys-and-values">Iterating over Keys and Values</h1>
+
+<p>When it comes to retrieving values out of a map, we can use the <code>range</code> keyword and loop over <code>keys</code> and <code>values</code> like we would a normal <code>array</code> or <code>slice:</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">value</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">mymap</span> {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">key</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">value</span>)
+}</code></pre></div>
+<p>Running this will subsequently print out all of the keys and their subsequent values contained within this <code>mymap</code> map.</p>
+
+<p>If you need to extract all of the keys from a given <code>map</code> then you can use this loop in order to retrieve all keys and subsequently <code>append</code> them to an array of keys.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">keyArray</span> []<span style="color:#66d9ef">string</span>
+
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">mymap</span> {
+    <span style="color:#a6e22e">keyArray</span> = append(<span style="color:#a6e22e">keyArray</span>, <span style="color:#a6e22e">key</span>)
+}</code></pre></div>
+<h1 id="deleting-elements-in-a-map">Deleting Elements in a Map</h1>
+
+<p>For deleting items from a map, we can use the builtin <code>delete</code> function which takes in a <code>map[key]</code> key and subsequently tries to delete the given value from the map. In the event that the key does not exist within the map, the <code>delete</code> call is a no-op which essentially means it does nothing.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">mymap</span>[<span style="color:#e6db74">&#34;mykey&#34;</span>] = <span style="color:#ae81ff">1</span>
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">mymap</span>[<span style="color:#e6db74">&#34;mykey&#34;</span>])
+delete(<span style="color:#a6e22e">mymap</span>[<span style="color:#e6db74">&#34;mykey&#34;</span>])
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Value deleted from map&#34;</span>)</code></pre></div>
+<h1 id="mapping-strings-to-interfaces">Mapping Strings to Interfaces</h1>
+
+<p>Maps in Go can be used for more than just mapping basic types to basic types. In more complex programs, you may need to map <code>string</code> to say an <code>interface</code>.</p>
+
+<p>Say, for instance, you wanted to map an incoming HTTP requests <code>UUID</code> to a given <code>interface</code> within your application. This would allow you to change what <code>interface</code> handles an incoming request based on its mapped <code>UUID</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Service</span> <span style="color:#66d9ef">interface</span>{
+	<span style="color:#a6e22e">SayHi</span>()
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">MyService</span> <span style="color:#66d9ef">struct</span>{}
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">MyService</span>) <span style="color:#a6e22e">SayHi</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hi&#34;</span>)
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">SecondService</span> <span style="color:#66d9ef">struct</span>{}
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#a6e22e">SecondService</span>) <span style="color:#a6e22e">SayHi</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello From the 2nd Service&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Go Maps Tutorial&#34;</span>)
+	<span style="color:#75715e">// we can define a map of string uuids to
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// the interface type &#39;Service&#39;
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">interfaceMap</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#a6e22e">Service</span>)
+	
+    <span style="color:#75715e">// we can then populate our map with 
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// simple ids to particular services
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">interfaceMap</span>[<span style="color:#e6db74">&#34;SERVICE-ID-1&#34;</span>] = <span style="color:#a6e22e">MyService</span>{}
+	<span style="color:#a6e22e">interfaceMap</span>[<span style="color:#e6db74">&#34;SERVICE-ID-2&#34;</span>] = <span style="color:#a6e22e">SecondService</span>{}
+
+	<span style="color:#75715e">// Incoming HTTP Request wants service 2
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// we can use the incoming uuid to lookup the required
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// service and call it&#39;s SayHi() method
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">interfaceMap</span>[<span style="color:#e6db74">&#34;SERVICE-ID-2&#34;</span>].<span style="color:#a6e22e">SayHi</span>()
+
+}</code></pre></div>
+<p>If we then attempt to run this, we should see that we have successfully been able to retrieve the service we want from this map and then call the <code>SayHi()</code> method.</p>
+
+<div class="filename"> $ go run main.go </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">Go Maps Tutorial
+Hello From the 2nd Service</code></pre></div>
+<p>If we wanted to get really fancy, we could iterate over all the interfaces within our map, much like we did earlier on in the tutorial and call every <code>SayHi()</code> method:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">service</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">interfaceMap</span> {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">key</span>)
+	<span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">SayHi</span>()
+}</code></pre></div>
+<p>This would subsequently print out the service keys and then call their respective <code>SayHi()</code> methods.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Hopefully you enjoyed this tutorial on maps in Go and it has helped you out in some way! If you have any feedback or comments then I would love to hear them in the comments section below!</p>
+
+<h2 id="further-reading">Further Reading:</h2>
+
+<p>Maps in Go can also be used when it comes to unmarshalling JSON and XML data into Go structs. If you want to see how they are used then I recommend checking out the following articles:</p>
+
+<ul>
+<li><a href="https://tutorialedge.net/golang/parsing-json-with-golang/">Parsing JSON Files with Go</a></li>
+<li><a href="https://tutorialedge.net/golang/go-json-tutorial/">Go JSON Tutorial</a></li>
+</ul>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/golang/go-maps-tutorial/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#the-map-data-structure">The Map Data Structure</a></li>
+<li><a href="#map-basic-syntax">Map Basic Syntax</a></li>
+<li><a href="#iterating-over-keys-and-values">Iterating over Keys and Values</a></li>
+<li><a href="#deleting-elements-in-a-map">Deleting Elements in a Map</a></li>
+<li><a href="#mapping-strings-to-interfaces">Mapping Strings to Interfaces</a></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#further-reading">Further Reading:</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">cc60b24992149ea56afd6c81c2c3c068</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Writing Your Own Logging System NodeJS | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/node.png" alt="Writing Your Own Logging System NodeJS Image" />  Writing Your Own Logging System NodeJS
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>4 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Apr 9, 2017</span>
+
+                <span>
+            
+            <a href="../../tags/javascript"
+              ><span class="badge badge-pill badge-info">javascript</span></a>
+                
+            <a href="../../tags/nodejs"
+              ><span class="badge badge-pill badge-info">nodejs</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">authentication</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/nodejs-jwt-authentication-tutorial/">NodeJS JWT Authentication Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">csv</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/converting-csv-json-node/">Converting CSV to JSON using NodeJS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">expressjs</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/creating-a-webserver-with-nodejs/">Building a Webserver using ExpressJS and NodeJS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">file-system</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/reading-writing-files-with-nodejs/">Reading and Writing Files With NodeJS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">javascript</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/nodejs-404-checker-tutorial/">NodeJS 404 Checker Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/keeping-node-apps-running-forever-pm2/">Keeping NodeJS Applications Running Forever Using PM2</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/creating-a-webserver-with-nodejs/">Building a Webserver using ExpressJS and NodeJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/executing-shell-scripts-with-nodejs/">Executing Shell Scripts With NodeJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/creating-deleting-directories-with-nodejs/">Creating and Deleting Directories With NodeJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/editing-xml-files-with-nodejs/">Editing XML Files With NodeJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/converting-csv-json-node/">Converting CSV to JSON using NodeJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/general/building-software-using-microservice-architecture/">Building Software using A Microservice Based Architecture</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/writing-your-own-logging-system-nodejs/">Writing Your Own Logging System NodeJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/monitoring-server-stats-with-nodejs/">Monitoring Server Stats With NodeJS</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">json</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/converting-csv-json-node/">Converting CSV to JSON using NodeJS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">pm2</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/keeping-node-apps-running-forever-pm2/">Keeping NodeJS Applications Running Forever Using PM2</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">unix</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/executing-shell-scripts-with-nodejs/">Executing Shell Scripts With NodeJS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">xml</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/nodejs/editing-xml-files-with-nodejs/">Editing XML Files With NodeJS</a></li>
+      
+      
+    </ul>
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<h1 id="logging-why-is-it-important">Logging - Why Is It Important?</h1>
+
+<p>Logs are an invaluable resource when it comes to effectively maintaining
+applications. Think of them as breadcrumbs you can follow to find out where your
+application has faltered. In simple applications this may be unnecessary and
+overkill, but in production applications that work with highly sensitive and
+valuable data, logs are priceless.</p>
+
+<h1 id="logging-in-nodejs-applications">Logging in NodeJS Applications</h1>
+
+<p>In this tutorial I’m going to be demonstrating a quick and simple method of
+logging a very simple server program.</p>
+
+<h2 id="log-levels">Log Levels</h2>
+
+<p>Some applications process hundreds of millions of transactions every day, if we
+log all this out to a single file then we could be traversing hundreds of
+millions of lines of log files in order to find errors. This is time consuming
+and can be made unnecessary through using multiple levels of logging.</p>
+
+<p>In this tutorial we are going to be creating 3 different log files for our
+simple server application, all of which take different levels of log messages.
+The levels will be as follows:</p>
+
+<p>Info Warning Error</p>
+
+<p>Not only that but we’ll set up a system where we create a new file every day so
+that we can narrow any error searches further.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>This is going to be a very simple logging system that has been made purely for
+demonstration purposes. It can be extended to suit your needs.</p>
+
+<h2 id="our-simple-server">Our Simple Server</h2>
+
+<p>Let’s create a very simple express based server that will serve as the base of
+our application. If you wish to read more about writing your own express based
+server then you can do so here:
+<a href="../../javascript/nodejs/creating-a-webserver-with-nodejs/">Tutorial: Writing your own ExpressJS Server</a>.</p>
+
+<h2 id="router-js">router.js</h2>
+
+<p>First we’ll begin by creating a router which will act as our servers middleware
+for all requests:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;express&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+
+<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">timeLog</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+  <span style="color:#a6e22e">next</span>();
+});
+
+<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Home Page&#34;</span>);
+});
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">router</span>;
+</code></pre></div>
+<h2 id="app-js">app.js</h2>
+
+<p>And then we’ll create the server:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;express&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;./router&#34;</span>);
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">router</span>);
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Now Listening on port 3000&#34;</span>);
+});
+</code></pre></div>
+<p>If you want to try this out then you can do so by typing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Node app.js</code></pre></div>
+<h1 id="implementing-our-logging-system">Implementing Our Logging System</h1>
+
+<p>Now that we’ve got a basic application running on port 3000, we can now begin to
+create our simple logging system;</p>
+
+<p>Create a new file called logger.js in your projects directory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Firstly we&#39;ll need to import the fs library
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;fs&#34;</span>);
+
+<span style="color:#75715e">// next we&#39;ll want make our Logger object available
+</span><span style="color:#75715e">// to whatever file references it.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">Logger</span> <span style="color:#f92672">=</span> {});
+
+<span style="color:#75715e">// Create 3 sets of write streams for the 3 levels of logging we wish to do
+</span><span style="color:#75715e">// every time we get an error we&#39;ll append to our error streams, any debug message
+</span><span style="color:#75715e">// to our debug stream etc...
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">infoStream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createWriteStream</span>(<span style="color:#e6db74">&#34;logs/info.txt&#34;</span>);
+<span style="color:#75715e">// Notice we set the path of our log files in the first parameter of
+</span><span style="color:#75715e">// fs.createWriteStream. This could easily be pulled in from a config
+</span><span style="color:#75715e">// file if needed.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">errorStream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createWriteStream</span>(<span style="color:#e6db74">&#34;logs/error.txt&#34;</span>);
+<span style="color:#75715e">// createWriteStream takes in options as a second, optional parameter
+</span><span style="color:#75715e">// if you wanted to set the file encoding of your output file you could
+</span><span style="color:#75715e">// do so by setting it like so: (&#39;logs/debug.txt&#39; , { encoding : &#39;utf-8&#39; });
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">debugStream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createWriteStream</span>(<span style="color:#e6db74">&#34;logs/debug.txt&#34;</span>);
+
+<span style="color:#75715e">// Finally we create 3 different functions
+</span><span style="color:#75715e">// each of which appends our given messages to
+</span><span style="color:#75715e">// their own log files along with the current date as an
+</span><span style="color:#75715e">// iso string and a \n newline character
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">info</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">msg</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toISOString</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span>;
+  <span style="color:#a6e22e">infoStream</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">message</span>);
+};
+
+<span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">msg</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toISOString</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span>;
+  <span style="color:#a6e22e">debugStream</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">message</span>);
+};
+
+<span style="color:#a6e22e">Logger</span>.<span style="color:#a6e22e">error</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">msg</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">toISOString</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span>;
+  <span style="color:#a6e22e">errorStream</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">message</span>);
+};
+</code></pre></div>
+<h1 id="using-our-new-logging-system">Using our new Logging System:</h1>
+
+<p>Now that we’ve implemented our basic logging system we can go back into our
+router.js file and add the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;express&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">router</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+<span style="color:#75715e">// Here we import our Logger file and instantiate a logger object
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">logger</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;./logger&#34;</span>).<span style="color:#a6e22e">Logger</span>;
+
+<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">use</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">timeLog</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+  <span style="color:#75715e">// this is an example of how you would call our new logging system to log an info message
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">logger</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;Test Message&#34;</span>);
+  <span style="color:#a6e22e">next</span>();
+});
+
+<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Home Page&#34;</span>);
+});
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">router</span>;
+</code></pre></div> 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/nodejs/writing-your-own-logging-system-nodejs/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#logging-why-is-it-important">Logging - Why Is It Important?</a></li>
+<li><a href="#logging-in-nodejs-applications">Logging in NodeJS Applications</a>
+<ul>
+<li><a href="#log-levels">Log Levels</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#our-simple-server">Our Simple Server</a></li>
+<li><a href="#router-js">router.js</a></li>
+<li><a href="#app-js">app.js</a></li>
+</ul></li>
+<li><a href="#implementing-our-logging-system">Implementing Our Logging System</a></li>
+<li><a href="#using-our-new-logging-system">Using our new Logging System:</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">1d3ec21bca282f3187a59275bb88910d</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Form Validation With Vuelidate Vuejs | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.png" alt="Form Validation With Vuelidate Vuejs Image" />  Form Validation With Vuelidate Vuejs
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../../images/svg/logo.svg" alt="TutorialEdge Logo" />
+            
+            <a href="https://twitter.com/paulhalliday_io">Paul Halliday</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>9 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Jun 7, 2018</span>
+
+                <span>
+            
+            <a href="../../../tags/Form%20Handling"
+              ><span class="badge badge-pill badge-info">Form Handling</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">animations</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/">VueJS Animations and Transitions Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginners</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/getting-started-with-vuejs/">Getting Started With VueJS</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-components-tutorial/">Vuejs Components Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/components-templates-and-props-vue-2/">Components, Templates, and Props in Vue 2</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">books</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/best-books-learning-vuejs/">The Best Books For Learning VueJS</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">event-handling</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-event-handling-tutorial/">Vuejs Event Handling Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">form-handling</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/">Form Validation With Vuelidate Vuejs</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">routing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vue-router-beginners-tutorial/">Vue Router Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">transitions</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/">VueJS Animations and Transitions Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">vuex</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/">Designing the EveryNote Web App with VueJS and Vuex</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/">Managing State With Vuex in Vuejs</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<blockquote>
+<p>Learn how to validate forms using Vuelidate in this tutorial by Paul Halliday,
+the author of
+<a href="https://amzn.to/2JjyXiT">Vue.js 2 Design Patterns and Best Practices</a>.</p>
+</blockquote>
+
+<p>In this post, you&rsquo;ll use a third-party library named Vuelidate to perform model
+validation depending on a particular rule set</p>
+
+<h1 id="create-a-new-vue-project">Create a New Vue Project</h1>
+
+<p>Create a playground project by running the following in your Terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#75715e"># Create a new Vue project</span>
+<span style="color:#f92672">$</span> vue init webpack<span style="color:#f92672">-</span>simple vue<span style="color:#f92672">-</span>validation
+
+<span style="color:#75715e"># Navigate to directory</span>
+<span style="color:#f92672">$</span> cd vue<span style="color:#f92672">-</span>validation
+
+<span style="color:#75715e"># Install dependencies</span>
+<span style="color:#f92672">$</span> npm install
+
+<span style="color:#75715e"># Install Vuelidate</span>
+<span style="color:#f92672">$</span> npm install vuelidate
+
+<span style="color:#75715e"># Run application</span>
+<span style="color:#f92672">$</span> npm run dev</code></pre></div>
+<h1 id="what-is-vuelidate">What is Vuelidate?</h1>
+
+<p><code>Vuelidate</code> is an open source, lightweight library that helps you perform model
+validation with a variety of validation contexts. Validation can be functionally
+composed and it also works well with other libraries such as <code>Moment</code>, <code>Vuex</code>,
+and more. As you&rsquo;ve installed it in your project with <code>npm install vuelidate</code>,
+you now need to register it as a plugin within main.js:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vuelidate</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuelidate&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./App.vue&#34;</span>;
+
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">Vuelidate</span>);
+
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+  <span style="color:#a6e22e">validations</span><span style="color:#f92672">:</span> {},
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">h</span> =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>)
+});
+</code></pre></div>
+<p>Adding the empty validations object to your main Vue instance bootstraps
+Vuelidate&rsquo;s <code>$v</code> throughout the project. This then allows you to use
+the <code>$v</code> object to gain information about the current state of your form within
+your Vue instance across all components.</p>
+
+<h1 id="using-vuelidate">Using Vuelidate</h1>
+
+<p>Now, create a basic form that allows you to input
+<code>firstName</code>, <code>lastName</code>, <code>email</code>, and <code>password</code>. This will allow you to add
+validation rules with Vuelidate and visualize them on screen:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">submit</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">prevent</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;onSubmit&#34;</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email&lt;/<span style="color:#f92672">label</span>&gt;
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span> /&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>&gt;First Name&lt;/<span style="color:#f92672">label</span>&gt;
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span> /&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>&gt;Last Name&lt;/<span style="color:#f92672">label</span>&gt;
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span> /&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;Password&lt;/<span style="color:#f92672">label</span>&gt;
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> /&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;Submit&lt;/<span style="color:#f92672">button</span>&gt;
+    &lt;/<span style="color:#f92672">form</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">data</span>() {
+      <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+        <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+        <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+        <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>
+      };
+    },
+    <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">onSubmit</span>() {}
+    }
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+<p>There&rsquo;s a lot going on here, so break it down step by step:</p>
+
+<ol>
+<li>You&rsquo;ll create a new form with the <code>@submit.prevent</code> directive so that the
+page doesn&rsquo;t reload when the form is submitted, which is the same as calling
+submit on this form and having <code>preventDefault</code> on the event.</li>
+<li>Next, you’ll add <code>v-model.trim</code> to each form input element so as to trim any
+white space and capture the input as a variable.</li>
+<li>You’ll define these variables inside your data function so that they&rsquo;re
+reactive.</li>
+<li>The <code>Submit</code> button is defined with <code>type=&quot;submit&quot;</code> so that when it&rsquo;s
+clicked, the form&rsquo;s submit function is run.</li>
+<li>You&rsquo;re stubbing out a blank <code>onSubmit</code> function, which you&rsquo;ll be creating
+soon.</li>
+</ol>
+
+<p>Now, you need to add the <code>@input</code> event and call the <code>touch</code> event on each one
+of your input elements, binding to the data property <code>v-model</code> and providing
+validation to the field:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$touch()&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>&gt;First Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.firstName.$touch()&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>&gt;Last Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.lastName.$touch()&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;Password&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.password.$touch()&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<p>You can then add the validations to your Vue instance by importing them
+from <code>Vuelidate</code> and adding a <code>validations</code> object that corresponds to the form
+elements.</p>
+
+<p><code>Vuelidate</code> will bind the same name set here with your data variable:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">required</span>, <span style="color:#a6e22e">email</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuelidate/lib/validators&#34;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#75715e">// Omitted
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">validations</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>,
+      <span style="color:#a6e22e">email</span>
+    },
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>
+    },
+    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>
+    },
+    <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>
+    }
+  }
+};
+</code></pre></div>
+<p>You&rsquo;re simply importing the required email validators and applying them to each
+model item. This essentially makes sure that all of your items are required and
+that the email input matches an email regular expression. You can then visualize
+the current state of the form and each field by adding the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;validators&#34;</span>&gt;
+  &lt;<span style="color:#f92672">pre</span>&gt;{{$v}}&lt;/<span style="color:#f92672">pre</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<p>You can then add some styling to show the validation on the right and the form
+on the left:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">form</span> {
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">49</span><span style="color:#66d9ef">%</span>;
+  }
+  .<span style="color:#a6e22e">validators</span> {
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">49</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+    <span style="color:#66d9ef">vertical-align</span>: <span style="color:#66d9ef">top</span>;
+  }
+  .<span style="color:#a6e22e">input</span> {
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>If everything has gone as planned, you should get the following result:</p>
+
+<p><img src="https://images.tutorialedge.net/images/javascript/vuejs/form-validation-image1.png" alt="vuejs form validation result" /></p>
+
+<h1 id="displaying-form-errors">Displaying form errors</h1>
+
+<p>You can use the <code>$invalid</code> Boolean inside the <code>$v.model_name</code> object
+(where <code>model_name</code> is equal to <code>email</code>, <code>firstName</code>, <code>lastName</code>, or <code>password</code>)
+to display messages or change the look and feel of your form field(s). You can
+start by adding a new class named <code>error</code> that adds <code>redborder</code> around the input
+field:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">style</span>&gt;
+  <span style="color:#f92672">input</span>:<span style="color:#a6e22e">focus</span> {
+    <span style="color:#66d9ef">outline</span>: <span style="color:#66d9ef">none</span>;
+  }
+  .<span style="color:#a6e22e">error</span> {
+    <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">red</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>You can then conditionally apply this class whenever the field is invalid and
+touched using <code>v-bind:class</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.email.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$touch()&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>&gt;First Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.firstName.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.firstName.$touch()&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>&gt;Last Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.lastName.$error}&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.lastName.$touch()&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;Password&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.password.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.password.$touch()&#34;</span>
+  /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<p>This will then give you the following results whenever the field is invalid or
+valid:</p>
+
+<p><img src="https://images.tutorialedge.net/images/javascript/vuejs/form-validation-image2.png" alt="vuejs form validation result" /></p>
+
+<p>Subsequently, you can then display an error message if this is the case. This
+can be done in numerous ways, depending on the type of message you want to show.
+You can use the <code>email</code> input as an example and show an error message when
+the <code>email</code> field has an invalid email address:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.email.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$touch()&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.email&#34;</span>&gt;
+    Please enter a valid email address
+  &lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+
+// Omitted
+&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">error-message</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>As you can see from the representation of your <code>$v</code> object, the email Boolean is
+true when the field has a valid email address and false when it doesn’t. While
+this checks to see whether the email is correct, it doesn&rsquo;t check to see whether
+the field is empty. Now, add another error message that checks this based on
+the <code>required</code> validator:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.email&#34;</span>&gt;
+  Please enter a valid email address.
+&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.required&#34;</span>&gt;Email must not be empty.&lt;/<span style="color:#f92672">p</span>&gt;</code></pre></div>
+<p>You could even take this a step further and create your own wrapper component
+that would render the various error messages of each field. You can fill in the
+rest of your error messages along with a check to see whether the form element
+has been touched (is <code>$dirty</code>):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.email.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$touch()&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.email&#34;</span>&gt;
+      Please enter a valid email address.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.required&#34;</span>&gt;
+      Email must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>&gt;First Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.firstName.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.firstName.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.firstName.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.firstName.required&#34;</span>&gt;
+      First Name must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>&gt;Last Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.lastName.$error}&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.lastName.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.lastName.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.lastName.required&#34;</span>&gt;
+      Last Name must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;Password&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.password.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.password.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.password.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.password.required&#34;</span>&gt;
+      Password must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<h1 id="password-validation">Password validation</h1>
+
+<p>When creating user accounts, passwords tend to be entered twice and conform to a
+minimum length. Add another field and some more validation rules to enforce
+this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">required</span>, <span style="color:#a6e22e">email</span>, <span style="color:#a6e22e">minLength</span>, <span style="color:#a6e22e">sameAs</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuelidate/lib/validators&#34;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#75715e">// Omitted
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">data</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+      <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+      <span style="color:#a6e22e">repeatPassword</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+      <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+      <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>
+    };
+  },
+  <span style="color:#a6e22e">validations</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>,
+      <span style="color:#a6e22e">email</span>
+    },
+    <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>
+    },
+    <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>
+    },
+    <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>,
+      <span style="color:#a6e22e">minLength</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">minLength</span>(<span style="color:#ae81ff">6</span>)
+    },
+    <span style="color:#a6e22e">repeatPassword</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span>,
+      <span style="color:#a6e22e">minLength</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">minLength</span>(<span style="color:#ae81ff">6</span>),
+      <span style="color:#a6e22e">sameAsPassword</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">sameAs</span>(<span style="color:#e6db74">&#34;password&#34;</span>)
+    }
+  }
+};
+</code></pre></div>
+<p>You&rsquo;ve done the following:</p>
+
+<ol>
+<li>Added the <code>repeatPassword</code> field to your data object so that it can hold the
+repeated password</li>
+<li>Imported both the <code>minLength</code> and <code>sameAs</code> validators from <code>Vuelidate</code></li>
+<li>Added the <code>minLength</code> of 6 characters to the <code>password</code> validator</li>
+<li>Added the <code>sameAs</code> validator to enforce the fact that <code>repeatPassword</code> should
+follow the same validation rules as <code>password</code></li>
+</ol>
+
+<p>As you now have appropriate password validation, you can add the new field and
+display any error messages:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;Email&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.email.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$touch()&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.email.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.email&#34;</span>&gt;
+      Please enter a valid email address.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.email.required&#34;</span>&gt;
+      Email must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>&gt;First Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.firstName.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.firstName.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.firstName.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.firstName.required&#34;</span>&gt;
+      First Name must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>&gt;Last Name&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.lastName.$error}&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lastName&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.lastName.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.lastName.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.lastName.required&#34;</span>&gt;
+      Last Name must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;Password&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.password.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.password.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.password.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.password.required&#34;</span>&gt;
+      Password must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;repeatPassword&#34;</span>&gt;Repeat Password&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span>
+    <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ error: $v.repeatPassword.$error }&#34;</span>
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;repeatPassword&#34;</span>
+    <span style="color:#a6e22e">v-model</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">trim</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;repeatPassword&#34;</span>
+    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.repeatPassword.$touch()&#34;</span>
+  /&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.repeatPassword.$dirty&#34;</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.repeatPassword.sameAsPassword&#34;</span>&gt;
+      Passwords must be identical.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error-message&#34;</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;!$v.repeatPassword.required&#34;</span>&gt;
+      Password must not be empty.
+    &lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<h1 id="form-submission">Form submission</h1>
+
+<p>In case your form is invalid, you can disable the <code>Submit</code> button:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">:disabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$v.$invalid&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;Submit&lt;/<span style="color:#f92672">button</span>&gt;</code></pre></div>
+<p>You can also get this value inside your JavaScript with <code>this.$v.$invalid</code>.
+Here&rsquo;s an example of how you can check to see whether the form is invalid and
+then create a user object based on your form elements:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+  <span style="color:#a6e22e">onSubmit</span>() {
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$v</span>.<span style="color:#a6e22e">$invalid</span>) {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">email</span>,
+        <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">firstName</span>,
+        <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">lastName</span>,
+        <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">password</span>,
+        <span style="color:#a6e22e">repeatPassword</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">repeatPassword</span>
+      }
+
+      <span style="color:#75715e">// Submit the object to an API of sorts
+</span><span style="color:#75715e"></span>    }
+  },
+},
+</code></pre></div>
+<p>If you&rsquo;d like to use your data in this fashion, you may prefer to set up your
+data object as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">data</span>() {
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+      <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+      <span style="color:#a6e22e">repeatPassword</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+      <span style="color:#a6e22e">firstName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+      <span style="color:#a6e22e">lastName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+    }
+  };
+},
+</code></pre></div>
+<p>You have now successfully created a form with appropriate validation! If this
+article interests you, you can refer to
+<a href="https://amzn.to/2JjyXiT">Vue.js 2 Design Patterns and Best Practices</a>. With
+this book, you&rsquo;ll be well on your way to becoming an expert Vue developer who
+can leverage design patterns to efficiently architect the design of your
+application and write clean and maintainable code.</p>
+ 
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#create-a-new-vue-project">Create a New Vue Project</a></li>
+<li><a href="#what-is-vuelidate">What is Vuelidate?</a></li>
+<li><a href="#using-vuelidate">Using Vuelidate</a></li>
+<li><a href="#displaying-form-errors">Displaying form errors</a></li>
+<li><a href="#password-validation">Password validation</a></li>
+<li><a href="#form-submission">Form submission</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">cad8d3b655b994b6f5a5b60638fabd82</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

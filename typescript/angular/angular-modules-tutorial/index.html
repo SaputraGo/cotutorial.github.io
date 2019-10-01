@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Angular Modules Tutorial | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.png" alt="Angular Modules Tutorial Image" />  Angular Modules Tutorial
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>4 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Apr 9, 2017</span>
+
+                <span>
+            
+            <a href="../../../tags/typescript"
+              ><span class="badge badge-pill badge-info">typescript</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">books</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/best-books-for-learning-angular/">The Top Books For Learning Angular</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">socket.io</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-socket-io-tutorial/">Creating a Realtime App with Angular and Socket.io Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">typescript</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/stability-patterns-in-angular/">Stability Patterns in Angular</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/guess-the-number-angular-6-beginners-tutorial/">How to Create a Customary Hello Angular App – Guess the Number!</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-query-params-tutorial/">Angular Query Parameters Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-modules-tutorial/">Angular Modules Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-components-tutorial/">Angular Components Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-services-tutorial/">Angular Services Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/best-books-for-learning-angular/">The Top Books For Learning Angular</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-get-current-route-location/">Angular Get Current Route using the Location Service</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-detecting-route-changes/">Angular Detecting Route Changes Within Your Application</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-websockets-tutorial/">Angular Websockets Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-cookies-tutorial/">Angular Cookies Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-environment-configuration-tutorial/">Angular Multiple Environment Configuration Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-observables-tutorial/">Angular Observables Tutorial using RxJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/typescript/angular/angular-routing-tutorial/">Angular Routing Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<blockquote>
+<p>This tutorial was built of the official Angular 2.2 release.</p>
+</blockquote>
+
+<p>In this tutorial we’ll be examining what modules are in Angular 2.0 as well as
+how to define them, what the best practices are for using modules and what the
+differences are between 1._ Modules and 2._ modules.</p>
+
+<blockquote>
+<p>Official documentation for Angular 2 Modules can be found here:
+<a target="_blank" href="https://angular.io/docs/ts/latest/guide/ngmodule.html">Angular
+2 Modules</a></p>
+</blockquote>
+
+<h1 id="what-are-modules">What Are Modules?</h1>
+
+<p>Typically a module would contain all the code necessary for one cohesive piece
+of functionality for your application. So say you were designing an admin
+dashboard for your website or application. You would have one root module and
+possibly a module for your articles section, a module for your users section, a
+module for your stats section and so on.</p>
+
+<p>Being able to structure your application into a series of smaller blocks of
+functionality is highly advantageous as it allows for easy extendibility and
+maintainability further down the line. We can group things like components,
+directives and services into a single module and should we wish to use any of
+these things within another module, we would simply import that module at the
+top of our file like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// import OurService from the ourmodule folder
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">OurService</span> } <span style="color:#a6e22e">from</span> .<span style="color:#f92672">/</span><span style="color:#a6e22e">ourmodule</span><span style="color:#f92672">/</span><span style="color:#a6e22e">our</span>.<span style="color:#a6e22e">module</span><span style="color:#960050;background-color:#1e0010">&#39;</span>;</code></pre></div>
+<p>Ever Angular application contains at least one route module. Without this your
+angular application simply wouldn’t work. Modules were introduced in Angular 2&rsquo;s
+5th Release candidate and Angular 2 offers in built modules such as the
+FormsModule, the HttpModule and the RouterModule. These standard modules can all
+be imported into our application and will allow us to do things like perform
+http calls or define routes within our application.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// Notice how all of the sub modules and components are branched off the root module like a tree.
+-- Root Module
+---- Users Module
+------ new user component
+-------- new-user.ts|html|spec.ts|css
+---- Articles Module
+------ New/edit/delete/search article code
+---- Statistics Module
+------ All our code <span style="color:#66d9ef">for</span> gathering statistics and displaying them etc.</code></pre></div>
+<h1 id="our-main-module">Our Main Module</h1>
+
+<p>Now we know every Angular application must have at the very least a root module.
+This is typically a class that has been decorated with @NgModule. @NgModule
+typically tells Angular how to compile and run module code. This root module
+acts as your applications main entry point.</p>
+
+<blockquote>
+<p>Note that it is considered best practice to include the app.module.ts file
+within your apps root directory.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NgModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/platform-browser&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">FormsModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/forms&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppComponent</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./app.component&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">TestComponent</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./test-component/test-component.component&#34;</span>;
+
+<span style="color:#66d9ef">@NgModule</span>({
+  <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">BrowserModule</span>, <span style="color:#a6e22e">FormsModule</span>],
+  <span style="color:#a6e22e">declarations</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">AppComponent</span>, <span style="color:#a6e22e">TestComponent</span>],
+  <span style="color:#a6e22e">bootstrap</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">AppComponent</span>]
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppModule</span> {}</code></pre></div>
+<blockquote>
+<p>We can add our own custom components to the declarations array. Notice I’ve
+added TestComponent above.</p>
+</blockquote>
+
+<h2 id="the-ngmodule-decorator">The @NgModule Decorator</h2>
+
+<p>In order to define a module we need to first define a class within our
+application. After we&rsquo;ve defined this class we would then have to decorate it
+with the @NgModule decorator. Within this we define our metadata for this
+module, this metadata declares what components, directives, services and so on
+belong in this module.</p>
+
+<p>Defining your own new modules is relatively simple in Angular 2. Below you&rsquo;ll
+find the code needed to define your own UserModule module that contains a user
+component and also exports this component so that other modules can utilize it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NgModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/platform-browser&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">UserComponent</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./user.component&#34;</span>;
+
+<span style="color:#66d9ef">@NgModule</span>({
+  <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">BrowserModule</span>],
+  <span style="color:#a6e22e">declarations</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">UserComponent</span>],
+  <span style="color:#a6e22e">exports</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">UserComponent</span>]
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserModule</span> {}</code></pre></div>
+<p>And next we&rsquo;ll define the very simple UserComponent that the above module
+references. This component will be bound to the &lsquo;user&rsquo; html tag and will
+basically print out own h2 title that says &lsquo;User Component&rsquo;, exciting I know.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/core&#34;</span>;
+
+<span style="color:#66d9ef">@Component</span>({
+  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user&#34;</span>,
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;h2&gt;User Component&lt;/h2&gt;&#34;</span>
+})
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserComponent</span> {}</code></pre></div>
+<p>In order for us to use the UserComponent within our root AppModule that we
+defined above we simply have to add the following to our list of imports at the
+top of our file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">UserModule</span>, <span style="color:#a6e22e">UserComponent</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./users/users.module&#34;</span>;</code></pre></div>
+<blockquote>
+<p>If we failed to add UserComponent to the list of exports in our UserModule
+file then we would be unable to import it in our root Module</p>
+</blockquote>
+
+<p>Once we&rsquo;ve done this we can then utilize the <user></user> tags within any
+component that lies within our root AppModule.</p>
+
+<h1 id="bootstrapping">Bootstrapping</h1>
+
+<p>In Angular 1.* we would typically have used the ng-app directive to bootstrap
+our angular application. This would act almost like a main function that would
+act as the starting point for all of our Angular code.</p>
+
+<p>In Angular 2 this ng-app directive no longer exists and we have to resort to
+explicitly calling a bootstrap function and passing our root module to this
+function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">platformBrowserDynamic</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@angular/platform-browser-dynamic&#34;</span>;
+<span style="color:#75715e">// we import our root module file, notice the lack of file-extension
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AppModule</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./app.module&#34;</span>;
+
+<span style="color:#75715e">// this compiles and launches our AngularJS Application for us
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">platformBrowserDynamic</span>().<span style="color:#a6e22e">bootstrapModule</span>(<span style="color:#a6e22e">AppModule</span>);</code></pre></div>
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I hope you found this tutorial useful. If you want any further help or
+information then please let me know in the comments section below!</p>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/typescript/angular/angular-modules-tutorial/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#what-are-modules">What Are Modules?</a></li>
+<li><a href="#our-main-module">Our Main Module</a>
+<ul>
+<li><a href="#the-ngmodule-decorator">The @NgModule Decorator</a></li>
+</ul></li>
+<li><a href="#bootstrapping">Bootstrapping</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">5d653d57dd90fda161464c0cf7b0ed2f</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

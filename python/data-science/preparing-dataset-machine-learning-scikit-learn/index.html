@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Preparing a Dataset for Machine Learning with scikit-learn | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" alt="Preparing a Dataset for Machine Learning with scikit-learn Image" />  Preparing a Dataset for Machine Learning with scikit-learn
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="https://pbs.twimg.com/profile_images/868147892795588608/iAnFiiiE_400x400.jpg" alt="Kevin Jolly" />
+            
+            <a href="https://twitter.com/imkevinjolly">Kevin Jolly</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>7 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Jan 19, 2019</span>
+
+                <span>
+            
+            <a href="../../../tags/data-science"
+              ><span class="badge badge-pill badge-info">data-science</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-method-resolution-order-tutorial/">Python Method Resolution Order Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-c-extensions-tutorial/">Creating Basic Python C Extensions - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">ai</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/intro-face-recognition-in-python/">An Introduction to Face Recognition in Python</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">asyncio</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-asyncio-semaphores-tutorial/">Asyncio Semaphores and Bounded Semaphores Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-synchronization-primitives-tutorial/">Asyncio Synchronization Primitives Tutorial - Queues and Locks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-tasks-tutorial/">Asyncio Tasks Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-event-loops-tutorial/">Asyncio Event Loops Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">aws</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/aws/python-based-lambda-tutorial/">Python Based Lambda Tutorial</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/getting-started-with-python/">Getting Started With Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-functions-and-variables/">Functions and Variables in Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-lists-tutorial/">Working with Lists in Python - Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-working-with-file-system/">Working With The File System in Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-reading-writing-files/">Reading and Writing Files In Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-maps-tutorial/">Python Maps Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-modules-tutorial/">Python Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-logging-best-practices/">Python Logging Best Practices</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-decorators-tutorial/">Python Decorators Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-generator-tutorial/">Python Generators Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-iterator-tutorial/">Python Iterator Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/fetching-web-pages-python/">Fetching Web Pages In Python Using Urllib2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/removing-html-from-string/">Removing HTML Tags from a String with Python</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">books</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/best-books-for-python/">The Top Books for Learning to Program in Python</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">c</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-c-extensions-tutorial/">Creating Basic Python C Extensions - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-maps-tutorial/">Python Maps Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-asyncio-semaphores-tutorial/">Asyncio Semaphores and Bounded Semaphores Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-synchronization-primitives-tutorial/">Asyncio Synchronization Primitives Tutorial - Queues and Locks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-tasks-tutorial/">Asyncio Tasks Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/getting-started-with-asyncio-python/">Getting Started with Asyncio in Python</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/threads-in-python/">Threads in Python</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-event-loops-tutorial/">Asyncio Event Loops Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-event-driven-rxpy-tutorial/">Python Event-Driven Programming with RxPY - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-processpoolexecutor-tutorial/">Python ProcessPoolExecutor Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-threadpoolexecutor-tutorial/">Python ThreadPoolExecutor Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-multithreading-tutorial/">Python Multithreading Tutorial - Concurrent Programming</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-multiprocessing-tutorial/">Python Multiprocessing Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">configuration</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-environment-configuration-tutorial/">Python Environment Configuration Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">data-science</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/data-science/setting-up-dev-environment-building-gan/">Setting Up your Development Environment for Building a Genetic Adversarial Network</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/data-science/preparing-dataset-machine-learning-scikit-learn/">Preparing a Dataset for Machine Learning with scikit-learn</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/building-imdb-top-250-clone-pandas/">Building an IMDB Top 250 Clone with Pandas</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">debugging</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/debugging-with-pdb-python/">Debugging with the Python Debugger - PDB </a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-working-with-file-system/">Working With The File System in Python</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">http</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/create-rest-api-python-aiohttp/">Creating a RESTful API with Python and aiohttp</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-http-requests-tutorial/">Making HTTP Requests in Python - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-project-layout/">Python Project Layout Best Practices</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/getting-started-with-pyunit-testing/">Getting Started With PyUnit Testing</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/calculating-keyword-density-python/">Calculating Keyword Density of a Web Page with Python</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/creating-python-web-crawler/">Creating a Python Web Crawler</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/creating-twitter-bot-python/">Creating a Twitter Bot Using Python and the Twitter API</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">logging</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-logging-best-practices/">Python Logging Best Practices</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">networking</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/udp-client-server-python/">UDP Client and Server Tutorial in Python</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">rest</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/create-rest-api-python-aiohttp/">Creating a RESTful API with Python and aiohttp</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-http-requests-tutorial/">Making HTTP Requests in Python - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">rxpy</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-event-driven-rxpy-tutorial/">Python Event-Driven Programming with RxPY - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">socket.io</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-socket-io-tutorial/">Python Socket.io Tutorial</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/getting-started-with-pyunit-testing/">Getting Started With PyUnit Testing</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>The first step to implementing any machine learning algorithm with scikit-learn
+is data preparation. Scikit-learn comes with a set of constraints to
+implementation. The dataset that we will be using is based on mobile payments
+and is found on the world&rsquo;s most popular competitive machine learning website –
+Kaggle. You can download the dataset
+from: <a href="https://www.kaggle.com/ntnu-testimon/paysim1">https://www.kaggle.com/ntnu-testimon/paysim1</a>.</p>
+
+<p>Once downloaded, open a new Jupyter Notebook using the following code in
+Terminal (macOS/Linux) or Anaconda Prompt/PowerShell (Windows):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> Jupyter Notebook</code></pre></div>
+<p>The fundamental goal of this dataset is to predict whether a mobile transaction
+is fraudulent. In order to do this, we need to first have a brief understanding
+of the contents of our data. In order to explore the dataset, we will use
+the pandas package in Python. You can install pandas using the following code in
+Terminal (macOS/Linux) or PowerShell (Windows):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> pip3 install pandas</code></pre></div>
+<p>Pandas can be installed on Windows machines in an Anaconda Prompt using the
+following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> conda install pandas</code></pre></div>
+<p>We can now read in the dataset into our Jupyter Notebook using the following
+code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Package Imports</span>
+
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+
+<span style="color:#75715e">#Reading in the dataset</span>
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;PS_20174392719_1491204439457_log.csv&#39;</span>)
+
+<span style="color:#75715e">#Viewing the first 5 rows of the dataset</span>
+
+df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>This produces an output as illustrated in the following screenshot:</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/data-science/preparing-dataset-machine-learning/image1-17.png" alt="jupter notebook output screenshot" /></p>
+
+<h1 id="dropping-features-that-are-redundant">Dropping features that are redundant</h1>
+
+<p>From the dataset seen previously, there are a few columns that are redundant to
+the machine learning process:</p>
+
+<ul>
+<li><code>nameOrig</code>: This column is a unique identifier that belongs to each customer.
+Since each identifier is unique with every row of the dataset, the machine
+learning algorithm will not be able to discern any patterns from this feature.</li>
+<li><code>nameDest</code>: This column is also a unique identifier that belongs to each
+customer and as such provides no value to the machine learning algorithm.</li>
+<li><code>isFlaggedFraud</code>: This column flags a transaction as fraudulent if a person
+tries to transfer more than 200,000 in a single transaction. Since we already
+have a feature called <code>isFraud</code> that flags a transaction as fraud, this
+feature becomes redundant.</li>
+</ul>
+
+<p>We can drop these features from the dataset using the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Dropping the redundant features</span>
+
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;nameOrig&#39;</span>, <span style="color:#e6db74">&#39;nameDest&#39;</span>, <span style="color:#e6db74">&#39;isFlaggedFraud&#39;</span>], axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)</code></pre></div>
+<h1 id="reducing-the-size-of-the-data">Reducing the size of the data</h1>
+
+<p>The dataset that we are working with contains over 6 million rows of data. Most
+machine learning algorithms will take a large amount of time to work with a
+dataset of this size. In order to make our execution time quicker, we will
+reduce the size of the dataset to 20,000 rows. We can do this using
+the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Storing the fraudulent data into a dataframe</span>
+
+df_fraud <span style="color:#f92672">=</span> df[df[<span style="color:#e6db74">&#39;isFraud&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
+
+<span style="color:#75715e">#Storing the non-fraudulent data into a dataframe</span>
+
+df_nofraud <span style="color:#f92672">=</span> df[df[<span style="color:#e6db74">&#39;isFraud&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>]
+
+<span style="color:#75715e">#Storing 12,000 rows of non-fraudulent data</span>
+
+df_nofraud <span style="color:#f92672">=</span> df_nofraud<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">12000</span>)
+
+<span style="color:#75715e">#Joining both datasets together</span>
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([df_fraud, df_nofraud], axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)</code></pre></div>
+<p>In the preceding code, the fraudulent rows are stored in one dataframe. This
+dataframe contains a little over 8,000 rows. The 12,000 non-fraudulent rows are
+stored in another dataframe, and the two dataframes are joined together using
+the concat method from pandas.</p>
+
+<p>This results in a dataframe with a little over 20,000 rows, over which we can
+now execute our algorithms relatively quickly.</p>
+
+<h1 id="encoding-the-categorical-variables">Encoding the categorical variables</h1>
+
+<p>One of the main constraints of scikit-learn is that you cannot implement the
+machine learning algorithms on columns that are categorical in nature. For
+example, the type column in our dataset has five categories:</p>
+
+<ul>
+<li><code>CASH-IN</code></li>
+<li><code>CASH-OUT</code></li>
+<li><code>DEBIT</code></li>
+<li><code>PAYMENT</code></li>
+<li><code>TRANSFER</code></li>
+</ul>
+
+<p>These categories will have to be encoded into numbers that scikit-learn can make
+sense of. In order to do this, we have to implement a two-step process. The
+first step is to convert each category into a number: CASH-IN = 0, CASH-OUT =
+1, DEBIT = 2, PAYMENT = 3, TRANSFER = 4. We can do this using the following
+code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Package Imports</span>
+
+<span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> LabelEncoder
+<span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> OneHotEncoder
+
+<span style="color:#75715e">#Converting the type column to categorical</span>
+
+df[<span style="color:#e6db74">&#39;type&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;type&#39;</span>]<span style="color:#f92672">.</span>astype(<span style="color:#e6db74">&#39;category&#39;</span>)
+
+<span style="color:#75715e">#Integer Encoding the &#39;type&#39; column</span>
+
+type_encode <span style="color:#f92672">=</span> LabelEncoder()
+
+<span style="color:#75715e">#Integer encoding the &#39;type&#39; column</span>
+
+df[<span style="color:#e6db74">&#39;type&#39;</span>] <span style="color:#f92672">=</span> type_encode<span style="color:#f92672">.</span>fit_transform(df<span style="color:#f92672">.</span>type)</code></pre></div>
+<p>First, the code coverts the <code>type</code> column to a categorical feature. We then
+use <code>LabelEncoder()</code> in order to initialize an integer encoder object that is
+called <code>type_encode</code>. Finally, we apply the <code>fit_transform</code> method on
+the <code>type</code> column in order to convert each category into a number.</p>
+
+<p>Broadly speaking, there are two types of categorical variables:</p>
+
+<ul>
+<li>Nominal</li>
+<li>Ordinal</li>
+</ul>
+
+<p>Nominal categorical variables have no inherent order to them. An example of the
+nominal type of categorical variable is the type column.</p>
+
+<p>Ordinal categorical variables have an inherent order to them. An example of the
+ordinal type of categorical variable is Education Level, in which people with a
+Master&rsquo;s degree will have a higher order/value compared to people with an
+Undergraduate degree only.</p>
+
+<p>In the case of ordinal categorical variables, integer encoding, as illustrated
+previously, is sufficient and we do not need to one-hot encode them. Since
+the type column is a nominal categorical variable, we have to one-hot encode it
+after integer encoding it. This is done using the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#One hot encoding the &#39;type&#39; column</span>
+
+type_one_hot <span style="color:#f92672">=</span> OneHotEncoder()
+
+type_one_hot_encode <span style="color:#f92672">=</span> type_one_hot<span style="color:#f92672">.</span>fit_transform(df<span style="color:#f92672">.</span>type<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>reshape(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>toarray()
+
+<span style="color:#75715e">#Adding the one hot encoded variables to the dataset</span>
+
+ohe_variable <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(type_one_hot_encode, columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;type_&#34;</span><span style="color:#f92672">+</span>str(int(i)) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(type_one_hot_encode<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>])])
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([df, ohe_variable], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e">#Dropping the original type variable</span>
+
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;type&#39;</span>, axis <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e">#Viewing the new dataframe after one-hot-encoding</span>
+
+df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>In the code, we first create a one-hot encoding object called <code>type_one_hot</code>. We
+then transform the type column into one-hot encoded columns using
+the <code>fit_transform</code> method.</p>
+
+<p>We have five categories that are represented by integers 0 to 4. Each of these
+five categories will now get its own column. Therefore, we create five columns
+called <code>type_0</code>, <code>type_1</code>, <code>type_2</code>, <code>type_3</code>, and <code>type_4</code>. Each of these five
+columns is represented by two values: 1, which indicates the presence of that
+category, and 0, which indicates the absence of that category.</p>
+
+<p>This information is stored in the <code>ohe_variable</code>. Since this variable holds the
+five columns, we will join this to the original dataframe using
+the <code>concat</code> method from <code>pandas</code>.</p>
+
+<p>The ordinal <code>type</code> column is then dropped from the dataframe as this column is
+now redundant post one hot encoding. The final dataframe now looks like this:</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/data-science/preparing-dataset-machine-learning/image2-19.png" alt="jupter notebook output screenshot" /></p>
+
+<h1 id="missing-values">Missing values</h1>
+
+<p>Another constraint with scikit-learn is that it cannot handle data with missing
+values. Therefore, we must check whether our dataset has any missing values in
+any of the columns to begin with. We can do this using the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Checking every column for missing values</span>
+
+df<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>any()</code></pre></div>
+<p>This produces this output:</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/data-science/preparing-dataset-machine-learning/image3-21.png" alt="jupter notebook output screenshot" /></p>
+
+<p>Here we note that every column has some amount of missing values. Missing values
+can be handled in a variety of ways, such as the following:</p>
+
+<ul>
+<li>Median imputation</li>
+<li>Mean imputation</li>
+<li>Filling them with the majority value</li>
+</ul>
+
+<p>The amount of techniques is quite large and varies depending on the nature of
+your dataset. This process of handling features with missing values is
+called feature engineering. Feature engineering can be done for both categorical
+and numerical columns. We will impute all the missing values with a zero.</p>
+
+<p>We can do this using the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Imputing the missing values with a 0</span>
+
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>fillna(<span style="color:#ae81ff">0</span>)</code></pre></div>
+<p>We now have a dataset that is ready for machine learning with scikit-learn. You
+can also export this dataset as a .csv file and store it in the same directory
+that you are working in with the Jupyter Notebook using the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;fraud_prediction.csv&#39;</span>)</code></pre></div>
+<p>This will create a .csv file of this dataset in the directory that you are
+working in, which you can load into the notebook again using pandas.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>If you found this article interesting, you can explore
+<a href="https://amzn.to/2FInwhE">Machine Learning with scikit-learn Quick Start Guide</a>
+to deploy supervised and unsupervised machine learning algorithms using
+scikit-learn to perform classification, regression, and clustering.</p>
+
+<p>Machine Learning with scikit-learn Quick Start Guide teaches you how to use
+scikit-learn for machine learning and can help you in building your own machine
+learning models for accurate predictions.</p>
+ 
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/python/data-science/preparing-dataset-machine-learning-scikit-learn/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#dropping-features-that-are-redundant">Dropping features that are redundant</a></li>
+<li><a href="#reducing-the-size-of-the-data">Reducing the size of the data</a></li>
+<li><a href="#encoding-the-categorical-variables">Encoding the categorical variables</a></li>
+<li><a href="#missing-values">Missing values</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">210c6d14ba729767108545490d6df966</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

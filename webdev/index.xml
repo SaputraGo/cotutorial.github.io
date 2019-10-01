@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Development on My New Hugo Site</title>
+    <link>http://example.org/webdev/</link>
+    <description>Recent content in Web Development on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 18:07:38 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/webdev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An Introduction To Web Development</title>
+      <link>http://example.org/webdev/introduction-to-web-development/</link>
+      <pubDate>Sun, 16 Apr 2017 17:27:53 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/introduction-to-web-development/</guid>
+      <description>Since it&amp;rsquo;s inception in the 90s the web has seen an explosion in the number and range of different web technologies used for building websites. However, if you have never created a website in your life then this can all be very daunting and initially offputting for someone wanting to take the plunge and get into web development seriously. In this introductory guide I&amp;rsquo;ll be helping to demystify some of the key terms and concepts that every web developer should know or be aware of.</description>
+    </item>
+    
+    <item>
+      <title>The Best Books for Learning Web Development</title>
+      <link>http://example.org/webdev/best-book-learn-web-dev/</link>
+      <pubDate>Tue, 05 Sep 2017 18:07:38 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/best-book-learn-web-dev/</guid>
+      <description>In this article we are going to be taking a look at some of the best books you can buy if you are interested in learning more about the art of web development.
+ This list isn&amp;rsquo;t an exhaustive list of all the best books currently available, it&amp;rsquo;s just a small list of books I feel are excellent at teaching the basics. If you have any you would like to add then please let me know in the comments section.</description>
+    </item>
+    
+    <item>
+      <title>The Difference Between Class Selectors and ID Selectors in CSS</title>
+      <link>http://example.org/webdev/difference-between-class-id-selector-css/</link>
+      <pubDate>Sun, 23 Apr 2017 14:48:20 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/difference-between-class-id-selector-css/</guid>
+      <description>If you are new to CSS then you&amp;rsquo;ll probably have noticed that some rules have selectors that start with # and some that start with . and even some that have none at all. The difference between the two is that the # rule is an id selector and the . is a class selector.
+ . - is a class selector that target elements with the correct class attribute.</description>
+    </item>
+    
+    <item>
+      <title>How To Work With CSS3 Variables</title>
+      <link>http://example.org/webdev/how-to-work-with-css3-variables/</link>
+      <pubDate>Fri, 21 Apr 2017 19:53:46 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/how-to-work-with-css3-variables/</guid>
+      <description>One of the main reasons that preprocessors like SASS and LESS have gained such huge popularity over the years is the fact that the help to bring order to your convoluted and messy CSS files. I&amp;rsquo;ve found myself too often ending up with 1,000 line css files where the header specific rules have migrated south towards the end of the document. With preprocessors you were able to leverage things like inheritance and it actually gave you a reason to structure your code in a cohesive format.</description>
+    </item>
+    
+    <item>
+      <title>CSS3 Border Radius Tutorial</title>
+      <link>http://example.org/webdev/border-radius-tutorial/</link>
+      <pubDate>Thu, 20 Apr 2017 08:06:37 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/border-radius-tutorial/</guid>
+      <description>Effective use of border-radius on some elements can remove the harshness of the square corners on some components.
+Circle Element In this example we&amp;rsquo;ll be creating a completely round circle object using nothing but css3. This is what our finished item will look like:
+  .circle { width: 100px; height: 100px; border-radius: 100%; background-color: #074E68; margin: auto; }  Source Code To get this to work, what I&amp;rsquo;ve done is create a div and attached the .</description>
+    </item>
+    
+    <item>
+      <title>CSS3 Box Shadow Tutorial</title>
+      <link>http://example.org/webdev/css3-box-shadow/</link>
+      <pubDate>Sun, 16 Apr 2017 16:50:07 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/css3-box-shadow/</guid>
+      <description>In this tutorial we&amp;rsquo;ll be looking at how you can add a box shadow effect to elements of your website. Box shadow can help turn elements of your website from flat structures to almost 3D like.
+ It&amp;rsquo;s worth checking out the material design documentation on Elevation and Shadows
+ Output This is what we&amp;rsquo;ll be creating:
+Box Shadow Example   .box { box-shadow: 0px 0px 15px #888888; padding: 20px; margin: auto; width: 50%; }  Implementation For the above example we first define a div and attach the .</description>
+    </item>
+    
+    <item>
+      <title>Equal Height Columns in a Row using Flex Box</title>
+      <link>http://example.org/webdev/equal-height-columns-using-css/</link>
+      <pubDate>Sat, 15 Apr 2017 09:19:19 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/equal-height-columns-using-css/</guid>
+      <description>In this tutorial I&#39;ll be showcasing how we can achieve equal heights on our columns using the CSS and HTML. More specifically I&#39;ll be demonstrating the Flex Box feature of CSS which allows us to create these equal height columns without resorting to a nasty javascript workaround.
+Flex CSS .list { display: flex; flex-wrap: wrap; } .list-item { background-color: #eee; display: flex; color: white; } .list-content { padding: 1.5em; } So how does this work?</description>
+    </item>
+    
+  </channel>
+</rss>

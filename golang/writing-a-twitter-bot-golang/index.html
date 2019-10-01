@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Writing A Twitter Bot in Golang | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" alt="Writing A Twitter Bot in Golang Image" />  Writing A Twitter Bot in Golang
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>6 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Apr 9, 2017</span>
+
+                <span>
+            
+            <a href="../../tags/intermediate"
+              ><span class="badge badge-pill badge-info">intermediate</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-websockets-tutorial/">Working with Websockets and Socket.IO in Go - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-protocol-buffer-tutorial/">Go Protocol Buffer Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-webassembly-tutorial/">Go WebAssembly Tutorial - Building a Calculator Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-oauth2-tutorial/">Go Oauth2 Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-face-recognition-tutorial-part-one/">Go Face Recognition Tutorial - Part 1</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-encrypt-decrypt-aes-tutorial/">Go Encryption and Decryption using AES - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-ci-cd-pipeline-go-projects/">Building a Solid Continuous Integration Pipeline with TravisCI for Your Go Projects</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-frontend-web-framework-webassembly-go/">Writing a Frontend Web Framework with WebAssembly And Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/authenticating-golang-rest-api-with-jwts/">Securing Your Go REST APIs With JWTs</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/getting-started-with-go/">Getting Started With Go</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-basic-types-tutorial/">Go Basic Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-complex-types-tutorial/">Go Composite Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-functions-tutorial/">Go Functions Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-methods-tutorial/">Go Methods Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-interfaces-tutorial/">Go Interfaces Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-console-input-golang/">Reading in Console Input in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/executing-system-commands-with-golang/">Executing System Commands With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-json-with-golang/">Parsing JSON files With Golang</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-xml-with-golang/">Parsing XML Files With Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/the-go-init-function/">The Go init Function</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-sorting-with-sort-tutorial/">Go Sorting With the sort Package - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-ticker-tutorial/">Go Tickers Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-modules-tutorial/">Go Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-json-tutorial/">Go JSON Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/concurrency-with-golang-goroutines/">Concurrency With Golang Goroutines</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-mutex-tutorial/">Go Mutex Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-channels-tutorial/">Go Channels Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-waitgroup-tutorial/">Go WaitGroup Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">docker</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-multi-stage-docker-tutorial/">Go Multi-Stage Docker Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-docker-tutorial/">Containerizing your Go Applications with Docker - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">file-upload</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-file-upload-tutorial/">Uploading Files in Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-writing-files-in-go/">Reading And Writing To Files in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/temporary-files-directories-go-111/">Working with Temporary Files and Directories in Go 1.11</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">graphql</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial-part-2/">Go Graphql Beginners Tutorial - Part 2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial/">Go GraphQL Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/an-intro-to-go-dep/">An Intro to Go Dep</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/consuming-restful-api-with-go/">Consuming A RESTful API With Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-restful-api-with-golang/">Creating a RESTful API With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-simple-web-server-with-golang/">Creating A Simple Web Server With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-a-cli-in-go/">Building a Network Command Line Interface in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-a-twitter-bot-golang/">Writing A Twitter Bot in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-orm-tutorial/">Golang ORM Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-mysql-tutorial/">Golang MySQL Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-closures-tutorial/">An Introduction to Go Closures - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-variadic-function-tutorial/">Go Variadic Function Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/working-with-environment-variables-in-go/">Working With Environment Variables in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-decorator-function-pattern-tutorial/">Go Decorator Function Pattern Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">misc</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/top-books-for-learning-golang/">The Best Books For Learning Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/sending-email-using-go-and-mailgun/">Sending Email Using Go And Mailgun</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/implementing-bubble-sort-with-golang/">Implementing the Bubble Sort Algorithm using Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-integer-string-conversion-tutorial/">Golang Integer String Conversion Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">redis</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-redis-tutorial/">Getting Started with Redis and Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">snippets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/check-key-exists-in-map-go/">Check Key Exists in Map Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/concatenate-strings-in-go/">Concatenate Strings in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/sort-map-by-value/">Sort Map by Value</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/intro-testing-in-go/">An Introduction to Testing in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/advanced-go-testing-tutorial/">Advanced Go Testing Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/benchmarking-your-go-programs/">An Introduction to Benchmarking Your Go Programs</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-your-tests-with-testify-go/">Improving Your Go Tests and Mocks With Testify</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">tools</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-go-workflow-with-git-hooks/">Improving Your Go Development Workflow With Git Hooks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/makefiles-for-go-developers/">Makefiles for Go Developers</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">websockets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-websocket-tutorial/">Go Websocket Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-realtime-youtube-sub-monitor-go/">Building a Real-time YouTube Subscriber Monitor in Go</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>In this tutorial I’m going to be demonstrating how to build a twitter bot using
+<a href="https://github.com/dghubble/go-twitter">go-twitter</a>, a popular Go
+client library for the Twitter API.</p>
+
+<p>I’ll be demonstrating how you can build a go based twitter bot that will be able
+to do such things as automatically reply to tweets and favorite tweets that
+contain a specific hashtag.</p>
+
+<h1 id="setting-up-your-project">Setting Up Your Project</h1>
+
+<blockquote>
+<p><strong>Note -</strong> We&rsquo;ll be using go modules which is an experimental feature of Go
+1.11</p>
+</blockquote>
+
+<p>Before we can get started, we&rsquo;ll need to create a new project directory and
+initialize it using modules:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> mkdir <span style="color:#f92672">-</span>p go<span style="color:#f92672">-</span>twitter<span style="color:#f92672">-</span>bot
+<span style="color:#f92672">$</span> go mod init github.com<span style="color:#f92672">/</span>elliotforbes<span style="color:#f92672">/</span>go<span style="color:#f92672">-</span>twitter<span style="color:#f92672">-</span>bot</code></pre></div>
+<p>This should create a <code>go.mod</code> file within our directory and we should be good to
+get started writing our twitter bot!</p>
+
+<h1 id="connecting-to-twitter">Connecting to Twitter</h1>
+
+<p>Just like with the <a href="../../python/creating-twitter-bot-python/">Python version of this tutorial</a>, you’ll have to create an app in twitter’s <a href=”https://apps.twitter.com/”>app control panel</a>. Once you’ve created a new application, it should present you with all the secret tokens and keys that you need in order to proceed.</p>
+
+<h1 id="environment-variables">Environment Variables</h1>
+
+<p>So, once we&rsquo;ve created a new application within the twitter apps dashboard,
+we&rsquo;ll have our credentials and we&rsquo;ll be ready to start coding up our app.</p>
+
+<p>We <strong>never</strong> want to hard-code credentials into our application&rsquo;s source code in
+case we accidentally commit these credentials into github or somewhere public.
+Instead, we&rsquo;ll want to set these as environment variables on our local machine
+and retrieve the credentials from there.</p>
+
+<p>We can export these environment variables like so on MacOS:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> export CONSUMER_KEY<span style="color:#f92672">=</span>VALUE
+<span style="color:#f92672">$</span> export CONSUMER_SECRET<span style="color:#f92672">=</span>VALUE
+<span style="color:#f92672">$</span> export ACCESS_TOKEN<span style="color:#f92672">=</span>VALUE
+<span style="color:#f92672">$</span> export ACCESS_TOKEN_SECRET<span style="color:#f92672">=</span>VALUE</code></pre></div>
+<blockquote>
+<p><strong>Note -</strong> If you are developing this on Windows, replace the <code>export</code> command
+with <code>set</code> and this should still work</p>
+</blockquote>
+
+<p>Once we&rsquo;ve done this, we&rsquo;ll be able to pick these values up safely within our
+code using the <code>os</code> package.</p>
+
+<h1 id="writing-our-basic-go-twitter-bot">Writing our Basic Go Twitter Bot</h1>
+
+<p>Once you’ve got all the access tokens and secret tokens ready, it’s time to
+start implementing our Bot.</p>
+
+<p>Let&rsquo;s start off the process by creating a really simple <code>main.go</code> file within
+our working directory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello World&#34;</span>)
+}</code></pre></div>
+<p>And, just to sanity check that everything is working, let&rsquo;s try and run this by
+calling <code>go run</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> go run <span style="color:#ae81ff">.</span><span style="color:#f92672">/</span><span style="color:#66d9ef">...</span>
+Hello World</code></pre></div>
+<p>Awesome, now that we&rsquo;ve got our foundation sorted, let&rsquo;s start building up the
+rest of our Bot.</p>
+
+<p>The first thing we&rsquo;ll need, is a way to communicate with the twitter API in such
+a way that it knows who we are. We can create a simple <code>struct</code> called
+<code>Credentials</code> which will store our consumer and access tokens for authentication
+later on.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
+    <span style="color:#75715e">// other imports
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;github.com/dghubble/go-twitter/twitter&#34;</span>
+    <span style="color:#e6db74">&#34;github.com/dghubble/oauth1&#34;</span>
+)
+
+<span style="color:#75715e">// Credentials stores all of our access/consumer tokens
+</span><span style="color:#75715e">// and secret keys needed for authentication against
+</span><span style="color:#75715e">// the twitter REST API.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Credentials</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">ConsumerKey</span>       <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">ConsumerSecret</span>    <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">AccessToken</span>       <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">AccessTokenSecret</span> <span style="color:#66d9ef">string</span>
+}
+
+<span style="color:#75715e">// getClient is a helper function that will return a twitter client
+</span><span style="color:#75715e">// that we can subsequently use to send tweets, or to stream new tweets
+</span><span style="color:#75715e">// this will take in a pointer to a Credential struct which will contain
+</span><span style="color:#75715e">// everything needed to authenticate and return a pointer to a twitter Client
+</span><span style="color:#75715e">// or an error
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getClient</span>(<span style="color:#a6e22e">creds</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Credentials</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">Client</span>, <span style="color:#66d9ef">error</span>) {
+    <span style="color:#75715e">// Pass in your consumer key (API Key) and your Consumer Secret (API Secret)
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">config</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">oauth1</span>.<span style="color:#a6e22e">NewConfig</span>(<span style="color:#a6e22e">creds</span>.<span style="color:#a6e22e">ConsumerKey</span>, <span style="color:#a6e22e">creds</span>.<span style="color:#a6e22e">ConsumerSecret</span>)
+    <span style="color:#75715e">// Pass in your Access Token and your Access Token Secret
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">token</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">oauth1</span>.<span style="color:#a6e22e">NewToken</span>(<span style="color:#a6e22e">creds</span>.<span style="color:#a6e22e">AccessToken</span>, <span style="color:#a6e22e">creds</span>.<span style="color:#a6e22e">AccessTokenSecret</span>)
+
+    <span style="color:#a6e22e">httpClient</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Client</span>(<span style="color:#a6e22e">oauth1</span>.<span style="color:#a6e22e">NoContext</span>, <span style="color:#a6e22e">token</span>)
+    <span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#a6e22e">httpClient</span>)
+
+    <span style="color:#75715e">// Verify Credentials
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">verifyParams</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">AccountVerifyParams</span>{
+        <span style="color:#a6e22e">SkipStatus</span>:   <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#66d9ef">true</span>),
+        <span style="color:#a6e22e">IncludeEmail</span>: <span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#66d9ef">true</span>),
+    }
+
+    <span style="color:#75715e">// we can retrieve the user and verify if the credentials
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// we have used successfully allow us to log in!
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Accounts</span>.<span style="color:#a6e22e">VerifyCredentials</span>(<span style="color:#a6e22e">verifyParams</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+    }
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;User&#39;s ACCOUNT:\n%+v\n&#34;</span>, <span style="color:#a6e22e">user</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">client</span>, <span style="color:#66d9ef">nil</span>
+}</code></pre></div>
+<p>Perfect, we now have a means of connecting to the twitter API and validating
+whether the credentials we have used have worked.</p>
+
+<p>We&rsquo;ll want to update our <code>main()</code> function to create a <code>Credentials</code> struct and
+retrieve a new client for us using our newly implemented function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Go-Twitter Bot v0.01&#34;</span>)
+    <span style="color:#a6e22e">creds</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Credentials</span>{
+        <span style="color:#a6e22e">AccessToken</span>:       <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;ACCESS_TOKEN&#34;</span>),
+        <span style="color:#a6e22e">AccessTokenSecret</span>: <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;ACCESS_TOKEN_SECRET&#34;</span>),
+        <span style="color:#a6e22e">ConsumerKey</span>:       <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;CONSUMER_KEY&#34;</span>),
+        <span style="color:#a6e22e">ConsumerSecret</span>:    <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;CONSUMER_SECRET&#34;</span>),
+    }
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">creds</span>)
+
+    <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">creds</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Error getting Twitter Client&#34;</span>)
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+    }
+
+    <span style="color:#75715e">// Print out the pointer to our client
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// for now so it doesn&#39;t throw errors
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">client</span>)
+
+}</code></pre></div>
+<p>We should now be able to run this using the same <code>go run ./...</code> command that we
+used earlier. If our credentials have been set properly, we should see our
+account details being printed out in the client!</p>
+
+<h1 id="sending-tweets">Sending Tweets</h1>
+
+<p>Ok, so now that we&rsquo;ve got a client that works, we can try sending a few test
+tweets out using one of the libraries&rsquo; existing functions.</p>
+
+<p>Remove the final <code>fmt.Printf()</code> statement in your <code>main()</code> function and let&rsquo;s
+try sending a simple tweet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">tweet</span>, <span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Statuses</span>.<span style="color:#a6e22e">Update</span>(<span style="color:#e6db74">&#34;A Test Tweet from a new Bot I&#39;m building!&#34;</span>, <span style="color:#66d9ef">nil</span>)
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+}
+<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">resp</span>)
+<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">tweet</span>)</code></pre></div>
+<p>And, if everything goes to plan, we should see that a new tweet from our account
+has popped up on our timelines:</p>
+
+<p><img src="https://images.tutorialedge.net/images/golang/go-twitter-bot/tweet.png" alt="" /></p>
+
+<h1 id="searching-tweets">Searching Tweets</h1>
+
+<p>Ok, so we&rsquo;re able to send tweets, but how do we go about searching for tweets on
+a given topic?</p>
+
+<p>To do that we could search for tweets using this handy function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">search</span>, <span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Search</span>.<span style="color:#a6e22e">Tweets</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">twitter</span>.<span style="color:#a6e22e">SearchTweetParams</span>{
+    <span style="color:#a6e22e">Query</span>: <span style="color:#e6db74">&#34;Golang&#34;</span>,
+})
+
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">err</span>)
+}
+
+<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">resp</span>)
+<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">search</span>)</code></pre></div>
+<p>And when we run this, we should be able to see a list of tweets that have
+<code>Golang</code> mentioned somewhere within them!</p>
+
+<p>Now, imagine we swapped this out for <code>Google</code>, or <code>Amazon</code> or any other major
+brand and plugged in a sentiment analysis system. We could chart things like the
+general sentiment for a brand across twitter over time, which would be pretty
+awesome!</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>That&rsquo;s us reached the end of our journey for this particular topic! I&rsquo;m hoping
+this tutorial has given you a good enough foundation to go off and build really
+cool systems that interact with various social media accounts.</p>
+
+<blockquote>
+<p><strong>Note -</strong> If you want to keep track of when new Go articles are posted to the
+site, then please feel free to follow me on twitter for all the latest news:
+<a href="https://twitter.com/elliot_f">@Elliot_F</a>.</p>
+</blockquote>
+
+<h2 id="related-tutorials">Related Tutorials</h2>
+
+<p>If you enjoyed this tutorial, you might also enjoy the following tutorials:</p>
+
+<ul>
+<li><a href="../../golang/go-face-recognition-tutorial-part-one/">Building a Face Recognition System in Go</a></li>
+</ul>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/golang/writing-a-twitter-bot-golang/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#setting-up-your-project">Setting Up Your Project</a></li>
+<li><a href="#connecting-to-twitter">Connecting to Twitter</a></li>
+<li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#writing-our-basic-go-twitter-bot">Writing our Basic Go Twitter Bot</a></li>
+<li><a href="#sending-tweets">Sending Tweets</a></li>
+<li><a href="#searching-tweets">Searching Tweets</a></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#related-tutorials">Related Tutorials</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">dc749935976f60cb2bba254a6698af8c</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

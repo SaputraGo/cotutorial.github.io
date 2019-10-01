@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Designing the EveryNote Web App with VueJS and Vuex | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.png" alt="Designing the EveryNote Web App with VueJS and Vuex Image" />  Designing the EveryNote Web App with VueJS and Vuex
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../../images/svg/logo.svg" alt="TutorialEdge Logo" />
+            
+            <a href="https://amzn.to/2K4Ih5G">Andrea Koutifaris</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>13 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Jul 27, 2018</span>
+
+                <span>
+            
+            <a href="../../../tags/VueX"
+              ><span class="badge badge-pill badge-info">VueX</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">animations</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/">VueJS Animations and Transitions Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginners</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/getting-started-with-vuejs/">Getting Started With VueJS</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-components-tutorial/">Vuejs Components Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/components-templates-and-props-vue-2/">Components, Templates, and Props in Vue 2</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">books</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/best-books-learning-vuejs/">The Best Books For Learning VueJS</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">event-handling</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-event-handling-tutorial/">Vuejs Event Handling Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">form-handling</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/">Form Validation With Vuelidate Vuejs</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">routing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vue-router-beginners-tutorial/">Vue Router Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">transitions</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/">VueJS Animations and Transitions Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">vuex</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/">Designing the EveryNote Web App with VueJS and Vuex</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/">Managing State With Vuex in Vuejs</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>In this article, you’ll learn to develop an application to take notes, called
+<code>EveryNote</code>, from scratch. You’ll analyze and design the application, as well as
+preparing the folder structure for the project. After that, you’ll build the
+application incrementally through tests and code, providing a real-world Vuex
+development example.</p>
+
+<p>The application can be downloaded by cloning the
+<a href="https://github.com/PacktPublishing/-Vuex-Condensed">https://github.com/PacktPublishing/-Vuex-Condensed</a>
+Git repository. You’ll require Node.js installed on a system. Finally, to use
+the Git repository, the user needs to install Git. The code files of this
+article can be found on GitHub:
+<a href="https://github.com/PacktPublishing/Vuex-Quick-Start-Guide/tree/master/chapter-4">https://github.com/PacktPublishing/Vuex-Quick-Start-Guide/tree/master/chapter-4</a>.</p>
+
+<h1 id="designing-the-everynote-web-app">Designing the EveryNote web app</h1>
+
+<p>One way to start designing an application is by creating mock-ups of the user
+interfaces. The EveryNote app will look like the following mock-up:</p>
+
+<p><img src="https://images.tutorialedge.net/images/javascript/vuejs/vuex-quickstart-image1.png" alt="" /></p>
+
+<h2 id="the-everynote-mock-up-interface">The EveryNote mock-up interface</h2>
+
+<p>The EveryNote features are simple and well defined, so you can begin by picking
+a feature and starting to develop it.</p>
+
+<h2 id="application-structure">Application structure</h2>
+
+<p>Vuex proposes an application-generic structure, which you can adopt. The
+following is the folder structure:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s">test <span style="color:#75715e"># test folder</span>
+├── test_file.spec.js <span style="color:#75715e"># a test file</span>
+└── <span style="color:#66d9ef">...</span>
+src <span style="color:#75715e"># app main folder</span>
+├── index.html
+├── main.js
+├── api
+│ └── <span style="color:#66d9ef">...</span> <span style="color:#75715e"># abstractions for making API requests</span>
+├── components
+│ ├── App.vue
+│ └── <span style="color:#66d9ef">...</span>
+└── store
+    ├──index.js <span style="color:#75715e">#here we assemble modules and export the store</span>
+    ├── actions.js <span style="color:#75715e"># root actions</span>
+    ├── mutations.js <span style="color:#75715e"># root mutations</span>
+    └── modules
+        ├── module_a.js <span style="color:#75715e"># a module</span>
+        └── module_b.js <span style="color:#75715e"># another module</span></code></pre></div>
+<p>You can create the project scaffold by adding some files to the notes-app
+folder. The first file to be created is index.html. As for any Vue.js
+application, you’ll need to put the root container for the Vue/Vuex application
+inside the body as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- src/index.html --&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;Packt: Vuex condensed EveryNote&lt;/<span style="color:#f92672">title</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
+<p>The second file is main.js. It contains the code to start the Vue.js part of the
+application:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/main.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./components/App.vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./store&#34;</span>;
+
+<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+  <span style="color:#a6e22e">store</span>,
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">h</span> =&gt; <span style="color:#a6e22e">h</span>(<span style="color:#a6e22e">App</span>)
+});
+</code></pre></div>
+<p>Now that the Vue application is ready, you can add Vuex to it by creating
+index.js inside the store folder:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vuex</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuex&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">Vuex</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NODE_ENV</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;production&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+  <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> {},
+  <span style="color:#a6e22e">strict</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">debug</span>
+});
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">store</span>;
+</code></pre></div>
+<p>Finally, you can create the root Vue component of the EveryNote app as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// src/components/App.vue
+&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;EveryNote app&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {};
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">app</span> {
+    <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;Times New Roman&#34;</span>, Times, <span style="color:#66d9ef">serif</span>;
+    <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;background.jpeg&#34;</span>);
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>Clone the <code>book</code> repository and use <code>git checkout step-0_project-scaffold</code> to
+see all the project files for this step. Now that the project scaffold is ready,
+you can start coding the first feature.</p>
+
+<h1 id="developing-the-everynote-app">Developing the EveryNote app</h1>
+
+<p>In the following paragraphs, you’ll learn to develop the application using
+test-driven development (TDD).</p>
+
+<h2 id="but-why-use-tdd">But why use TDD?</h2>
+
+<p>One reason is that it is easier to understand what the code is supposed to do by
+reading assertions about its behavior inside the test code, rather than
+inferring its behavior from implementation code. Another reason is that it is
+easier to understand how to test a component while writing the component.</p>
+
+<h2 id="using-a-to-do-list-to-help-the-development-process">Using a to-do list to help the development process</h2>
+
+<p>This to-do list is a simple .txt file that changes over time and will hopefully
+be empty when the app is finished. The initial To-do list looks like this:</p>
+
+<pre><code>To-do:
+Show all notes*
+Create new notes
+Update an existing note
+Delete a note
+Save notes to LocalStorage
+
+Extra:
+Search among notes
+Pin a note
+
+Done:
+</code></pre>
+
+<p>Use the * symbol to mark the current feature under development.</p>
+
+<h2 id="displaying-a-list-of-notes">Displaying a list of notes</h2>
+
+<p>Start by displaying a list of notes because the other features depend on it.
+Another possible feature to start with is the ability to create a new note. In
+order to display a list of notes, you need to add that list to the application&rsquo;s
+Vuex.Store. Then, you need a Vue component that uses the store to display the
+notes.</p>
+
+<p>The first test is about defining a note list inside the application&rsquo;s main
+store:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/store/store.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store&#34;</span>;
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;EveryNote main store&#34;</span>, () =&gt; {
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should have a list of notes&#34;</span>, () =&gt; {
+    <span style="color:#a6e22e">expect</span>(Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">noteList</span>)).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">true</span>);
+  });
+});
+</code></pre></div>
+<p>Next, define the implementation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> ...
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+  <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> {
+<span style="color:#a6e22e">noteList</span><span style="color:#f92672">:</span> [],
+  },
+  <span style="color:#a6e22e">strict</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">debug</span>,
+});
+...
+</code></pre></div>
+<p>From now on, you will first see a frame detailing a component&rsquo;s tests, and, just
+after, a frame with the code implementation. It is important that you understand
+that TDD has a pace: one test, one piece of production code, one test, one piece
+of production code, and so on. This is also referred to as red, green, refactor:</p>
+
+<ul>
+<li>Red: You write a small test and the result of executing it is a test
+failing—you&rsquo;ll see red in the test console.</li>
+<li>Green: You make the test pass in the easiest way—you&rsquo;ll see green in the test
+console. Duplicating code in this step is allowed.</li>
+<li>Refactor: You remove code duplication and improve code quality if you feel it
+is necessary.</li>
+</ul>
+
+<p>The next step is creating a Vue component <code>noteList</code> to show the list of notes.</p>
+
+<p>Test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/components/NoteList.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vuex</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuex&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">NoteList</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/components/NoteList.vue&#34;</span>;
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;NoteList.vue&#34;</span>, () =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">store</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">noteList</span>;
+
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">newNoteListCmp</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Constructor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#a6e22e">NoteList</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Constructor</span>({
+      <span style="color:#a6e22e">store</span>
+    }).<span style="color:#a6e22e">$mount</span>();
+  }
+
+  <span style="color:#a6e22e">beforeEach</span>(() =&gt; {
+    <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">Vuex</span>);
+
+    <span style="color:#a6e22e">noteList</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+      <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">noteList</span> }
+    });
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should expose store.noteList&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noteListCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteListCmp</span>();
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">noteListCmp</span>.<span style="color:#a6e22e">notes</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">noteList</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should cycle through noteList&#34;</span>, () =&gt; {
+    <span style="color:#a6e22e">noteList</span>.<span style="color:#a6e22e">push</span>({});
+    <span style="color:#a6e22e">noteList</span>.<span style="color:#a6e22e">push</span>({});
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noteListCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteListCmp</span>();
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contents</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">noteListCmp</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#34;.content&#34;</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">contents</span>.<span style="color:#a6e22e">length</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#ae81ff">2</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should render notes inside noteList&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Note title&#34;</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Note content&#34;</span>;
+    <span style="color:#a6e22e">noteList</span>.<span style="color:#a6e22e">push</span>({ <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">content</span> });
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noteListCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteListCmp</span>();
+
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">$el</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">noteListCmp</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">titleEl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;.title&#34;</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contentEl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;.content&#34;</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">titleEl</span>.<span style="color:#a6e22e">textContent</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">title</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">contentEl</span>.<span style="color:#a6e22e">textContent</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">content</span>);
+  });
+});
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// src/components/NoteList.vue
+&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;note in notes&#34;</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;{{note.title}}&lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;{{note.content}}&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">mapState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuex&#34;</span>;
+
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">mapState</span>({
+      <span style="color:#a6e22e">notes</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;noteList&#34;</span>
+    })
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">style</span>&gt;&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<blockquote>
+<p>Remember the red-green-refactor pattern!</p>
+</blockquote>
+
+<p>In order to write the NoteList code, you needed three tests:</p>
+
+<ul>
+<li>The first test checks that there is a computed property named notes that
+exposes state.store.NoteList</li>
+<li>The second test ensures that each note inside notes is rendered in the
+template section</li>
+<li>Finally, the last test ensures that the note&rsquo;s title and content are rendered</li>
+</ul>
+
+<p>In addition, there is some code to set up the test environment in order to mock
+the store and create the component. Each item being tested should be isolated.
+This means that you can’t use the real store and you need to provide a mocked
+one for each component being tested.</p>
+
+<p>You can now proceed to the next feature, but first, you can see some notes
+actually shown in the browser before moving on. To achieve this, you can
+temporarily add two notes to the store and add the NoteList component to
+App.vue.</p>
+
+<p>Test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vuex</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuex&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">Vuex</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NODE_ENV</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;production&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+  <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">noteList</span><span style="color:#f92672">:</span> [
+      { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;title A&#34;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;content 1&#34;</span> },
+      { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;title B&#34;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;content 2&#34;</span> }
+    ]
+  },
+  <span style="color:#a6e22e">strict</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">debug</span>
+});
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">store</span>;
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// src/components/App.vue
+&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;EveryNote app&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">note-list</span>&gt;&lt;/<span style="color:#f92672">note-list</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">NoteList</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./NoteList.vue&#34;</span>;
+
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">NoteList</span>
+    }
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">app</span> {
+    <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;Times New Roman&#34;</span>, Times, <span style="color:#66d9ef">serif</span>;
+    <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;background.jpeg&#34;</span>);
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>The following is a screenshot of the result:</p>
+
+<p><img src="https://images.tutorialedge.net/images/javascript/vuejs/vuex-quickstart-image2.png" alt="" /></p>
+
+<h1 id="list-of-notes">List of notes</h1>
+
+<p>Right now, the result is ugly; you can add some CSS to make it much better
+looking after all the main features are implemented.</p>
+
+<p>You can download the code at this stage by typing:
+<code>git checkout step-1_note-list</code></p>
+
+<h2 id="creating-new-notes">Creating new notes</h2>
+
+<p>At this point, the To-do list looks like this:</p>
+
+<pre><code>To-do:
+Create new notes*
+- NoteEditor component
+- Update current note mutation
+- Add note to noteList mutation
+- Add note action
+
+Update an existing note
+Delete a note
+Save notes to LocalStorage
+
+Extra:
+Search among notes
+Pin a note
+
+Done:
+Show all notes
+  - Add note list to the store
+  - Note list vue component
+  -- Add a temporary note list to the store
+</code></pre>
+
+<p>The next feature you’ll learn is the ability to create new notes. For this
+feature, you need a NoteEditor component, a store property named currentNote, an
+action named addNote, and two mutations: UPDATE_CURRENT_NOTE and ADD_NOTE. The
+idea is that when a user writes in the note editor, the currentNote store
+property gets updated. When he taps on the Add note button, the addNote action
+is fired, resulting in the new note added to the note list. Add the currentNote
+property to the application store. Test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/store/store.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">store</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store&#34;</span>;
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;EveryNote main store&#34;</span>, () =&gt; {
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should have a list of notes&#34;</span>, () =&gt; {
+    <span style="color:#a6e22e">expect</span>(Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">noteList</span>)).<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">true</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should have currentNote property&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">state</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">store</span>;
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">title</span>).<span style="color:#a6e22e">not</span>.<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">undefined</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">content</span>).<span style="color:#a6e22e">not</span>.<span style="color:#a6e22e">toBe</span>(<span style="color:#66d9ef">undefined</span>);
+  });
+});
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/index.js
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+<span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> {
+<span style="color:#a6e22e">noteList</span><span style="color:#f92672">:</span> [
+      { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;title A&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;content 1&#39;</span> },
+{ <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;title B&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;content 2&#39;</span> },
+],
+<span style="color:#a6e22e">currentNote</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span> },
+},
+  <span style="color:#a6e22e">mutations</span>,
+<span style="color:#a6e22e">strict</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">debug</span>,
+});
+<span style="color:#a6e22e">Now</span> <span style="color:#a6e22e">that</span> <span style="color:#a6e22e">currentNote</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">defined</span>, <span style="color:#a6e22e">you</span> <span style="color:#a6e22e">can</span> <span style="color:#a6e22e">write</span> <span style="color:#a6e22e">an</span> <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span> <span style="color:#a6e22e">mutation</span>.
+<span style="color:#a6e22e">Test</span> <span style="color:#a6e22e">code</span><span style="color:#f92672">:</span>
+<span style="color:#75715e">// test/store/mutations.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">mutations</span>, <span style="color:#a6e22e">types</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;../../src/store/mutations&#39;</span>;
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;EveryNote root mutations&#39;</span>, () =&gt; {
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should update current note&#39;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">updateCurrentNote</span>
+      <span style="color:#f92672">=</span> <span style="color:#a6e22e">mutations</span>[<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>];
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">currentNote</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span> } };
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newNote</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;title&#39;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;some text&#39;</span> };
+
+    <span style="color:#a6e22e">updateCurrentNote</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">newNote</span>);
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span>).<span style="color:#a6e22e">toEqual</span>(<span style="color:#a6e22e">newNote</span>);
+  });
+});
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/mutations.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">types</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;UPDATE_CURRENT_NOTE&#34;</span>
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mutations</span> <span style="color:#f92672">=</span> {
+  [<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>](<span style="color:#a6e22e">state</span>, { <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">content</span> }) {
+    <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">content</span> };
+  }
+};
+</code></pre></div>
+<p>Next, create the <code>NoteEditor</code> component.</p>
+
+<p>Test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/components/NoteEditor.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vuex</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vuex&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">NoteEditor</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/components/NoteEditor.vue&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">types</span>, <span style="color:#a6e22e">mutations</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store/mutations&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">actions</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store/actions&#34;</span>;
+
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">types</span>;
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;NoteEditor component&#34;</span>, () =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">store</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentNote</span>;
+
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">newNoteEditorCmp</span>() {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Constructor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">extend</span>(<span style="color:#a6e22e">NoteEditor</span>);
+    <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+      <span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">currentNote</span>, <span style="color:#a6e22e">noteList</span><span style="color:#f92672">:</span> [] },
+      <span style="color:#a6e22e">mutations</span>,
+      <span style="color:#a6e22e">actions</span>
+    });
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Constructor</span>({
+      <span style="color:#a6e22e">store</span>
+    }).<span style="color:#a6e22e">$mount</span>();
+  }
+
+  <span style="color:#a6e22e">beforeEach</span>(() =&gt; {
+    <span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">Vuex</span>);
+    <span style="color:#a6e22e">currentNote</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;title&#34;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;content&#34;</span> };
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should expose currentNote.content as content&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">content</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">content</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should expose currentNote.content setter&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+    <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">commit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">createSpy</span>(<span style="color:#e6db74">&#34;commit spy&#34;</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newContent</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A new content&#34;</span>;
+
+    <span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newContent</span>;
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">expected</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">title</span>,
+      <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newContent</span>
+    };
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">commit</span>).<span style="color:#a6e22e">toHaveBeenCalledWith</span>(<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>, <span style="color:#a6e22e">expected</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should expose currentNote.title as title&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">title</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">title</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should expose currentNote.title setter&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+    <span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">commit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">createSpy</span>(<span style="color:#e6db74">&#34;commit spy&#34;</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newTitle</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A new title&#34;</span>;
+
+    <span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newTitle</span>;
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">expected</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">newTitle</span>,
+      <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">content</span>
+    };
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">commit</span>).<span style="color:#a6e22e">toHaveBeenCalledWith</span>(<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>, <span style="color:#a6e22e">expected</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should render current note inside the editor&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">$el</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">editorCmp</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contentEl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;.content&#34;</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">titleEl</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;.title&#34;</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">contentEl</span>.<span style="color:#a6e22e">value</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">content</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">titleEl</span>.<span style="color:#a6e22e">value</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">title</span>);
+  });
+});
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// src/components/NoteEditor.vue
+&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span> /&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">types</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../store/mutations&#34;</span>;
+
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">types</span>;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">get</span>() {
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$store</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">content</span>;
+        },
+        <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>) {
+          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newContent</span> <span style="color:#f92672">=</span> {
+            <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>
+          };
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$store</span>.<span style="color:#a6e22e">commit</span>(<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>, <span style="color:#a6e22e">newContent</span>);
+        }
+      },
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">get</span>() {
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$store</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">title</span>;
+        },
+        <span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">value</span>) {
+          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newContent</span> <span style="color:#f92672">=</span> {
+            <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">content</span>
+          };
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$store</span>.<span style="color:#a6e22e">commit</span>(<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>, <span style="color:#a6e22e">newContent</span>);
+        }
+      }
+    }
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">style</span>&gt;&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>In order to code the NoteEditor component, you have tested that the computed
+content and title properties were properly linked to \$store.state.currentNote,
+and that these properties were used in the template section.</p>
+
+<p>As with the tests for the NoteList component, the first part of the test file is
+just some code to create the component under test.</p>
+
+<p>The next step is creating the addNote action and the corresponding mutation so
+that you can update NoteEditor to dispatch this action when a user presses the
+Add note button. The following is the ADD_NOTE mutation.</p>
+
+<p>Test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/store/mutations.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">mutations</span>, <span style="color:#a6e22e">types</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store/mutations&#34;</span>;
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;EveryNote root mutations&#34;</span>, () =&gt; {
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should update current note&#34;</span>, () =&gt; {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should add a note to noteList&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ADD_NOTE</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mutations</span>[<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">ADD_NOTE</span>];
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">noteList</span><span style="color:#f92672">:</span> [] };
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newNote</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;title&#34;</span>, <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;some text&#34;</span> };
+
+    <span style="color:#a6e22e">ADD_NOTE</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">newNote</span>);
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">noteList</span>[<span style="color:#e6db74">&#34;0&#34;</span>]).<span style="color:#a6e22e">toBe</span>(<span style="color:#a6e22e">newNote</span>);
+  });
+});
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/mutations.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">types</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;UPDATE_CURRENT_NOTE&#34;</span>,
+  <span style="color:#a6e22e">ADD_NOTE</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ADD_NOTE&#34;</span>
+};
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mutations</span> <span style="color:#f92672">=</span> {
+  [<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span>](<span style="color:#a6e22e">state</span>, { <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">content</span> }) {
+    <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">currentNote</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">content</span> };
+  },
+  [<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">ADD_NOTE</span>](<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">aNote</span>) {
+    <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">noteList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">aNote</span>);
+  }
+};
+</code></pre></div>
+<p>The following is the addNote action tests:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/store/actions.spec.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">actions</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store/actions&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">types</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../../src/store/mutations&#34;</span>;
+
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;EveryNote root actions&#34;</span>, () =&gt; {
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#34;should have addNote action&#34;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">addNote</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">actions</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mockContext</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">commit</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">createSpy</span>(<span style="color:#e6db74">&#34;commit&#34;</span>)
+    };
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">aNote</span> <span style="color:#f92672">=</span> {};
+
+    <span style="color:#a6e22e">addNote</span>(<span style="color:#a6e22e">mockContext</span>, <span style="color:#a6e22e">aNote</span>);
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">mockContext</span>.<span style="color:#a6e22e">commit</span>).<span style="color:#a6e22e">toHaveBeenCalledWith</span>(<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">ADD_NOTE</span>, <span style="color:#a6e22e">aNote</span>);
+  });
+});
+</code></pre></div>
+<p>The following is the application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/actions
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">types</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./mutations&#34;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">addNote</span>({ <span style="color:#a6e22e">commit</span> }, <span style="color:#a6e22e">aNote</span>) {
+    <span style="color:#a6e22e">commit</span>(<span style="color:#a6e22e">types</span>.<span style="color:#a6e22e">ADD_NOTE</span>, <span style="color:#a6e22e">aNote</span>);
+  }
+};
+</code></pre></div>
+<p>Finally, you can update NoteEditor to dispatch the addNote action and see that
+the note list gets updated. First, update the NoteEditor.</p>
+
+<p>Test code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// test/components/NoteEditor.spec.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">types</span>;
+<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;NoteEditor component&#39;</span>, () =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">store</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentNote</span>;
+
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">newNoteEditorCmp</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should have addNote method&#39;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+    <span style="color:#a6e22e">spyOn</span>(<span style="color:#a6e22e">store</span>, <span style="color:#e6db74">&#39;dispatch&#39;</span>);
+
+    <span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">addNote</span>();
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>)
+      .<span style="color:#a6e22e">toHaveBeenCalledWith</span>(<span style="color:#e6db74">&#39;addNote&#39;</span>, <span style="color:#a6e22e">currentNote</span>);
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should not add empty notes&#39;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+    <span style="color:#a6e22e">spyOn</span>(<span style="color:#a6e22e">store</span>, <span style="color:#e6db74">&#39;dispatch&#39;</span>);
+    <span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    <span style="color:#a6e22e">currentNote</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+
+    <span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">addNote</span>();
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>).<span style="color:#a6e22e">not</span>.<span style="color:#a6e22e">toHaveBeenCalled</span>();
+  });
+
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should reset title and content on addNote&#39;</span>, () =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">editorCmp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newNoteEditorCmp</span>();
+
+    <span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">addNote</span>();
+
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">title</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+    <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">editorCmp</span>.<span style="color:#a6e22e">content</span>).<span style="color:#a6e22e">toBe</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+  });
+});
+</code></pre></div>
+<p>Application code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// src/components/NoteEditor.vue
+&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">input</span>
+      <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+      <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>
+      <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>
+    /&gt;
+    &lt;<span style="color:#f92672">button</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;addNote&#34;</span>&gt;Add note&lt;/<span style="color:#f92672">button</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">types</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;../store/mutations&#34;</span>;
+
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">UPDATE_CURRENT_NOTE</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">types</span>;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">computed</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> {
+        <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>      },
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> {
+        <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>      }
+    },
+    <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">addNote</span>() {
+        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;&#34;</span>) {
+          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newNote</span> <span style="color:#f92672">=</span> {
+            <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">content</span>
+          };
+
+          <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#e6db74">&#34;addNote&#34;</span>, <span style="color:#a6e22e">newNote</span>);
+        }
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+      }
+    }
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+<p>Now add actions to the store:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// src/store/index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">actions</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./actions&#39;</span>;
+
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vuex</span>.<span style="color:#a6e22e">Store</span>({
+<span style="color:#a6e22e">state</span><span style="color:#f92672">:</span> { <span style="color:#75715e">// ...},
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">mutations</span>,
+<span style="color:#a6e22e">actions</span>,
+<span style="color:#a6e22e">strict</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">debug</span>,
+});
+</code></pre></div>
+<p>Now add NoteEditor to App.vue</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// src/components/App.vue
+&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;EveryNote app&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">note-editor</span>&gt;&lt;/<span style="color:#f92672">note-editor</span>&gt;
+    &lt;<span style="color:#f92672">note-list</span>&gt;&lt;/<span style="color:#f92672">note-list</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">NoteList</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./NoteList.vue&#34;</span>;
+  <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">NoteEditor</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./NoteEditor.vue&#34;</span>;
+
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">NoteList</span>,
+      <span style="color:#a6e22e">NoteEditor</span>
+    }
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">style</span>&gt;
+  <span style="color:#f92672">//</span> <span style="color:#f92672">...</span>
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>After having added some CSS to the components and restyling the application a
+bit, it now looks like the following figure:</p>
+
+<p><img src="https://images.tutorialedge.net/images/javascript/vuejs/vuex-quickstart-image3.png" alt="" /></p>
+
+<h1 id="everynote-restyled">EveryNote restyled</h1>
+
+<p>You can download the code at this stage by typing the following:
+<code>git checkout step-2_create-notes</code></p>
+
+<p>If you found this article helpful, you can explore more in Andrea Koutifaris’
+<a href="https://amzn.to/2K4Ih5G">Vuex Quick Start Guide</a>. This book is the easiest way
+to get started with Vuex to improve your Vue.js application architecture and
+overall user experience.</p>
+ 
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#designing-the-everynote-web-app">Designing the EveryNote web app</a>
+<ul>
+<li><a href="#the-everynote-mock-up-interface">The EveryNote mock-up interface</a></li>
+<li><a href="#application-structure">Application structure</a></li>
+</ul></li>
+<li><a href="#developing-the-everynote-app">Developing the EveryNote app</a>
+<ul>
+<li><a href="#but-why-use-tdd">But why use TDD?</a></li>
+<li><a href="#using-a-to-do-list-to-help-the-development-process">Using a to-do list to help the development process</a></li>
+<li><a href="#displaying-a-list-of-notes">Displaying a list of notes</a></li>
+</ul></li>
+<li><a href="#list-of-notes">List of notes</a>
+<ul>
+<li><a href="#creating-new-notes">Creating new notes</a></li>
+</ul></li>
+<li><a href="#everynote-restyled">EveryNote restyled</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">f81717dd30decee1e101758f21ca3c3e</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

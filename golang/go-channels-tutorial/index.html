@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Go Channels Tutorial | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" alt="Go Channels Tutorial Image" />  Go Channels Tutorial
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>7 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Aug 25, 2018</span>
+
+                <span>
+            
+            <a href="../../tags/concurrency"
+              ><span class="badge badge-pill badge-info">concurrency</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-websockets-tutorial/">Working with Websockets and Socket.IO in Go - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-protocol-buffer-tutorial/">Go Protocol Buffer Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-webassembly-tutorial/">Go WebAssembly Tutorial - Building a Calculator Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-oauth2-tutorial/">Go Oauth2 Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-face-recognition-tutorial-part-one/">Go Face Recognition Tutorial - Part 1</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-encrypt-decrypt-aes-tutorial/">Go Encryption and Decryption using AES - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-ci-cd-pipeline-go-projects/">Building a Solid Continuous Integration Pipeline with TravisCI for Your Go Projects</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-frontend-web-framework-webassembly-go/">Writing a Frontend Web Framework with WebAssembly And Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/authenticating-golang-rest-api-with-jwts/">Securing Your Go REST APIs With JWTs</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/getting-started-with-go/">Getting Started With Go</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-basic-types-tutorial/">Go Basic Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-complex-types-tutorial/">Go Composite Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-functions-tutorial/">Go Functions Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-methods-tutorial/">Go Methods Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-interfaces-tutorial/">Go Interfaces Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-console-input-golang/">Reading in Console Input in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/executing-system-commands-with-golang/">Executing System Commands With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-json-with-golang/">Parsing JSON files With Golang</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-xml-with-golang/">Parsing XML Files With Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/the-go-init-function/">The Go init Function</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-sorting-with-sort-tutorial/">Go Sorting With the sort Package - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-ticker-tutorial/">Go Tickers Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-modules-tutorial/">Go Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-json-tutorial/">Go JSON Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/concurrency-with-golang-goroutines/">Concurrency With Golang Goroutines</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-mutex-tutorial/">Go Mutex Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-channels-tutorial/">Go Channels Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-waitgroup-tutorial/">Go WaitGroup Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">docker</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-multi-stage-docker-tutorial/">Go Multi-Stage Docker Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-docker-tutorial/">Containerizing your Go Applications with Docker - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">file-upload</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-file-upload-tutorial/">Uploading Files in Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-writing-files-in-go/">Reading And Writing To Files in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/temporary-files-directories-go-111/">Working with Temporary Files and Directories in Go 1.11</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">graphql</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial-part-2/">Go Graphql Beginners Tutorial - Part 2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial/">Go GraphQL Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/an-intro-to-go-dep/">An Intro to Go Dep</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/consuming-restful-api-with-go/">Consuming A RESTful API With Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-restful-api-with-golang/">Creating a RESTful API With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-simple-web-server-with-golang/">Creating A Simple Web Server With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-a-cli-in-go/">Building a Network Command Line Interface in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-a-twitter-bot-golang/">Writing A Twitter Bot in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-orm-tutorial/">Golang ORM Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-mysql-tutorial/">Golang MySQL Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-closures-tutorial/">An Introduction to Go Closures - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-variadic-function-tutorial/">Go Variadic Function Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/working-with-environment-variables-in-go/">Working With Environment Variables in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-decorator-function-pattern-tutorial/">Go Decorator Function Pattern Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">misc</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/top-books-for-learning-golang/">The Best Books For Learning Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/sending-email-using-go-and-mailgun/">Sending Email Using Go And Mailgun</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/implementing-bubble-sort-with-golang/">Implementing the Bubble Sort Algorithm using Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-integer-string-conversion-tutorial/">Golang Integer String Conversion Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">redis</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-redis-tutorial/">Getting Started with Redis and Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">snippets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/check-key-exists-in-map-go/">Check Key Exists in Map Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/concatenate-strings-in-go/">Concatenate Strings in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/sort-map-by-value/">Sort Map by Value</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/intro-testing-in-go/">An Introduction to Testing in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/advanced-go-testing-tutorial/">Advanced Go Testing Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/benchmarking-your-go-programs/">An Introduction to Benchmarking Your Go Programs</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-your-tests-with-testify-go/">Improving Your Go Tests and Mocks With Testify</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">tools</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-go-workflow-with-git-hooks/">Improving Your Go Development Workflow With Git Hooks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/makefiles-for-go-developers/">Makefiles for Go Developers</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">websockets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-websocket-tutorial/">Go Websocket Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-realtime-youtube-sub-monitor-go/">Building a Real-time YouTube Subscriber Monitor in Go</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p><strong>In this tutorial, we are going to be looking at how you can use
+channels within your Go-based applications.</strong></p>
+
+<p>Channels are pipes that link between <code>goroutines</code> within your Go based
+applications that allow communication and subsequently the passing of values to
+and from variables.</p>
+
+<p>They are incredibly handy and can help you craft incredibly high performance,
+highly concurrent applications in Go with minimal fuss compared to other
+programming languages. This was by no means a fluke, when designing the
+language, the core developers decided that they wanted concurrency within their
+language to be a first class citizen and to make it as simple to work with as
+possible, without going too far and not allowing developers the freedom they
+need to work in.</p>
+
+<p>The ability to craft concurrent systems so easily is something that drew me to
+the language in the first place, and I have to say, it&rsquo;s been an absolute
+delight so far.</p>
+
+<blockquote>
+<p><strong>Note -</strong> I would recommend having a look at my other tutorial on
+<a href="../../golang/concurrency-with-golang-goroutines/">goroutines</a> if you wish to learn
+more about goroutines.</p>
+</blockquote>
+
+<h1 id="goals">Goals</h1>
+
+<p>By the end of this tutorial, you will:</p>
+
+<ul>
+<li>Have a solid understanding as to the theory behind channels</li>
+<li>Be able to create simple concurrent Go applications that use channels</li>
+</ul>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<p>In order to complete this tutorial, you will need to have met the following
+prerequisites:</p>
+
+<ul>
+<li>You will need Go installed on your machine.</li>
+</ul>
+
+<h1 id="video-tutorial">Video Tutorial</h1>
+
+<p>If you wish, this tutorial is available in video format.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/e4bu9g-bYtg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h1 id="the-theory">The Theory</h1>
+
+<p>The idea of channels isn&rsquo;t anything new, as like many of Go&rsquo;s concurrency
+features, these concepts have been brought forward from the likes of Hoare&rsquo;s
+Communicating Sequential Processes (1978), CSP for short, and even from the
+likes of Dijkstra&rsquo;s guarded commands (1975).</p>
+
+<p>The developers of Go, however, have made it their mission to present these
+concepts in a simple a fashion as possible to enable programmers to create
+better, more correct, highly concurrent applications.</p>
+
+<h1 id="a-simple-example">A Simple Example</h1>
+
+<p>Let&rsquo;s start off by seeing how we can build up a really simple example of how
+this works in Go. We&rsquo;ll first create a function that goes away and computes an
+arbitrary, random value and passes it back to a channel variable called
+<code>values</code>:</p>
+
+<div class="filename">main.go</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;math/rand&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">values</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">value</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#ae81ff">10</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Calculated Random Value: {}&#34;</span>, <span style="color:#a6e22e">value</span>)
+    <span style="color:#a6e22e">values</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">value</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Go Channel Tutorial&#34;</span>)
+
+  <span style="color:#a6e22e">values</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+  <span style="color:#66d9ef">defer</span> close(<span style="color:#a6e22e">values</span>)
+
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">values</span>)
+
+    <span style="color:#a6e22e">value</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">values</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">value</span>)
+}</code></pre></div>
+<p>Let&rsquo;s disect what happened here. In our <code>main()</code> function, we called
+<code>values := make(chan int)</code>, this call effectively created our new channel so
+that we could subsequently use it within our <code>CalculateValue</code> goroutine.</p>
+
+<blockquote>
+<p><strong>Note -</strong> We used <code>make</code> when instantiating our <code>values</code> channel as, like
+maps and slices, channels must be created before use.</p>
+</blockquote>
+
+<p>After we created out channel, we then called <code>defer close(values)</code> which
+deferred the closing of our channel until the end of our <code>main()</code> function&rsquo;s
+execution. This is typically considered best practice to ensure that we tidy up
+after ourselves.</p>
+
+<p>After our call to <code>defer</code>, we go on to kick off our single goroutine:
+<code>CalculateValue(values)</code> passing in our newly created <code>values</code> channel as its
+parameter. Within our <code>CalculateValue</code> function, we calculate a single random
+value between 1-10, print this out and then send this value to our <code>values</code>
+channel by calling <code>values &lt;- value</code>.</p>
+
+<p>Jumping back into our <code>main()</code> function, we then call <code>value := &lt;-values</code> which
+receives a value from our <code>values</code> channel.</p>
+
+<blockquote>
+<p><strong>Note -</strong> Notice how when we execute this program, it doesn&rsquo;t immediately
+terminate. This is because the act of sending to and receiving from a channel
+are blocking. Our <code>main()</code> function blocks until it receives a value from our
+channel.</p>
+</blockquote>
+
+<p>Upon execution of this code, you should see the output look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-paintext" data-lang="paintext">$ go run main.go
+Go Channel Tutorial
+Calculated Random Value: {} 7
+7</code></pre></div>
+<blockquote>
+<p><strong>Summary</strong>:</p>
+
+<p><code>myChannel := make(chan int)</code> - creates <em>myChannel</em> which is a channel of type
+<code>int</code></p>
+
+<p><code>channel &lt;- value</code> - sends a value <em>to</em> a channel</p>
+
+<p><code>value := &lt;- channel</code> - receives a value <em>from</em> a channel</p>
+</blockquote>
+
+<p>So, instantiating and using channels in your Go programs looks fairly
+straightforward so far, but what about in more complex scenarios?</p>
+
+<!-- # Multiple goroutines Example
+
+Let's now take a look at how we can construct our Go programs to use `channels` in conjunction with a number of different `goroutines` and build up the complexity a bit.  -->
+
+<h1 id="unbuffered-channels">Unbuffered Channels</h1>
+
+<p>Using a traditional <code>channel</code> within your goroutines can sometimes lead to
+issues with behavior that you may not quite be expecting. With traditional
+<code>unbuffered</code> channels, whenever one goroutine sends a value to this channel,
+that goroutine will subsequently block until the value is received from the
+channel.</p>
+
+<p>Let&rsquo;s see this in a real example. If we have a look at the below code, it&rsquo;s very
+similar to the code that we had previously. However, we have extended our
+<code>CalculateValue()</code> function to perform an <code>fmt.Println</code> after it has sent it&rsquo;s
+randomly calculated value to the channel.</p>
+
+<p>In our <code>main()</code> function, we&rsquo;ve added a second call to
+<code>go CalculateValue(valueChannel)</code> so we should expect 2 values sent to this
+channel in very quick succession.</p>
+
+<div class="filename">main.go</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;math/rand&#34;</span>
+    <span style="color:#e6db74">&#34;time&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">c</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">value</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#ae81ff">10</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Calculated Random Value: {}&#34;</span>, <span style="color:#a6e22e">value</span>)
+    <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
+    <span style="color:#a6e22e">c</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">value</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Only Executes after another goroutine performs a receive on the channel&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Go Channel Tutorial&#34;</span>)
+
+    <span style="color:#a6e22e">valueChannel</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>)
+    <span style="color:#66d9ef">defer</span> close(<span style="color:#a6e22e">valueChannel</span>)
+
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">valueChannel</span>)
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">valueChannel</span>)
+
+    <span style="color:#a6e22e">values</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">valueChannel</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">values</span>)
+}</code></pre></div>
+<p>However, when you run this, you should see that only our first goroutines&rsquo; final
+print statement is actually executed:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">go run main.go
+Go Channel Tutorial
+Calculated Random Value: {} 1
+Calculated Random Value: {} 7
+1
+Only Executes after another goroutine performs a receive on the channel</code></pre></div>
+<p>The reason for this is our call to <code>c &lt;- value</code> has blocked in our second
+goroutine and subsequently the <code>main()</code> function concludes it&rsquo;s execution before
+our second <code>goroutine</code> gets a chance to complete its own execution.</p>
+
+<h1 id="buffered-channels">Buffered Channels</h1>
+
+<p>The way to get around this blocking behavior is to use something called a
+buffered channel. These buffered channels are essentially queues of a given size
+that can be used for cross-goroutine communication. In order to create a
+buffered channel as opposed to an unbuffered channel, we supply a capacity
+argument to our <code>make</code> command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">bufferedChannel</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">3</span>)</code></pre></div>
+<p>By changing this to a buffered channel, our send operation, <code>c &lt;- value</code> only
+blocks within our goroutines should the channel be full.</p>
+
+<p>Let&rsquo;s modify our existing program to use a buffered channel and have a look at
+the output. Notice that I&rsquo;ve added a call to <code>time.Sleep()</code> at the bottom of our
+<code>main()</code> function in order to lazily block our <code>main()</code> function enough to allow
+our goroutines to complete execution.</p>
+
+<div class="filename">main.go</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;math/rand&#34;</span>
+    <span style="color:#e6db74">&#34;time&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">c</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">value</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#ae81ff">10</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Calculated Random Value: {}&#34;</span>, <span style="color:#a6e22e">value</span>)
+    <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
+    <span style="color:#a6e22e">c</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">value</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;This executes regardless as the send is now non-blocking&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Go Channel Tutorial&#34;</span>)
+
+    <span style="color:#a6e22e">valueChannel</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">2</span>)
+    <span style="color:#66d9ef">defer</span> close(<span style="color:#a6e22e">valueChannel</span>)
+
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">valueChannel</span>)
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">CalculateValue</span>(<span style="color:#a6e22e">valueChannel</span>)
+
+    <span style="color:#a6e22e">values</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">valueChannel</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">values</span>)
+
+    <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
+}</code></pre></div>
+<p>Now, when we execute this, we should see that our second goroutine does indeed
+continue its execution regardless of the fact a second receive has not been
+called in our <code>main()</code> function. Thanks to the <code>time.Sleep()</code>, we can clearly
+see the difference between unbuffered channels and their blocking nature and our
+buffered channels and their non-blocking (when not full) nature.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">Go Channel Tutorial
+Calculated Random Value: {} 1
+Calculated Random Value: {} 7
+7
+This executes regardless as the send is now non-blocking
+This executes regardless as the send is now non-blocking</code></pre></div>
+<h1 id="conclusion">Conclusion</h1>
+
+<p>So, in this fairly lengthy tutorial, we managed to learn about the various
+distinct types of channels within Go. We discovered the differences between both
+buffered and unbuffered channels and how we could use them to our advantage
+within our concurrent go programs.</p>
+
+<p>If you enjoyed this tutorial, then please feel free to let me know in the
+comments section below. If you have any suggestions as to what I could do better
+then I would love to hear them in the comments section below!</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>If you enjoyed this article and wish to learn more about working with Concurrency
+in Go, then I recommend you check out our other articles on concurrency:</p>
+
+<ul>
+<li><a href="../../golang/go-mutex-tutorial/">Go Mutex Tutorial</a></li>
+<li><a href="../../golang/concurrency-with-golang-goroutines/">Go Goroutines Tutorial</a></li>
+<li><a href="../../golang/go-waitgroup-tutorial/">Go sync.WaitGroup Tutorial</a></li>
+</ul>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/golang/go-channels-tutorial/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#goals">Goals</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#video-tutorial">Video Tutorial</a></li>
+<li><a href="#the-theory">The Theory</a></li>
+<li><a href="#a-simple-example">A Simple Example</a></li>
+<li><a href="#unbuffered-channels">Unbuffered Channels</a></li>
+<li><a href="#buffered-channels">Buffered Channels</a></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">7e4dc752dabd9d0ac2e75a4290cbe46f</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

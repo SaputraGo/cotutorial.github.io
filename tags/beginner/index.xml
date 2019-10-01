@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>beginner on My New Hugo Site</title>
+    <link>http://example.org/tags/beginner/</link>
+    <description>Recent content in beginner on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Jun 2019 23:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/beginner/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started With Go</title>
+      <link>http://example.org/golang/getting-started-with-go/</link>
+      <pubDate>Sat, 22 Sep 2018 15:23:16 +0100</pubDate>
+      
+      <guid>http://example.org/golang/getting-started-with-go/</guid>
+      <description>Go is an absolutely incredible language to build a wide variety of different applications in. From command-line interfaces to distributed microsystems and even cloud platforms, its&amp;rsquo; simplicity and concurrency baked in makes it a powerful choice of language for many development teams.
+In this tutorial, I will be embarking on a mission to help get you up and running with the language so that you can go off and build ever-more brilliant applications and help push forward technology.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started With Python</title>
+      <link>http://example.org/python/getting-started-with-python/</link>
+      <pubDate>Mon, 18 Sep 2017 19:47:29 +0100</pubDate>
+      
+      <guid>http://example.org/python/getting-started-with-python/</guid>
+      <description>This tutorial uses Python version 3.6
+ Introduction In this course we’ll be taking a look at the absolute basics of the Python programming language and cover everything you need to get up and running creating your own basic Python programs.
+The full text version of this course can be found by clicking on the Python Programming Course card on the homepage of my site.
+Installing Python Let’s dive in.</description>
+    </item>
+    
+    <item>
+      <title>Go Basic Types Tutorial</title>
+      <link>http://example.org/golang/go-basic-types-tutorial/</link>
+      <pubDate>Sat, 14 Jul 2018 22:24:26 +0100</pubDate>
+      
+      <guid>http://example.org/golang/go-basic-types-tutorial/</guid>
+      <description>In this tutorial, we are going to be looking at all of the basic data types available to us within the Go language. By the end of this tutorial, you should be comfortable with the various different types available within the language and hopefully some understanding as to how you can use these within your own Go programs.
+This kind of material can be fairly dry and boring to learn so I&amp;rsquo;ll try and spice things up and make it somewhat interesting whilst also covering the necessary basics.</description>
+    </item>
+    
+    <item>
+      <title>Functions and Variables in Python</title>
+      <link>http://example.org/python/python-functions-and-variables/</link>
+      <pubDate>Mon, 18 Sep 2017 19:19:39 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-functions-and-variables/</guid>
+      <description>Variables in Python Let’s first have a look at variables. A variable is essentially a place where we can store the value of something for processing later on. Imagine you wanted to write a program that doubled a number for us, not the most exciting of programs I know but it is a good example.
+We would first want to define a variable to store our number, double it and then print it out.</description>
+    </item>
+    
+    <item>
+      <title>Go Composite Types Tutorial</title>
+      <link>http://example.org/golang/go-complex-types-tutorial/</link>
+      <pubDate>Sat, 14 Jul 2018 22:24:26 +0100</pubDate>
+      
+      <guid>http://example.org/golang/go-complex-types-tutorial/</guid>
+      <description>Welcome All! In this tutorial, we are going to be looking at the various different composite data types that are available in the Go programming language.
+If you haven&amp;rsquo;t already, I&amp;rsquo;d suggest you check out my other tutorial in this course on Basic Data Types. You&amp;rsquo;ll need to know about these basic data types in order to understand some of the composite data types.
+Arrays Let&amp;rsquo;s dive into our first Composite data type, the array and see how we can declare arrays and work with them.</description>
+    </item>
+    
+    <item>
+      <title>Working with Lists in Python - Tutorial</title>
+      <link>http://example.org/python/python-lists-tutorial/</link>
+      <pubDate>Wed, 20 Dec 2017 19:22:48 +0000</pubDate>
+      
+      <guid>http://example.org/python/python-lists-tutorial/</guid>
+      <description>This tutorial was built in Python 3.6
+ A Simple List my_list = [1, 2, 3, 4] print(my_list) Reversing a List This quick and easy technique shows how you can access all the elements of a list in reverse order.
+&amp;gt;&amp;gt;&amp;gt; my_list = [1,2,3,4,5] &amp;gt;&amp;gt;&amp;gt; my_list[::-1] [5, 4, 3, 2, 1] Try it Out my_list = [1, 2, 3, 4] print(my_list[::-1]) We can then treat our reversed list as an iterator and iterate through every element within this reversed list like so:</description>
+    </item>
+    
+    <item>
+      <title>Go Functions Tutorial</title>
+      <link>http://example.org/golang/go-functions-tutorial/</link>
+      <pubDate>Sat, 14 Jul 2018 22:23:10 +0100</pubDate>
+      
+      <guid>http://example.org/golang/go-functions-tutorial/</guid>
+      <description>In this tutorial, we are going to be looking at functions in Golang and hopefully, by the end of this tutorial, you will have a firm grasp as to what they are and how you can use them in your own projects.
+We&amp;rsquo;ll be covering the following topics within this tutorial:
+ The basics on Function Declaration Working with multiple return values  At the end of this tutorial, there will be challenges that you can attempt to complete on your own working machine that will help to validate what we have covered and give you a taste of writing your own functions in Go.</description>
+    </item>
+    
+    <item>
+      <title>Working With The File System in Python</title>
+      <link>http://example.org/python/python-working-with-file-system/</link>
+      <pubDate>Wed, 20 Dec 2017 18:41:30 +0000</pubDate>
+      
+      <guid>http://example.org/python/python-working-with-file-system/</guid>
+      <description>This tutorial was written using Python 3.6
+ Being able to work with the file system and do things like traverse directories or retrieve every file can be very handy in a number of different situations.
+In this tutorial we&amp;rsquo;ll be taking a look at the various ways you can work with the file system in Python. Hopefully this will give you a decent grasp of some of the cool things you can do very quickly and succinctly using the Python programming language.</description>
+    </item>
+    
+    <item>
+      <title>Go Methods Tutorial</title>
+      <link>http://example.org/golang/go-methods-tutorial/</link>
+      <pubDate>Sat, 14 Jul 2018 22:23:10 +0100</pubDate>
+      
+      <guid>http://example.org/golang/go-methods-tutorial/</guid>
+      <description>In this tutorial, we are going to first of all look at what methods are and how they work within the confines of the Go programming language. We&amp;rsquo;ll then take a look at demystifying the differences between both methods and functions and when you should ideally use them within your Go programs.
+A Simple Example Let&amp;rsquo;s start off by covering what methods and how we can implement our own in our Go systems.</description>
+    </item>
+    
+    <item>
+      <title>Reading and Writing Files In Python</title>
+      <link>http://example.org/python/python-reading-writing-files/</link>
+      <pubDate>Sun, 10 Sep 2017 08:59:29 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-reading-writing-files/</guid>
+      <description>This tutorial was written using Python 3.6
+ Being able to effectively work with the filesystem in any programming language is important as there will always be a need to do things such as import data from files or store data in local files. In this tutorial we&amp;rsquo;ll be looking at how you can create files, write to these newly created and then subsequently delete these files once we are done.</description>
+    </item>
+    
+    <item>
+      <title>Go Interfaces Tutorial</title>
+      <link>http://example.org/golang/go-interfaces-tutorial/</link>
+      <pubDate>Sat, 14 Jul 2018 22:24:26 +0100</pubDate>
+      
+      <guid>http://example.org/golang/go-interfaces-tutorial/</guid>
+      <description>Welcome all, in this tutorial we are going to be taking a look at interfaces within the Go programming language.
+By the end of this tutorial, we&amp;rsquo;ll have covered the following topics:
+ The Basics of Interfaces Defining Your Own Interfaces  There will be a number of challenges at the end of this tutorial that you are free to try and complete on your own machine to try and validate some of the topics we have covered in this tutorial.</description>
+    </item>
+    
+    <item>
+      <title>Python Maps Tutorial</title>
+      <link>http://example.org/python/python-maps-tutorial/</link>
+      <pubDate>Wed, 24 May 2017 07:57:51 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-maps-tutorial/</guid>
+      <description>This tutorial was built using Python 3.6
+ Maps in Python are syntactic sugar that allow you to very succinctly iterate through every element of an array and perform a function on it.
+Imagine we started off with a list of values numbering from 2-6 like so:
+values = [2,3,4,5,6] And we had a function which doubled said values:
+def double(x): return x * 2 Without the use of maps we would have to do something like so in order to multiply every element:</description>
+    </item>
+    
+    <item>
+      <title>Python Modules Tutorial</title>
+      <link>http://example.org/python/python-modules-tutorial/</link>
+      <pubDate>Mon, 28 Aug 2017 18:42:27 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-modules-tutorial/</guid>
+      <description>This tutorial was developed using Python version 3.6.
+ Larger Python projects require larger degrees of order and sub-dividing your project up into logical blocks can greatly improve the readability of your codebase. In Python we can do this sub-division using a concept using modules.
+Say for instance you have a program that bought and sold widgets on the stock market. This project does a number of things:</description>
+    </item>
+    
+    <item>
+      <title>Reading in Console Input in Golang</title>
+      <link>http://example.org/golang/reading-console-input-golang/</link>
+      <pubDate>Sat, 15 Apr 2017 08:48:49 +0100</pubDate>
+      
+      <guid>http://example.org/golang/reading-console-input-golang/</guid>
+      <description>This is a quick and simple tutorial on how to read in console text input into your Go (GoLang) program. In this tutorial, we&amp;rsquo;ll be creating the basis for a very simple shell that will take in all user input and simply echo it back to the user.
+Reading in Full Sentences We&amp;rsquo;ll use Go&amp;rsquo;s while loop equivalent of a for loop without any parameters to ensure our program continues on forever.</description>
+    </item>
+    
+    <item>
+      <title>Executing System Commands With Golang</title>
+      <link>http://example.org/golang/executing-system-commands-with-golang/</link>
+      <pubDate>Sat, 15 Apr 2017 08:47:48 +0100</pubDate>
+      
+      <guid>http://example.org/golang/executing-system-commands-with-golang/</guid>
+      <description>Last Updated - 6th December, 2018
+ In this tutorial, we are going to be taking a look at the os/exec package in the standard library and how we can use this to successfully execute system commands within our Go applications.
+ Note - The official documentation for executing system commands can be found under the exec package: os/exec package.
+ Prerequisites  You will need Go version 1.</description>
+    </item>
+    
+    <item>
+      <title>Parsing JSON files With Golang</title>
+      <link>http://example.org/golang/parsing-json-with-golang/</link>
+      <pubDate>Sun, 09 Apr 2017 21:07:11 +0100</pubDate>
+      
+      <guid>http://example.org/golang/parsing-json-with-golang/</guid>
+      <description>Welcome all, in this tutorial, we are going to be taking a look at how you can read in JSON files, or JSON HTTP responses and parse them to your hearts desire.
+JSON or Javascript Object Notation as it is short for, is a standard format for sending and receiving information. We could represent the same information with either XML or JSON, but JSON provides one advantage in the fact it is far more compact and in my personal experience, more readable.</description>
+    </item>
+    
+    <item>
+      <title>Python Logging Best Practices</title>
+      <link>http://example.org/python/python-logging-best-practices/</link>
+      <pubDate>Sun, 13 Aug 2017 17:06:57 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-logging-best-practices/</guid>
+      <description>In this tutorial we&amp;rsquo;ll be looking at some of the best practices that you should be following when it comes to implementing logging in your Python programs.
+ This article was written against Python version 3.6
+ Why Do We Need Logging? Logging is an incredibly important feature of any application as it gives both programmers and people supporting the application key insight into what their systems are doing. Without proper logging we have no real idea as to why our applications fail and no real recourse for fixing these applications.</description>
+    </item>
+    
+    <item>
+      <title>Parsing XML Files With Golang</title>
+      <link>http://example.org/golang/parsing-xml-with-golang/</link>
+      <pubDate>Sun, 09 Apr 2017 21:07:45 +0100</pubDate>
+      
+      <guid>http://example.org/golang/parsing-xml-with-golang/</guid>
+      <description>In this tutorial we look at how you can effectively read in an XML file from the file system and then parse this file using Go’s “encoding/xml” Package. We’ll look at how you can traverse multiple nested xml elements and then we’ll simply print this out to our terminal window.
+Our Example XML File So to begin with, we’ll need an xml file that we can traverse.
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?</description>
+    </item>
+    
+    <item>
+      <title>Python Decorators Tutorial</title>
+      <link>http://example.org/python/python-decorators-tutorial/</link>
+      <pubDate>Tue, 08 Aug 2017 18:55:48 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-decorators-tutorial/</guid>
+      <description>This Tutorial was written using Python 3.6
+ In this tutorial, I am going to be demonstrating the wonderful concept that is Python decorators. We&amp;rsquo;ll look at the various attributes of Python that make writing your own decorators fairly simple and then we&amp;rsquo;ll cover some cool examples as to how you can use decorators to improve the performance of some types of applications.
+Video Tutorial If you prefer, feel free to check out the video version of this course, like and subscribe to my channel for more Python related video content!</description>
+    </item>
+    
+    <item>
+      <title>Python Generators Tutorial</title>
+      <link>http://example.org/python/python-generator-tutorial/</link>
+      <pubDate>Mon, 12 Jun 2017 14:26:02 +0000</pubDate>
+      
+      <guid>http://example.org/python/python-generator-tutorial/</guid>
+      <description>This tutorial was built using Python 3.6
+ In this tutorial I&amp;rsquo;m aiming to help demystify this concept of generators within the Python programming language. We&amp;rsquo;ll look at what generators are and how we can utilize them within our python programs.
+What Are Generators? Generators are functions that can return multiple values at different times. These are iterators that we can subsequently iterate over in a variety of different ways.</description>
+    </item>
+    
+    <item>
+      <title>The Go init Function</title>
+      <link>http://example.org/golang/the-go-init-function/</link>
+      <pubDate>Thu, 04 Oct 2018 10:44:54 +0100</pubDate>
+      
+      <guid>http://example.org/golang/the-go-init-function/</guid>
+      <description>There are times, when creating applications in Go, that you need to be able to set up some form of state on the initial startup of your program. This could involve creating connections to databases, or loading in configuration from locally stored configuration files.
+When it comes to doing this in Go, this is where your init() functions come into play. In this tutorial, we&amp;rsquo;ll be looking at how you can use this init() function to achieve fame and glory, or more likely to help you to build your next Go based project.</description>
+    </item>
+    
+    <item>
+      <title>Python Iterator Tutorial</title>
+      <link>http://example.org/python/python-iterator-tutorial/</link>
+      <pubDate>Sun, 03 Sep 2017 17:58:24 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-iterator-tutorial/</guid>
+      <description>This tutorial was built using Python 3.6
+ In this tutorial we&amp;rsquo;ll be looking at what iterators are with Python. We&amp;rsquo;ll also be looking at how we can effectively work with them and improve our Python programs using them.
+What Are Iterators? Iterators are cool in the sense that they allow us to step over every item in an array, object or file and perform work on each item.</description>
+    </item>
+    
+    <item>
+      <title>Go Maps Tutorial</title>
+      <link>http://example.org/golang/go-maps-tutorial/</link>
+      <pubDate>Sat, 29 Jun 2019 23:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-maps-tutorial/</guid>
+      <description>In this tutorial, we are going to look at maps in Go and how you can use them to achieve world domination!
+We are going to be covering just about everything you need to know about maps to get started using them within your own Go applications. We are going to be looking at all of the various ways you interact with maps in Go and by the end of this tutorial, you will be a master when it comes to using them.</description>
+    </item>
+    
+    <item>
+      <title>Go Sorting With the sort Package - Tutorial</title>
+      <link>http://example.org/golang/go-sorting-with-sort-tutorial/</link>
+      <pubDate>Sun, 26 May 2019 07:49:44 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-sorting-with-sort-tutorial/</guid>
+      <description>Sorting items to be in order is something that every programmer will undoubtedly have to do at one point in their career. There are different approaches and many different sorting algorithms available for you to choose from, but typically it is better to rely on already implemented packages to do your sorting for you.
+Goals By the end of this tutorial, you will know how to:
+ Implement basic sorting within your Go applications using the &amp;quot;sort&amp;quot; package.</description>
+    </item>
+    
+    <item>
+      <title>Go Tickers Tutorial</title>
+      <link>http://example.org/golang/go-ticker-tutorial/</link>
+      <pubDate>Thu, 02 May 2019 08:00:17 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-ticker-tutorial/</guid>
+      <description>In this tutorial, we are going to be looking at tickers in Go and how you can use tickers effectively within your own Go applications.
+Tickers are exceptionally helpful when you need to perform an action repeatedly at given time intervals and we can use tickers, in combination with goroutines in order to run these tasks in the background of our applications.
+Tickers vs Timers Before we dive in, it&amp;rsquo;s useful to know the distinction between both tickers and timers.</description>
+    </item>
+    
+    <item>
+      <title>Go Modules Tutorial</title>
+      <link>http://example.org/golang/go-modules-tutorial/</link>
+      <pubDate>Fri, 19 Apr 2019 08:34:10 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-modules-tutorial/</guid>
+      <description>In this tutorial, we are going to be looking at how you can use Go modules in your Go applications to simplify the way you work with dependencies for your Go applications. We will be looking at how Go Modules work, and also what problems they solve for us, before finally going into developing a simple Go application which uses Go Modules.
+Goals By the end of this tutorial:</description>
+    </item>
+    
+    <item>
+      <title>Scope and Ownership in Rust</title>
+      <link>http://example.org/rust/scope-ownership-in-rust/</link>
+      <pubDate>Wed, 30 Jan 2019 14:36:39 +0000</pubDate>
+      
+      <guid>http://example.org/rust/scope-ownership-in-rust/</guid>
+      <description>In Rust, every data value has a single owning scope—no more, no less. So, what&amp;rsquo;s a scope? The easy answer is that a scope is the place where a block expression stores its variables. Scopes are not directly represented in the source code, but a scope begins when a block expression begins, with a { symbol, and ends when the block expression ends, with } (or when a return statement is run before the block reaches its end).</description>
+    </item>
+    
+    <item>
+      <title>Go JSON Tutorial</title>
+      <link>http://example.org/golang/go-json-tutorial/</link>
+      <pubDate>Mon, 21 Jan 2019 19:07:28 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-json-tutorial/</guid>
+      <description>Welcome fellow Gophers! In this tutorial, we are going to be taking a comprehensive look at how we can work with JSON in our Go applications.
+JSON, or JavaScript Object Notation, is without a doubt the most popular data format for sending and receiving data across the web. All major languages support the data format by default and Go is no different.
+ Source Code - The full source code for this tutorial can be found here: TutorialEdge/go-json-tutorial</description>
+    </item>
+    
+    <item>
+      <title>RESTful API Design - Best Practices</title>
+      <link>http://example.org/general/rest-api-best-practices/</link>
+      <pubDate>Mon, 12 Jun 2017 15:29:30 +0100</pubDate>
+      
+      <guid>http://example.org/general/rest-api-best-practices/</guid>
+      <description>In this article we look at some of the key concepts that everyone should bear in mind when designing RESTful APIs. These are based off my own experience with designing and building RESTful APIs in a number of projects and should be taken with a pinch of salt, I am in no way telling you that you must do it this way. I am merely
+Versioning Versioning is incredibly important in pretty much every scenario, be it a personal project or an enterprise scale service that other teams will be interfacing with.</description>
+    </item>
+    
+    <item>
+      <title>Learning to Code in 2017</title>
+      <link>http://example.org/general/learning-to-code-2017/</link>
+      <pubDate>Sat, 15 Apr 2017 09:53:07 +0100</pubDate>
+      
+      <guid>http://example.org/general/learning-to-code-2017/</guid>
+      <description>Programming has changed a hell of a lot in the last few years and we’ve seen multiple new languages pop up all addressing different problem sets and skill levels. The main goal for this article is clarifying some of the basic concepts and guiding you as to where to start if you are wanting to learn how to program in 2017.
+Choosing a Language There are literally hundreds of languages out there, from C++ to Python to Go.</description>
+    </item>
+    
+    <item>
+      <title>What is a RESTful API?</title>
+      <link>http://example.org/general/what-is-a-rest-api/</link>
+      <pubDate>Sat, 15 Apr 2017 09:53:07 +0100</pubDate>
+      
+      <guid>http://example.org/general/what-is-a-rest-api/</guid>
+      <description>As a developer I spend a lot of time developing new or improving on existing RESTful APIs and one of the big questions I’ve been asked is - What is a REST API?
+This tutorial will try to explain in layman’s terms what a REST API is and how we can utilize these APIs in order to build our own systems.
+REST Basics REST - Representational State Transfer.
+API - Application Programming Interface</description>
+    </item>
+    
+    <item>
+      <title>Fetching Web Pages In Python Using Urllib2</title>
+      <link>http://example.org/python/fetching-web-pages-python/</link>
+      <pubDate>Sat, 15 Apr 2017 09:47:01 +0100</pubDate>
+      
+      <guid>http://example.org/python/fetching-web-pages-python/</guid>
+      <description>This tutorial was built using Python 2.7. This will not work for Python 3+
+ In this tutorial I will be showing you how you can fetch the a webpage using the urllib2 python module. This is a relatively simple process that can be accomplished in 5 lines of code.
+The Imports To begin with we will need to import the urllib2 python module so that we can utilize it&amp;rsquo;s functionality:</description>
+    </item>
+    
+    <item>
+      <title>Removing HTML Tags from a String with Python</title>
+      <link>http://example.org/python/removing-html-from-string/</link>
+      <pubDate>Sat, 15 Apr 2017 09:38:07 +0100</pubDate>
+      
+      <guid>http://example.org/python/removing-html-from-string/</guid>
+      <description>This tutorial will demonstrate two different methods as to how one can remove html tags from a string such as the one that we retrieved in my previous tutorial on fetching a web page using python.
+Method 1 This method will demonstrate a way that we can remove html tags from a string using regex strings. import re TAG_RE = re.compile(r&amp;#39;&amp;lt;[^&amp;gt;]+&amp;gt;&amp;#39;) def remove_tags(text): return TAG_RE.sub(&amp;#39;&amp;#39;, text) Method 2 This is another method we can use to remove html tags using functionality present in the Python Standard library so there is no need for any imports.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vuejs on My New Hugo Site</title>
+    <link>http://example.org/tags/vuejs/</link>
+    <description>Recent content in vuejs on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 24 Jul 2018 21:19:40 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/vuejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Part 1 - Setting Up Our CI/CD Pipeline to S3</title>
+      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</guid>
+      <description>If you know anything about me, you&amp;rsquo;ll know I am incredibly lazy. This means that it&amp;rsquo;s incredibly important to set up an automated deployment pipeline early in the project&amp;rsquo;s development.
+If we are serious about developing a decent website that will make us tonnes of money then we need to get this working from the start. Afterall, if it takes us about 5-10 minutes to deploy our site, by automating this we&amp;rsquo;ll be saving ourselves 5-10 minutes every time we wish to push up changes.</description>
+    </item>
+    
+    <item>
+      <title>Part 1 - Setting Up Our VueJS Project</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</guid>
+      <description>In this first tutorial, we will be covering exactly how you set up your development machine so that we can start working on our HackerNews clone.
+We&amp;rsquo;ll get a basic VueJS application up and running and we&amp;rsquo;ll also cover how you can build this simple project so that you end up with files that are deployable to the likes of and S3 bucket, or a server that can serve your files.</description>
+    </item>
+    
+    <item>
+      <title>Part 2 - Getting Started With AWS Lambda</title>
+      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</link>
+      <pubDate>Thu, 19 Apr 2018 21:42:29 +0100</pubDate>
+      
+      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</guid>
+      <description>So, in the last tutorial, we managed to get a simple CI/CD pipeline up and running so that whenever we commit anything to our github repo, it automatically builds and deploys these changes to our &amp;ldquo;production&amp;rdquo; environment.
+In this tutorial, we are going to continue to develop our blog and get started building up the first of our Lambda functions that we&amp;rsquo;ll need to make our blog work.
+Our First Lambda Function We&amp;rsquo;ll start by creating a hello world style lambda function that will later return a paginated list of blog posts.</description>
+    </item>
+    
+    <item>
+      <title>Part 2 - Creating a Few Components</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</guid>
+      <description>In the previous tutorial, we not only managed to set up our base project and get it running on http://localhost:8080, but we also managed to build it so that it&amp;rsquo;s ready for deployment to production. We now have a strong base project from which we can build up up our HackerNews clone.
+In this tutorial, we are going to create our first Single Page component which will be our Navbar.</description>
+    </item>
+    
+    <item>
+      <title>Part 3 - Setting Up our RDS Database</title>
+      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</link>
+      <pubDate>Tue, 24 Jul 2018 21:19:40 +0100</pubDate>
+      
+      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</guid>
+      <description>Introduction Welcome back to part 3 of my course on building a blog with Vue.JS on AWS. In this part of the course, we are going to be setting up an RDS instance which will store all of our blog&amp;rsquo;s articles and posts.
+Once we have our database instance set up and our schema defined, we can then move on to building Lambda functions that will query this database and return the results to our frontend.</description>
+    </item>
+    
+    <item>
+      <title>Part 4 - Setting Up Our Dynamodb Table</title>
+      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</link>
+      <pubDate>Fri, 20 Apr 2018 12:31:40 +0100</pubDate>
+      
+      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</guid>
+      <description>In the previous tutorial, we managed to get our first Lambda tutorial up and running, however, it doesn&amp;rsquo;t do anything too exciting as it stands. This is where Dynamo comes in, we need to create a DynamoDB table where we can store everything we need for our blog. This includes new blog posts, any comments, ratings, and whatever else we can think of!
+Once we have this new table all defined, we can start to play about with inserting things and then retrieving them using our existing Lambda function.</description>
+    </item>
+    
+    <item>
+      <title>Part 3 - Adding a Few Routes To Our App</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</guid>
+      <description>In the previous tutorial of this series, we covered single page components and how you could build your own components and subsequently render them within your Vue.js application. We created a simple Navbar component and registered it within our App.vue component and subsequently rendered it within our application.
+In this tutorial, we are going to be creating a few more single-page components and setting up a vue-router so that we can navigate between different views on our site.</description>
+    </item>
+    
+    <item>
+      <title>Part 5 - Getting Started With AWS Cognito</title>
+      <link>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</link>
+      <pubDate>Fri, 20 Apr 2018 12:41:31 +0100</pubDate>
+      
+      <guid>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</guid>
+      <description>In the previous tutorial, we managed to get our DynamoDB table set up and populated with a couple of very simple posts. In this tutorial, we are going to set up a Cognito pool that will store all of the users that register for our Blog. We&amp;rsquo;ll also be able to improve our Lambda endpoints so that they aren&amp;rsquo;t open to the world, they require authentication before they start updating our database, this will stop unauthorized people potentially updating posts and doing malicious things.</description>
+    </item>
+    
+    <item>
+      <title>Part 4 - Hitting The HackerNews API</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</guid>
+      <description>The documentation for the API we will be hitting can be found here: HackerNews/API
+ In most frontend web applications, you will need to start making HTTP requests in order to retrieve data from a database or get information from a RESTful API. Being able to do this is considered almost essential these days and thus, in this section of the course, we are going to look at how you can extend the HackerNews project in order to make HTTP requests out to the HackerNews API.</description>
+    </item>
+    
+    <item>
+      <title>Vuejs HTTP Requests with Axios Tutorial</title>
+      <link>http://example.org/javascript/vuejs/vuejs-http-requests-axios-tutorial/</link>
+      <pubDate>Thu, 01 Mar 2018 12:36:54 +0000</pubDate>
+      
+      <guid>http://example.org/javascript/vuejs/vuejs-http-requests-axios-tutorial/</guid>
+      <description>This Tutorial builds off the starter application that we generated in the Getting Started with VueJS article.
+ In this article, we are going to look at how you can use the axios library to make HTTP requests within your VueJS 2 applications. The axios framework is without a doubt the most popular HTTP frameworks to use within the framework and makes the job of sending requests simple.</description>
+    </item>
+    
+    <item>
+      <title>Part 5 - Viewing Individual News Articles</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</guid>
+      <description>In the previous tutorial, we looked at how we could show all of the latest HackerNews stories on our Homepage component and showed information like the score and the URL of that story. Whilst this is pretty cool, it doesn&amp;rsquo;t let us see the discussion going on around any of the stories, as we all know, this can be the best bit!
+In this tutorial, we&amp;rsquo;ll be adding a new route to our VueJS application which will be able to render an individual story and the comments associated with it.</description>
+    </item>
+    
+    <item>
+      <title>Part 6 - Advanced Components</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/</guid>
+      <description>As we continue to build this HackerNews clone up, the code within some of our components is going to increasingly grow. We need to start splitting our application up into multiple smaller components and in order for us to do this, we&amp;rsquo;ll first have to learn some new concepts such as passing data into components using props.
+Video Tutorial  In this tutorial, we are going to create an Item.</description>
+    </item>
+    
+    <item>
+      <title>VueJS Animations and Transitions Tutorial</title>
+      <link>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</link>
+      <pubDate>Thu, 01 Mar 2018 12:26:40 +0000</pubDate>
+      
+      <guid>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</guid>
+      <description>In this tutorial, we are going to explore how we can use animations and transitions to make our VueJS web application really stand out from the crowd.
+A Simple Transition Let&amp;rsquo;s start of by creating a few very simple transitions, these will simply fade in when a certain condition is met. I was watching Mission Impossible whilst writing this so the theme for this is a top secret mission. The finished product for this section is going to look something like this:</description>
+    </item>
+    
+    <item>
+      <title>Part 7 - Managing State with Vuex in your VueJS Applications</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</guid>
+      <description>In this tutorial, we are going to be adding Vuex to our VueJS application. We&amp;rsquo;ll be looking at how we can improve the performance of our application and persist data between route changes.
+Why Vuex? Vuex is a state management pattern + library for Vue.js applications. Essentially, it acts as a centralized store for all components in an application.
+Vuex Core Concepts Before we continue to flesh out our VueJS application, we should really ground ourselves with the core concepts of Vuex.</description>
+    </item>
+    
+    <item>
+      <title>Part 8 - Deploying Our HackerNews Client To AWS</title>
+      <link>http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</link>
+      <pubDate>Mon, 19 Mar 2018 16:24:13 +0000</pubDate>
+      
+      <guid>http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</guid>
+      <description>In this final lesson in the series, we are going to be taking a look at how you can deploy your finished application up to AWS so that it is available for the world.
+We&amp;rsquo;ll cover how to do this in an automated fashion using the Travis-CI platform and we&amp;rsquo;ll also cover some of the various methods of improving performance using services such as CloudFront.
+Setting up a CI/CD Pipeline Now that we have a basic level of functionality within our application, it makes sense to deploy it, have our users see it, and interact with it and hopefully provide feedback on it as soon as possible.</description>
+    </item>
+    
+  </channel>
+</rss>

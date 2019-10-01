@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Form Handling on My New Hugo Site</title>
+    <link>http://example.org/tags/form-handling/</link>
+    <description>Recent content in Form Handling on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Jun 2018 19:36:57 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/form-handling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Form Validation With Vuelidate Vuejs</title>
+      <link>http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/</link>
+      <pubDate>Thu, 07 Jun 2018 19:36:57 +0100</pubDate>
+      
+      <guid>http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/</guid>
+      <description>Learn how to validate forms using Vuelidate in this tutorial by Paul Halliday, the author of Vue.js 2 Design Patterns and Best Practices.
+ In this post, you&amp;rsquo;ll use a third-party library named Vuelidate to perform model validation depending on a particular rule set
+Create a New Vue Project Create a playground project by running the following in your Terminal:
+# Create a new Vue project $ vue init webpack-simple vue-validation # Navigate to directory $ cd vue-validation # Install dependencies $ npm install # Install Vuelidate $ npm install vuelidate # Run application $ npm run dev What is Vuelidate?</description>
+    </item>
+    
+  </channel>
+</rss>

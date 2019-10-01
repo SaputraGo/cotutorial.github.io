@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Part 6 - Advanced Components | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="https://images.tutorialedge.net/images/vuejs.png" alt="Part 6 - Advanced Components Image" />  Part 6 - Advanced Components
+        </h1>
+    </div>
+</div>
+<div class="post-info">
+    <div class="container">
+        <div class="post-info-inner">
+            <span>
+        
+        <img class="author" src="../../../images/svg/logo.svg" alt="CoTutorial" />
+        
+        <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+      </span>
+
+            <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>5 Minutes</span>
+            <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Mar 19, 2018</span>
+
+            <span>
+        
+        <a href="../../../tags/vuejs"
+          ><span class="badge badge-pill badge-info">vuejs</span></a>
+            
+        <a href="../../../tags/javascript"
+          ><span class="badge badge-pill badge-info">javascript</span></a>
+            
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+            <div class="col-sm-3 d-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">javascript</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/">Part 1 - Setting Up Our VueJS Project</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/">Part 2 - Creating a Few Components</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/">Part 3 - Adding a Few Routes To Our App</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/">Part 4 - Hitting The HackerNews API</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/">Part 5 - Viewing Individual News Articles</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/">Part 6 - Advanced Components</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/">Part 7 - Managing State with Vuex in your VueJS Applications</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/">Part 8 - Deploying Our HackerNews Client To AWS</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">vuejs</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/">Part 1 - Setting Up Our VueJS Project</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/">Part 2 - Creating a Few Components</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/">Part 3 - Adding a Few Routes To Our App</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/">Part 4 - Hitting The HackerNews API</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/">Part 5 - Viewing Individual News Articles</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/">Part 6 - Advanced Components</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/">Part 7 - Managing State with Vuex in your VueJS Applications</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/">Part 8 - Deploying Our HackerNews Client To AWS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+                <article class="content">
+                    
+
+<p>As we continue to build this HackerNews clone up, the code within some of our
+components is going to increasingly grow. We need to start splitting our
+application up into multiple smaller components and in order for us to do this,
+we&rsquo;ll first have to learn some new concepts such as passing data into components
+using props.</p>
+
+<h1 id="video-tutorial">Video Tutorial</h1>
+
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/HMYVQjU2KJM?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+
+<p>In this tutorial, we are going to create an <code>Item.vue</code> component that will
+render a single item within our <code>Homepage.vue</code> component. The finished product
+of this will look like this:</p>
+
+<p><img src="https://images.tutorialedge.net/images/hackernews-clone/screenshot-11.png" alt="" /></p>
+
+<blockquote>
+<p>Note: We will be stealing a lot of the design elements from the official
+HackerNews project:
+<a href="https://github.com/vuejs/vue-hackernews-2.0">vue-hackernews-2.0</a></p>
+</blockquote>
+
+<h1 id="item-vue">Item.vue</h1>
+
+<p>The first thing we will need to do is to define our <code>Item.vue</code> component. This
+will take in a story and will render it for us using the <code>css</code> that we will
+define in the <code>&lt;style&gt;</code> tags.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story&#34;</span>&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;score&#34;</span>&gt;{{ story.data.score }}&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;<span style="color:#f92672">router-link</span> <span style="color:#a6e22e">:to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ path: &#39;/story/&#39; + story.data.id }&#34;</span>
+      &gt;{{ story.data.title }}&lt;<span style="color:#f92672">span</span>
+        &gt;{{ story.data.url | host }}&lt;/<span style="color:#f92672">span</span>
+      &gt;&lt;/<span style="color:#f92672">router-link</span>
+    &gt;&lt;<span style="color:#f92672">br</span> /&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span>&gt;
+      by {{ story.data.by }} | {{ story.data.time }} Ago | {{
+      story.data.descendants }} comments
+    &lt;/<span style="color:#f92672">span</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Item&#34;</span>,
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;story&#34;</span>]
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+  .<span style="color:#a6e22e">story</span> {
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+    <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">border-bottom</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#eee</span>;
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+    <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+  }
+  .<span style="color:#a6e22e">score</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#f60</span>;
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.1</span><span style="color:#66d9ef">em</span>;
+    <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">700</span>;
+    <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+    <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+    <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">-10</span><span style="color:#66d9ef">px</span>;
+  }
+  .<span style="color:#a6e22e">story</span> <span style="color:#f92672">a</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#34495e</span>;
+    <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">600</span>;
+    <span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">none</span>;
+  }
+  .<span style="color:#a6e22e">story</span> <span style="color:#f92672">a</span> <span style="color:#f92672">span</span> {
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">0.85</span><span style="color:#66d9ef">em</span>;
+    <span style="color:#66d9ef">margin-left</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#828282</span>;
+  }
+  .<span style="color:#a6e22e">story</span> .<span style="color:#a6e22e">meta</span> {
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">0.85</span><span style="color:#66d9ef">em</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#828282</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<p>Notice that we&rsquo;ve used <code>props</code> within our component&rsquo;s <code>js</code>. This will allow us
+to pass in a <code>story</code> object further down the line from a parent component such
+as our <code>Home.vue</code> component.</p>
+
+<p>Now that we have created this new component, we can go about updating our
+<code>Home.vue</code> component so that it uses our newly defined <code>Item.vue</code> component.</p>
+
+<h1 id="updating-our-home-vue">Updating our Home.vue</h1>
+
+<p>Let us first modify our <code>&lt;template&gt;</code> tags so that we utilize our new <code>Item.vue</code>
+component. We&rsquo;ll still want to reuse the <code>v-for</code> VueJS directive in order to
+render an array of top items.</p>
+
+<p>We use <code>:story</code> to bind an individual <code>story</code> object to each of our <code>Item</code>
+components.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">item</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story in stories&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story.data.id&#34;</span> <span style="color:#a6e22e">:story</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story&#34;</span>&gt;&lt;/<span style="color:#f92672">item</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+<p>This looks a lot more succinct and is positively far better than just having our
+<code>Home.vue</code> component constantly grow on us.</p>
+
+<p>Now that we&rsquo;ve done this, we need to import our <code>Item</code> component and register it
+within our <code>Home</code> component. We can do this like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;axios&#39;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Item</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@/views/Item.vue&#39;</span>
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Homepage&#39;</span>,
+  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#39;item&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Item</span>
+  },
+  <span style="color:#a6e22e">data</span>: <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">err</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+      <span style="color:#a6e22e">stories</span><span style="color:#f92672">:</span> []
+    }
+  },
+  <span style="color:#960050;background-color:#1e0010">// ... the rest of our Home.vue component</span></code></pre></div>
+<p>Nothing else within our <code>Home.vue</code> component needs to change. If you save all of
+the changes you have just made then you should see your application rendering
+nicely in the browser.</p>
+
+<h1 id="why-break-up-our-application">Why Break Up Our Application?</h1>
+
+<p>So at this point, I think it&rsquo;s worthwhile covering why we have just made a
+smaller <code>Item.vue</code> component instead of just pushing all our code into one
+component. By doing this, we effectively enable ourselves to reuse various parts
+of our codebase in different places. It also helps to break up a massive
+application into a series of smaller, easier to debug, digest and expand upon.</p>
+
+<p>Let&rsquo;s see a perfect example of this now. Create a new component called
+<code>New.vue</code>, this is going to show off all of the newest articles available
+courtesy of the HackerNews API.</p>
+
+<p>Within our <code>&lt;template&gt;</code> tags I want you to add the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">item</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story in stories&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story.data.id&#34;</span> <span style="color:#a6e22e">:story</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;story&#34;</span>&gt;&lt;/<span style="color:#f92672">item</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;</code></pre></div>
+<p>You may notice that this is identical to the code we currently have in our
+<code>Home.vue</code> component and you would be 100% right. We now want to update our
+<code>&lt;script&gt;</code> element to look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">axios</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;axios&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Item</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;@/views/Item.vue&#34;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;New&#34;</span>,
+  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">item</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Item</span>
+  },
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">err</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>,
+      <span style="color:#a6e22e">stories</span><span style="color:#f92672">:</span> []
+    };
+  },
+  <span style="color:#a6e22e">created</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">axios</span>
+      .<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;https://hacker-news.firebaseio.com/v0/newstories.json&#34;</span>)
+      .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">result</span> =&gt; {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">25</span>);
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">element</span> =&gt; {
+          <span style="color:#a6e22e">axios</span>
+            .<span style="color:#a6e22e">get</span>(
+              <span style="color:#e6db74">&#34;https://hacker-news.firebaseio.com/v0/item/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.json&#34;</span>
+            )
+            .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">result</span> =&gt; {
+              <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">stories</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">result</span>);
+            })
+            .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; {
+              <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+            });
+        });
+      })
+      .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">err</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">err</span>;
+      });
+  }
+};
+</code></pre></div>
+<p>Again, this should look identical to our <code>Home.vue</code> component, except for the
+fact that we are hitting the
+<code>https://hacker=news.firebaseio.com/v0/newstories.json</code> API endpoint as opposed
+to the <code>topstories.json</code> endpoint.</p>
+
+<h1 id="adding-a-new-route">Adding a &lsquo;New&rsquo; Route</h1>
+
+<p>We need a new route to render our <code>New.vue</code> component, so fire open your
+<code>/src/router/index.js</code> and update it to have a route that maps to our <code>New</code>
+component like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Vue</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Router</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;vue-router&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Home</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./views/Home.vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Single</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./views/Single.vue&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">New</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./views/New.vue&#34;</span>;
+
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">Router</span>);
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Router</span>({
+  <span style="color:#a6e22e">routes</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/&#34;</span>,
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Homepage&#34;</span>,
+      <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Homepage</span>
+    },
+    {
+      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/story/:id&#34;</span>,
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Single&#34;</span>,
+      <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Single</span>
+    },
+    {
+      <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/new&#34;</span>,
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;New&#34;</span>,
+      <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">New</span>
+    }
+  ]
+});
+</code></pre></div>
+<h1 id="updating-our-navbar-vue">Updating our Navbar.vue</h1>
+
+<p>Finally, let&rsquo;s update our <code>Navbar.vue</code> component so that we have a link to not
+only our <code>Homepage</code>, but also to <code>/new</code> so that we can decide when we want to
+view new stories or top stories:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pure-menu pure-menu-horizontal&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+      &lt;<span style="color:#f92672">router-link</span> <span style="color:#a6e22e">:to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ path: &#39;/&#39; }&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pure-menu-heading pure-menu-link&#34;</span>
+        &gt;Home&lt;/<span style="color:#f92672">router-link</span>
+      &gt;
+      &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pure-menu-list&#34;</span>&gt;
+        &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pure-menu-item&#34;</span>&gt;
+          &lt;<span style="color:#f92672">router-link</span> <span style="color:#a6e22e">:to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ path: &#39;/new&#39; }&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pure-menu-link&#34;</span>
+            &gt;New&lt;/<span style="color:#f92672">router-link</span>
+          &gt;
+        &lt;/<span style="color:#f92672">li</span>&gt;
+      &lt;/<span style="color:#f92672">ul</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Navbar&#34;</span>
+  };
+&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">scoped</span>&gt;
+  .<span style="color:#a6e22e">pure-menu</span> {
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#e17842</span>;
+  }
+  .<span style="color:#a6e22e">pure-menu</span> <span style="color:#f92672">a</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;</code></pre></div>
+<h1 id="conclusion">Conclusion</h1>
+
+<p>So, in this tutorial, we looked at how we could further break up our growing
+application into more components and start passing information from a parent
+component, our <code>Home.vue</code> component, to individual <code>Item.vue</code> components.</p>
+
+<p>We&rsquo;ve covered some of the main benefits of breaking down a large, growing
+application into a series of smaller components. We also looked at how we could
+pass information between both a parent component and a series of child
+components using <code>props</code>.</p>
+
+<p>In the next tutorial, we are going to look at how we can manage state within our
+VueJS application using Vuex and improve the performance of our application by
+caching API results. You can see the next tutorial here:
+<a href="../../../projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/">Part 7 - Managing State with Vuex</a></p>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+            </div>
+            <div class="col-sm-2 hidden-md-down">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#video-tutorial">Video Tutorial</a></li>
+<li><a href="#item-vue">Item.vue</a></li>
+<li><a href="#updating-our-home-vue">Updating our Home.vue</a></li>
+<li><a href="#why-break-up-our-application">Why Break Up Our Application?</a></li>
+<li><a href="#adding-a-new-route">Adding a &lsquo;New&rsquo; Route</a></li>
+<li><a href="#updating-our-navbar-vue">Updating our Navbar.vue</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+                        <hr/>
+                        <div id="codefund">
+                            
+                        </div>
+                        <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="comments">
+    <div class="container">
+        <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+    </div>
+</div>
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 20
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content h1, .content h2, .content h3, .content h4, .content h5, .content h6"
+        );
+    });
+</script>
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">f71f3742bfebf6def04a5fa29b243507</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

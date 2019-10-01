@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Makefiles for Go Developers | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.png" alt="Makefiles for Go Developers Image" />  Makefiles for Go Developers
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/elliot_f">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>5 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Jun 6, 2019</span>
+
+                <span>
+            
+            <a href="../../tags/Tools"
+              ><span class="badge badge-pill badge-info">Tools</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-websockets-tutorial/">Working with Websockets and Socket.IO in Go - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-protocol-buffer-tutorial/">Go Protocol Buffer Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-webassembly-tutorial/">Go WebAssembly Tutorial - Building a Calculator Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-oauth2-tutorial/">Go Oauth2 Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-face-recognition-tutorial-part-one/">Go Face Recognition Tutorial - Part 1</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-encrypt-decrypt-aes-tutorial/">Go Encryption and Decryption using AES - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-ci-cd-pipeline-go-projects/">Building a Solid Continuous Integration Pipeline with TravisCI for Your Go Projects</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-frontend-web-framework-webassembly-go/">Writing a Frontend Web Framework with WebAssembly And Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/authenticating-golang-rest-api-with-jwts/">Securing Your Go REST APIs With JWTs</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/getting-started-with-go/">Getting Started With Go</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-basic-types-tutorial/">Go Basic Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-complex-types-tutorial/">Go Composite Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-functions-tutorial/">Go Functions Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-methods-tutorial/">Go Methods Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-interfaces-tutorial/">Go Interfaces Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-console-input-golang/">Reading in Console Input in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/executing-system-commands-with-golang/">Executing System Commands With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-json-with-golang/">Parsing JSON files With Golang</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-xml-with-golang/">Parsing XML Files With Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/the-go-init-function/">The Go init Function</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-sorting-with-sort-tutorial/">Go Sorting With the sort Package - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-ticker-tutorial/">Go Tickers Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-modules-tutorial/">Go Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-json-tutorial/">Go JSON Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/concurrency-with-golang-goroutines/">Concurrency With Golang Goroutines</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-mutex-tutorial/">Go Mutex Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-channels-tutorial/">Go Channels Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-waitgroup-tutorial/">Go WaitGroup Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">docker</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-multi-stage-docker-tutorial/">Go Multi-Stage Docker Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-docker-tutorial/">Containerizing your Go Applications with Docker - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">file-upload</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-file-upload-tutorial/">Uploading Files in Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-writing-files-in-go/">Reading And Writing To Files in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/temporary-files-directories-go-111/">Working with Temporary Files and Directories in Go 1.11</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">graphql</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial-part-2/">Go Graphql Beginners Tutorial - Part 2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial/">Go GraphQL Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/an-intro-to-go-dep/">An Intro to Go Dep</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/consuming-restful-api-with-go/">Consuming A RESTful API With Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-restful-api-with-golang/">Creating a RESTful API With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-simple-web-server-with-golang/">Creating A Simple Web Server With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-a-cli-in-go/">Building a Network Command Line Interface in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-a-twitter-bot-golang/">Writing A Twitter Bot in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-orm-tutorial/">Golang ORM Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-mysql-tutorial/">Golang MySQL Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-closures-tutorial/">An Introduction to Go Closures - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-variadic-function-tutorial/">Go Variadic Function Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/working-with-environment-variables-in-go/">Working With Environment Variables in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-decorator-function-pattern-tutorial/">Go Decorator Function Pattern Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">misc</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/top-books-for-learning-golang/">The Best Books For Learning Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/sending-email-using-go-and-mailgun/">Sending Email Using Go And Mailgun</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/implementing-bubble-sort-with-golang/">Implementing the Bubble Sort Algorithm using Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-integer-string-conversion-tutorial/">Golang Integer String Conversion Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">redis</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-redis-tutorial/">Getting Started with Redis and Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">snippets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/check-key-exists-in-map-go/">Check Key Exists in Map Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/concatenate-strings-in-go/">Concatenate Strings in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/sort-map-by-value/">Sort Map by Value</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/intro-testing-in-go/">An Introduction to Testing in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/advanced-go-testing-tutorial/">Advanced Go Testing Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/benchmarking-your-go-programs/">An Introduction to Benchmarking Your Go Programs</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-your-tests-with-testify-go/">Improving Your Go Tests and Mocks With Testify</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">tools</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-go-workflow-with-git-hooks/">Improving Your Go Development Workflow With Git Hooks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/makefiles-for-go-developers/">Makefiles for Go Developers</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">websockets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-websocket-tutorial/">Go Websocket Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-realtime-youtube-sub-monitor-go/">Building a Real-time YouTube Subscriber Monitor in Go</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>In this tutorial, we are going to be looking at how you, as a Go developer, can leverage
+the wonderful bit of technology that is Makefiles for fame and fortune when developing
+your own Go applications.</p>
+
+<h1 id="what-are-makefiles">What are Makefiles?</h1>
+
+<p>Let&rsquo;s start by looking at what Makefiles are first of all. Makefiles are an incredibly
+useful automation tool that you can use to run and build not just your Go applications,
+but for most programming languages.</p>
+
+<p>You will typically see <code>Makefiles</code> at the root directory of a whole host of different
+Go applications on Github and in Gitlab as they are used extensively as the tool of choice
+for automating tasks that the maintainers of these applications find themselves doing often.</p>
+
+<h1 id="a-simple-example">A Simple Example</h1>
+
+<p>Now that we have covered the absolute basic concepts, let&rsquo;s see these concepts in action
+with a really simple <code>Makefile</code> example to whet our appetite.</p>
+
+<p>Create a new directory in which you can work in and within this directory create a new
+file called <code>Makefile</code>.</p>
+
+<p>Once you have this <code>Makefile</code>, open it up and let&rsquo;s add a <code>target</code> called <code>hello</code> to
+this <code>Makefile</code>. This target, when executed, will run the script below it, very similar
+to a normal function in programming terms.</p>
+
+<div class="filename"> Makefile </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">hello</span><span style="color:#f92672">:</span>
+    echo <span style="color:#e6db74">&#34;Hello&#34;</span>
+</code></pre></div>
+<p>With this new defined, let&rsquo;s try and execute this using the <code>make</code> command-line tool:</p>
+
+<div class="filename"> $ make hello </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">echo &#34;Hello&#34;
+Hello</code></pre></div>
+<p>As you can see the script within the body of our <code>hello</code> target has been successfully
+executed for us and <code>Hello</code> has printed out!</p>
+
+<p>Awesome, hopefully you can see where we are going with this.</p>
+
+<h1 id="building-a-simple-go-app">Building a Simple Go App</h1>
+
+<p>So, we have a simple <code>Makefile</code> in a project directory that performs the highly complex
+tax of printing out <code>Hello</code> to our terminal.</p>
+
+<p>Let&rsquo;s now take this a step further and add a simple Go application into the mix so that
+we can try our hand at defining new targets which will build and run this new Go app for us.</p>
+
+<div class="filename"> main.go </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>)
+}</code></pre></div>
+<p>Now that we have a suitably complex Go application to work with, let&rsquo;s define some
+new targets within our <code>Makefile</code> which will simplify the task of building and running
+our application for us.</p>
+
+<p>Open up your <code>Makefile</code> once again and add the following targets:</p>
+
+<div class="filename"> Makefile </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">hello</span><span style="color:#f92672">:</span>
+	echo <span style="color:#e6db74">&#34;Hello&#34;</span>
+
+<span style="color:#a6e22e">build</span><span style="color:#f92672">:</span>
+	go build -o bin/main main.go
+
+<span style="color:#a6e22e">run</span><span style="color:#f92672">:</span>
+	go run main.go
+</code></pre></div>
+<p>Here, we have created a <code>build</code> target and a <code>run</code> target. The <code>build</code> target can be
+used to compile our amazing Go application it&rsquo;s final binary state within a <code>bin/</code> directory.</p>
+
+<p>The <code>run</code> target is aptly named as it attempts to run our Go application in its current
+state.</p>
+
+<p>Let&rsquo;s try run these both now:</p>
+
+<div class="filename"> $ make build </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">go build -o bin/main main.go</code></pre></div>
+<p>Awesome, this <code>make build</code> command will have gone away and compiled our Go application successfully
+into a new <code>bin/</code> directory for us.</p>
+
+<p>Let&rsquo;s now try the <code>make run</code> command:</p>
+
+<div class="filename"> $ make run </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">go run main.go
+Hello</code></pre></div>
+<p>Here we see that our go application is run for us.</p>
+
+<h2 id="what-s-the-big-deal">What&rsquo;s the Big Deal?</h2>
+
+<p>At this point, you might be asking what the big deal is about using Makefiles for your own
+Go applications.</p>
+
+<p>Well imagine you wanted to cross-compile your application to run on every OS and every
+architecture available but didn&rsquo;t want to manually set the <code>GOOS</code> and <code>GOARCH</code> variables
+for every command.</p>
+
+<p>Within your <code>Makefile</code>, you could define a new <code>compile</code> target which contains all of the build
+commands with all the appropriate <code>GOOS</code> and <code>GOARCH</code> compinations set like so:</p>
+
+<div class="filename"> Makefile </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">compile</span><span style="color:#f92672">:</span>
+	echo <span style="color:#e6db74">&#34;Compiling for every OS and Platform&#34;</span>
+	GOOS<span style="color:#f92672">=</span>freebsd GOARCH<span style="color:#f92672">=</span><span style="color:#ae81ff">386</span> go build -o bin/main-freebsd-386 main.go
+	GOOS<span style="color:#f92672">=</span>linux GOARCH<span style="color:#f92672">=</span><span style="color:#ae81ff">386</span> go build -o bin/main-freebsd-386 main.go
+	GOOS<span style="color:#f92672">=</span>windows GOARCH<span style="color:#f92672">=</span><span style="color:#ae81ff">386</span> go build -o bin/main-freebsd-386 main.go
+</code></pre></div>
+<p>And now, when you try to cross compile for every platform, you simply have to call
+<code>make compile</code>:</p>
+
+<div class="filename"> $ make compile </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">echo &#34;Compiling for every OS and Platform&#34;
+Compiling for every OS and Platform
+GOOS=freebsd GOARCH=386 go build -o bin/main-freebsd-386 main.go
+GOOS=linux GOARCH=386 go build -o bin/main-freebsd-386 main.go
+GOOS=windows GOARCH=386 go build -o bin/main-freebsd-386 main.go</code></pre></div>
+<p>With everything successfully built, you should now see your <code>bin/</code> directory full of
+binaries compatible with a range of different Operating Systems and Platforms.</p>
+
+<h1 id="layering-commands">Layering Commands</h1>
+
+<p>Let&rsquo;s now imagine we are working with a complex system that has a multi-stage build/run
+process that has developed over many years. Instead of having to define all of the commands
+needed to build and run in a single target, you can break everything up into smaller targets
+and have something like an <code>all</code> target combine them into one <code>make</code> command.</p>
+
+<p>Open up your <code>Makefile</code> once again and add an <code>all</code> target at the bottom. This <code>all</code>
+target will go away and execute your <code>hello</code> and <code>build</code> targets in series.</p>
+
+<div class="filename"> Makefile </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">hello</span><span style="color:#f92672">:</span>
+	echo <span style="color:#e6db74">&#34;Hello&#34;</span>
+
+<span style="color:#a6e22e">build</span><span style="color:#f92672">:</span>
+	go build -o bin/main main.go
+
+<span style="color:#a6e22e">run</span><span style="color:#f92672">:</span>
+	go run main.go
+
+
+<span style="color:#a6e22e">compile</span><span style="color:#f92672">:</span>
+	echo <span style="color:#e6db74">&#34;Compiling for every OS and Platform&#34;</span>
+	GOOS<span style="color:#f92672">=</span>linux GOARCH<span style="color:#f92672">=</span>arm go build -o bin/main-linux-arm main.go
+	GOOS<span style="color:#f92672">=</span>linux GOARCH<span style="color:#f92672">=</span>arm64 go build -o bin/main-linux-arm64 main.go
+	GOOS<span style="color:#f92672">=</span>freebsd GOARCH<span style="color:#f92672">=</span><span style="color:#ae81ff">386</span> go build -o bin/main-freebsd-386 main.go
+
+<span style="color:#a6e22e">all</span><span style="color:#f92672">:</span> hello build
+</code></pre></div>
+<p>Now that we have added this new target, let&rsquo;s see what happens when we
+call it:</p>
+
+<div class="filename"> $ make all </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">echo &#34;Hello&#34;
+Hello
+go build -o bin/main main.go</code></pre></div>
+<p>Awesome, using this approach we can start to break down more complex instructions
+into a series of smaller, easier to digest targets that can be individually debugged
+and executed.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>So, in this tutorial, we covered the absolute minimum needed to get up and running using
+<code>Makefiles</code> and the <code>make</code> command so that you can simplify your development process.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>If you enjoyed this article but wish to learn more about Makefiles and how you can best
+use them, I suggest you check out the following articles:</p>
+
+<ul>
+<li><a href="https://www.gnu.org/software/make/manual/html_node/Introduction.html">An Introduction to Makefiles</a></li>
+<li><a href="https://kodfabrik.com/journal/a-good-makefile-for-go/">A Good Makefile for Go</a></li>
+</ul>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/golang/makefiles-for-go-developers/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#what-are-makefiles">What are Makefiles?</a></li>
+<li><a href="#a-simple-example">A Simple Example</a></li>
+<li><a href="#building-a-simple-go-app">Building a Simple Go App</a>
+<ul>
+<li><a href="#what-s-the-big-deal">What&rsquo;s the Big Deal?</a></li>
+</ul></li>
+<li><a href="#layering-commands">Layering Commands</a></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">067d93c08cc6560cc652fcba3ab99278</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

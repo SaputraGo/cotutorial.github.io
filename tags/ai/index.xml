@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai on My New Hugo Site</title>
+    <link>http://example.org/tags/ai/</link>
+    <description>Recent content in ai on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Nov 2018 11:50:17 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Min-Max Algorithm in Java</title>
+      <link>http://example.org/artificial-intelligence/min-max-algorithm-in-java/</link>
+      <pubDate>Wed, 28 Nov 2018 11:50:17 +0000</pubDate>
+      
+      <guid>http://example.org/artificial-intelligence/min-max-algorithm-in-java/</guid>
+      <description>In order to understand the min-max algorithm, you should get familiar with game playing and game trees. Game playing can be classified as game trees. What is a game tree? A tree is made of a root node, and a root node has child nodes; each child node is subdivided into multiple children.
+This forms a tree, and the terminal nodes are termed leaves, as shown in the following diagram:</description>
+    </item>
+    
+    <item>
+      <title>An Introduction to Face Recognition in Python</title>
+      <link>http://example.org/python/intro-face-recognition-in-python/</link>
+      <pubDate>Sun, 05 Nov 2017 17:42:45 +0000</pubDate>
+      
+      <guid>http://example.org/python/intro-face-recognition-in-python/</guid>
+      <description>This tutorial was written with Python 3.6, however the library used is compatible with versions 3.3 and above.
+ Face recognition software is awesome. The fact that we are able to write software that accurately picks out where someone&amp;rsquo;s eyes and nose reside within an image still astounds me and the fact that there are libraries out there for this sort of things is awesome. These libraries help to lower the barrier to entry for beginners looking to write their own face recognition systems and allow people to do some really cool things.</description>
+    </item>
+    
+    <item>
+      <title>An Introduction To Artificial Intelligence</title>
+      <link>http://example.org/artificial-intelligence/introduction-to-artificial-intelligence/</link>
+      <pubDate>Sat, 15 Apr 2017 08:11:58 +0100</pubDate>
+      
+      <guid>http://example.org/artificial-intelligence/introduction-to-artificial-intelligence/</guid>
+      <description>This is lesson one of the Artificial Intelligence course on this website. What is Artificial Intelligence? Artificial Intelligence is a huge field of computer science that is focused primarily on building agents that think and perform actions independant from human interference. If you are or have ever been a gamer then you will have experienced artificial intelligence in action contained within the non-player characters that try to prevent you from winning the games.</description>
+    </item>
+    
+    <item>
+      <title>What Is An Intelligent Agent</title>
+      <link>http://example.org/artificial-intelligence/what-is-intelligent-agent/</link>
+      <pubDate>Sat, 15 Apr 2017 08:10:24 +0100</pubDate>
+      
+      <guid>http://example.org/artificial-intelligence/what-is-intelligent-agent/</guid>
+      <description>In Artificial Intelligence, Intelligent agents are the decision makers. They perceive their environment through a series of sensors and act upon this information using actuators.
+A simple example of this is a robot hoover. Through a series of sensors, it can sense whether or not the floor is dirty and based off this information it will then decide whether or not to continue cleaning the floor.
+Intelligent Agents In Industry Finance An example of a useful intelligent agent in the finance industry would be something that perceives the stock environment and then acts on this information in order to make trades and generate profit.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1952 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/golang/getting-started-with-go/</loc>
+    <lastmod>2018-09-22T15:23:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/designing-everynote-app-vuejs-vuex/</loc>
+    <lastmod>2018-07-27T19:36:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/form-validation-with-vuelidate-vuejs/</loc>
+    <lastmod>2018-06-07T19:36:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/managing-state-with-vuex-vuejs/</loc>
+    <lastmod>2018-03-31T19:06:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/building-blog-with-vuejs-aws/part-1-hosting-on-s3/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-1-setting-up-vuejs-project/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/getting-started-with-vuejs/</loc>
+    <lastmod>2018-02-28T20:27:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/getting-started-with-python/</loc>
+    <lastmod>2017-09-18T19:47:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/introduction-to-web-development/</loc>
+    <lastmod>2017-04-16T17:27:53+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/rust/using-rwlocks-and-condvars-rust/</loc>
+    <lastmod>2018-09-01T15:09:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/rust/learning-generics-in-rust/</loc>
+    <lastmod>2018-09-01T14:52:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-basic-types-tutorial/</loc>
+    <lastmod>2018-07-14T22:24:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/building-blog-with-vuejs-aws/part-2-getting-started-with-lambdas/</loc>
+    <lastmod>2018-04-19T21:42:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-2-creating-few-components/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/vuejs-components-tutorial/</loc>
+    <lastmod>2018-03-01T12:26:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-functions-and-variables/</loc>
+    <lastmod>2017-09-18T19:19:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/building-blog-with-vuejs-aws/part-3-setting-up-rds-database/</loc>
+    <lastmod>2018-07-24T21:19:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-complex-types-tutorial/</loc>
+    <lastmod>2018-07-14T22:24:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/building-blog-with-vuejs-aws/part-4-setting-up-our-dynamodb-table/</loc>
+    <lastmod>2018-04-20T12:31:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-3-adding-a-few-routes/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/vuejs-event-handling-tutorial/</loc>
+    <lastmod>2018-03-04T15:03:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-lists-tutorial/</loc>
+    <lastmod>2017-12-20T19:22:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-functions-tutorial/</loc>
+    <lastmod>2018-07-14T22:23:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/building-blog-with-vuejs-aws/part-5-getting-started-with-cognito/</loc>
+    <lastmod>2018-04-20T12:41:31+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-4-hitting-an-api/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/vuejs-http-requests-axios-tutorial/</loc>
+    <lastmod>2018-03-01T12:36:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-working-with-file-system/</loc>
+    <lastmod>2017-12-20T18:41:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-methods-tutorial/</loc>
+    <lastmod>2018-07-14T22:23:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-5-single-news-article-view/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/vue-router-beginners-tutorial/</loc>
+    <lastmod>2018-03-14T19:12:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-reading-writing-files/</loc>
+    <lastmod>2017-09-10T08:59:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-interfaces-tutorial/</loc>
+    <lastmod>2018-07-14T22:24:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-6-advanced-components/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</loc>
+    <lastmod>2018-03-01T12:26:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-maps-tutorial/</loc>
+    <lastmod>2017-05-24T07:57:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-7-managing-state-with-vuex-vuejs/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/debugging-with-pdb-python/</loc>
+    <lastmod>2017-09-02T13:35:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/part-8-deploying-our-application/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/reading-writing-files-in-go/</loc>
+    <lastmod>2018-02-17T21:56:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-modules-tutorial/</loc>
+    <lastmod>2017-08-28T18:42:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/reading-console-input-golang/</loc>
+    <lastmod>2017-04-15T08:48:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/executing-system-commands-with-golang/</loc>
+    <lastmod>2017-04-15T08:47:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-project-layout/</loc>
+    <lastmod>2017-08-28T18:47:50+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/parsing-json-with-golang/</loc>
+    <lastmod>2017-04-09T21:07:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-logging-best-practices/</loc>
+    <lastmod>2017-08-13T17:06:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/parsing-xml-with-golang/</loc>
+    <lastmod>2017-04-09T21:07:45+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/intro-testing-in-go/</loc>
+    <lastmod>2018-02-09T17:27:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-decorators-tutorial/</loc>
+    <lastmod>2017-08-08T18:55:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/advanced-go-testing-tutorial/</loc>
+    <lastmod>2018-08-29T21:57:53+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-generator-tutorial/</loc>
+    <lastmod>2017-06-12T14:26:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/the-go-init-function/</loc>
+    <lastmod>2018-10-04T10:44:54+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/an-intro-to-go-dep/</loc>
+    <lastmod>2018-02-18T09:16:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-iterator-tutorial/</loc>
+    <lastmod>2017-09-03T17:58:24+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/benchmarking-your-go-programs/</loc>
+    <lastmod>2018-02-10T08:48:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/getting-started-with-pyunit-testing/</loc>
+    <lastmod>2017-11-19T10:18:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-maps-tutorial/</loc>
+    <lastmod>2019-06-29T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/consuming-restful-api-with-go/</loc>
+    <lastmod>2017-04-23T08:56:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/creating-restful-api-with-golang/</loc>
+    <lastmod>2017-04-15T08:45:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/creating-simple-web-server-with-golang/</loc>
+    <lastmod>2017-04-15T08:46:33+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/building-a-cli-in-go/</loc>
+    <lastmod>2018-07-29T09:41:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/writing-a-twitter-bot-golang/</loc>
+    <lastmod>2017-04-09T21:33:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/cloud/aws/python-based-lambda-tutorial/</loc>
+    <lastmod>2018-02-24T10:23:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/golang-orm-tutorial/</loc>
+    <lastmod>2018-02-07T20:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/golang-mysql-tutorial/</loc>
+    <lastmod>2017-04-09T21:28:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/concurrency-with-golang-goroutines/</loc>
+    <lastmod>2017-04-09T21:06:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-mutex-tutorial/</loc>
+    <lastmod>2018-08-25T14:21:04+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-channels-tutorial/</loc>
+    <lastmod>2018-08-25T14:47:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/golang-websockets-tutorial/</loc>
+    <lastmod>2017-08-23T19:29:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-protocol-buffer-tutorial/</loc>
+    <lastmod>2018-09-01T18:53:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-webassembly-tutorial/</loc>
+    <lastmod>2018-08-25T15:54:23+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-oauth2-tutorial/</loc>
+    <lastmod>2018-09-10T20:04:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-face-recognition-tutorial-part-one/</loc>
+    <lastmod>2018-09-27T10:48:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-encrypt-decrypt-aes-tutorial/</loc>
+    <lastmod>2018-09-27T10:48:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/building-ci-cd-pipeline-go-projects/</loc>
+    <lastmod>2018-10-16T20:10:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/golang/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/improving-go-workflow-with-git-hooks/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/tools/</loc>
+    <lastmod>2019-08-02T08:05:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-redis-tutorial/</loc>
+    <lastmod>2019-07-28T09:44:24+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/redis/</loc>
+    <lastmod>2019-07-28T09:44:24+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/snippets/check-key-exists-in-map-go/</loc>
+    <lastmod>2019-07-17T07:58:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/snippets/</loc>
+    <lastmod>2019-07-17T07:58:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/snippets/concatenate-strings-in-go/</loc>
+    <lastmod>2019-07-15T19:30:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/snippets/sort-map-by-value/</loc>
+    <lastmod>2019-07-15T19:30:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/beginner/</loc>
+    <lastmod>2019-06-29T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/makefiles-for-go-developers/</loc>
+    <lastmod>2019-06-06T20:02:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-sorting-with-sort-tutorial/</loc>
+    <lastmod>2019-05-26T07:49:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/authentication/</loc>
+    <lastmod>2019-05-25T14:08:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/</loc>
+    <lastmod>2019-05-25T14:08:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/nodejs/</loc>
+    <lastmod>2019-05-25T14:08:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/nodejs-jwt-authentication-tutorial/</loc>
+    <lastmod>2019-05-25T14:08:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-ticker-tutorial/</loc>
+    <lastmod>2019-05-02T08:00:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-modules-tutorial/</loc>
+    <lastmod>2019-04-19T08:34:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/docker/</loc>
+    <lastmod>2019-03-16T11:16:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-multi-stage-docker-tutorial/</loc>
+    <lastmod>2019-03-16T11:16:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-websocket-tutorial/</loc>
+    <lastmod>2019-03-14T20:40:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/websockets/</loc>
+    <lastmod>2019-03-14T20:40:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-docker-tutorial/</loc>
+    <lastmod>2019-03-02T22:36:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/blog/</loc>
+    <lastmod>2019-03-02T18:52:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/misc/</loc>
+    <lastmod>2019-03-02T18:52:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/uses/</loc>
+    <lastmod>2019-03-02T18:52:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/building-realtime-youtube-sub-monitor-go/</loc>
+    <lastmod>2019-02-23T09:45:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/file-upload/</loc>
+    <lastmod>2019-02-09T18:32:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-file-upload-tutorial/</loc>
+    <lastmod>2019-02-09T18:32:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/rust/</loc>
+    <lastmod>2019-01-30T14:36:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/rust/</loc>
+    <lastmod>2019-01-30T14:36:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/rust/scope-ownership-in-rust/</loc>
+    <lastmod>2019-01-30T14:36:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/beginners/</loc>
+    <lastmod>2019-01-30T14:08:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/components-templates-and-props-vue-2/</loc>
+    <lastmod>2019-01-30T14:08:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/</loc>
+    <lastmod>2019-01-30T14:08:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/vuejs/</loc>
+    <lastmod>2019-01-30T14:08:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-json-tutorial/</loc>
+    <lastmod>2019-01-21T19:07:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/data-science/</loc>
+    <lastmod>2019-01-19T11:11:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/</loc>
+    <lastmod>2019-01-19T11:11:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/python/</loc>
+    <lastmod>2019-01-19T11:11:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/data-science/setting-up-dev-environment-building-gan/</loc>
+    <lastmod>2019-01-19T11:11:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/data-science/preparing-dataset-machine-learning-scikit-learn/</loc>
+    <lastmod>2019-01-19T10:53:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/filesystem/</loc>
+    <lastmod>2019-01-10T11:21:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/temporary-files-directories-go-111/</loc>
+    <lastmod>2019-01-10T11:21:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-graphql-beginners-tutorial-part-2/</loc>
+    <lastmod>2018-12-28T20:56:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/graphql/</loc>
+    <lastmod>2018-12-28T20:56:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-graphql-beginners-tutorial/</loc>
+    <lastmod>2018-12-27T18:46:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-closures-tutorial/</loc>
+    <lastmod>2018-12-08T13:33:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/intermediate/</loc>
+    <lastmod>2018-12-08T13:33:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-variadic-function-tutorial/</loc>
+    <lastmod>2018-12-06T21:38:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/concurrency/</loc>
+    <lastmod>2018-12-05T13:03:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-waitgroup-tutorial/</loc>
+    <lastmod>2018-12-05T13:03:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/working-with-environment-variables-in-go/</loc>
+    <lastmod>2018-12-04T16:15:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/ai/</loc>
+    <lastmod>2018-11-28T11:50:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/</loc>
+    <lastmod>2018-11-28T11:50:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/artificial-intelligence/</loc>
+    <lastmod>2018-11-28T11:50:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/min-max-algorithm-in-java/</loc>
+    <lastmod>2018-11-28T11:50:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/advanced/</loc>
+    <lastmod>2018-10-28T10:28:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/writing-frontend-web-framework-webassembly-go/</loc>
+    <lastmod>2018-10-28T10:28:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/authenticating-golang-rest-api-with-jwts/</loc>
+    <lastmod>2018-10-22T19:26:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/</loc>
+    <lastmod>2018-10-22T12:46:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/angular/</loc>
+    <lastmod>2018-10-22T12:46:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/stability-patterns-in-angular/</loc>
+    <lastmod>2018-10-22T12:46:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/typescript/</loc>
+    <lastmod>2018-10-22T12:46:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/building-imdb-top-250-clone-pandas/</loc>
+    <lastmod>2018-10-21T19:20:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/go-decorator-function-pattern-tutorial/</loc>
+    <lastmod>2018-10-20T21:34:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/improving-your-tests-with-testify-go/</loc>
+    <lastmod>2018-10-13T09:53:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/testing/</loc>
+    <lastmod>2018-10-13T09:53:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/gamedev/unity/custom-diffuse-lighting-model-unity-tutorial/</loc>
+    <lastmod>2018-10-01T18:49:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/gamedev/</loc>
+    <lastmod>2018-10-01T18:49:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/gamedev/</loc>
+    <lastmod>2018-10-01T18:49:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/unity/</loc>
+    <lastmod>2018-10-01T18:49:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/unity/</loc>
+    <lastmod>2018-10-01T18:49:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/security/arp-spoofing-for-mitm-attack-tutorial/</loc>
+    <lastmod>2018-09-30T14:29:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/security/</loc>
+    <lastmod>2018-09-30T14:29:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/security/</loc>
+    <lastmod>2018-09-30T14:29:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/security/</loc>
+    <lastmod>2018-09-30T14:29:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/rust/</loc>
+    <lastmod>2018-09-01T15:09:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/vuex/</loc>
+    <lastmod>2018-07-27T19:36:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/guess-the-number-angular-6-beginners-tutorial/</loc>
+    <lastmod>2018-07-25T15:42:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/javascript/</loc>
+    <lastmod>2018-07-24T21:19:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/vuejs/</loc>
+    <lastmod>2018-07-24T21:19:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/vuejsawsblog/</loc>
+    <lastmod>2018-07-24T21:19:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/react/react-socket-io-tutorial/</loc>
+    <lastmod>2018-07-15T09:13:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/react/</loc>
+    <lastmod>2018-07-15T09:13:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/react/</loc>
+    <lastmod>2018-07-15T09:13:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/react/</loc>
+    <lastmod>2018-07-15T09:13:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/socket.io/</loc>
+    <lastmod>2018-07-15T09:13:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docker/</loc>
+    <lastmod>2018-07-14T22:33:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/docker/</loc>
+    <lastmod>2018-07-14T22:33:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docker/docker-for-go-developers/</loc>
+    <lastmod>2018-07-14T22:33:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/async-await-in-typescript-tutorial/</loc>
+    <lastmod>2018-06-19T20:29:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/</loc>
+    <lastmod>2018-06-19T20:29:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/typescript/</loc>
+    <lastmod>2018-06-19T20:29:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/mongodb/</loc>
+    <lastmod>2018-06-10T18:56:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</loc>
+    <lastmod>2018-06-10T18:56:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/chai/</loc>
+    <lastmod>2018-06-09T22:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/face-recognition-with-go/</loc>
+    <lastmod>2018-06-09T22:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/jest/</loc>
+    <lastmod>2018-06-09T22:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/mocha/</loc>
+    <lastmod>2018-06-09T22:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</loc>
+    <lastmod>2018-06-09T22:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/testing-typescript-api-with-jest/</loc>
+    <lastmod>2018-06-09T22:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/form-handling/</loc>
+    <lastmod>2018-06-07T19:36:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/express/</loc>
+    <lastmod>2018-05-30T18:09:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/typescript-socket-io-tutorial/</loc>
+    <lastmod>2018-05-30T18:09:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/nodejs/</loc>
+    <lastmod>2018-05-27T21:40:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docker/working-with-docker-nodejs/</loc>
+    <lastmod>2018-05-27T21:40:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/docker/getting-started-with-docker/</loc>
+    <lastmod>2018-05-18T14:25:51+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/creating-rest-api-express-typescript/</loc>
+    <lastmod>2018-03-28T20:25:53+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/hackernewsclone/</loc>
+    <lastmod>2018-03-19T16:24:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/building-blog-with-vuejs-aws/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/hacker-news-clone-vuejs/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/golang/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/goreactchat/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/part-1-initial-setup/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/part-2-simple-communication/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/part-3-designing-our-frontend/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/part-4-handling-multiple-clients/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/part-5-improved-frontend/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/chat-system-in-go-and-react/part-6-dockerizing-your-backend/</loc>
+    <lastmod>2018-03-19T11:05:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/routing/</loc>
+    <lastmod>2018-03-14T19:12:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/nodejs-404-checker-tutorial/</loc>
+    <lastmod>2018-03-11T14:08:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/</loc>
+    <lastmod>2018-03-10T20:59:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/javascript/</loc>
+    <lastmod>2018-03-10T20:59:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/javascript-async-await-tutorial/</loc>
+    <lastmod>2018-03-10T20:59:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/event-handling/</loc>
+    <lastmod>2018-03-04T15:03:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/animations/</loc>
+    <lastmod>2018-03-01T12:26:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/transitions/</loc>
+    <lastmod>2018-03-01T12:26:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/aws/</loc>
+    <lastmod>2018-02-24T10:23:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/cloud/</loc>
+    <lastmod>2018-02-24T10:23:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/python/</loc>
+    <lastmod>2018-02-24T10:23:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/cloud/</loc>
+    <lastmod>2018-01-21T11:22:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/cloud/aws/creating-go-lambda-functions-tutorial/</loc>
+    <lastmod>2018-01-21T11:22:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/go/</loc>
+    <lastmod>2018-01-21T11:22:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/json/</loc>
+    <lastmod>2017-12-25T11:51:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/rust/rust-working-with-json-tutorial/</loc>
+    <lastmod>2017-12-25T11:51:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/compsci/</loc>
+    <lastmod>2017-12-20T22:22:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/compsci/</loc>
+    <lastmod>2017-12-20T22:22:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/</loc>
+    <lastmod>2017-12-20T22:22:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/sets-for-beginners/</loc>
+    <lastmod>2017-12-20T22:22:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/priority-queues-for-beginners/</loc>
+    <lastmod>2017-12-20T22:22:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/arrays-for-beginners/</loc>
+    <lastmod>2017-12-20T22:03:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/queues-for-beginners/</loc>
+    <lastmod>2017-12-20T22:02:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/compsci-graphs-for-beginners/</loc>
+    <lastmod>2017-12-20T22:02:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/stacks-for-beginners/</loc>
+    <lastmod>2017-12-20T21:29:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-method-resolution-order-tutorial/</loc>
+    <lastmod>2017-12-18T11:23:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/books/</loc>
+    <lastmod>2017-12-17T15:07:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/rust/best-books-for-learning-rust/</loc>
+    <lastmod>2017-12-17T15:07:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/c/</loc>
+    <lastmod>2017-12-01T21:32:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-c-extensions-tutorial/</loc>
+    <lastmod>2017-12-01T21:32:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/cloud/an-introduction-to-autoscaling-your-website/</loc>
+    <lastmod>2017-11-30T21:21:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/cloud/build-scalable-rest-api-go-terraform-aws/</loc>
+    <lastmod>2017-11-30T21:21:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/resiliency/</loc>
+    <lastmod>2017-11-30T21:21:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/cloud/basic-website-resiliency-load-balancers/</loc>
+    <lastmod>2017-11-29T19:48:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/</loc>
+    <lastmod>2017-11-29T19:48:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/kubernetes/</loc>
+    <lastmod>2017-11-29T19:48:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/my-notes-for-certified-kubernetes/</loc>
+    <lastmod>2017-11-29T19:48:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/general/</loc>
+    <lastmod>2017-11-28T20:18:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/general/</loc>
+    <lastmod>2017-11-28T20:18:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/</loc>
+    <lastmod>2017-11-28T20:18:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/top-books-for-intermediate-programmers/</loc>
+    <lastmod>2017-11-28T20:18:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/top-beginner-programming-books/</loc>
+    <lastmod>2017-11-28T18:04:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/asyncio/</loc>
+    <lastmod>2017-11-24T13:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/python-asyncio-semaphores-tutorial/</loc>
+    <lastmod>2017-11-24T13:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/asyncio-synchronization-primitives-tutorial/</loc>
+    <lastmod>2017-11-23T19:35:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/sorting/quicksort-in-python/</loc>
+    <lastmod>2017-11-20T18:09:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/sorting/selection-sort-in-python/</loc>
+    <lastmod>2017-11-20T18:09:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/getting-started-with-tries-in-python/</loc>
+    <lastmod>2017-11-19T17:17:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/data-structures/hash-tables-for-beginners/</loc>
+    <lastmod>2017-11-19T08:57:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/bit-manipulation-for-beginners/</loc>
+    <lastmod>2017-11-18T17:42:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/memoization-for-beginners/</loc>
+    <lastmod>2017-11-18T16:10:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/sorting/insertion-sort-in-python/</loc>
+    <lastmod>2017-11-15T18:12:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/compsci/sorting/bubble-sort-in-python/</loc>
+    <lastmod>2017-11-15T18:10:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/asyncio-tasks-tutorial/</loc>
+    <lastmod>2017-11-11T13:06:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/intro-face-recognition-in-python/</loc>
+    <lastmod>2017-11-05T17:42:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/getting-started-with-asyncio-python/</loc>
+    <lastmod>2017-11-04T15:20:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/threads-in-python/</loc>
+    <lastmod>2017-10-31T22:00:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/asyncio-event-loops-tutorial/</loc>
+    <lastmod>2017-10-28T11:50:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/create-rest-api-python-aiohttp/</loc>
+    <lastmod>2017-10-28T11:50:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/http/</loc>
+    <lastmod>2017-10-28T11:50:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/rest/</loc>
+    <lastmod>2017-10-28T11:50:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-event-driven-rxpy-tutorial/</loc>
+    <lastmod>2017-10-14T11:30:25+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/rxpy/</loc>
+    <lastmod>2017-10-14T11:30:25+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-query-params-tutorial/</loc>
+    <lastmod>2017-10-02T19:47:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/python-processpoolexecutor-tutorial/</loc>
+    <lastmod>2017-10-01T13:52:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/concurrency/python-threadpoolexecutor-tutorial/</loc>
+    <lastmod>2017-10-01T13:36:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-socket-io-tutorial/</loc>
+    <lastmod>2017-10-01T12:22:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/vuejs/best-books-learning-vuejs/</loc>
+    <lastmod>2017-09-11T20:00:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/react/best-books-for-learning-react/</loc>
+    <lastmod>2017-09-11T18:53:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/configuration/</loc>
+    <lastmod>2017-09-10T14:01:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-environment-configuration-tutorial/</loc>
+    <lastmod>2017-09-10T14:01:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-http-requests-tutorial/</loc>
+    <lastmod>2017-09-10T12:27:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/best-books-learning-javascript/</loc>
+    <lastmod>2017-09-05T19:20:04+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/gamedev/</loc>
+    <lastmod>2017-09-05T18:09:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/gamedev/best-books-learn-game-dev/</loc>
+    <lastmod>2017-09-05T18:09:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/best-book-learn-web-dev/</loc>
+    <lastmod>2017-09-05T18:07:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/</loc>
+    <lastmod>2017-09-05T18:07:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/webdev/</loc>
+    <lastmod>2017-09-05T18:07:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/debugging/</loc>
+    <lastmod>2017-09-02T13:35:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/logging/</loc>
+    <lastmod>2017-08-13T17:06:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/top-books-for-learning-golang/</loc>
+    <lastmod>2017-06-12T21:29:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/beginner/</loc>
+    <lastmod>2017-06-12T15:29:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/rest-api-best-practices/</loc>
+    <lastmod>2017-06-12T15:29:30+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/hugo/</loc>
+    <lastmod>2017-06-12T08:49:04+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/hugo/</loc>
+    <lastmod>2017-06-12T08:49:04+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/hugo/hugo-adding-images-to-posts/</loc>
+    <lastmod>2017-06-12T08:49:04+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/hugo/hugo-deployment-workflow-tutorial/</loc>
+    <lastmod>2017-06-12T08:48:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/hugo/getting-started-with-hugo/</loc>
+    <lastmod>2017-05-27T11:13:46+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/css3/</loc>
+    <lastmod>2017-04-23T14:48:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/difference-between-class-id-selector-css/</loc>
+    <lastmod>2017-04-23T14:48:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/how-to-work-with-css3-variables/</loc>
+    <lastmod>2017-04-21T19:53:46+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/border-radius-tutorial/</loc>
+    <lastmod>2017-04-20T08:06:37+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/css3-box-shadow/</loc>
+    <lastmod>2017-04-16T16:50:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/</loc>
+    <lastmod>2017-04-15T14:41:31+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/angularjs/</loc>
+    <lastmod>2017-04-15T14:41:31+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-promises-tutorial/</loc>
+    <lastmod>2017-04-15T14:41:31+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/most-important-changes-angularjs-1-6/</loc>
+    <lastmod>2017-04-15T14:31:36+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/courses/</loc>
+    <lastmod>2017-04-15T09:55:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-multithreading-tutorial/</loc>
+    <lastmod>2017-04-15T09:55:57+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/learning-to-code-2017/</loc>
+    <lastmod>2017-04-15T09:53:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/what-is-a-rest-api/</loc>
+    <lastmod>2017-04-15T09:53:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/networking/</loc>
+    <lastmod>2017-04-15T09:49:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/udp-client-server-python/</loc>
+    <lastmod>2017-04-15T09:49:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/calculating-keyword-density-python/</loc>
+    <lastmod>2017-04-15T09:47:55+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/fetching-web-pages-python/</loc>
+    <lastmod>2017-04-15T09:47:01+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/creating-python-web-crawler/</loc>
+    <lastmod>2017-04-15T09:45:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/creating-twitter-bot-python/</loc>
+    <lastmod>2017-04-15T09:45:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/removing-html-from-string/</loc>
+    <lastmod>2017-04-15T09:38:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/gamedev/aabb-collision-detection-tutorial/</loc>
+    <lastmod>2017-04-15T09:30:45+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/java/</loc>
+    <lastmod>2017-04-15T09:30:45+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/python-multiprocessing-tutorial/</loc>
+    <lastmod>2017-04-15T09:28:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/breadth-first-search-java/</loc>
+    <lastmod>2017-04-15T09:23:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/depth-first-search/</loc>
+    <lastmod>2017-04-15T09:23:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/depth-limited-search-in-java/</loc>
+    <lastmod>2017-04-15T09:23:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/webdev/equal-height-columns-using-css/</loc>
+    <lastmod>2017-04-15T09:19:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-ng-model-in-ng-if-tutorial/</loc>
+    <lastmod>2017-04-15T09:17:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-data-binding-tutorial/</loc>
+    <lastmod>2017-04-15T09:16:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-controllers-tutorial/</loc>
+    <lastmod>2017-04-15T09:10:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-template-tutorial-using-ng-view/</loc>
+    <lastmod>2017-04-15T09:09:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-directives-tutorial/</loc>
+    <lastmod>2017-04-15T09:08:03+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/template-route-provider-tutorial/</loc>
+    <lastmod>2017-04-15T09:04:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/interacting-with-apis-using-http-angularjs/</loc>
+    <lastmod>2017-04-15T09:03:47+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-filter-search-tutorial/</loc>
+    <lastmod>2017-04-15T08:59:44+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/gamedev/opengl/getting-started-with-shaders/</loc>
+    <lastmod>2017-04-15T08:50:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/graphics/</loc>
+    <lastmod>2017-04-15T08:50:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/opengl/</loc>
+    <lastmod>2017-04-15T08:50:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/opengl/</loc>
+    <lastmod>2017-04-15T08:50:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/sending-email-using-go-and-mailgun/</loc>
+    <lastmod>2017-04-15T08:44:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/retrieving-visitor-information-javascript/</loc>
+    <lastmod>2017-04-15T08:40:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/keeping-node-apps-running-forever-pm2/</loc>
+    <lastmod>2017-04-15T08:38:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/pm2/</loc>
+    <lastmod>2017-04-15T08:38:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/setting-default-select-value-angularjs/</loc>
+    <lastmod>2017-04-15T08:37:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/hidden-input-form-angularjs/</loc>
+    <lastmod>2017-04-15T08:35:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/implementing-bubble-sort-with-golang/</loc>
+    <lastmod>2017-04-15T08:34:43+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/creating-a-webserver-with-nodejs/</loc>
+    <lastmod>2017-04-15T08:32:01+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/expressjs/</loc>
+    <lastmod>2017-04-15T08:32:01+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/executing-shell-scripts-with-nodejs/</loc>
+    <lastmod>2017-04-15T08:26:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/unix/</loc>
+    <lastmod>2017-04-15T08:26:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/file-system/</loc>
+    <lastmod>2017-04-15T08:20:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/reading-writing-files-with-nodejs/</loc>
+    <lastmod>2017-04-15T08:20:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/creating-deleting-directories-with-nodejs/</loc>
+    <lastmod>2017-04-15T08:17:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/editing-xml-files-with-nodejs/</loc>
+    <lastmod>2017-04-15T08:14:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/xml/</loc>
+    <lastmod>2017-04-15T08:14:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/introduction-to-artificial-intelligence/</loc>
+    <lastmod>2017-04-15T08:11:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/artificial-intelligence/what-is-intelligent-agent/</loc>
+    <lastmod>2017-04-15T08:10:24+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/get-involved/</loc>
+    <lastmod>2017-04-14T20:28:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/test/</loc>
+    <lastmod>2017-04-14T20:28:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/series/misc/</loc>
+    <lastmod>2017-04-14T20:28:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/redirect/</loc>
+    <lastmod>2017-04-14T20:28:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/signup/</loc>
+    <lastmod>2017-04-14T20:28:13+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/about/</loc>
+    <lastmod>2017-04-14T20:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog-home/</loc>
+    <lastmod>2017-04-14T20:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/login/</loc>
+    <lastmod>2017-04-14T20:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/profile/</loc>
+    <lastmod>2017-04-14T20:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/search/</loc>
+    <lastmod>2017-04-14T20:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/converting-csv-json-node/</loc>
+    <lastmod>2017-04-09T21:29:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/csv/</loc>
+    <lastmod>2017-04-09T21:29:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/general/building-software-using-microservice-architecture/</loc>
+    <lastmod>2017-04-09T21:27:23+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/writing-your-own-logging-system-nodejs/</loc>
+    <lastmod>2017-04-09T21:26:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/nodejs/monitoring-server-stats-with-nodejs/</loc>
+    <lastmod>2017-04-09T21:25:15+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-factory-tutorial/</loc>
+    <lastmod>2017-04-09T21:22:46+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-filter-tutorial/</loc>
+    <lastmod>2017-04-09T21:22:03+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-form-validation-tutorial/</loc>
+    <lastmod>2017-04-09T21:20:37+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-project-structure-tutorial/</loc>
+    <lastmod>2017-04-09T21:18:27+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/automating-your-angularjs-workflow-with-gulp/</loc>
+    <lastmod>2017-04-09T21:17:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/working-with-angularjs-component-applications/</loc>
+    <lastmod>2017-04-09T21:15:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/integrating-highcharts-ng-angularjs/</loc>
+    <lastmod>2017-04-09T21:14:45+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-event-handling-tutorial/</loc>
+    <lastmod>2017-04-09T21:13:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/passing-data-between-routes-angularjs/</loc>
+    <lastmod>2017-04-09T21:13:23+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-most-important-changes-1-6/</loc>
+    <lastmod>2017-04-09T21:12:25+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/angularjs-store-cookies-tutorial/</loc>
+    <lastmod>2017-04-09T21:11:31+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/golang/golang-integer-string-conversion-tutorial/</loc>
+    <lastmod>2017-04-09T21:09:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-modules-tutorial/</loc>
+    <lastmod>2017-04-09T21:05:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-components-tutorial/</loc>
+    <lastmod>2017-04-09T21:04:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-services-tutorial/</loc>
+    <lastmod>2017-04-09T21:04:22+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/best-books-for-learning-angular/</loc>
+    <lastmod>2017-04-09T21:03:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-get-current-route-location/</loc>
+    <lastmod>2017-04-09T20:56:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-detecting-route-changes/</loc>
+    <lastmod>2017-04-09T20:55:22+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-websockets-tutorial/</loc>
+    <lastmod>2017-04-09T20:52:33+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-socket-io-tutorial/</loc>
+    <lastmod>2017-01-10T15:26:02+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-cookies-tutorial/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-environment-configuration-tutorial/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-observables-tutorial/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/typescript/angular/angular-routing-tutorial/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/blog/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/blog/migrating-to-hugo/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/javascript/angularjs/removing-duplicates-from-ng-repeat/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/python/best-books-for-python/</loc>
+    <lastmod>2016-02-14T16:11:58+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/course/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/projects/</loc>
+  </url>
+  
+</urlset>

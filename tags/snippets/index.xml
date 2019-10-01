@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>snippets on My New Hugo Site</title>
+    <link>http://example.org/tags/snippets/</link>
+    <description>Recent content in snippets on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Jul 2019 07:58:40 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/snippets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Check Key Exists in Map Go</title>
+      <link>http://example.org/golang/snippets/check-key-exists-in-map-go/</link>
+      <pubDate>Wed, 17 Jul 2019 07:58:40 +0000</pubDate>
+      
+      <guid>http://example.org/golang/snippets/check-key-exists-in-map-go/</guid>
+      <description>In this code snippet, we are going to look at how you can check to see if a key exists within a Map in Go
+ main.go  package main import &amp;#34;fmt&amp;#34; func main() { mymap := make(map[string]int) mymap[&amp;#34;elliot&amp;#34;] = 25 // we can use this if statement to check to see if  // a given key &amp;#34;elliot&amp;#34; exists within a map in Go  if _, ok := mymap[&amp;#34;elliot&amp;#34;]; ok { // the key &amp;#39;elliot&amp;#39; exists within the map  fmt.</description>
+    </item>
+    
+    <item>
+      <title>Concatenate Strings in Go</title>
+      <link>http://example.org/golang/snippets/concatenate-strings-in-go/</link>
+      <pubDate>Mon, 15 Jul 2019 19:30:49 +0100</pubDate>
+      
+      <guid>http://example.org/golang/snippets/concatenate-strings-in-go/</guid>
+      <description>In this code snippet, we are going to look at how you can efficiently concatenate strings in Go using the string.Builder type.
+ main.go  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;strings&amp;#34; ) func main() { fmt.Println(&amp;#34;String Concatenation Tutorial&amp;#34;) var myString strings.Builder // we can use the WriteString method to append 	// to our existing strings.Builder string  myString.WriteString(&amp;#34;Hello &amp;#34;) // here we append to the end of our string  myString.</description>
+    </item>
+    
+    <item>
+      <title>Sort Map by Value</title>
+      <link>http://example.org/golang/snippets/sort-map-by-value/</link>
+      <pubDate>Mon, 15 Jul 2019 19:30:49 +0100</pubDate>
+      
+      <guid>http://example.org/golang/snippets/sort-map-by-value/</guid>
+      <description>In this code snippet, we are going to look at how you can quickly and easily sort maps in Go using the sort package.
+ Sort Map by Length of Keys main.go  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;sort&amp;#34; ) func main() { mymap := map[string]int{&amp;#34;Elliot&amp;#34;: 25, &amp;#34;Sophie&amp;#34;: 24, &amp;#34;Fraser&amp;#34;: 20} // make an array of type string to store our keys 	keys := []string{} // iterate over the map and append all keys to our 	// string array of keys 	for key := range mymap { keys = append(keys, key) } // use the sort method to sort our keys array 	sort.</description>
+    </item>
+    
+  </channel>
+</rss>

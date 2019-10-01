@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>configuration on My New Hugo Site</title>
+    <link>http://example.org/tags/configuration/</link>
+    <description>Recent content in configuration on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Sep 2017 14:01:28 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/configuration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Environment Configuration Tutorial</title>
+      <link>http://example.org/python/python-environment-configuration-tutorial/</link>
+      <pubDate>Sun, 10 Sep 2017 14:01:28 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-environment-configuration-tutorial/</guid>
+      <description>This tutorial was written using Python 3.6
+ Defining a solid strategy for handling various environment configuration in your Python programs can drastically improve the way you deploy and manage different environments.
+In the most basic of scenarios we would typically have 2 main environments, development and production. In our development environment we would do both our development and testing against the likes of non-production based databases and resources in order to prevent adding noise to our production environment.</description>
+    </item>
+    
+  </channel>
+</rss>

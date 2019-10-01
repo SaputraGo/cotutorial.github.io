@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pm2 on My New Hugo Site</title>
+    <link>http://example.org/tags/pm2/</link>
+    <description>Recent content in pm2 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Apr 2017 08:38:40 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/pm2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Keeping NodeJS Applications Running Forever Using PM2</title>
+      <link>http://example.org/nodejs/keeping-node-apps-running-forever-pm2/</link>
+      <pubDate>Sat, 15 Apr 2017 08:38:40 +0100</pubDate>
+      
+      <guid>http://example.org/nodejs/keeping-node-apps-running-forever-pm2/</guid>
+      <description>If you write an application that you need to keep running forever on your servers then this is the tutorial for you. If you&#39;re a software developer working on business critical applications and have to adhere to strict Service Level Agreements (SLAs for short) then you know just how vital it is to have your applications back up and running the second they fall over, every second counts when trying to achieve the 5 9&#39;s or 99.</description>
+    </item>
+    
+  </channel>
+</rss>

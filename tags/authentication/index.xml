@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authentication on My New Hugo Site</title>
+    <link>http://example.org/tags/authentication/</link>
+    <description>Recent content in Authentication on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 May 2019 14:08:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NodeJS JWT Authentication Tutorial</title>
+      <link>http://example.org/nodejs/nodejs-jwt-authentication-tutorial/</link>
+      <pubDate>Sat, 25 May 2019 14:08:54 +0000</pubDate>
+      
+      <guid>http://example.org/nodejs/nodejs-jwt-authentication-tutorial/</guid>
+      <description>Welcome fellow programmers! In this tutorial, we are going to be looking at how we can add authentication to our NodeJS applications using JWTs.
+We&amp;rsquo;ll be creating a REST API that feature a mixture of authenticated and un-authenticated JSON endpoints and we&amp;rsquo;ll be implementing a nice and simple JWT validation function that will verify incoming requests to ensure they have the appropriate authorization header set and that the value of that header is a verified JSON Web Token!</description>
+    </item>
+    
+  </channel>
+</rss>

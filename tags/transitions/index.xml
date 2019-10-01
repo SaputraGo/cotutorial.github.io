@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>transitions on My New Hugo Site</title>
+    <link>http://example.org/tags/transitions/</link>
+    <description>Recent content in transitions on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Mar 2018 12:26:40 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/transitions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VueJS Animations and Transitions Tutorial</title>
+      <link>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</link>
+      <pubDate>Thu, 01 Mar 2018 12:26:40 +0000</pubDate>
+      
+      <guid>http://example.org/javascript/vuejs/vuejs-transitions-animations-tutorial/</guid>
+      <description>In this tutorial, we are going to explore how we can use animations and transitions to make our VueJS web application really stand out from the crowd.
+A Simple Transition Let&amp;rsquo;s start of by creating a few very simple transitions, these will simply fade in when a certain condition is met. I was watching Mission Impossible whilst writing this so the theme for this is a top secret mission. The finished product for this section is going to look something like this:</description>
+    </item>
+    
+  </channel>
+</rss>

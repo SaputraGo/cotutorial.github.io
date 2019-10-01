@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Building an IMDB Top 250 Clone with Pandas | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" alt="Building an IMDB Top 250 Clone with Pandas Image" />  Building an IMDB Top 250 Clone with Pandas
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="TutorialEdge Logo" />
+            
+            <a href="https://twitter.com/rounak_banik">Rounak Banik</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>13 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Oct 21, 2018</span>
+
+                <span>
+            
+            <a href="../../tags/data-science"
+              ><span class="badge badge-pill badge-info">data-science</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-method-resolution-order-tutorial/">Python Method Resolution Order Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-c-extensions-tutorial/">Creating Basic Python C Extensions - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">ai</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/intro-face-recognition-in-python/">An Introduction to Face Recognition in Python</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">asyncio</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-asyncio-semaphores-tutorial/">Asyncio Semaphores and Bounded Semaphores Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-synchronization-primitives-tutorial/">Asyncio Synchronization Primitives Tutorial - Queues and Locks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-tasks-tutorial/">Asyncio Tasks Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-event-loops-tutorial/">Asyncio Event Loops Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">aws</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/aws/python-based-lambda-tutorial/">Python Based Lambda Tutorial</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/getting-started-with-python/">Getting Started With Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-functions-and-variables/">Functions and Variables in Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-lists-tutorial/">Working with Lists in Python - Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-working-with-file-system/">Working With The File System in Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-reading-writing-files/">Reading and Writing Files In Python</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-maps-tutorial/">Python Maps Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-modules-tutorial/">Python Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-logging-best-practices/">Python Logging Best Practices</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-decorators-tutorial/">Python Decorators Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-generator-tutorial/">Python Generators Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-iterator-tutorial/">Python Iterator Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/fetching-web-pages-python/">Fetching Web Pages In Python Using Urllib2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/removing-html-from-string/">Removing HTML Tags from a String with Python</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">books</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/best-books-for-python/">The Top Books for Learning to Program in Python</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">c</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-c-extensions-tutorial/">Creating Basic Python C Extensions - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-maps-tutorial/">Python Maps Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-asyncio-semaphores-tutorial/">Asyncio Semaphores and Bounded Semaphores Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-synchronization-primitives-tutorial/">Asyncio Synchronization Primitives Tutorial - Queues and Locks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-tasks-tutorial/">Asyncio Tasks Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/getting-started-with-asyncio-python/">Getting Started with Asyncio in Python</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/threads-in-python/">Threads in Python</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/asyncio-event-loops-tutorial/">Asyncio Event Loops Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-event-driven-rxpy-tutorial/">Python Event-Driven Programming with RxPY - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-processpoolexecutor-tutorial/">Python ProcessPoolExecutor Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/concurrency/python-threadpoolexecutor-tutorial/">Python ThreadPoolExecutor Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-multithreading-tutorial/">Python Multithreading Tutorial - Concurrent Programming</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-multiprocessing-tutorial/">Python Multiprocessing Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">configuration</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-environment-configuration-tutorial/">Python Environment Configuration Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">data-science</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/data-science/setting-up-dev-environment-building-gan/">Setting Up your Development Environment for Building a Genetic Adversarial Network</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/data-science/preparing-dataset-machine-learning-scikit-learn/">Preparing a Dataset for Machine Learning with scikit-learn</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/building-imdb-top-250-clone-pandas/">Building an IMDB Top 250 Clone with Pandas</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">debugging</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/debugging-with-pdb-python/">Debugging with the Python Debugger - PDB </a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-working-with-file-system/">Working With The File System in Python</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">http</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/create-rest-api-python-aiohttp/">Creating a RESTful API with Python and aiohttp</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-http-requests-tutorial/">Making HTTP Requests in Python - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-project-layout/">Python Project Layout Best Practices</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/getting-started-with-pyunit-testing/">Getting Started With PyUnit Testing</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/calculating-keyword-density-python/">Calculating Keyword Density of a Web Page with Python</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/creating-python-web-crawler/">Creating a Python Web Crawler</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/creating-twitter-bot-python/">Creating a Twitter Bot Using Python and the Twitter API</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">logging</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-logging-best-practices/">Python Logging Best Practices</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">networking</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/udp-client-server-python/">UDP Client and Server Tutorial in Python</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">rest</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/create-rest-api-python-aiohttp/">Creating a RESTful API with Python and aiohttp</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-http-requests-tutorial/">Making HTTP Requests in Python - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">rxpy</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-event-driven-rxpy-tutorial/">Python Event-Driven Programming with RxPY - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">socket.io</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/python-socket-io-tutorial/">Python Socket.io Tutorial</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/python/getting-started-with-pyunit-testing/">Getting Started With PyUnit Testing</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>The Internet Movie Database (IMDB) maintains a chart called the IMDB Top
+250, which is a ranking of the top 250 movies according to a certain scoring
+metric. All the movies in this list are non-documentary, theatrical releases
+with a runtime of at least 45 minutes and over 250,000 ratings:</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/recommender-system-python/image1-17.png" alt="IMDB Recommender system" /></p>
+
+<p>This chart can be considered the simplest of recommenders. It doesn&rsquo;t take into
+consideration the tastes of a particular user nor does it try to deduce
+similarities between different movies. It simply calculates a score for every
+movie based on a predefined metric and outputs a sorted list of movies based on
+that score.</p>
+
+<p>This article covers the following:</p>
+
+<ul>
+<li>Building a clone of the IMDB Top 250 chart (henceforth referred to as the
+simple recommender).</li>
+<li>Taking the functionalities of the chart one step further and building a
+knowledge-based recommender. This model takes user preferences with regards to
+genre, timeframe, runtime, and language, and recommends movies that satisfy
+all conditions.</li>
+</ul>
+
+<p>You’ll be required to have Python installed on a system. Finally, to use the Git
+repository, you need to install Git. The code files of this article can be found
+on GitHub at
+<a href="https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python/tree/master/Chapter3">https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python/tree/master/Chapter3</a>.
+You can also see the code in action at <a href="http://bit.ly/2v7SZD4">http://bit.ly/2v7SZD4</a>.</p>
+
+<h1 id="the-simple-recommender">The simple recommender</h1>
+
+<p>The first step in building your simple recommender is setting up your workspace.
+Create a new directory named <code>IMDB</code>. Create a Jupyter Notebook in this directory
+named <code>Simple Recommender</code> and open it in the browser.</p>
+
+<p>Now load the dataset available at
+<a href="https://www.kaggle.com/rounakbanik/the-movies-dataset/downloads/movies_metadata.csv/7:">https://www.kaggle.com/rounakbanik/the-movies-dataset/downloads/movies_metadata.csv/7:</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#75715e">#Load the dataset into a pandas dataframe</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;../data/movies_&#39;</span>)
+
+<span style="color:#75715e">#Display the first five movies in the dataframe</span>
+df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>Upon running the cell, you should see a familiar table-like structure output in
+the notebook.</p>
+
+<p>Building the simple recommender is fairly straightforward. The steps are as
+follows:</p>
+
+<ol>
+<li>Choose a metric (or score) to rate the movies on</li>
+<li>Decide on the prerequisites for the movie to be featured on the chart</li>
+<li>Calculate the score for every movie that satisfies the conditions</li>
+<li>Output the list of movies in decreasing order of their scores</li>
+</ol>
+
+<h1 id="the-metric">The metric</h1>
+
+<p>The metric is the numeric quantity based on which you rank movies. A movie is
+considered to be better than another movie if it has a higher metric score than
+the other movie. It is very important that you have a robust and reliable metric
+to build your chart upon to ensure a good quality of recommendations.</p>
+
+<p>The choice of a metric is arbitrary. One of the simplest metrics that can be
+used is the movie rating. However, this suffers from a variety of disadvantages.
+In the first place, the movie rating does not take the popularity of a movie
+into consideration. Therefore, a movie rated 9 by 100,000 users will be placed
+below a movie rated 9.5 by 100 users. This is not desirable as it is highly
+likely that a movie watched and rated only by 100 people caters to a very
+specific niche and may not appeal as much to the average person as the former.</p>
+
+<p>It is also a well-known fact that as the number of voters increase, the rating
+of a movie normalizes and it approaches a value that is reflective of the
+movie&rsquo;s quality and popularity with the general populace. To put it another way,
+movies with very few ratings are not very reliable. A movie rated <sup>10</sup>&frasl;<sub>10</sub> by five
+users doesn&rsquo;t necessarily mean that it&rsquo;s a good movie.</p>
+
+<p>Therefore, what you need is a metric that can, to an extent, take into account
+the movie rating and the number of votes it has garnered (a proxy for
+popularity). This would give a greater preference to a blockbuster movie rated 8
+by 100,000 users over an art house movie rated 9 by 100 users.</p>
+
+<p>Fortunately, you do not have to brainstorm a mathematical formula for the
+metric. You can use IMDB&rsquo;s weighted rating formula as your metric.
+Mathematically, it can be represented as follows:</p>
+
+<p>Weighted Rating (WR) =</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/recommender-system-python/image2-19.png" alt="" /></p>
+
+<p>The following apply:</p>
+
+<ul>
+<li>v is the number of votes garnered by the movie</li>
+<li>m is the minimum number of votes required for the movie to be in the chart
+(the prerequisite)</li>
+<li>R is the mean rating of the movie</li>
+<li>C is the mean rating of all the movies in the dataset</li>
+</ul>
+
+<p>You already have the values for v and R for every movie in the form of
+the <code>vote_count</code> and <code>vote_average</code> features respectively. Calculating C is
+extremely trivial.</p>
+
+<h1 id="the-prerequisties">The prerequisties</h1>
+
+<p>The IMDB weighted formula also has a variable m, which it requires to compute
+its score. This variable is in place to make sure that only movies that are
+above a certain threshold of popularity are considered for the rankings.
+Therefore, the value of m determines the movies that qualify to be in the chart
+and also, by being part of the formula, determines the final value of the score.</p>
+
+<p>Just like the metric, the choice of the value of m is arbitrary. In other words,
+there is no right value for m. It is a good idea to experiment with different
+values of m and then choose the one that you (and your audience) think gives the
+best recommendations. The only thing to be kept in mind is that the higher the
+value of m, the higher the emphasis on the popularity of a movie, and therefore
+the higher the selectivity.</p>
+
+<p>For your recommender, use the number of votes garnered by the 80th percentile
+movie as your value for m. In other words, for a movie to be considered in the
+rankings, it must have garnered more votes than at least 80% of the movies
+present in your dataset. Additionally, the number of votes garnered by the 80th
+percentile movie is used in the weighted formula described previously to come up
+with the value for the scores.</p>
+
+<p>Now calculate the value of m:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Calculate the number of votes garnered by the 80th percentile movie</span>
+m <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;vote_count&#39;</span>]<span style="color:#f92672">.</span>quantile(<span style="color:#ae81ff">0.80</span>)
+m
+
+OUTPUT:
+<span style="color:#ae81ff">50.0</span></code></pre></div>
+<p>You can see that only 20% of the movies have gained more than 50 votes.
+Therefore, your value of m is <code>50</code>.</p>
+
+<p>Another prerequisite that you want in place is the runtime. Only consider movies
+that are greater than <code>45 minutes</code> and less than <code>300 minutes</code> in length. Define
+a new DataFrame, <code>q_movies</code>, which will hold all the movies that qualify to
+appear in the chart:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Only consider movies longer than 45 minutes and shorter than 300 minutes</span>
+q_movies <span style="color:#f92672">=</span> df[(df[<span style="color:#e6db74">&#39;runtime&#39;</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">45</span>) <span style="color:#f92672">&amp;</span> (df[<span style="color:#e6db74">&#39;runtime&#39;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">300</span>)]
+
+<span style="color:#75715e">#Only consider movies that have garnered more than m votes</span>
+q_movies <span style="color:#f92672">=</span> q_movies[q_movies[<span style="color:#e6db74">&#39;vote_count&#39;</span>] <span style="color:#f92672">&gt;=</span> m]
+
+<span style="color:#75715e">#Inspect the number of movies that made the cut</span>
+q_movies<span style="color:#f92672">.</span>shape
+
+OUTPUT:
+(<span style="color:#ae81ff">8963</span>, <span style="color:#ae81ff">24</span>)</code></pre></div>
+<p>From your dataset of 45,000 movies, approximately 9,000 movies (or 20%) made the
+cut.</p>
+
+<h1 id="calculating-the-score">Calculating the score</h1>
+
+<p>The final value that you need to discover before you calculate your scores
+is C, the mean rating for all the movies in the dataset:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e"># Calculate C</span>
+C <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;vote_average&#39;</span>]<span style="color:#f92672">.</span>mean()
+C
+
+OUTPUT:
+<span style="color:#ae81ff">5.6182072151341851</span></code></pre></div>
+<p>The average rating of a movie is approximately 5.<sup>6</sup>&frasl;<sub>10</sub>. It seems that IMDB
+happens to be particularly strict with their ratings. Now that you have the
+value of C, you can go about calculating your score for each movie.</p>
+
+<p>First, define a function that computes the rating for a movie, given its
+features and the values of m and C:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e"># Function to compute the IMDB weighted rating for each movie</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">weighted_rating</span>(x, m<span style="color:#f92672">=</span>m, C<span style="color:#f92672">=</span>C):
+    v <span style="color:#f92672">=</span> x[<span style="color:#e6db74">&#39;vote_count&#39;</span>]
+    R <span style="color:#f92672">=</span> x[<span style="color:#e6db74">&#39;vote_average&#39;</span>]
+    <span style="color:#75715e"># Compute the weighted score</span>
+    <span style="color:#66d9ef">return</span> (v<span style="color:#f92672">/</span>(v<span style="color:#f92672">+</span>m) <span style="color:#f92672">*</span> R) <span style="color:#f92672">+</span> (m<span style="color:#f92672">/</span>(m<span style="color:#f92672">+</span>v) <span style="color:#f92672">*</span> C)</code></pre></div>
+<p>Next, use the familiar <code>apply</code> function on your <code>q_movies</code> DataFrame to
+construct a new feature score. Since the calculation is done for every row, set
+the axis to <code>1</code> to denote row-wise operation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e"># Compute the score using the weighted_rating function defined above</span>
+q_movies[<span style="color:#e6db74">&#39;score&#39;</span>] <span style="color:#f92672">=</span> q_movies<span style="color:#f92672">.</span>apply(weighted_rating, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)</code></pre></div>
+<h1 id="sorting-and-output">Sorting and output</h1>
+
+<p>There is just one step left. You now need to sort your DataFrame on the basis of
+the score you just computed and output the list of top movies:</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/recommender-system-python/image3-21.png" alt="Our Recommendation system" /></p>
+
+<p>And voila! You have just built your recommender. Congratulations!</p>
+
+<p>You can see that the Bollywood film <strong>Dilwale Dulhania Le Jayenge</strong> figures at
+the top of the list. It has a noticeably smaller number of votes than the other
+Top 25 movies. This strongly suggests that you should probably explore a higher
+value of m. Experiment with different values of m and observe how the movies in
+the chart change.</p>
+
+<h1 id="the-knowledge-based-recommender">The knowledge-based recommender</h1>
+
+<p>Now, you’ll learn to build a knowledge-based recommender on top of your IMDB Top
+250 clone. This will be a simple function that will perform the following tasks:</p>
+
+<ul>
+<li>Ask the user for the genres of movies he/she is looking for</li>
+<li>Ask the user for the duration</li>
+<li>Ask the user for the timeline of the movies recommended</li>
+<li>Using the information collected, recommend movies to the user that have a high
+weighted rating (according to the IMDB formula) and that satisfy the preceding
+conditions</li>
+</ul>
+
+<p>The data that you have has information on the duration, genres, and timelines,
+but it isn&rsquo;t currently in a form that is directly usable. Your data needs to be
+wrangled before it can be put to use to build this recommender.</p>
+
+<p>In your <code>IMDB</code> folder, create a new Jupyter Notebook
+named <code>Knowledge Recommender</code>. This notebook will contain all the code that you
+write as part of this section.</p>
+
+<p>Load your packages and the data into your notebook. Also, take a look at the
+features that you have and decide on the ones that will be useful for this task:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;../data/movies_metadata.csv&#39;</span>)
+
+<span style="color:#75715e">#Print all the features (or columns) of the DataFrame</span>
+df<span style="color:#f92672">.</span>columns
+
+OUTPUT:
+Index([<span style="color:#e6db74">&#39;adult&#39;</span>, <span style="color:#e6db74">&#39;belongs_to_collection&#39;</span>, <span style="color:#e6db74">&#39;budget&#39;</span>, <span style="color:#e6db74">&#39;genres&#39;</span>, <span style="color:#e6db74">&#39;homepage&#39;</span>, <span style="color:#e6db74">&#39;id&#39;</span>,
+       <span style="color:#e6db74">&#39;imdb_id&#39;</span>, <span style="color:#e6db74">&#39;original_language&#39;</span>, <span style="color:#e6db74">&#39;original_title&#39;</span>, <span style="color:#e6db74">&#39;overview&#39;</span>,
+       <span style="color:#e6db74">&#39;popularity&#39;</span>, <span style="color:#e6db74">&#39;poster_path&#39;</span>, <span style="color:#e6db74">&#39;production_companies&#39;</span>,
+       <span style="color:#e6db74">&#39;production_countries&#39;</span>, <span style="color:#e6db74">&#39;release_date&#39;</span>, <span style="color:#e6db74">&#39;revenue&#39;</span>, <span style="color:#e6db74">&#39;runtime&#39;</span>,
+       <span style="color:#e6db74">&#39;spoken_languages&#39;</span>, <span style="color:#e6db74">&#39;status&#39;</span>, <span style="color:#e6db74">&#39;tagline&#39;</span>, <span style="color:#e6db74">&#39;title&#39;</span>, <span style="color:#e6db74">&#39;video&#39;</span>,
+       <span style="color:#e6db74">&#39;vote_average&#39;</span>, <span style="color:#e6db74">&#39;vote_count&#39;</span>],
+      dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;object&#39;</span>)</code></pre></div>
+<p>From your output, it is quite clear which features you do and do not require.
+Now, reduce your DataFrame to only contain features that you need for your
+model:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Only keep those features that we require</span>
+df <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;title&#39;</span>,<span style="color:#e6db74">&#39;genres&#39;</span>, <span style="color:#e6db74">&#39;release_date&#39;</span>, <span style="color:#e6db74">&#39;runtime&#39;</span>, <span style="color:#e6db74">&#39;vote_average&#39;</span>, <span style="color:#e6db74">&#39;vote_count&#39;</span>]]
+
+df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>Extract the year of release from your <code>release_date</code> feature:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Convert release_date into pandas datetime format</span>
+df[<span style="color:#e6db74">&#39;release_date&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_datetime(df[<span style="color:#e6db74">&#39;release_date&#39;</span>], errors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;coerce&#39;</span>)
+
+<span style="color:#75715e">#Extract year from the datetime</span>
+df[<span style="color:#e6db74">&#39;year&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;release_date&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: str(x)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;-&#39;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">if</span> x <span style="color:#f92672">!=</span> np<span style="color:#f92672">.</span>nan <span style="color:#66d9ef">else</span> np<span style="color:#f92672">.</span>nan)</code></pre></div>
+<p>Your <code>year</code> feature is still an <code>object</code> and is riddled with <code>NaT</code> values, which
+are a type of null value used by Pandas. Convert these values to an
+integer, <code>0</code>, and convert the datatype of the <code>year</code> feature into <code>int</code>.</p>
+
+<p>To do this, define a helper function, <code>convert_int</code>, and apply it to
+the <code>year</code> feature:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Helper function to convert NaT to 0 and all other years to integers.</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">convert_int</span>(x):
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> int(x)
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+
+<span style="color:#75715e">#Apply convert_int to the year feature</span>
+df[<span style="color:#e6db74">&#39;year&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;year&#39;</span>]<span style="color:#f92672">.</span>apply(convert_int)
+You do <span style="color:#f92672">not</span> require the release_date feature anymore<span style="color:#f92672">.</span> So, go ahead <span style="color:#f92672">and</span> remove it:
+<span style="color:#75715e">#Drop the release_date column</span>
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;release_date&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e">#Display the dataframe</span>
+df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>The runtime feature is already in a form that is usable. It doesn&rsquo;t require any
+additional wrangling. Now, turn your attention to genres.</p>
+
+<h1 id="genres">Genres</h1>
+
+<p>You may observe that the genres are in a format that looks like a JSON object
+(or a Python dictionary). Take a look at the genres object of one of your
+movies:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Print genres of the first movie</span>
+df<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;genres&#39;</span>]
+
+OUTPUT:
+<span style="color:#e6db74">&#34;[{&#39;id&#39;: 16, &#39;name&#39;: &#39;Animation&#39;}, {&#39;id&#39;: 35, &#39;name&#39;: &#39;Comedy&#39;}, {&#39;id&#39;: 10751, &#39;name&#39;: &#39;Family&#39;}]&#34;</span></code></pre></div>
+<p>Observe that the output is a stringified dictionary. In order for this feature
+to be usable, it is important that you convert this string into a native Python
+dictionary. Fortunately, Python gives you access to a function
+called <code>literal_eval</code> (available in the <code>ast</code> library) which does exactly
+that. <code>literal_eval</code> parses any string passed into it and converts it into its
+corresponding Python object:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Import the literal_eval function from ast</span>
+<span style="color:#f92672">from</span> ast <span style="color:#f92672">import</span> literal_eval
+
+<span style="color:#75715e">#Define a stringified list and output its type</span>
+a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;[1,2,3]&#34;</span>
+<span style="color:#66d9ef">print</span>(type(a))
+
+<span style="color:#75715e">#Apply literal_eval and output type</span>
+b <span style="color:#f92672">=</span> literal_eval(a)
+<span style="color:#66d9ef">print</span>(type(b))
+
+OUTPUT:
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">list</span><span style="color:#e6db74">&#39;&gt;</span></code></pre></div>
+<p><img src="https://images.tutorialedge.net/images/python/recommender-system-python/image4-23.png" alt="" /></p>
+
+<p>You now have all the tools required to convert the genres feature into the
+Python dictionary format.</p>
+
+<p>Also, each dictionary represents a genre and has two keys: id and name. However,
+for this exercise, you only require the name. Therefore, convert your list of
+dictionaries into a list of strings, where each string is a genre name:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Convert all NaN into stringified empty lists</span>
+df[<span style="color:#e6db74">&#39;genres&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;genres&#39;</span>]<span style="color:#f92672">.</span>fillna(<span style="color:#e6db74">&#39;[]&#39;</span>)
+
+<span style="color:#75715e">#Apply literal_eval to convert to the list object</span>
+df[<span style="color:#e6db74">&#39;genres&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;genres&#39;</span>]<span style="color:#f92672">.</span>apply(literal_eval)
+
+<span style="color:#75715e">#Convert list of dictionaries to a list of strings</span>
+df[<span style="color:#e6db74">&#39;genres&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;genres&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: [i[<span style="color:#e6db74">&#39;name&#39;</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> x] <span style="color:#66d9ef">if</span> isinstance(x, list) <span style="color:#66d9ef">else</span> [])
+
+df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>Printing the head of the DataFrame should show you a new <code>genres</code> feature, which
+is a list of genre names. However, you&rsquo;re still not done yet. The last step is
+to <code>explode</code> the genres column. In other words, if a particular movie has
+multiple genres, create multiple copies of the movie, with each movie having one
+of the genres.</p>
+
+<p>For example, if there is a movie called Just Go With It that
+has romance and comedy as its genres, <code>explode</code> this movie into two rows. One
+row will be Just Go With It as a romance movie. The other will be
+a comedy movie:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#Create a new feature by exploding genres</span>
+s <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: pd<span style="color:#f92672">.</span>Series(x[<span style="color:#e6db74">&#39;genres&#39;</span>]),axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>stack()<span style="color:#f92672">.</span>reset_index(level<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, drop<span style="color:#f92672">=</span>True)
+
+<span style="color:#75715e">#Name the new feature as &#39;genre&#39;</span>
+s<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;genre&#39;</span>
+
+<span style="color:#75715e">#Create a new dataframe gen_df which by dropping the old &#39;genres&#39; feature and adding the new &#39;genre&#39;.</span>
+gen_df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;genres&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>join(s)
+
+<span style="color:#75715e">#Print the head of the new gen_df</span>
+gen_df<span style="color:#f92672">.</span>head()</code></pre></div>
+<p>You should be able to see three Toy Story rows now; one each to
+represent animation, family, and comedy. This <code>gen_df</code> DataFrame is what you
+will use to build your knowledge-based recommender.</p>
+
+<h1 id="the-build-chart-function">The build_chart function</h1>
+
+<p>You are finally in a position to write the function that will act as your
+recommender. You cannot use your computed values of m and C from earlier, as
+you’ll not be considering every movie just the ones that qualify. In other
+words, these are three main steps:</p>
+
+<ol>
+<li>Get user input on their preferences</li>
+<li>Extract all movies that match the conditions set by the user</li>
+<li>Calculate the values of m and C for only these movies and proceed to build
+the chart as in the previous section</li>
+</ol>
+
+<p>Therefore, the <code>build_chart</code> function will accept only two inputs:
+your <code>gen_df</code> DataFrame and the percentile used to calculate the value of m. By
+default, set this to 80% or <code>0.8</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_chart</span>(gen_df, percentile<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>):
+    <span style="color:#75715e">#Ask for preferred genres</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Input preferred genre&#34;</span>)
+    genre <span style="color:#f92672">=</span> input()
+
+    <span style="color:#75715e">#Ask for lower limit of duration</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Input shortest duration&#34;</span>)
+    low_time <span style="color:#f92672">=</span> int(input())
+
+    <span style="color:#75715e">#Ask for upper limit of duration</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Input longest duration&#34;</span>)
+    high_time <span style="color:#f92672">=</span> int(input())
+
+    <span style="color:#75715e">#Ask for lower limit of timeline</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Input earliest year&#34;</span>)
+    low_year <span style="color:#f92672">=</span> int(input())
+
+    <span style="color:#75715e">#Ask for upper limit of timeline</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Input latest year&#34;</span>)
+    high_year <span style="color:#f92672">=</span> int(input())
+
+    <span style="color:#75715e">#Define a new movies variable to store the preferred movies. Copy the contents of gen_df to movies</span>
+    movies <span style="color:#f92672">=</span> gen_df<span style="color:#f92672">.</span>copy()
+
+    <span style="color:#75715e">#Filter based on the condition</span>
+    movies <span style="color:#f92672">=</span> movies[(movies[<span style="color:#e6db74">&#39;genre&#39;</span>] <span style="color:#f92672">==</span> genre) <span style="color:#f92672">&amp;</span>
+                    (movies[<span style="color:#e6db74">&#39;runtime&#39;</span>] <span style="color:#f92672">&gt;=</span> low_time) <span style="color:#f92672">&amp;</span>
+                    (movies[<span style="color:#e6db74">&#39;runtime&#39;</span>] <span style="color:#f92672">&lt;=</span> high_time) <span style="color:#f92672">&amp;</span>
+                    (movies[<span style="color:#e6db74">&#39;year&#39;</span>] <span style="color:#f92672">&gt;=</span> low_year) <span style="color:#f92672">&amp;</span>
+                    (movies[<span style="color:#e6db74">&#39;year&#39;</span>] <span style="color:#f92672">&lt;=</span> high_year)]
+
+    <span style="color:#75715e">#Compute the values of C and m for the filtered movies</span>
+    C <span style="color:#f92672">=</span> movies[<span style="color:#e6db74">&#39;vote_average&#39;</span>]<span style="color:#f92672">.</span>mean()
+    m <span style="color:#f92672">=</span> movies[<span style="color:#e6db74">&#39;vote_count&#39;</span>]<span style="color:#f92672">.</span>quantile(percentile)
+
+    <span style="color:#75715e">#Only consider movies that have higher than m votes. Save this in a new dataframe q_movies</span>
+    q_movies <span style="color:#f92672">=</span> movies<span style="color:#f92672">.</span>copy()<span style="color:#f92672">.</span>loc[movies[<span style="color:#e6db74">&#39;vote_count&#39;</span>] <span style="color:#f92672">&gt;=</span> m]
+
+    <span style="color:#75715e">#Calculate score using the IMDB formula</span>
+    q_movies[<span style="color:#e6db74">&#39;score&#39;</span>] <span style="color:#f92672">=</span> q_movies<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: (x[<span style="color:#e6db74">&#39;vote_count&#39;</span>]<span style="color:#f92672">/</span>(x[<span style="color:#e6db74">&#39;vote_count&#39;</span>]<span style="color:#f92672">+</span>m) <span style="color:#f92672">*</span> x[<span style="color:#e6db74">&#39;vote_average&#39;</span>])
+                                       <span style="color:#f92672">+</span> (m<span style="color:#f92672">/</span>(m<span style="color:#f92672">+</span>x[<span style="color:#e6db74">&#39;vote_count&#39;</span>]) <span style="color:#f92672">*</span> C)
+                                       ,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+    <span style="color:#75715e">#Sort movies in descending order of their scores</span>
+    q_movies <span style="color:#f92672">=</span> q_movies<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#39;score&#39;</span>, ascending<span style="color:#f92672">=</span>False)
+
+    <span style="color:#66d9ef">return</span> q_movies</code></pre></div>
+<h1 id="time-to-put-your-model-into-action">Time to put your model into action!</h1>
+
+<p>You may want recommendations for animated movies between 30 minutes and 2 hours
+in length, and released anywhere between 1990 and 2005. See the results:</p>
+
+<p><img src="https://images.tutorialedge.net/images/python/recommender-system-python/image5-25.png" alt="" /></p>
+
+<p>You can see that the movies that it outputs satisfy all the conditions you
+passed in as input. Since you applied IMDB&rsquo;s metric, you can also observe that
+your movies are very highly rated and popular at the same time.</p>
+
+<p>If you found this article interesting, you can explore Rounak Banik’s Hands-On
+Recommendation Systems with Python to get started with building recommendation
+systems is a familiarity with Python. With
+<a href="https://amzn.to/2PRq53f">Hands-On Recommendation Systems with Python</a>, learn
+the tools and techniques required in building various kinds of powerful
+recommendation systems (collaborative, knowledge and content based) and
+deploying them to the web.</p>
+
+<div class="amazon-link">
+View on Amazon: <a href="https://amzn.to/2PRq53f">Hands-On Recommendation Systems with Python</a>
+</div>
+ 
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/python/building-imdb-top-250-clone-pandas/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#the-simple-recommender">The simple recommender</a></li>
+<li><a href="#the-metric">The metric</a></li>
+<li><a href="#the-prerequisties">The prerequisties</a></li>
+<li><a href="#calculating-the-score">Calculating the score</a></li>
+<li><a href="#sorting-and-output">Sorting and output</a></li>
+<li><a href="#the-knowledge-based-recommender">The knowledge-based recommender</a></li>
+<li><a href="#genres">Genres</a></li>
+<li><a href="#the-build-chart-function">The build_chart function</a></li>
+<li><a href="#time-to-put-your-model-into-action">Time to put your model into action!</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">ee9c5e0ff00d474b4e6f5908e2820f88</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

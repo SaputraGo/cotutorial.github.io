@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on My New Hugo Site</title>
+    <link>http://example.org/tags/http/</link>
+    <description>Recent content in http on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Oct 2017 11:50:27 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a RESTful API with Python and aiohttp</title>
+      <link>http://example.org/python/create-rest-api-python-aiohttp/</link>
+      <pubDate>Sat, 28 Oct 2017 11:50:27 +0100</pubDate>
+      
+      <guid>http://example.org/python/create-rest-api-python-aiohttp/</guid>
+      <description>This tutorial was built on top of Python 3.6
+ In this tutorial we&amp;rsquo;ll be building a very simple RESTful based API using aio-libs/aiohttp which is an asynchronous http client/server framework.
+Getting Started with aiohttp Before we go into how we can use aiohttp to create a simple RESTful API, it&amp;rsquo;s important to know exactly what the framework is and what it can do for us. To start with, it features excellent support of the HTTP protocol as well as for websockets which makes it ideal for working with popular websocket libraries such as Socket.</description>
+    </item>
+    
+    <item>
+      <title>Making HTTP Requests in Python - Tutorial</title>
+      <link>http://example.org/python/python-http-requests-tutorial/</link>
+      <pubDate>Sun, 10 Sep 2017 12:27:56 +0100</pubDate>
+      
+      <guid>http://example.org/python/python-http-requests-tutorial/</guid>
+      <description>This Tutorial was built using Python 3.6 and the Requests library
+ Being able to interact with HTTP based RESTful APIs is an incredibly important task for any Python developer. More and more developers are starting to build their systems our of numerous microservices and often they will expose HTTP based endpoints with which we can interact in our own Python programs. In this tutorial we&amp;rsquo;ll look at the various ways we can interact with a HTTP based API using the Requests library in Python.</description>
+    </item>
+    
+    <item>
+      <title>RESTful API Design - Best Practices</title>
+      <link>http://example.org/general/rest-api-best-practices/</link>
+      <pubDate>Mon, 12 Jun 2017 15:29:30 +0100</pubDate>
+      
+      <guid>http://example.org/general/rest-api-best-practices/</guid>
+      <description>In this article we look at some of the key concepts that everyone should bear in mind when designing RESTful APIs. These are based off my own experience with designing and building RESTful APIs in a number of projects and should be taken with a pinch of salt, I am in no way telling you that you must do it this way. I am merely
+Versioning Versioning is incredibly important in pretty much every scenario, be it a personal project or an enterprise scale service that other teams will be interfacing with.</description>
+    </item>
+    
+    <item>
+      <title>What is a RESTful API?</title>
+      <link>http://example.org/general/what-is-a-rest-api/</link>
+      <pubDate>Sat, 15 Apr 2017 09:53:07 +0100</pubDate>
+      
+      <guid>http://example.org/general/what-is-a-rest-api/</guid>
+      <description>As a developer I spend a lot of time developing new or improving on existing RESTful APIs and one of the big questions I’ve been asked is - What is a REST API?
+This tutorial will try to explain in layman’s terms what a REST API is and how we can utilize these APIs in order to build our own systems.
+REST Basics REST - Representational State Transfer.
+API - Application Programming Interface</description>
+    </item>
+    
+  </channel>
+</rss>

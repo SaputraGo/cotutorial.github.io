@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Working With AngularJS Component Based Applications | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="../../../images/svg/logo.svg" alt="Working With AngularJS Component Based Applications Image" />  Working With AngularJS Component Based Applications
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../../images/svg/logo.svg" alt="TutorialEdge Logo" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>6 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Apr 9, 2017</span>
+
+                <span>
+            
+            <a href="../../../tags/javascript"
+              ><span class="badge badge-pill badge-info">javascript</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">javascript</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-promises-tutorial/">AngularJS Promises Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/most-important-changes-angularjs-1-6/">Most Important Changes to AngularJS in 1.6</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-ng-model-in-ng-if-tutorial/">AngularJS ng-model in ng-if Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-data-binding-tutorial/">AngularJS Data Binding Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-controllers-tutorial/">AngularJS Controllers Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-template-tutorial-using-ng-view/">AngularJS Templating Tutorial Using ng-view</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-directives-tutorial/">AngularJS Directives Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/template-route-provider-tutorial/">AngularJS Template Route Provider Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/interacting-with-apis-using-http-angularjs/">Interacting With RESTful APIs Using $http in AngularJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-filter-search-tutorial/">AngularJS Filter Search Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/setting-default-select-value-angularjs/">Setting a Default Value for Select Elements in AngularJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/hidden-input-form-angularjs/">Using Hidden Input in a Form in AngularJS</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-factory-tutorial/">AngularJS Factory Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-filter-tutorial/">AngularJS Filter Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-form-validation-tutorial/">AngularJS Form Validation Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-project-structure-tutorial/">AngularJS Project Structure Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/automating-your-angularjs-workflow-with-gulp/">Automating Your AngularJS Workflow With Gulp</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/working-with-angularjs-component-applications/">Working With AngularJS Component Based Applications</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/integrating-highcharts-ng-angularjs/">Integrating Highcharts-ng into your AngularJS Applications</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-event-handling-tutorial/">AngularJS Event Handling Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/passing-data-between-routes-angularjs/">Passing Data Between Routes in AngularJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-most-important-changes-1-6/">angularjs most important changes 1 6</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/angularjs-store-cookies-tutorial/">How To Store Information in Cookies in AngularJS</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/javascript/angularjs/removing-duplicates-from-ng-repeat/">Removing Duplicate Entries from ng-repeat in AngularJS</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>If you haven’t read my article on using a different architecture styles in your
+AngularJS applications then I recommend you check it out here:
+<a href="../../../javascript/angularjs/angularjs-project-structure-tutorial/">Structuring AngularJS Applications</a></p>
+
+<p>In this article we will be having a look at the key features present in my
+<a href="https://github.com/emforce/Angular-Component-Admin-Panel">AngularJS Admin Panel</a>
+application. This application utilizes a component based architecture and
+follows some of the best practices outlined in Todd Motto’s
+<a href="https://github.com/toddmotto/angular-styleguide">Style Guide</a></p>
+
+<h1 id="getting-the-code">Getting the Code</h1>
+
+<p>If you have git installed on your local machine then getting the code is just a
+case of doing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git init .
+git remote add origin https://github.com/emforce/Angular-Component-Admin-Panel.git
+git pull origin master</code></pre></div>
+<p>This should pull the latest version of the code to your current working
+directory.</p>
+
+<h1 id="building-our-application">Building our Application</h1>
+
+<p>This application currently uses gulp in order to minify and concatenate any and
+all files under our components directory into a bundle.js file. In order to
+include our new changes in this bundle.js file we need to run the <code>gulp watch</code>
+task whilst we are developing this code. Every time a code change is made within
+our components directory this watch task automatically calls our scripts task.</p>
+
+<p>For more information on using gulp to improve your angularjs development flow
+check out this tutorial:
+<a href="../../../javascript/angularjs/automating-your-angularjs-workflow-with-gulp/">Automating your AngularJS Workflow with Gulp</a></p>
+
+<h1 id="the-structure">The Structure</h1>
+
+<p>The first thing we should look at is the structure. For cleanliness I’ve created
+a src sub-folder within which all of our own code will be stored. This includes
+the app directory, the assets directory and the dist directory.</p>
+
+<p>All of our required node_modules will be stored at the root directory of our
+project and this should hopefully keep them somewhat out of the way. The same is
+true for our gulpfile.js, our package.json and our readme.md.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#f92672">--</span> node_modules<span style="color:#f92672">/</span>
+<span style="color:#f92672">--</span> src<span style="color:#f92672">/</span>
+<span style="color:#f92672">----</span> app<span style="color:#f92672">/</span>
+<span style="color:#f92672">----</span> assets<span style="color:#f92672">/</span>
+<span style="color:#f92672">----</span> dist<span style="color:#f92672">/</span></code></pre></div>
+<h2 id="component-based-architecture">Component Based Architecture</h2>
+
+<p>As I’ve already said, this application utilizes a component based architecture.
+This architecture style is perfect for medium to large projects that could
+continue to grow long into the future. By modularizing code and having that
+separation of concerns for every one of these modules, we safeguard ourselves
+against potentially breaking aspects of our application further down the line by
+modifying code that is tightly coupled. As with any architecture style this
+features drawbacks, the biggest of which is that we will constantly find
+ourselves breaking the Don’t Repeat Yourself (DRY) methodology. However I feel
+that when developing huge, complex frontend applications, having that separation
+of concerns is far more beneficial in the long run.</p>
+
+<h1 id="extending-this-application">Extending This Application</h1>
+
+<p>If we wanted to extend this application with a module of our own, we can simple
+create a folder within our components directory in a fitting place and develop
+the code solely in that directory.</p>
+
+<p>Say for instance we wanted to create a youtube-subscribers page. We could create
+a directory within the social directory called youtube-subscribers. Within that
+directory we would create 4 main files initially:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-- app/components/social/
+---- youtube-subscribers/
+------ youtube-subscribers.html
+------ youtube-subscribers.component.js
+------ youtube-subscribers.controller.js
+------ youtube-subscribers.routes.js</code></pre></div>
+<h2 id="our-html-page">Our HTML Page</h2>
+
+<p>The application currently uses the ng-view directive and ng-routes in order to
+decide what html to show depending on what url you are currently looking at.
+We’ve defined a <em>master</em> page within which we can display any new widgets or
+pages without having to duplicate our navigation code.</p>
+
+<p>For our new youtube-subcribers.html page, this means we can just define
+something like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;component&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;header&#34;</span>&gt;
+    Youtube Subscribers
+  &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;
+    <span style="color:#75715e">&lt;!-- Any number of barcharts, line-graphs etc to show our youtube stats over time --&gt;</span>
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<h2 id="our-routes-page">Our Routes Page</h2>
+
+<p>Now that we have our html defined for our youtube-subscribers page, we need to
+define a route that will show this html whenever we navigate to it. We can do
+this by opening up the youtube-subscribers.routes.js file and adding the
+following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">youtubeSubscriberRoutes</span>(<span style="color:#a6e22e">$routeProvider</span>) {
+  <span style="color:#a6e22e">$routeProvider</span>.<span style="color:#a6e22e">when</span>(<span style="color:#e6db74">&#34;/youtube-subscribers&#34;</span>, {
+    <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span>
+      <span style="color:#e6db74">&#34;app/components/social/youtube-subscribers/youtube-subscribers.html&#34;</span>
+  });
+}
+<span style="color:#a6e22e">youtubeSubscriberRoutes</span>.<span style="color:#a6e22e">$inject</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;$routeProvider&#34;</span>];
+
+<span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#34;social&#34;</span>).<span style="color:#a6e22e">config</span>(<span style="color:#a6e22e">youtubeSubscriberRoutes</span>);
+</code></pre></div>
+<p>If you try navigating to <a href="http://localhost:port/#/youtube-subscribers">http://localhost:port/#/youtube-subscribers</a>, you should
+now see our application as well as our newly defined youtube-subscribers.html
+rendering just below our navigation.</p>
+
+<h2 id="our-components-file">Our Components File</h2>
+
+<p>Currently you’ll notice we are using an absolute path to our defined html page.
+But say we wanted to display this page elsewhere as part of a bigger page? Well
+for this we’d have to define our component.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">youtubeSubscribers</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span>
+    <span style="color:#e6db74">&#34;app/components/social/youtube-subscribers/youtube-subscribers.html&#34;</span>,
+  <span style="color:#a6e22e">bindings</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">youtubeSubscribers</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;&#34;</span>
+  }
+};
+
+<span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#34;social&#34;</span>).<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#34;youtubeSubscribers&#34;</span>, <span style="color:#a6e22e">youtubeSubscribers</span>);
+</code></pre></div>
+<p>This defines a youtubeSubscribers object with the same templateUrl that points
+to our newly created youtube-subscribers.html page and also creates the bindings
+for any variables we may wish to pass to that html page.</p>
+
+<h2 id="updating-our-routes-provider">Updating our Routes Provider</h2>
+
+<p>So now that we have a component defined for our application we can jump back
+into our youtube-subscribers.routes.js file and modify templateUrl to template
+and set it to the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">youtubeSubscriberRoutes</span>(<span style="color:#a6e22e">$routeProvider</span>) {
+  <span style="color:#a6e22e">$routeProvider</span>.<span style="color:#a6e22e">when</span>(<span style="color:#e6db74">&#34;/youtube-subscribers&#34;</span>, {
+    <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;youtube-subscribers&gt;&lt;/youtube-subscribers&gt;&#34;</span>
+  });
+}
+<span style="color:#a6e22e">youtubeSubscriberRoutes</span>.<span style="color:#a6e22e">$inject</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;$routeProvider&#34;</span>];
+
+<span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#34;social&#34;</span>).<span style="color:#a6e22e">config</span>(<span style="color:#a6e22e">youtubeSubscriberRoutes</span>);
+</code></pre></div>
+<p>Now, when you navigate to <a href="http://yourapp:port/#/youtube-subscribers">http://yourapp:port/#/youtube-subscribers</a> you should
+hopefully still see the same html that you defined in your
+youtube-subscribers.html file. The only difference being that it’s referencing
+our newly created component and not just pulling in the html directly from the
+file.</p>
+
+<h2 id="our-controller-file">Our Controller File</h2>
+
+<p>So we’ve done the bare minimum in order to create a new angularjs component, but
+now we want to start adding some functionality to it. In order to that we can
+define the controller that will contain all our desired functionality that only
+our component can access.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">YoutubeSubscriberController</span>(){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ctrl</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+
+  <span style="color:#a6e22e">ctrl</span>.<span style="color:#a6e22e">youtubeSubscribers</span> <span style="color:#f92672">=</span> [{ <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#960050;background-color:#1e0010">‘</span><span style="color:#a6e22e">elliot</span><span style="color:#960050;background-color:#1e0010">’</span>}];
+
+}
+<span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;social&#39;</span>)
+  .<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#39;YoutubeSubscriberController&#39;</span>, <span style="color:#a6e22e">YoutubeSubscriberController</span>);
+</code></pre></div>
+<p>This creates the basic controller within which we can add things like querying
+the youtube-api for our subscriber count or querying our own RESTful services in
+order to attain any extra information we want to render through our application.</p>
+
+<h2 id="adding-our-controller-to-our-component">Adding our Controller to Our Component</h2>
+
+<p>Now that we actually have a controller defined, we can come back into our
+youtube-subscriber.component.js file and add a reference to our newly created
+controller like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">youtubeSubscribers</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">templateUrl</span><span style="color:#f92672">:</span>
+    <span style="color:#e6db74">&#34;app/components/social/youtube-subscribers/youtube-subscribers.html&#34;</span>,
+  <span style="color:#a6e22e">controller</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">YoutubeSubscriberController</span>,
+  <span style="color:#a6e22e">bindings</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">youtubeSubscribers</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;&#34;</span>
+  }
+};
+
+<span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#34;social&#34;</span>).<span style="color:#a6e22e">component</span>(<span style="color:#e6db74">&#34;youtubeSubscribers&#34;</span>, <span style="color:#a6e22e">youtubeSubscribers</span>);
+</code></pre></div>
+<p>Now we should be able to use any of the functions we may decide to add to the
+controller as well as view the variables that we’ve bound to our component. In
+this case we’ll just do an ng-repeat over all of the subs in our
+youtubeSubscribers array that we’eve defined in our controller.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;component&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;header&#34;</span>&gt;
+    Youtube Subscribers
+  &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;
+    <span style="color:#75715e">&lt;!-- Any number of barcharts, line-graphs etc to show our youtube stats over time --&gt;</span>
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">ng-repeat</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sub in $ctrl.youtubeSubscribers&#34;</span>&gt;{{ sub }}&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<h1 id="conclusions">Conclusions</h1>
+
+<p>This hopefully gave you an idea of how easy it is to extend a component based
+angularjs application and to define everything you need for your own components.
+We’ve covered how to bind variables and controllers to these newly created
+components and then access these variables within our html.</p>
+
+<p>If you found this tutorial useful then please let me know in the comments
+section below. Or conversely if you have anything you feel should be added to
+this tutorial let me know.</p>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/javascript/angularjs/working-with-angularjs-component-applications/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#getting-the-code">Getting the Code</a></li>
+<li><a href="#building-our-application">Building our Application</a></li>
+<li><a href="#the-structure">The Structure</a>
+<ul>
+<li><a href="#component-based-architecture">Component Based Architecture</a></li>
+</ul></li>
+<li><a href="#extending-this-application">Extending This Application</a>
+<ul>
+<li><a href="#our-html-page">Our HTML Page</a></li>
+<li><a href="#our-routes-page">Our Routes Page</a></li>
+<li><a href="#our-components-file">Our Components File</a></li>
+<li><a href="#updating-our-routes-provider">Updating our Routes Provider</a></li>
+<li><a href="#our-controller-file">Our Controller File</a></li>
+<li><a href="#adding-our-controller-to-our-component">Adding our Controller to Our Component</a></li>
+</ul></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">8db2143f6f8ead1d682ff20b3002b644</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

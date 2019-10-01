@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Creating a RESTful API With Golang | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" alt="Creating a RESTful API With Golang Image" />  Creating a RESTful API With Golang
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>14 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Apr 15, 2017</span>
+
+                <span>
+            
+            <a href="../../tags/intermediate"
+              ><span class="badge badge-pill badge-info">intermediate</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">advanced</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-websockets-tutorial/">Working with Websockets and Socket.IO in Go - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-protocol-buffer-tutorial/">Go Protocol Buffer Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-webassembly-tutorial/">Go WebAssembly Tutorial - Building a Calculator Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-oauth2-tutorial/">Go Oauth2 Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-face-recognition-tutorial-part-one/">Go Face Recognition Tutorial - Part 1</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-encrypt-decrypt-aes-tutorial/">Go Encryption and Decryption using AES - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-ci-cd-pipeline-go-projects/">Building a Solid Continuous Integration Pipeline with TravisCI for Your Go Projects</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-frontend-web-framework-webassembly-go/">Writing a Frontend Web Framework with WebAssembly And Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/authenticating-golang-rest-api-with-jwts/">Securing Your Go REST APIs With JWTs</a></li>
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">beginner</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/getting-started-with-go/">Getting Started With Go</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-basic-types-tutorial/">Go Basic Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-complex-types-tutorial/">Go Composite Types Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-functions-tutorial/">Go Functions Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-methods-tutorial/">Go Methods Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-interfaces-tutorial/">Go Interfaces Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-console-input-golang/">Reading in Console Input in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/executing-system-commands-with-golang/">Executing System Commands With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-json-with-golang/">Parsing JSON files With Golang</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/parsing-xml-with-golang/">Parsing XML Files With Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/the-go-init-function/">The Go init Function</a></li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-sorting-with-sort-tutorial/">Go Sorting With the sort Package - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-ticker-tutorial/">Go Tickers Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-modules-tutorial/">Go Modules Tutorial</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-json-tutorial/">Go JSON Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">concurrency</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/concurrency-with-golang-goroutines/">Concurrency With Golang Goroutines</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-mutex-tutorial/">Go Mutex Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-channels-tutorial/">Go Channels Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-waitgroup-tutorial/">Go WaitGroup Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">docker</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-multi-stage-docker-tutorial/">Go Multi-Stage Docker Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-docker-tutorial/">Containerizing your Go Applications with Docker - Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">file-upload</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-file-upload-tutorial/">Uploading Files in Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">filesystem</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/reading-writing-files-in-go/">Reading And Writing To Files in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/temporary-files-directories-go-111/">Working with Temporary Files and Directories in Go 1.11</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">graphql</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial-part-2/">Go Graphql Beginners Tutorial - Part 2</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-graphql-beginners-tutorial/">Go GraphQL Beginners Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">intermediate</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/an-intro-to-go-dep/">An Intro to Go Dep</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/consuming-restful-api-with-go/">Consuming A RESTful API With Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-restful-api-with-golang/">Creating a RESTful API With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/creating-simple-web-server-with-golang/">Creating A Simple Web Server With Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-a-cli-in-go/">Building a Network Command Line Interface in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/writing-a-twitter-bot-golang/">Writing A Twitter Bot in Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-orm-tutorial/">Golang ORM Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-mysql-tutorial/">Golang MySQL Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-closures-tutorial/">An Introduction to Go Closures - Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-variadic-function-tutorial/">Go Variadic Function Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/working-with-environment-variables-in-go/">Working With Environment Variables in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-decorator-function-pattern-tutorial/">Go Decorator Function Pattern Tutorial</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">misc</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/top-books-for-learning-golang/">The Best Books For Learning Golang</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/sending-email-using-go-and-mailgun/">Sending Email Using Go And Mailgun</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/implementing-bubble-sort-with-golang/">Implementing the Bubble Sort Algorithm using Golang</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/golang-integer-string-conversion-tutorial/">Golang Integer String Conversion Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">redis</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-redis-tutorial/">Getting Started with Redis and Go - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">snippets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/check-key-exists-in-map-go/">Check Key Exists in Map Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/concatenate-strings-in-go/">Concatenate Strings in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/snippets/sort-map-by-value/">Sort Map by Value</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">testing</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/intro-testing-in-go/">An Introduction to Testing in Go</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/advanced-go-testing-tutorial/">Advanced Go Testing Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/benchmarking-your-go-programs/">An Introduction to Benchmarking Your Go Programs</a></li>
+      
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-your-tests-with-testify-go/">Improving Your Go Tests and Mocks With Testify</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">tools</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/improving-go-workflow-with-git-hooks/">Improving Your Go Development Workflow With Git Hooks</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/makefiles-for-go-developers/">Makefiles for Go Developers</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">websockets</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/go-websocket-tutorial/">Go Websocket Tutorial</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/golang/building-realtime-youtube-sub-monitor-go/">Building a Real-time YouTube Subscriber Monitor in Go</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>If you are writing any form of web application, then you are most likely
+interfacing with 1 or more REST APIs in order to populate the dynamic
+parts of your application and to perform tasks such as updating or deleting
+data within a database.</p>
+
+<p><strong>In this tutorial, you are going to be building a fully-fledged REST API</strong>
+that exposes <code>GET</code>, <code>POST</code>, <code>DELETE</code> and <code>PUT</code> endpoints that will subsequently
+allow you to perform the full range of <code>CRUD</code> operations.</p>
+
+<p>In order to keep this simple and focus on the basic concepts, we won&rsquo;t be interacting
+with any backend database technologies to store the articles that we&rsquo;ll be
+playing with. However, we will be writing this REST API in such a way that it will
+be easy to update the functions we will be defining so that they make subsequent
+calls to a database to perform any necessary <code>CRUD</code> operations.</p>
+
+<p>If you wish to learn more about how you can use Go to interact with Databases,
+you can check out the following articles:</p>
+
+<ul>
+<li><a href="../../golang/golang-mysql-tutorial/">Go MySQL Tutorial</a></li>
+<li><a href="../../golang/golang-orm-tutorial/">Go ORM Tutorial</a></li>
+</ul>
+
+<blockquote>
+<p><strong>Source Code</strong> - The full source code for this article can be found here:
+<a href="https://github.com/TutorialEdge/create-rest-api-in-go-tutorial">TutorialEdge/create-rest-api-in-go-tutorial</a></p>
+</blockquote>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<ul>
+<li>You will need Go version 1.11+ installed on your development machine.</li>
+</ul>
+
+<h1 id="goals">Goals</h1>
+
+<p>By the end of this tutorial, you will know how to create your own REST-ful
+APIs in Go that can handle all aspects of. You will know how to create
+REST endpoints within your project that can handle <code>POST</code>, <code>GET</code>, <code>PUT</code> and
+<code>DELETE</code> HTTP requests.</p>
+
+<h1 id="video-tutorial">Video Tutorial</h1>
+
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/W5b64DXeP0o?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+
+<h1 id="rest-architectures">REST Architectures</h1>
+
+<p>REST is everywhere these days, from websites to enterprise applications, the
+RESTful architecture style is a powerful way of providing communication between
+separate software components. Building REST APIs allow you to easily decouple
+both consumers and producers and are typically stateless by design.</p>
+
+<blockquote>
+<p><strong>Note -</strong> If you wish to learn more about the basics of REST APIs then check
+out <a href="../../general/what-is-a-rest-api/">What Are RESTful APIs?</a></p>
+</blockquote>
+
+<h2 id="json">JSON</h2>
+
+<p>For the purpose of this tutorial I’ll be using JavaScript Object Notation as a
+means of sending and receiving all information and thankfully Go comes with some
+excellent support for encoding and decoding these formats using the standard
+library package, encoding/json.</p>
+
+<blockquote>
+<p><strong>Note -</strong> For more information on the encoding/json package check out the
+official documentation:
+<a href="https://golang.org/pkg/encoding/json/" target="_blank">encoding/json</a></p>
+</blockquote>
+
+<h2 id="marshalling">Marshalling</h2>
+
+<p>In order for us to easily We can easily convert data structures in GO into JSON
+by using something called marshalling which produces a byte slice containing a
+very long string with no extraneous white space.</p>
+
+<h1 id="getting-started-with-a-basic-api">Getting Started with A Basic API</h1>
+
+<p>To get started we will have to create a very simple server which can handle HTTP
+requests. To do this we&rsquo;ll create a new file called <code>main.go</code>. Within this
+<code>main.go</code> file we&rsquo;ll want to define 3 distinct functions. A <code>homePage</code> function
+that will handle all requests to our root URL, a <code>handleRequests</code> function that
+will match the URL path hit with a defined function and a <code>main</code> function which
+will kick off our API.</p>
+
+<div class="filename">main.go</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">homePage</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>){
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Welcome to the HomePage!&#34;</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Endpoint Hit: homePage&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleRequests</span>() {
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">homePage</span>)
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:10000&#34;</span>, <span style="color:#66d9ef">nil</span>))
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">handleRequests</span>()
+}</code></pre></div>
+<p>If we run this on our machine now, we should see our very simple API start up on
+port 10000 if it&rsquo;s not already been taken by another process. If we now navigate
+to <code>http://localhost:10000/</code> in our local browser we should see
+<code>Welcome to the HomePage!</code> print out on our screen. This means we have
+successfully created the base from which we&rsquo;ll build our REST API.</p>
+
+<blockquote>
+<p><strong>Note -</strong> If you want a more in-depth tutorial on how to create a go based
+web server then check out this tutorial here:
+<a href="../../golang/creating-simple-web-server-with-golang/">Creating a Simple
+Web Server with Go(Lang)</a></p>
+</blockquote>
+
+<h1 id="our-articles-structure">Our Articles Structure</h1>
+
+<p>We&rsquo;ll be creating a REST API that allows us to <code>CREATE</code>, <code>READ</code>, <code>UPDATE</code> and
+<code>DELETE</code> the articles on our website. When we talk about <code>CRUD</code> APIs we are
+referring to an API that can handle all of these tasks: Creating, Reading,
+Updating and Deleting.</p>
+
+<p>Before we can get started, we&rsquo;ll have to define our <code>Article</code> structure. Go has
+this concept of structs that are perfect for just this scenario. Let&rsquo;s create an
+<code>Article</code> struct that features a Title, a Description (desc) and Content like
+so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Article</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Title</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;Title&#34;`</span>
+    <span style="color:#a6e22e">Desc</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;desc&#34;`</span>
+    <span style="color:#a6e22e">Content</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;content&#34;`</span>
+}
+
+<span style="color:#75715e">// let&#39;s declare a global Articles array
+</span><span style="color:#75715e">// that we can then populate in our main function
+</span><span style="color:#75715e">// to simulate a database
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Articles</span> []<span style="color:#a6e22e">Article</span></code></pre></div>
+<p>Our Struct contains the 3 properties we need to represent all of the articles on
+our site. In order for this to work, we&rsquo;ll also have to import the
+<code>&quot;encoding/json&quot;</code> package into our list of imports.</p>
+
+<p>Let&rsquo;s now update our <code>main</code> function so that our <code>Articles</code> variable is populated
+with some dummy data that we can retrieve and modify later on.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">articles</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Articles</span>{
+        <span style="color:#a6e22e">Article</span>{<span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#a6e22e">Desc</span>: <span style="color:#e6db74">&#34;Article Description&#34;</span>, <span style="color:#a6e22e">Content</span>: <span style="color:#e6db74">&#34;Article Content&#34;</span>},
+        <span style="color:#a6e22e">Article</span>{<span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Hello 2&#34;</span>, <span style="color:#a6e22e">Desc</span>: <span style="color:#e6db74">&#34;Article Description&#34;</span>, <span style="color:#a6e22e">Content</span>: <span style="color:#e6db74">&#34;Article Content&#34;</span>},
+    }
+    <span style="color:#a6e22e">handleRequests</span>()
+}</code></pre></div>
+<p>Perfect, let&rsquo;s now move on to creating our <code>/articles</code> endpoint which will
+return all of the articles that we&rsquo;ve just defined here.</p>
+
+<h1 id="retrieving-all-articles">Retrieving All Articles</h1>
+
+<p>In this part of the tutorial we are going to create a new REST endpoint which,
+when hit with a <code>HTTP GET</code> request, will return all of the articles for our site.</p>
+
+<p>We&rsquo;ll first start off by creating a new function called <code>returnAllArticles</code>, which
+will do the simple task of returning our newly populated <code>Articles</code> variable, encoded
+in JSON format:</p>
+
+<div class="filename">main.go</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">returnAllArticles</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>){
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Endpoint Hit: returnAllArticles&#34;</span>)
+    <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">NewEncoder</span>(<span style="color:#a6e22e">w</span>).<span style="color:#a6e22e">Encode</span>(<span style="color:#a6e22e">Articles</span>)
+}</code></pre></div>
+<p>The call to <code>json.NewEncoder(w).Encode(article)</code> does the job of encoding our articles
+array into a JSON string and then writing as part of our response.</p>
+
+<p>Before this will work, we&rsquo;ll also need to add a new route to our <code>handleRequests</code>
+function that will map any calls to <code>http://localhost:10000/articles</code> to our newly
+defined function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleRequests</span>() {
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">homePage</span>)
+    <span style="color:#75715e">// add our articles route and map it to our 
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// returnAllArticles function like so
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/articles&#34;</span>, <span style="color:#a6e22e">returnAllArticles</span>)
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:10000&#34;</span>, <span style="color:#66d9ef">nil</span>))
+}</code></pre></div>
+<p>Now that we&rsquo;ve done this, run the code by typing <code>go run main.go</code> and then open
+up <code>http://localhost:10000/articles</code> in your browser and you should see a JSON
+representation of your list of articles like so:</p>
+
+<div class="filename">http://localhost:10000/articles response</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">[
+  {
+    <span style="color:#a6e22e">Title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello&#34;</span>,
+    <span style="color:#a6e22e">desc</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Description&#34;</span>,
+    <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Content&#34;</span>
+  },
+  {
+    <span style="color:#a6e22e">Title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello 2&#34;</span>,
+    <span style="color:#a6e22e">desc</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Description&#34;</span>,
+    <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Content&#34;</span>
+  }
+];
+</code></pre></div>
+<p>We&rsquo;ve successfully defined our first API endpoint.</p>
+
+<p>In the next part of this series, you are going to update your REST API
+to use a <code>gorilla/mux</code> router instead of the traditional <code>net/http</code> router.</p>
+
+<p>Swapping the routers will enable you to more easily perform tasks such as
+parsing any path or query parameters that may reside within an incoming
+<code>HTTP</code> request which we will need later on.</p>
+
+<h1 id="getting-started-with-routers">Getting Started with Routers</h1>
+
+<p>Now the standard library is adequate at providing everything you need to get
+your own simple REST API up and running but now that we’ve got the basic
+concepts down I feel it’s time to introduce third-party router packages. The
+most notable and highly used is the
+<a href="https://github.com/gorilla/mux">gorilla/mux router</a> which, as it stands
+currently has 2,281 stars on Github.</p>
+
+<h2 id="building-our-router">Building our Router</h2>
+
+<p>We can update our existing <code>main.go</code> file and swap in a <code>gorilla/mux</code>
+based <code>HTTP</code> router in place of the standard library one which was present
+before.</p>
+
+<p>Modify your <code>handleRequests</code> function so that it creates a new router.</p>
+
+<div class="filename">main.go</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+    <span style="color:#e6db74">&#34;encoding/json&#34;</span>
+    <span style="color:#e6db74">&#34;github.com/gorilla/mux&#34;</span>
+)
+
+<span style="color:#960050;background-color:#1e0010">…</span> <span style="color:#75715e">// Existing code from above
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleRequests</span>() {
+    <span style="color:#75715e">// creates a new instance of a mux router
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">myRouter</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">NewRouter</span>().<span style="color:#a6e22e">StrictSlash</span>(<span style="color:#66d9ef">true</span>)
+    <span style="color:#75715e">// replace http.HandleFunc with myRouter.HandleFunc
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">homePage</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/all&#34;</span>, <span style="color:#a6e22e">returnAllArticles</span>)
+    <span style="color:#75715e">// finally, instead of passing in nil, we want
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// to pass in our newly created router as the second
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// argument
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:10000&#34;</span>, <span style="color:#a6e22e">myRouter</span>))
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Rest API v2.0 - Mux Routers&#34;</span>)
+    <span style="color:#a6e22e">Articles</span> = []<span style="color:#a6e22e">Article</span>{
+        <span style="color:#a6e22e">Article</span>{<span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#a6e22e">Desc</span>: <span style="color:#e6db74">&#34;Article Description&#34;</span>, <span style="color:#a6e22e">Content</span>: <span style="color:#e6db74">&#34;Article Content&#34;</span>},
+        <span style="color:#a6e22e">Article</span>{<span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Hello 2&#34;</span>, <span style="color:#a6e22e">Desc</span>: <span style="color:#e6db74">&#34;Article Description&#34;</span>, <span style="color:#a6e22e">Content</span>: <span style="color:#e6db74">&#34;Article Content&#34;</span>},
+    }
+    <span style="color:#a6e22e">handleRequests</span>()
+}</code></pre></div>
+<p>When you now run this, you will see no real change to the way our system
+works. It will still start up on the same port and return the same
+results depending on what endpoints you hit.</p>
+
+<p>The only real difference is that we now have a gorilla/mux router which
+will allow us to easily do things such as retrieve path and query parameters
+later on in this tutorial.</p>
+
+<div class="filename"> $ go run main.go </div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">Rest API v2.0 - Mux Routers</code></pre></div>
+<h2 id="path-variables">Path Variables</h2>
+
+<p>So far so good, we’ve created a very simple REST API that returns a homepage and
+all our Articles. But what happens if we want to just view one article?</p>
+
+<p>Well, thanks to the gorilla mux router we can add variables to our paths and then
+pick and choose what articles we want to return based on these variables. Create a
+new route within your <code>handleRequests()</code> function just below our <code>/articles</code> route:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/article/{id}&#34;</span>, <span style="color:#a6e22e">returnSingleArticle</span>)</code></pre></div>
+<p>Notice that we&rsquo;ve added <code>{id}</code> to our path. This will represent our id variable
+that we&rsquo;ll be able to use when we wish to return only the article that features
+that exact key. For now, our <code>Article</code> struct doesn&rsquo;t feature an Id property.
+Let&rsquo;s add that now:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Article</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Id</span>      <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;Id&#34;`</span>
+    <span style="color:#a6e22e">Title</span>   <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;Title&#34;`</span>
+    <span style="color:#a6e22e">Desc</span>    <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;desc&#34;`</span>
+    <span style="color:#a6e22e">Content</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;content&#34;`</span>
+}</code></pre></div>
+<p>We can then update our <code>main</code> function to populate our <code>Id</code> values in our
+<code>Articles</code> array:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">Articles</span> = []<span style="color:#a6e22e">Article</span>{
+        <span style="color:#a6e22e">Article</span>{<span style="color:#a6e22e">Id</span>: <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#a6e22e">Desc</span>: <span style="color:#e6db74">&#34;Article Description&#34;</span>, <span style="color:#a6e22e">Content</span>: <span style="color:#e6db74">&#34;Article Content&#34;</span>},
+        <span style="color:#a6e22e">Article</span>{<span style="color:#a6e22e">Id</span>: <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Hello 2&#34;</span>, <span style="color:#a6e22e">Desc</span>: <span style="color:#e6db74">&#34;Article Description&#34;</span>, <span style="color:#a6e22e">Content</span>: <span style="color:#e6db74">&#34;Article Content&#34;</span>},
+    }
+    <span style="color:#a6e22e">handleRequests</span>()
+}</code></pre></div>
+<p>Now that we&rsquo;ve done that, in our <code>returnSingleArticle</code> function we can obtain
+this <code>{id}</code> value from our URL and we can return the article that matches this
+criteria. As we haven&rsquo;t stored our data anywhere we&rsquo;ll just be returning the Id
+that was passed to the browser.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">returnSingleArticle</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>){
+    <span style="color:#a6e22e">vars</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">Vars</span>(<span style="color:#a6e22e">r</span>)
+    <span style="color:#a6e22e">key</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">vars</span>[<span style="color:#e6db74">&#34;id&#34;</span>]
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Key: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">key</span>)
+}</code></pre></div>
+<p>If we navigate to <code>http://localhost:1000/article/1</code>after we&rsquo;ve now run this, you
+should see <code>Key: 1</code> being printed out within the browser.</p>
+
+<p>Let&rsquo;s use this <code>key</code> value to return the specific article that matches that key.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">returnSingleArticle</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#a6e22e">vars</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">Vars</span>(<span style="color:#a6e22e">r</span>)
+    <span style="color:#a6e22e">key</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">vars</span>[<span style="color:#e6db74">&#34;id&#34;</span>]
+
+    <span style="color:#75715e">// Loop over all of our Articles
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// if the article.Id equals the key we pass in
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// return the article encoded as JSON
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">article</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">Articles</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">article</span>.<span style="color:#a6e22e">Id</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">key</span> {
+            <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">NewEncoder</span>(<span style="color:#a6e22e">w</span>).<span style="color:#a6e22e">Encode</span>(<span style="color:#a6e22e">article</span>)
+        }
+    }
+}</code></pre></div>
+<p>Run that by calling <code>go run main.go</code> and then open up <code>http://localhost:10000/article/1</code>
+in your browser:</p>
+
+<div class="filename">http://localhost:10000/article/1 response</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+<span style="color:#a6e22e">Id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1&#34;</span>,
+<span style="color:#a6e22e">Title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello&#34;</span>,
+<span style="color:#a6e22e">desc</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Description&#34;</span>,
+<span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Content&#34;</span>
+}
+</code></pre></div>
+<p>You will now see the article matching the key <code>1</code> returned as JSON.</p>
+
+<h1 id="creating-and-updating-articles">Creating and Updating Articles</h1>
+
+<p>In this part of the tutorial, you are going to build the <code>Create</code>, <code>Update</code> and
+<code>DELETE</code> part of a <code>CRUD</code> REST API. We have already covered the <code>R</code> with the ability
+to read both single articles and all articles.</p>
+
+<h2 id="creating-new-articles">Creating new Articles</h2>
+
+<p>Once again, you will need to create a new function which will do the job of creating
+this new article.</p>
+
+<p>Let&rsquo;s start off by creating a <code>createNewArticle()</code> function within our <code>main.go</code> file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createNewArticle</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#75715e">// get the body of our POST request
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// return the string response containing the request body    
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">reqBody</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Body</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;%+v&#34;</span>, string(<span style="color:#a6e22e">reqBody</span>))
+}</code></pre></div>
+<p>With this function defined, you can now add the route to the list of routes defined
+within the <code>handleRequests</code> function. This time however, we&rsquo;ll be adding <code>.Methods(&quot;POST&quot;)</code>
+to the end of our route to specify that we only want to call this function when
+the incoming request is a <code>HTTP POST</code> request:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleRequests</span>() {
+    <span style="color:#a6e22e">myRouter</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">NewRouter</span>().<span style="color:#a6e22e">StrictSlash</span>(<span style="color:#66d9ef">true</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">homePage</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/articles&#34;</span>, <span style="color:#a6e22e">returnAllArticles</span>)
+    <span style="color:#75715e">// NOTE: Ordering is important here! This has to be defined before
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// the other `/article` endpoint. 
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/article&#34;</span>, <span style="color:#a6e22e">createNewArticle</span>).<span style="color:#a6e22e">Methods</span>(<span style="color:#e6db74">&#34;POST&#34;</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/article/{id}&#34;</span>, <span style="color:#a6e22e">returnSingleArticle</span>)
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:10000&#34;</span>, <span style="color:#a6e22e">myRouter</span>))
+}</code></pre></div>
+<p>Try running this again and then try submitting a <code>HTTP POST</code> request which
+contains the following <code>POST</code> body:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
+    <span style="color:#e6db74">&#34;Id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;3&#34;</span>, 
+    <span style="color:#e6db74">&#34;Title&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Newly Created Post&#34;</span>, 
+    <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;The description for my new post&#34;</span>, 
+    <span style="color:#e6db74">&#34;content&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;my articles content&#34;</span> 
+}
+</code></pre></div>
+<p>Our endpoint will trigger and subsequently echo back whatever value was in
+the request body.</p>
+
+<p>Now that you have validated your new endpoint is working correctly, let&rsquo;s
+update our <code>createNewArticle</code> function so that it unmarshals the JSON in the
+request body into a new <code>Article</code> struct which can subsequently be appended
+to our <code>Articles</code> array:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createNewArticle</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#75715e">// get the body of our POST request
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// unmarshal this into a new Article struct
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// append this to our Articles array.    
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">reqBody</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Body</span>)
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">article</span> <span style="color:#a6e22e">Article</span> 
+    <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">reqBody</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">article</span>)
+    <span style="color:#75715e">// update our global Articles array to include
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// our new Article
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Articles</span> = append(<span style="color:#a6e22e">Articles</span>, <span style="color:#a6e22e">article</span>)
+
+    <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">NewEncoder</span>(<span style="color:#a6e22e">w</span>).<span style="color:#a6e22e">Encode</span>(<span style="color:#a6e22e">article</span>)
+}</code></pre></div>
+<p>Awesome! If you run this now and send the same <code>POST</code> request to your application,
+you will see that it echoes back the same JSON format as before, but it also
+appends the new Article to your <code>Articles</code> array.</p>
+
+<p>Validate this now by hitting the <code>http://localhost:10000/articles</code>:</p>
+
+<div class="filename">http://localhost:10000/articles response</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">[
+    {
+        <span style="color:#e6db74">&#34;Id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1&#34;</span>,
+        <span style="color:#e6db74">&#34;Title&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello&#34;</span>,
+        <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Description&#34;</span>,
+        <span style="color:#e6db74">&#34;content&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Content&#34;</span>
+    },
+    {
+        <span style="color:#e6db74">&#34;Id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2&#34;</span>,
+        <span style="color:#e6db74">&#34;Title&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello 2&#34;</span>,
+        <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Description&#34;</span>,
+        <span style="color:#e6db74">&#34;content&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Article Content&#34;</span>
+    },
+    {
+        <span style="color:#e6db74">&#34;Id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;3&#34;</span>,
+        <span style="color:#e6db74">&#34;Title&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Newly Created Post&#34;</span>,
+        <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;The description for my new post&#34;</span>,
+        <span style="color:#e6db74">&#34;content&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;my articles content&#34;</span>
+    }
+]
+</code></pre></div>
+<p>You have now successfully added a <code>Create</code> function to your new REST API!</p>
+
+<p>In the next section of this tutorial, you are going to look at how you can
+add a new API Endpoint which will allow you to delete Articles.</p>
+
+<h2 id="deleting-articles">Deleting Articles</h2>
+
+<p>There may be times where you need to delete the data being exposed by your
+REST API. In order to do this, you need to expose a <code>DELETE</code> endpoint within
+your API that will take in an identifier and delete whatever is associated with
+that identifier.</p>
+
+<p>In this section of this tutorial, you are going to be creating another endpoint
+which receives <code>HTTP DELETE</code> requests and deletes articles if they match the given
+<code>Id</code> path parameter.</p>
+
+<p>Add a new function to your <code>main.go</code> file which we will call <code>deleteArticle</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteArticle</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#75715e">// once again, we will need to parse the path parameters
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">vars</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">Vars</span>(<span style="color:#a6e22e">r</span>)
+    <span style="color:#75715e">// we will need to extract the `id` of the article we
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// wish to delete
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">id</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">vars</span>[<span style="color:#e6db74">&#34;id&#34;</span>]
+
+    <span style="color:#75715e">// we then need to loop through all our articles
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">article</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">Articles</span> {
+        <span style="color:#75715e">// if our id path parameter matches one of our
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// articles
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">article</span>.<span style="color:#a6e22e">Id</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">id</span> {
+            <span style="color:#75715e">// updates our Articles array to remove the 
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// article
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">Articles</span> = append(<span style="color:#a6e22e">Articles</span>[:<span style="color:#a6e22e">index</span>], <span style="color:#a6e22e">Articles</span>[<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:]<span style="color:#f92672">...</span>)
+        }
+    }
+
+}</code></pre></div>
+<p>Once again, you will need to add a route to the <code>handleRequests</code> function which
+maps to this new <code>deleteArticle</code> function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleRequests</span>() {
+    <span style="color:#a6e22e">myRouter</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">NewRouter</span>().<span style="color:#a6e22e">StrictSlash</span>(<span style="color:#66d9ef">true</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">homePage</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/articles&#34;</span>, <span style="color:#a6e22e">returnAllArticles</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/article&#34;</span>, <span style="color:#a6e22e">createNewArticle</span>).<span style="color:#a6e22e">Methods</span>(<span style="color:#e6db74">&#34;POST&#34;</span>)
+    <span style="color:#75715e">// add our new DELETE endpoint here
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/article/{id}&#34;</span>, <span style="color:#a6e22e">deleteArticle</span>).<span style="color:#a6e22e">Methods</span>(<span style="color:#e6db74">&#34;DELETE&#34;</span>)
+    <span style="color:#a6e22e">myRouter</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/article/{id}&#34;</span>, <span style="color:#a6e22e">returnSingleArticle</span>)
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:10000&#34;</span>, <span style="color:#a6e22e">myRouter</span>))
+}</code></pre></div>
+<p>Try sending a new <code>HTTP DELETE</code> request to <code>http://localhost:10000/article/2</code>. This
+will delete the second article within your Articles array and when you subsequently
+hit <code>http://localhost:10000/articles</code> with a <code>HTTP GET</code> request, you should see it
+now only contains a single <code>Article</code>.</p>
+
+<blockquote>
+<p><strong>Note</strong> - To keep this simple, we are updating a global variable. However, we aren&rsquo;t
+doing any checks to ensure that our code is free of race conditions. In order to make this
+code thread-safe, I recommend checking out my other tutorial on <a href="../../golang/go-mutex-tutorial/">Go Mutexes</a></p>
+</blockquote>
+
+<h2 id="updating-articles-endpoint">Updating Articles Endpoint</h2>
+
+<p>The final endpoint you will need to implement is the Update endpoint. This endpoint
+will be a <code>HTTP PUT</code> based endpoint and will need to take in an <code>Id</code> path parameter,
+the same way we have done for our <code>HTTP DELETE</code> endpoint, as well as a JSON request
+body.</p>
+
+<p>This JSON in the body of the incoming <code>HTTP PUT</code> request will contain the newer version
+of the article that we want to update.</p>
+
+<h3 id="challenge"><strong>Challenge</strong></h3>
+
+<p>Try create an <code>updateArticle</code> function and corresponding route in the
+<code>handleRequests</code> function. This will match to <code>PUT</code> requests. Once you have this,
+implement the <code>updateArticle</code> function so that it parses the <code>HTTP</code> request body,
+using the same code that you used in your <code>createNewArticle</code> function.</p>
+
+<p>Finally, you will have to loop over the articles in your <code>Articles</code> array and match
+and subsequently update the article.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>This example represents a very simple RESTful API written using Go. In a real
+project, we&rsquo;d typically tie this up with a database so that we were returning
+real values.</p>
+
+<blockquote>
+<p><strong>Source Code</strong> - The full source code for this tutorial can be found here:
+<a href="https://github.com/TutorialEdge/create-rest-api-in-go-tutorial">TutorialEdge/create-rest-api-in-go</a></p>
+</blockquote>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+<li>For a tutorial on how to connect to a MySQL database using Go I&rsquo;d
+recommend my <a href="../../golang/golang-mysql-tutorial/">Go MySQL Tutorial</a></li>
+</ul>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/golang/creating-restful-api-with-golang/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#goals">Goals</a></li>
+<li><a href="#video-tutorial">Video Tutorial</a></li>
+<li><a href="#rest-architectures">REST Architectures</a>
+<ul>
+<li><a href="#json">JSON</a></li>
+<li><a href="#marshalling">Marshalling</a></li>
+</ul></li>
+<li><a href="#getting-started-with-a-basic-api">Getting Started with A Basic API</a></li>
+<li><a href="#our-articles-structure">Our Articles Structure</a></li>
+<li><a href="#retrieving-all-articles">Retrieving All Articles</a></li>
+<li><a href="#getting-started-with-routers">Getting Started with Routers</a>
+<ul>
+<li><a href="#building-our-router">Building our Router</a></li>
+<li><a href="#path-variables">Path Variables</a></li>
+</ul></li>
+<li><a href="#creating-and-updating-articles">Creating and Updating Articles</a>
+<ul>
+<li><a href="#creating-new-articles">Creating new Articles</a></li>
+<li><a href="#deleting-articles">Deleting Articles</a></li>
+<li><a href="#updating-articles-endpoint">Updating Articles Endpoint</a>
+<ul>
+<li><a href="#challenge"><strong>Challenge</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a>
+<ul>
+<li><a href="#further-reading">Further Reading</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">12065021138d937b9c225ef0f51aedc5</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

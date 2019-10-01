@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on My New Hugo Site</title>
+    <link>http://example.org/tags/typescript/</link>
+    <description>Recent content in typescript on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Oct 2018 12:46:35 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Stability Patterns in Angular</title>
+      <link>http://example.org/typescript/angular/stability-patterns-in-angular/</link>
+      <pubDate>Mon, 22 Oct 2018 12:46:35 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/stability-patterns-in-angular/</guid>
+      <description>Stability is one of the cornerstones of software engineering. No matter what, you must expect the worst from your environment and your users, and be prepared for it. Your Angular applications should be able to operate in a degraded mode when your backend is burning and smoothly recover when it comes back online. In this article, you’ll learn about stability patterns, timeouts and the circuit breaker.
+Timeouts You can never trust an API to work as expected, even if it is your own API.</description>
+    </item>
+    
+    <item>
+      <title>How to Create a Customary Hello Angular App – Guess the Number!</title>
+      <link>http://example.org/typescript/angular/guess-the-number-angular-6-beginners-tutorial/</link>
+      <pubDate>Wed, 25 Jul 2018 15:42:51 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/guess-the-number-angular-6-beginners-tutorial/</guid>
+      <description>Learn how to create a customary Hello Angular App – Guess the Number! in this tutorial by Kevin Hennessy, a developer, team lead, and solutions architect, working on web-based projects, primarily using the Microsoft technology stack.
+This article will help you create a simple “Guess the Number!” game, which will serve as a platform to launch you into the world of Angular and showcase the framework&amp;rsquo;s capabilities. The objective of the game is to guess a random computer-generated number in as few tries as possible.</description>
+    </item>
+    
+    <item>
+      <title>Async/Await in Typescript - Tutorial</title>
+      <link>http://example.org/typescript/async-await-in-typescript-tutorial/</link>
+      <pubDate>Tue, 19 Jun 2018 20:29:57 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/async-await-in-typescript-tutorial/</guid>
+      <description>In this tutorial, we are going to be looking at how you can use both the async and await keywords within your TypeScript application and subsequently improve the readibility and succinctness of your code.
+Introduction If you have come from a Node.JS background, you&amp;rsquo;ll most likely be familiar with something we know as Callback Hell. This is where you end up with code within your Node.JS applications that look akin to the Pyramids from ancient Giza.</description>
+    </item>
+    
+    <item>
+      <title>Typescript REST API And MongoDB Beginners Tutorial</title>
+      <link>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</link>
+      <pubDate>Sun, 10 Jun 2018 18:56:37 +0000</pubDate>
+      
+      <guid>http://example.org/typescript/typescript-mongodb-beginners-tutorial/</guid>
+      <description>Source Code - The full source code for this tutorial can be found here: github.com/TutorialEdge/TypeScript-MongoDB-REST-Tutorial
+ Introduction In this tutorial, we&amp;rsquo;ll be building a very simple REST API that will allow you to store, query, update and delete books from a book table within your MongoDB instance. This will hopefully cover everything you need to get a basic project up yourself for your own side projects.
+Prerequisites In order to complete this tutorial, you are going to need the following:</description>
+    </item>
+    
+    <item>
+      <title>Testing a TypeScript API With Mocha and Chai</title>
+      <link>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</link>
+      <pubDate>Sat, 09 Jun 2018 22:48:26 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/testing-typescript-api-with-mocha-chai/</guid>
+      <description>We are going to be using the very simple TypeScript API we developed in a previous tutorial in order to learn about Mocha and Chai Testing.
+ In this tutorial, we&amp;rsquo;ll be looking at how you can get a very simple test framework up and running for your TypesScript based API using the mocha and chai testing libraries.
+Why Do We Test? Being able to accurately test any application you build is hugely important for any software developer regardless of the technology stack they are working with.</description>
+    </item>
+    
+    <item>
+      <title>Testing Typescript Api With Jest and Supertest</title>
+      <link>http://example.org/typescript/testing-typescript-api-with-jest/</link>
+      <pubDate>Sat, 09 Jun 2018 22:48:26 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/testing-typescript-api-with-jest/</guid>
+      <description>We are going to be using the very simple TypeScript API we developed in a previous tutorial in order to learn about Jest Testing.
+ In this tutorial, we&amp;rsquo;ll be looking at how you can get a very simple test framework up and running for your TypesScript based API using the jest and supertest testing libraries.
+Installation Now that we have gotten the why? out of the way, let&amp;rsquo;s see how we can go about implementing our own testing framework:</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Typescript and Socket.Io - Tutorial</title>
+      <link>http://example.org/typescript/typescript-socket-io-tutorial/</link>
+      <pubDate>Wed, 30 May 2018 18:09:26 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/typescript-socket-io-tutorial/</guid>
+      <description>Last Updated - 24th December, 2018
+ Welcome friends! In this tutorial, we are going to be looking at how you can build a websocket based server using both TypeScript and Socket.io.
+We&amp;rsquo;ll be covering the following:
+ What WebSockets are and why they are beneficial Building a Simple TypeScript WebSocket Server Building a Simple client to connect to our Server Two-way communication between our client and our server  WebSockets WebSockets are an awesome technology and I absolutely love playing around with them and creating real-time applications.</description>
+    </item>
+    
+    <item>
+      <title>Building a RESTful API using Express and Typescript</title>
+      <link>http://example.org/typescript/creating-rest-api-express-typescript/</link>
+      <pubDate>Wed, 28 Mar 2018 20:25:53 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/creating-rest-api-express-typescript/</guid>
+      <description>In this tutorial, we are going to be building a REST API using both express and TypeScript! This REST API will simply return a status depending on what API endpoint we hit using our HTTP Client.
+Prerequisites You will require at least the following:
+ TypeScript 2.8.1 The Yarn Package Manager ExpressJS  Our Project Layout So within our project, we are going to create a couple of incredibly simple endpoints that will simply return a few simple strings, depending on what HTTP verb is used to hit said route.</description>
+    </item>
+    
+    <item>
+      <title>Angular Query Parameters Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-query-params-tutorial/</link>
+      <pubDate>Mon, 02 Oct 2017 19:47:19 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-query-params-tutorial/</guid>
+      <description>In this tutorial we are going to be taking a look at how you can extract information from query parameters from within your application&amp;rsquo;s URL and subsequently utilize this information in your Angular based application.
+ This assumes that you have already implemented routing within your Angular application. If you require further assistance with this then please feel free to check out my tutorial on Angular Routing
+ What Are Query Parameters?</description>
+    </item>
+    
+    <item>
+      <title>Angular Modules Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-modules-tutorial/</link>
+      <pubDate>Sun, 09 Apr 2017 21:05:28 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-modules-tutorial/</guid>
+      <description>This tutorial was built of the official Angular 2.2 release.
+ In this tutorial we’ll be examining what modules are in Angular 2.0 as well as how to define them, what the best practices are for using modules and what the differences are between 1._ Modules and 2._ modules.
+ Official documentation for Angular 2 Modules can be found here: Angular 2 Modules
+ What Are Modules? Typically a module would contain all the code necessary for one cohesive piece of functionality for your application.</description>
+    </item>
+    
+    <item>
+      <title>Angular Components Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-components-tutorial/</link>
+      <pubDate>Sun, 09 Apr 2017 21:04:56 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-components-tutorial/</guid>
+      <description>This tutorial was created using Angular 2.2
+ Most new frontend frameworks feature this concept of components and compartmentalizing blocks of code into distinct blocks that can be reused in multiple locations around your application. In Angular 2 we can do this by creating our own components.
+What Are Components? In Angular we can define these things we call components. These components are functional blocks of code that we can attach to html tags.</description>
+    </item>
+    
+    <item>
+      <title>Angular Services Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-services-tutorial/</link>
+      <pubDate>Sun, 09 Apr 2017 21:04:22 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-services-tutorial/</guid>
+      <description>If you’ve ever written an application in Angular 1.* that interfaces with a RESTful web API then you should have come across services. Services are essentially the interfaces we should use in order to interact with these APIs.
+They essentially provide a cleaner interface with which we can interact with APIs. If you are building a todo application that interacts with say a ToDo REST api then what method do you think is cleaner?</description>
+    </item>
+    
+    <item>
+      <title>The Top Books For Learning Angular</title>
+      <link>http://example.org/typescript/angular/best-books-for-learning-angular/</link>
+      <pubDate>Sun, 09 Apr 2017 21:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/best-books-for-learning-angular/</guid>
+      <description>The books listed below might specifically state they are for Angular 2. However due to semantic versioning these will still be relevant if you are working with Angular 4+
+ In this article we&amp;rsquo;ll be covering some of the best books you can buy if you are wanting to learn the intricacies of the Angular framework. If you have been following my site for a while you&amp;rsquo;ll know I am a huge advocate for the Angular framework.</description>
+    </item>
+    
+    <item>
+      <title>Angular Get Current Route using the Location Service</title>
+      <link>http://example.org/typescript/angular/angular-get-current-route-location/</link>
+      <pubDate>Sun, 09 Apr 2017 20:56:49 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-get-current-route-location/</guid>
+      <description>This tutorial was built using Angular 2.2. If you want to check out the official documentation for Angular 2 Location
+ In this tutorial we’ll be looking at various ways we can obtain the current URL of our application in Angular 2.
+The Location Service The location service is part of the @angular/common module. It allows you to interact directly with a browser’s URL and can read and redirect the user should you wish to.</description>
+    </item>
+    
+    <item>
+      <title>Angular Detecting Route Changes Within Your Application</title>
+      <link>http://example.org/typescript/angular/angular-detecting-route-changes/</link>
+      <pubDate>Sun, 09 Apr 2017 20:55:22 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-detecting-route-changes/</guid>
+      <description>This tutorial was built using Angular 2.2. Some of the features in this tutorial may not work for earlier/later versions.
+ Detecting whenever a route change happens in your application can be very useful for a multitude of reasons. For instance you may wish to store form data in a cookie in case they accidentally clicked on something they didn’t mean to.
+In Angular 2 detecting this route change is relatively simple.</description>
+    </item>
+    
+    <item>
+      <title>Angular Websockets Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-websockets-tutorial/</link>
+      <pubDate>Sun, 09 Apr 2017 20:52:33 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-websockets-tutorial/</guid>
+      <description>In this tutorial we’ll be looking at how you can implement a very simple WebSockets based Angular application.
+ You may also be interested in my tutorial: Creating a Realtime App with Angular and Socket.io
+ Video Tutorial  Browser Compatibility At this point in time I think it would be a good idea to let you know that websocket browser compatibility is not 100% and some older browsers may not support WebSockets.</description>
+    </item>
+    
+    <item>
+      <title>Angular Cookies Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-cookies-tutorial/</link>
+      <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-cookies-tutorial/</guid>
+      <description>This tutorial was built using Angular 2.2.
+ Cookies are small packages of information that are typically stored by your browser and websites tend to use cookies for multiple things. Cookies persist across multiple requests and browser sessions should you set them to and they can be a great method for authentication in some web apps.
+ Check out my AngularJS 1.* tutorial on storing information in cookies</description>
+    </item>
+    
+    <item>
+      <title>Angular Multiple Environment Configuration Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-environment-configuration-tutorial/</link>
+      <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-environment-configuration-tutorial/</guid>
+      <description>This Tutorial is part of the Angular Fundamentals course which can be found here: Angular Fundamentals
+ If you are developing serious applications there is a very good chance that you will have more than one environment. You’ll have at least one testing environment to harmlessly break things in and a polished production environment that is supposed to remain as stable as possible.
+Angular, or more specifically the angular-cli provides a very good mechanism for having multiple differing configuration files and for building these files easily into your finished build artefacts.</description>
+    </item>
+    
+    <item>
+      <title>Angular Observables Tutorial using RxJS</title>
+      <link>http://example.org/typescript/angular/angular-observables-tutorial/</link>
+      <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-observables-tutorial/</guid>
+      <description>The Observable Design pattern is an incredibly powerful paradigm that we can utilize in a wide array of different applications. In this tutorial we’ll be covering how you can implement your own observables in Angular.
+RxJS RxJS or reactive extensions is a set of libraries that are designed to help implement asynchronous and event-based programs and it’s necessary if you are wanting to perform Http requests or work with streams of information in Angular applications.</description>
+    </item>
+    
+    <item>
+      <title>Angular Routing Tutorial</title>
+      <link>http://example.org/typescript/angular/angular-routing-tutorial/</link>
+      <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
+      
+      <guid>http://example.org/typescript/angular/angular-routing-tutorial/</guid>
+      <description>This tutorial was built using Angular 2.2. Some of the code samples may not work if you are using previous versions
+ Routing is practically essential in all larger Angular applications, it provides us with the ability to show different sections of html within a master template and basically create a full-blown multi-page application.
+Routing in Angular 2+ has changed dramatically from the original AngularJS days where you would have to utilize the \$routeProvider and typically define routes in a separate file to that of your module file.</description>
+    </item>
+    
+  </channel>
+</rss>

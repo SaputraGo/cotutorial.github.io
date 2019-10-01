@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>Part 4 - Handling Multiple Clients | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../../">
+                <img alt="tutorialedge logo" src="../../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../../search"><img src="../../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="https://images.tutorialedge.net/images/golang.svg" alt="Part 4 - Handling Multiple Clients Image" />  Part 4 - Handling Multiple Clients
+        </h1>
+    </div>
+</div>
+<div class="post-info">
+    <div class="container">
+        <div class="post-info-inner">
+            <span>
+        
+        <img class="author" src="../../../images/svg/logo.svg" alt="CoTutorial" />
+        
+        <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+      </span>
+
+            <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>9 Minutes</span>
+            <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Mar 19, 2018</span>
+
+            <span>
+        
+        <a href="../../../tags/golang"
+          ><span class="badge badge-pill badge-info">golang</span></a>
+            
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+            <div class="col-sm-3 d-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">golang</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/chat-system-in-go-and-react/part-1-initial-setup/">Part 1 - Initial Setup</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/chat-system-in-go-and-react/part-2-simple-communication/">Part 2 - Simple Communication</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/chat-system-in-go-and-react/part-3-designing-our-frontend/">Part 3 - Designing our Frontend</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/chat-system-in-go-and-react/part-4-handling-multiple-clients/">Part 4 - Handling Multiple Clients</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/chat-system-in-go-and-react/part-5-improved-frontend/">Part 5 - Improving the Frontend</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/projects/chat-system-in-go-and-react/part-6-dockerizing-your-backend/">Part 6 - Dockerizing your Backend</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+                <article class="content">
+                    
+
+<blockquote>
+<p><strong>Note -</strong> This post is part 4 of a series on building a chat application in
+Go with ReactJS. You can find part 3 here -
+<a href="../../../projects/chat-system-in-go-and-react/part-3-designing-our-frontend/">Part 3 - Designing Our Frontend</a></p>
+</blockquote>
+
+<p>It&rsquo;s time to implement the ability to handle multiple clients and broadcast any
+received messages to every connected client. By the end of this part of the
+series we&rsquo;ll have:</p>
+
+<ul>
+<li>implemented a Pool mechanism that will effectively allow us to track how many
+connections we have into our WebSocket server.</li>
+<li>We&rsquo;ll also be able to broadcast any received messages to all connections
+within our connection pool.</li>
+<li>We&rsquo;ll also be able to inform any existing clients when another client connects
+or disconnects.</li>
+</ul>
+
+<p>Our application will look a little like this by the end of this part of the
+course:</p>
+
+<p><img src="https://images.tutorialedge.net/images/chat-app-go-react/screenshot-01.png" alt="Chat Application Screenshot" /></p>
+
+<h1 id="splitting-out-our-websocket-code">Splitting out our Websocket Code</h1>
+
+<p>Now that we&rsquo;ve done that necessary bit of house-cleaning, we can move on to
+improving our codebase. We&rsquo;re going to be splitting up some of our application
+into sub-packages for easier development.</p>
+
+<p>Now, ideally, your <code>main.go</code> file should just be an entry point into your Go
+application, it should be fairly minimal and call out to other packages within
+your project.</p>
+
+<blockquote>
+<p><strong>Note -</strong> We&rsquo;ll be basing our project layout on the unofficial standard for
+Go projects -
+<a href="https://github.com/golang-standards/project-layout">golang-standards/project-layout</a></p>
+</blockquote>
+
+<p>Let&rsquo;s create a new directory called <code>pkg/</code> within our backend directory. Within
+this, we&rsquo;ll want to create another directory called <code>websocket/</code> which will
+contain a <code>websocket.go</code> file.</p>
+
+<p>We&rsquo;ll be moving a lot of our WebSocket specific code that we currently have in
+our <code>main.go</code> file into this new <code>websocket.go</code> file.</p>
+
+<blockquote>
+<p><strong>Note -</strong> One key thing to note though, is that when we copy over our
+functions, we&rsquo;ll need to capitalize first letter of each function that we want
+to make visible to the rest of our project.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">websocket</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;io&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+
+    <span style="color:#e6db74">&#34;github.com/gorilla/websocket&#34;</span>
+)
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">upgrader</span> = <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrader</span>{
+    <span style="color:#a6e22e">ReadBufferSize</span>:  <span style="color:#ae81ff">1024</span>,
+    <span style="color:#a6e22e">WriteBufferSize</span>: <span style="color:#ae81ff">1024</span>,
+    <span style="color:#a6e22e">CheckOrigin</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) <span style="color:#66d9ef">bool</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> },
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Upgrade</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Conn</span>, <span style="color:#66d9ef">error</span>) {
+    <span style="color:#a6e22e">ws</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">upgrader</span>.<span style="color:#a6e22e">Upgrade</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>, <span style="color:#66d9ef">nil</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ws</span>, <span style="color:#a6e22e">err</span>
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ws</span>, <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Reader</span>(<span style="color:#a6e22e">conn</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Conn</span>) {
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#a6e22e">messageType</span>, <span style="color:#a6e22e">p</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">ReadMessage</span>()
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">p</span>))
+
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">WriteMessage</span>(<span style="color:#a6e22e">messageType</span>, <span style="color:#a6e22e">p</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+    }
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Writer</span>(<span style="color:#a6e22e">conn</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Conn</span>) {
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Sending&#34;</span>)
+        <span style="color:#a6e22e">messageType</span>, <span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">NextReader</span>()
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+        <span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">NextWriter</span>(<span style="color:#a6e22e">messageType</span>)
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Copy</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">Close</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+    }
+}</code></pre></div>
+<p>Now that we&rsquo;ve created this new <code>websocket</code> package, we&rsquo;ll then want to update
+our <code>main.go</code> file to call out to this new package. We&rsquo;ll first have to add a
+new import to our list of imports at the top of our file, and then we can call
+the functions within that package by prepending the calls with <code>websocket.</code> like
+so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+
+    <span style="color:#e6db74">&#34;github.com/TutorialEdge/realtime-chat-go-react/pkg/websocket&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">serveWs</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#a6e22e">ws</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrade</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;%+V\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+    }
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Writer</span>(<span style="color:#a6e22e">ws</span>)
+    <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Reader</span>(<span style="color:#a6e22e">ws</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupRoutes</span>() {
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/ws&#34;</span>, <span style="color:#a6e22e">serveWs</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Distributed Chat App v0.01&#34;</span>)
+    <span style="color:#a6e22e">setupRoutes</span>()
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#66d9ef">nil</span>)
+}</code></pre></div>
+<p>With these new changes made, we should check to see that what we have done
+hasn&rsquo;t broken our existing functionality. Try running your backend and frontend
+again and ensuring that you can still send and receive messages:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> go run main.go</code></pre></div>
+<p>If that has worked successfully, we can move on to extending our codebase to
+handle multiple clients.</p>
+
+<p>By this point, your directory structure should look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">-</span> backend<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> pkg<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> <span style="color:#f92672">-</span> websocket<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> <span style="color:#f92672">-</span> <span style="color:#f92672">-</span> websocket.go
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> main.go
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> go.mod
+<span style="color:#f92672">-</span> <span style="color:#f92672">-</span> go.sum
+<span style="color:#f92672">-</span> frontend<span style="color:#f92672">/</span>
+<span style="color:#f92672">-</span> <span style="color:#66d9ef">...</span></code></pre></div>
+<h1 id="handling-multiple-clients">Handling Multiple Clients</h1>
+
+<p>Excellent, so now that we&rsquo;ve done our basic house-keeping, we can move on to
+improving our backend and implement a mechanism to handle multiple clients.</p>
+
+<p>In order to do this, we&rsquo;ll need to consider how we are handling connections in
+to our WebSocket server. Whenever a new connection is made, we&rsquo;ll have to add
+them to a pool of existing connections and ensure that every time a message is
+sent, everyone in that pool receives that message.</p>
+
+<h2 id="using-channels">Using Channels</h2>
+
+<p>We&rsquo;re going to be working on a system that features a lot of concurrent
+connections. For each of these concurrent connections, a new <code>goroutine</code> is spun
+up for the duration of that connection. This means that we have to worry about
+communication across these concurrent <code>goroutines</code> and ensure that whatever we
+are doing, is thread-safe.</p>
+
+<p>This means that, when we are implementing a <code>Pool</code> structure further down the
+line, we&rsquo;ll have to consider either using a <code>sync.Mutex</code> to mutually exclude
+<code>goroutines</code> from simultaneously accessing/modifying our data, or we can use
+<code>channels</code>.</p>
+
+<p>For this project, I think we&rsquo;ll be better off using <code>channels</code> and using them to
+communicate in a safe fashion across these multiple, concurrent <code>goroutines</code>.</p>
+
+<blockquote>
+<p><strong>Note -</strong> If you wish to learn more about channels in Go, you can check out
+my other article here: <a href="../../../golang/go-channels-tutorial/">Go Channels Tutorial</a></p>
+</blockquote>
+
+<h2 id="client-go">Client.go</h2>
+
+<p>Let&rsquo;s start off by creating a new file called <code>Client.go</code>, this will live within
+our <code>pkg/websocket</code> directory and within it we&rsquo;ll define a <code>Client</code> struct which
+contain the following:</p>
+
+<ul>
+<li><strong>ID</strong> - a uniquely identifiably string for a particular connection</li>
+<li><strong>Conn</strong> - a pointer to a <code>websocket.Conn</code> object</li>
+<li><strong>Pool</strong> - a pointer to the Pool which this client will be part of</li>
+</ul>
+
+<p>We&rsquo;ll also define a <code>Read()</code> method which will constantly listen in for new
+messages coming through on this <code>Client</code>&rsquo;s websocket connection.</p>
+
+<p>If there are any messages, it will pass these messages to the Pool&rsquo;s <code>Broadcast</code>
+channel which subsequently broadcasts the received message to every client
+within the pool.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">websocket</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;sync&#34;</span>
+
+    <span style="color:#e6db74">&#34;github.com/gorilla/websocket&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Client</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">ID</span>   <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">Conn</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Conn</span>
+    <span style="color:#a6e22e">Pool</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Pool</span>
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Message</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Type</span> <span style="color:#66d9ef">int</span>    <span style="color:#e6db74">`json:&#34;type&#34;`</span>
+    <span style="color:#a6e22e">Body</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;body&#34;`</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>) <span style="color:#a6e22e">Read</span>() {
+    <span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+        <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Pool</span>.<span style="color:#a6e22e">Unregister</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>
+        <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Conn</span>.<span style="color:#a6e22e">Close</span>()
+    }()
+
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#a6e22e">messageType</span>, <span style="color:#a6e22e">p</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Conn</span>.<span style="color:#a6e22e">ReadMessage</span>()
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+        <span style="color:#a6e22e">message</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Message</span>{<span style="color:#a6e22e">Type</span>: <span style="color:#a6e22e">messageType</span>, <span style="color:#a6e22e">Body</span>: string(<span style="color:#a6e22e">p</span>)}
+        <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Pool</span>.<span style="color:#a6e22e">Broadcast</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">message</span>
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Message Received: %+v\n&#34;</span>, <span style="color:#a6e22e">message</span>)
+    }
+}</code></pre></div>
+<p>Awesome, now that we&rsquo;ve defined our Client within our code, we can move on to
+implementing our Pool.</p>
+
+<h2 id="pool-struct">Pool Struct</h2>
+
+<p>We&rsquo;ll create a new file within the same directory as our <code>client.go</code> file and
+our <code>websocket.go</code> file called <code>pool.go</code></p>
+
+<p>Let&rsquo;s start off by defining a <code>Pool</code> struct which will contain all of the
+<code>channels</code> we need for concurrent communication, as well as a <code>map</code> of clients.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">websocket</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Pool</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Register</span>   <span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>
+    <span style="color:#a6e22e">Unregister</span> <span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>
+    <span style="color:#a6e22e">Clients</span>    <span style="color:#66d9ef">map</span>[<span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>]<span style="color:#66d9ef">bool</span>
+    <span style="color:#a6e22e">Broadcast</span>  <span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">Message</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewPool</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Pool</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Pool</span>{
+        <span style="color:#a6e22e">Register</span>:   make(<span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>),
+        <span style="color:#a6e22e">Unregister</span>: make(<span style="color:#66d9ef">chan</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>),
+        <span style="color:#a6e22e">Clients</span>:    make(<span style="color:#66d9ef">map</span>[<span style="color:#f92672">*</span><span style="color:#a6e22e">Client</span>]<span style="color:#66d9ef">bool</span>),
+        <span style="color:#a6e22e">Broadcast</span>:  make(<span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">Message</span>),
+    }
+}</code></pre></div>
+<p>We need to ensure that only one point of our application has the ability to
+write to our WebSocket connections or we&rsquo;ll face concurrent write issues. So,
+let&rsquo;s define our <code>Start()</code> method which will constantly listen for anything
+passed to any of our <code>Pool</code>&rsquo;s channels and then, if anything is received into
+one of these channels, it&rsquo;ll act accordingly.</p>
+
+<ul>
+<li><strong>Register</strong> - Our register channel will send out <code>New User Joined...</code> to all
+of the clients within this pool when a new client connects.</li>
+<li><strong>Unregister</strong> - Will unregister a user and notify the pool when a client
+disconnects.</li>
+<li><strong>Clients</strong> - a map of clients to a boolean value. We can use the boolean
+value to dictate active/inactive but not disconnected further down the line
+based on browser focus.</li>
+<li><strong>Broadcast</strong> - a channel which, when it is passed a message, will loop
+through all clients in the pool and send the message through the socket
+connection.</li>
+</ul>
+
+<p>Let&rsquo;s code this up now:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">pool</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Pool</span>) <span style="color:#a6e22e">Start</span>() {
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#66d9ef">select</span> {
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Register</span>:
+            <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span>[<span style="color:#a6e22e">client</span>] = <span style="color:#66d9ef">true</span>
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Size of Connection Pool: &#34;</span>, len(<span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span>))
+            <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span> {
+                <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">client</span>)
+                <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Conn</span>.<span style="color:#a6e22e">WriteJSON</span>(<span style="color:#a6e22e">Message</span>{<span style="color:#a6e22e">Type</span>: <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">Body</span>: <span style="color:#e6db74">&#34;New User Joined...&#34;</span>})
+            }
+            <span style="color:#66d9ef">break</span>
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Unregister</span>:
+            delete(<span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span>, <span style="color:#a6e22e">client</span>)
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Size of Connection Pool: &#34;</span>, len(<span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span>))
+            <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span> {
+                <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Conn</span>.<span style="color:#a6e22e">WriteJSON</span>(<span style="color:#a6e22e">Message</span>{<span style="color:#a6e22e">Type</span>: <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">Body</span>: <span style="color:#e6db74">&#34;User Disconnected...&#34;</span>})
+            }
+            <span style="color:#66d9ef">break</span>
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Broadcast</span>:
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Sending message to all clients in Pool&#34;</span>)
+            <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Clients</span> {
+                <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Conn</span>.<span style="color:#a6e22e">WriteJSON</span>(<span style="color:#a6e22e">message</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+                    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+                    <span style="color:#66d9ef">return</span>
+                }
+            }
+        }
+    }
+}</code></pre></div>
+<h2 id="websocket-go">Websocket.go</h2>
+
+<p>Awesome, let&rsquo;s make some more small changes to our <code>websocket.go</code> file and
+remove some of the no-longer necessary functions and methods:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">websocket</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+
+    <span style="color:#e6db74">&#34;github.com/gorilla/websocket&#34;</span>
+)
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">upgrader</span> = <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrader</span>{
+    <span style="color:#a6e22e">ReadBufferSize</span>:  <span style="color:#ae81ff">1024</span>,
+    <span style="color:#a6e22e">WriteBufferSize</span>: <span style="color:#ae81ff">1024</span>,
+    <span style="color:#a6e22e">CheckOrigin</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) <span style="color:#66d9ef">bool</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span> },
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Upgrade</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Conn</span>, <span style="color:#66d9ef">error</span>) {
+    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">upgrader</span>.<span style="color:#a6e22e">Upgrade</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>, <span style="color:#66d9ef">nil</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+    }
+
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">conn</span>, <span style="color:#66d9ef">nil</span>
+}</code></pre></div>
+<h1 id="updating-our-main-go-file">Updating our main.go file:</h1>
+
+<p>And finally, we&rsquo;ll need to update our <code>main.go</code> file to create a new <code>Client</code> on
+every connection and to register that client with a <code>Pool</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+
+    <span style="color:#e6db74">&#34;github.com/TutorialEdge/realtime-chat-go-react/pkg/websocket&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">serveWs</span>(<span style="color:#a6e22e">pool</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Pool</span>, <span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;WebSocket Endpoint Hit&#34;</span>)
+    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrade</span>(<span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+    }
+
+    <span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Client</span>{
+        <span style="color:#a6e22e">Conn</span>: <span style="color:#a6e22e">conn</span>,
+        <span style="color:#a6e22e">Pool</span>: <span style="color:#a6e22e">pool</span>,
+    }
+
+    <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Register</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">client</span>
+    <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Read</span>()
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setupRoutes</span>() {
+    <span style="color:#a6e22e">pool</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">NewPool</span>()
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Start</span>()
+
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/ws&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+        <span style="color:#a6e22e">serveWs</span>(<span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">w</span>, <span style="color:#a6e22e">r</span>)
+    })
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Distributed Chat App v0.01&#34;</span>)
+    <span style="color:#a6e22e">setupRoutes</span>()
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#66d9ef">nil</span>)
+}</code></pre></div>
+<h1 id="testing-it-works">Testing it Works</h1>
+
+<p>Now that we&rsquo;ve made all of the necessary changes, we should be in a great place
+to test what we&rsquo;ve done and ensure everything is working as intended.</p>
+
+<p>Kick off your backend application:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#f92672">$</span> go run main.go
+Distributed Chat App v0.01</code></pre></div>
+<p>If you open up <code>http://localhost:3000</code> in a couple of browser tabs, you should
+notice that these connect automatically to our backend WebSocket server and we
+can now send and receive messages from other clients connected within the same
+<code>Pool</code>!</p>
+
+<p><img src="https://images.tutorialedge.net/images/chat-app-go-react/screenshot-01.png" alt="Chat Application Screenshot" /></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>So, in this part of the series, we managed to implement a way to handle multiple
+clients and broadcast messages to everyone connected in the connection pool.</p>
+
+<p>Now things are starting to get a bit more interesting. We can start adding in
+cool new features such as custom messages in the next part of this series.</p>
+
+<p>Check out the next part of this series here:
+<a href="../../../projects/chat-system-in-go-and-react/part-5-improved-frontend/">Part 5 - Improving the Frontend</a></p>
+
+<blockquote>
+<p><strong>Enjoying This Series?</strong> - If you are enjoying this series, or have any
+feedback, I would love to hear it on twitter and see your progress in the form
+of screenshots! - <a href="https://twitter.com/elliot_f">@Elliot_f</a>.</p>
+</blockquote>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+            </div>
+            <div class="col-sm-2 hidden-md-down">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#splitting-out-our-websocket-code">Splitting out our Websocket Code</a></li>
+<li><a href="#handling-multiple-clients">Handling Multiple Clients</a>
+<ul>
+<li><a href="#using-channels">Using Channels</a></li>
+<li><a href="#client-go">Client.go</a></li>
+<li><a href="#pool-struct">Pool Struct</a></li>
+<li><a href="#websocket-go">Websocket.go</a></li>
+</ul></li>
+<li><a href="#updating-our-main-go-file">Updating our main.go file:</a></li>
+<li><a href="#testing-it-works">Testing it Works</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+                        <hr/>
+                        <div id="codefund">
+                            
+                        </div>
+                        <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="comments">
+    <div class="container">
+        <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/projects/chat-system-in-go-and-react/part-4-handling-multiple-clients/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+    </div>
+</div>
+
+<script src="../../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 20
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content h1, .content h2, .content h3, .content h4, .content h5, .content h6"
+        );
+    });
+</script>
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">4a4c1b2b4cebbfa0b7a4b2fa8b20d857</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

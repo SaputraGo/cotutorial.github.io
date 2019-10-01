@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c on My New Hugo Site</title>
+    <link>http://example.org/tags/c/</link>
+    <description>Recent content in c on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Dec 2017 21:32:19 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating Basic Python C Extensions - Tutorial</title>
+      <link>http://example.org/python/python-c-extensions-tutorial/</link>
+      <pubDate>Fri, 01 Dec 2017 21:32:19 +0000</pubDate>
+      
+      <guid>http://example.org/python/python-c-extensions-tutorial/</guid>
+      <description>This tutorial was built using Python 3.6. The official documentation can be found here: Extending and Embedding the Python Interpreter
+ In this tutorial we are going to take a look at how you can create a really simple Python module using the C programming language. I felt this was a good topic to cover as I personally struggled with finding succinct documentation that worked and showed me the basics.</description>
+    </item>
+    
+  </channel>
+</rss>

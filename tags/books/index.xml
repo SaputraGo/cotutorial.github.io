@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>books on My New Hugo Site</title>
+    <link>http://example.org/tags/books/</link>
+    <description>Recent content in books on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Dec 2017 15:07:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Top Programming Books for Learning Rust</title>
+      <link>http://example.org/rust/best-books-for-learning-rust/</link>
+      <pubDate>Sun, 17 Dec 2017 15:07:54 +0000</pubDate>
+      
+      <guid>http://example.org/rust/best-books-for-learning-rust/</guid>
+      <description>In this article we will be looking at the best books you can buy to help you learn the basics of Rust Systems Development.
+Rust is an incredibly fast systems programming language that is used by a very wide range of organizations such as mozilla (the original creators of the language), Atlassion, Dropbox and npm.
+Programming Rust: Fast, Safe Systems Development Programming Rust: Fast, Safe Systems Development (1st Edition) is a fantastic resource for those of you willing to pick up the relatively new language.</description>
+    </item>
+    
+    <item>
+      <title>The Top Books For Intermediate Level Programmers</title>
+      <link>http://example.org/general/top-books-for-intermediate-programmers/</link>
+      <pubDate>Tue, 28 Nov 2017 20:18:29 +0000</pubDate>
+      
+      <guid>http://example.org/general/top-books-for-intermediate-programmers/</guid>
+      <description>This list is currently under construction, if you know of any books that are potentially missing from this list then please let me know in the comments section below!
+ In this article we will be looking at some of the very top books you can buy as an intermediate level programmer to improve your skills and become a true master of your craft.
+Code Complete: A Practical Handbook of Software Construction (2nd Edition) This is without a doubt one of the best practical guides that any budding programmer should be reading in order to top up their programming skills.</description>
+    </item>
+    
+    <item>
+      <title>The Top Programming Books for Beginners</title>
+      <link>http://example.org/general/top-beginner-programming-books/</link>
+      <pubDate>Tue, 28 Nov 2017 18:04:33 +0000</pubDate>
+      
+      <guid>http://example.org/general/top-beginner-programming-books/</guid>
+      <description>In this article we will be looking at the best books you can buy to help you learn the basics of computer programming.
+Code Complete: 2 This is without a doubt one of the best practical guides that any budding programmer should be reading in order to top up their programming skills. This book contains a massive number of practical points that touch upon a wide range of different topics.</description>
+    </item>
+    
+    <item>
+      <title>The Best Books For Learning VueJS</title>
+      <link>http://example.org/javascript/vuejs/best-books-learning-vuejs/</link>
+      <pubDate>Mon, 11 Sep 2017 20:00:19 +0100</pubDate>
+      
+      <guid>http://example.org/javascript/vuejs/best-books-learning-vuejs/</guid>
+      <description>Vue.js is a fantastic lightweight javascript framework that is ideal for building user interfaces in an incremental fashion. This means you don&amp;rsquo;t need to start with a heavy full-fledged framework for what could be a small side-project.
+If you have followed the site for some time you will know that I&amp;rsquo;ve been a major fan of AngularJS and then Angular 2-4 in the early days and in fairness I have only just started to scratch the surface of Vue.</description>
+    </item>
+    
+    <item>
+      <title>The Best Books For Learning React and React Native</title>
+      <link>http://example.org/react/best-books-for-learning-react/</link>
+      <pubDate>Mon, 11 Sep 2017 18:53:10 +0100</pubDate>
+      
+      <guid>http://example.org/react/best-books-for-learning-react/</guid>
+      <description>  This List is Currently under Construction
+ Learning React Native Buy Now: Learning React Native Learning React Buy Now: Learning React: Functional Web Development with React and Redux React Up &amp;amp; Running Buy Now: React Up &amp;amp; Running Mastering React Buy Now: Mastering React React and React Native Buy Now: React and React Native React Native Cookbook Buy Now: React Native Cookbook React.js Essentials Buy Now: React.js Essentials </description>
+    </item>
+    
+    <item>
+      <title>The Best Books for Learning JavaScript</title>
+      <link>http://example.org/javascript/best-books-learning-javascript/</link>
+      <pubDate>Tue, 05 Sep 2017 19:20:04 +0100</pubDate>
+      
+      <guid>http://example.org/javascript/best-books-learning-javascript/</guid>
+      <description>Under Construction
+ JavaScript: The Good Parts Douglas Crockford is one of the most prominent experts in the field of JavaScript by many in the development community and his book JavaScript: The Good Parts is an excellent addition to any JavaScript developers library. The book goes over some of the best parts of the JavaScript language and is exceptionally well written. With an average review of 4.4 out of 5 stars on Amazon, this is definitely a safe purchase for those wanting to master the art of JavaScript programming and create absolutely beautiful software systems.</description>
+    </item>
+    
+    <item>
+      <title>The Best Books For Learning Game Development</title>
+      <link>http://example.org/gamedev/best-books-learn-game-dev/</link>
+      <pubDate>Tue, 05 Sep 2017 18:09:42 +0100</pubDate>
+      
+      <guid>http://example.org/gamedev/best-books-learn-game-dev/</guid>
+      <description>This list is currently under construction
+ In this article we will be looking at some of the best and most popular books you can buy should you wish to learn more about the art of game development.
+Game development as a whole is quite a fragmented field, there are a wide number of game engines such as Unity and Unreal which abstract away the complexities of things like graphics rendering and physics engines and allow game developers to focus purely on game-play mechanics.</description>
+    </item>
+    
+    <item>
+      <title>The Best Books for Learning Web Development</title>
+      <link>http://example.org/webdev/best-book-learn-web-dev/</link>
+      <pubDate>Tue, 05 Sep 2017 18:07:38 +0100</pubDate>
+      
+      <guid>http://example.org/webdev/best-book-learn-web-dev/</guid>
+      <description>In this article we are going to be taking a look at some of the best books you can buy if you are interested in learning more about the art of web development.
+ This list isn&amp;rsquo;t an exhaustive list of all the best books currently available, it&amp;rsquo;s just a small list of books I feel are excellent at teaching the basics. If you have any you would like to add then please let me know in the comments section.</description>
+    </item>
+    
+    <item>
+      <title>The Top Books For Learning Angular</title>
+      <link>http://example.org/typescript/angular/best-books-for-learning-angular/</link>
+      <pubDate>Sun, 09 Apr 2017 21:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/typescript/angular/best-books-for-learning-angular/</guid>
+      <description>The books listed below might specifically state they are for Angular 2. However due to semantic versioning these will still be relevant if you are working with Angular 4+
+ In this article we&amp;rsquo;ll be covering some of the best books you can buy if you are wanting to learn the intricacies of the Angular framework. If you have been following my site for a while you&amp;rsquo;ll know I am a huge advocate for the Angular framework.</description>
+    </item>
+    
+    <item>
+      <title>The Top Books for Learning to Program in Python</title>
+      <link>http://example.org/python/best-books-for-python/</link>
+      <pubDate>Sun, 14 Feb 2016 16:11:58 +0530</pubDate>
+      
+      <guid>http://example.org/python/best-books-for-python/</guid>
+      <description>Python is one of the most popular programming languages on the planet. It’s widely regarded as one of the best languages to learn first if you are wanting to get into computer programming.
+Dive Into Python Amazon: Dive Into Python Dive into Python is a perfect hands-on guide for experienced programmers to come to grips with the Python programming language. It&amp;rsquo;s succinct in the way it delivers its content and is an excellent reference book that&amp;rsquo;s definitely handy to have close at hand when programming.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="o0UedRQqZULbVZPe6SPx1VD1YxJd6WL-2-15-XHWS1g" />
+    <meta name="msvalidate.01" content="479C48823705295AF4454A1704545592" />
+    <meta name="description" content="Hundreds of free tutorials for cutting edge languages and frameworks."> 
+    <meta name="author" content="Wisnu Saputra">
+    <meta property="og:site_name" content="CoTutorial" />
+
+    <title>How to use Terraform, Go, and AWS to build a scalable and resilient REST API | CoTutorial</title>
+
+
+    <link rel="icon" type="image/png" href="https://images.tutorialedge.net/images/favicon.ico">
+    <link media="all" defer rel="stylesheet" href="https://use.typekit.net/jnu8xif.css">
+    <link media="all" defer href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link media="all" defer rel="stylesheet" href="http://example.org//css/style.css">  <meta name="generator" content="Hugo 0.57.2" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="../../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <meta content='100023577212451' property='fb:admins'/>
+    <meta content="493615514813695" property="fb:app_id"/>
+
+</head>
+
+<body>
+    <div id="dynamicApp">
+        <nav class="navbar navbar-expand-lg">
+            
+            <a class="navbar-brand" href="../../">
+                <img alt="tutorialedge logo" src="../../images/svg/logo.svg" alt="My New Hugo Site">
+                <span>CoTutorial</span>
+            </a>
+            
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+		</button>
+            
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Courses
+						</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//course/artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" />AI</a>
+                            <a class="dropdown-item" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                            <a class="dropdown-item" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" />Cloud</a>
+                            <a class="dropdown-item" href="http://example.org//course/compsci/"><img alt="computer science" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Computer Science</a>
+                            <a class="dropdown-item" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                            <a class="dropdown-item" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                            <a class="dropdown-item" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                            <a class="dropdown-item" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev
+                            </a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="courseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Projects
+					</a>
+                        <div class="dropdown-menu" aria-labelledby="courseDropdown">
+                            <a class="dropdown-item" href="http://example.org//projects/hacker-news-clone-vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />HackerNews Clone in VueJS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/building-blog-with-vuejs-aws/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />Building a VueJS Blog on AWS</a>
+                            <a class="dropdown-item" href="http://example.org//projects/chat-system-in-go-and-react/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Building a Chat Application in Go and React</a>
+                        </div>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Tutorials
+					</a>
+                        <div class="dropdown-menu dropdown-menu-mega" aria-labelledby="tutorialDropdown">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//artificial-intelligence/"><img alt="AI logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/ai.png" /> AI</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/angular/"><img alt="Angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" />Angular</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/angularjs/"><img alt="AngularJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/logos/angularjs.svg" /> AngularJS</a>
+                                    <a class="dropdown-item" href="http://example.org//cloud/"><img alt="Cloud logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                                    <a class="dropdown-item" href="http://example.org//compsci/"><img alt="Comp Sci logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Comp Sci</a>
+                                    <a class="dropdown-item" href="http://example.org//docker/"><img alt="Docker logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/docker.svg" /> Docker</a>
+                                    <a class="dropdown-item" href="http://example.org//gamedev/"><img alt="GameDev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> GameDev</a>
+                                    <a class="dropdown-item" href="http://example.org//golang/"><img alt="Golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" /> Golang</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="dropdown-item" href="http://example.org//nodejs/"><img alt="Nodejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/javascript.svg" /> NodeJS</a>
+                                    <a class="dropdown-item" href="http://example.org//python/"><img alt="Python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" /> Python</a>
+                                    <a class="dropdown-item" href="http://example.org//rust/"> <img alt="Rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" /> Rust</a>
+                                    <a class="dropdown-item" href="http://example.org//typescript/"><img alt="TypeScript logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/typescript.svg" /> TypeScript</a>
+                                    <a class="dropdown-item" href="http://example.org//javascript/vuejs/"><img alt="VueJS logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" /> VueJS</a>
+                                    <a class="dropdown-item" href="http://example.org//webdev/"><img alt="Web Dev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" /> Web Dev</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/">Blog</a>
+                    </li>
+                    
+                </ul>
+
+
+                
+                <ul class="navbar-nav full-height">
+                    <li class="nav-item">
+                        <a class="nav-link search" href="../../search"><img src="../../images/svg/search.svg" alt="search icon" style="width:15px; height: 15px;" /> Search</a>
+                    </li>
+                    <Signup/>
+                </ul>
+                
+
+            </div>
+        </nav>
+
+        
+        <nav class="navbar secondary-nav navbar-expand-lg navbar-light bg-light">
+
+            
+            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#secondNav" aria-controls="secondNav" aria-expanded="false" aria-label="Toggle navigation">
+	   <img src="../../images/svg/hamburger.svg" alt="hamburger menu" />
+   </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="secondNav">
+                <ul class="navbar-nav mr-auto">
+
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/angular/"><img alt="angular logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/angular.svg" /> Angular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/cloud/"><img alt="cloud logo" src="data:image/png.svg;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/cloud.svg" /> Cloud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/python/"><img alt="python logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/python.svg" />Python</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/golang/"><img alt="golang logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" />Golang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/rust/"><img alt="rust logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/rust-logo.png" />Rust</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/vuejs/"><img alt="vuejs logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/vuejs.svg" />VueJS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://example.org//course/webdev/"><img alt="webdev logo" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="../../images/svg/logo.svg" />Web Dev</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+<div class="top-bar">
+    <div class="container">
+        <h1>
+            
+            <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://images.tutorialedge.net/images/golang.svg" alt="How to use Terraform, Go, and AWS to build a scalable and resilient REST API Image" />  How to use Terraform, Go, and AWS to build a scalable and resilient REST API
+        </h1>
+        <div class="post-info">
+            <div class="post-info-inner">
+                <span>
+            
+            <img class="author" src="../../images/svg/logo.svg" alt="CoTutorial" />
+            
+            <a href="https://twitter.com/Elliot_F">CoTutorial</a>
+          </span>
+
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/clock.svg" alt="clock"/>7 Minutes</span>
+                <span><img class="icon" src="https://tutorialedge.net/images/svg/calendar.svg" alt="clock"/> Nov 30, 2017</span>
+
+                <span>
+            
+            <a href="../../tags/resiliency"
+              ><span class="badge badge-pill badge-info">resiliency</span></a>
+                
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="content-container">
+        <div class="row">
+
+            <div class="d-none d-sm-none col-sm-3 d-md-block">
+                <div class="sidebar">
+                    <div id="sidebar small-no-show">
+
+  <div class="right-sidebar youtube-subscribe">
+    <h3>Site Sponsors</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/DigitalOcean.png" style="width: 100%; height: auto; margin: 0; " alt="Amazing Site Sponsors!"/></a>
+    <hr/>
+    <h3>Support The Site</h3>
+    <a href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <div class="clear"></div>
+    <a href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+  </div>
+
+
+  <div class="right-sidebar small-no-show">
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">aws</h4>
+    <ul class="collection">
+      
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/aws/creating-go-lambda-functions-tutorial/">Creating Go Based Lambda Functions in AWS - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">go</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/aws/creating-go-lambda-functions-tutorial/">Creating Go Based Lambda Functions in AWS - Tutorial</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <h4 style="text-transform: uppercase;">resiliency</h4>
+    <ul class="collection">
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/an-introduction-to-autoscaling-your-website/">An Introduction To Autoscaling Your Website or Service</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/build-scalable-rest-api-go-terraform-aws/">How to use Terraform, Go, and AWS to build a scalable and resilient REST API</a></li>
+      
+      
+      
+      <li class="collection-item"><a href="http://example.org/cloud/basic-website-resiliency-load-balancers/">Basic Website Resiliency Patterns - Load Balancers</a></li>
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+  </div>
+
+</div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-7">
+                <article class="content" v-pre>
+                    
+
+<p>I&rsquo;ve recently been exploring the power of Terraform - and wanted to apply what I&rsquo;ve learned to build a scalable and resilient REST API. In just a few simple steps, we&rsquo;ll be using Terraform to provision our underlying AWS infrastructure and deploy our microservice developed with Go.
+Creating the RESTful API with GO
+To get started, let&rsquo;s build and compile a simple codebase using Go. Once we build this microservice, we&rsquo;ll provision an AWS EC2 instance for our execution environment.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Hello World&#34;</span>)
+    })
+
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:80&#34;</span>, <span style="color:#66d9ef">nil</span>))
+}</code></pre></div>
+<blockquote>
+<p>Technically, I guess we can consider this a microservice?</p>
+</blockquote>
+
+<p>Once the service is built using our Go code, we can construct a Docker image and publish dockerhub - this will make our deployment a breeze.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> golang:latest</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> mkdir /app<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span><span style="color:#e6db74"> ./pkg /app/</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> go get <span style="color:#e6db74">&#34;github.com/gorilla/mux&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> go build -o main .<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span><span style="color:#e6db74"> [&#34;/app/main&#34;]</span></code></pre></div>
+<p>Our simple Dockerfile for our go appNow that we&rsquo;ve defined both the microservice and our Dockerfile, let&rsquo;s publish our Docker image to a repository. I&rsquo;ve deployed this particular image here on docker hub, so feel free to follow along using my image.</p>
+
+<h1 id="provisioning-an-ec2-using-terraform">Provisioning an EC2 using Terraform</h1>
+
+<p>Terraform is surprisingly easy to get up and running with. When I first started using the CLI, I was able to spin up an EC2 instance in less than 5 minutes.
+Using the Terraform configuration files, we&rsquo;ll be specifying the characteristics of our infrastructure -such as the Auto Scaling Groups, the Security Groups, and the Instance Types we wish to run.
+For example, the following test.tf configuration file is all you&rsquo;d need to spin up a vanilla t2.micro instance without auto scaling or security groups.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">provider</span> <span style="color:#e6db74">&#34;aws&#34;</span> {
+    <span style="color:#a6e22e">access_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ACCESS_KEY_HERE&#34;</span>
+    <span style="color:#a6e22e">secret_key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SECRET_KEY_HERE&#34;</span>
+    <span style="color:#a6e22e">region</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;us-east-1&#34;</span>
+}
+
+<span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_instance&#34;</span> <span style="color:#e6db74">&#34;example&#34;</span> {
+    <span style="color:#a6e22e">ami</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ami-2767f631&#34;</span>
+    <span style="color:#a6e22e">instance_type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t2.micro&#34;</span>
+}
+</code></pre></div>
+<p>After declaring your infrastructure as code in the .tf file, just run the terraform apply command an it&rsquo;ll automatically provision a t2.micro instance in the us-east-1 region.</p>
+
+<h1 id="the-benefits-of-declarative-vs-procedural">The Benefits of Declarative vs. Procedural</h1>
+
+<p>One of my favorite features of Terraform is that the files are declarative as opposed to procedural. This effectively means that whatever you have provisioned within your terraform files should accurately reflect the infrastructure that is currently deployed and running.</p>
+
+<p>With a procedural style tools like Chef and Ansible, you write the step-by-step code that specifies how to achieve the desired end state. With declarative style tools such as Terraform and CloudFormation, the code you write not only specifies the desired end state - but the tool is also responsible for achieving that state.</p>
+
+<p>Using provisioning tool like Terraform is advantageous over the likes of configuration tools such as Ansible which are procedural in nature. The problem with using procedural configuration tools is that it becomes far more difficult to track the overall state of your infrastructure - whereas provisioning tools like Terraform reduces drift.</p>
+
+<h1 id="the-joys-of-destroy">The Joys of Destroy</h1>
+
+<p>Another advantage of using a declarative approach is that it becomes very easy to modify your infrastructure or tear down your environments. You simply specify how you want your infrastructure to look within your .tf files and then execute the terraform apply command to provision the configuration.</p>
+
+<p>For example, a developer might create several environments purely for the intention of testing a system before a production release. Using the terraform destroy command, a developer can quickly tear down the temporary infrastructure without the need for additional scripting.
+Integrating this approach to immutable infrastructure as code within your CI/CD pipeline can save time and money - simply spin up your infrastructure, run your tests, and then tear down your infrastructure.</p>
+
+<h1 id="provisioning-an-auto-scaling-group">Provisioning an Auto Scaling Group</h1>
+
+<p>Auto Scaling Groups (ASG) can automatically provision more instances of our microservice when the loads increase. In order to provision an ASG within our terraform file, we&rsquo;ll first want to create an AWS Security Groups that specifies both ingress and egress port rules for every instance within our ASG.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">provider</span> <span style="color:#e6db74">&#34;aws&#34;</span> {
+  <span style="color:#a6e22e">region</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;eu-west-1&#34;</span>
+}
+
+<span style="color:#a6e22e">data</span> <span style="color:#e6db74">&#34;aws_availability_zones&#34;</span> <span style="color:#e6db74">&#34;available&#34;</span> {}
+
+<span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_security_group&#34;</span> <span style="color:#e6db74">&#34;instance&#34;</span> {
+  <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;go-api-instance&#34;</span>
+
+  <span style="color:#a6e22e">ingress</span> {
+    <span style="color:#a6e22e">from_port</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">to_port</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">protocol</span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+    <span style="color:#a6e22e">cidr_blocks</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+  }
+}
+
+<span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_launch_configuration&#34;</span> <span style="color:#e6db74">&#34;example&#34;</span> {
+  <span style="color:#a6e22e">image_id</span>      <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ami-58d7e821&#34;</span>
+  <span style="color:#a6e22e">instance_type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;t2.micro&#34;</span>
+
+  <span style="color:#a6e22e">security_groups</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;${aws_security_group.instance.id}&#34;</span>]
+
+  <span style="color:#a6e22e">user_data</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;-</span><span style="color:#a6e22e">EOF</span>
+              <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">!</span><span style="color:#960050;background-color:#1e0010">/bin/bash</span>
+              <span style="color:#a6e22e">echo</span> <span style="color:#e6db74">&#34;Hello, World&#34;</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">html</span>
+              <span style="color:#a6e22e">nohup</span> <span style="color:#a6e22e">busybox</span> <span style="color:#a6e22e">httpd</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">f</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">p</span> <span style="color:#ae81ff">80</span> <span style="color:#f92672">&amp;</span>
+              <span style="color:#a6e22e">EOF</span>
+
+  <span style="color:#a6e22e">lifecycle</span> {
+    <span style="color:#a6e22e">create_before_destroy</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  }
+}
+</code></pre></div>
+<p>When an instances is created, we&rsquo;ll want it to execute a script that will install Docker, pull the published image from docker hub, run the image in detached mode, and map the ports correctly.
+To make this happen, we&rsquo;ll create a <code>setup.sh</code> file within our project&rsquo;s repo and then pass this into our <code>aws_launch_configuration</code> via <code>user_data</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span>
+sudo apt-get update
+apt-cache policy docker-ce
+sudo apt-get install -y docker-ce
+sudo docker pull forbsey/go-docker:first
+sudo docker run -d -p <span style="color:#ae81ff">80</span>:8081 forbsey/go-docker:first</code></pre></div>
+<p>Using this approach, any instances created by our auto-scaling group will automatically configure themselves to run our microservice on startup - with no manual intervention needed!</p>
+
+<h1 id="provisioning-an-elastic-load-balancer">Provisioning an Elastic Load Balancer</h1>
+
+<p>In order to provision an Elastic Load Balancer (ELB) to automatically distributes incoming traffic across multiple targets, we&rsquo;ll first need to create a security group resource and specify both ingress and egress rules that will whitelist the IP addresses and ports of incoming and outgoing traffic.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_autoscaling_group&#34;</span> <span style="color:#e6db74">&#34;example&#34;</span> {
+  <span style="color:#a6e22e">launch_configuration</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_launch_configuration.example.id}&#34;</span>
+  <span style="color:#a6e22e">load_balancers</span>       <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;${aws_elb.example.name}&#34;</span>]
+  <span style="color:#a6e22e">availability_zones</span>   <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;eu-west-1b&#34;</span>, <span style="color:#e6db74">&#34;eu-west-1a&#34;</span>]
+  <span style="color:#a6e22e">min_size</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+  <span style="color:#a6e22e">max_size</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+
+  <span style="color:#a6e22e">tag</span> {
+    <span style="color:#a6e22e">key</span>                 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Name&#34;</span>
+    <span style="color:#a6e22e">value</span>               <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-go-api&#34;</span>
+    <span style="color:#a6e22e">propagate_at_launch</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+  }
+}
+
+<span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_security_group&#34;</span> <span style="color:#e6db74">&#34;elb&#34;</span> {
+  <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-go-api&#34;</span>
+
+  <span style="color:#a6e22e">ingress</span> {
+    <span style="color:#a6e22e">from_port</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">to_port</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">protocol</span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tcp&#34;</span>
+    <span style="color:#a6e22e">cidr_blocks</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+  }
+
+  <span style="color:#a6e22e">egress</span> {
+    <span style="color:#a6e22e">from_port</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#a6e22e">to_port</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#a6e22e">protocol</span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-1&#34;</span>
+    <span style="color:#a6e22e">cidr_blocks</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;0.0.0.0/0&#34;</span>]
+  }
+}
+
+<span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;aws_elb&#34;</span> <span style="color:#e6db74">&#34;example&#34;</span> {
+  <span style="color:#a6e22e">name</span>               <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;terraform-go-api&#34;</span>
+  <span style="color:#a6e22e">availability_zones</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;eu-west-1b&#34;</span>, <span style="color:#e6db74">&#34;eu-west-1a&#34;</span>]
+  <span style="color:#a6e22e">security_groups</span>    <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;${aws_security_group.elb.id}&#34;</span>]
+
+  <span style="color:#a6e22e">listener</span> {
+    <span style="color:#a6e22e">lb_port</span>           <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">lb_protocol</span>       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http&#34;</span>
+    <span style="color:#a6e22e">instance_port</span>     <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+    <span style="color:#a6e22e">instance_protocol</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http&#34;</span>
+  }
+
+  <span style="color:#a6e22e">health_check</span> {
+    <span style="color:#a6e22e">healthy_threshold</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    <span style="color:#a6e22e">unhealthy_threshold</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    <span style="color:#a6e22e">timeout</span>             <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+    <span style="color:#a6e22e">interval</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+    <span style="color:#a6e22e">target</span>              <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HTTP:80/&#34;</span>
+  }
+}
+
+<span style="color:#a6e22e">output</span> <span style="color:#e6db74">&#34;elb_dns_name&#34;</span> {
+  <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_elb.example.dns_name}&#34;</span>
+}
+</code></pre></div>
+<p>Once we&rsquo;ve specified security group, we can go ahead and dictate the configuration of our ELB . We can specify which availability_zones to deploy our t2.micro instances, as well as the listeners and health checks for our load balancer to prevent our users from being impacted.</p>
+
+<p>In the final output block, we&rsquo;ll also specify that our terraform apply command should output the final ELB A record - that&rsquo;ll inform us how to reach our newly deployed service.</p>
+
+<p>After running the terraform apply command, you&rsquo;ll now see the elb_dns_name at the bottom of the output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-output" data-lang="output">aws_autoscaling_group.example: Still creating... (10s elapsed)
+aws_autoscaling_group.example: Still creating... (20s elapsed)
+aws_autoscaling_group.example: Still creating... (30s elapsed)
+aws_autoscaling_group.example: Creation complete after 40s (ID: tf-asg-20180703193441821100000002)
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+elb_dns_name = terraform-go-api-1767816456.eu-west-1.elb.amazonaws.com</code></pre></div>
+<blockquote>
+<p>Note: new services can take a while to show up due to DNS propagation timings</p>
+</blockquote>
+
+<h1 id="the-finished-application">The Finished Application!</h1>
+
+<p>Following the short and simple steps in this blog, we&rsquo;ve been able to develop and deploy a production-ready go microservice that features:</p>
+
+<ul>
+<li>Scalability - our Auto Scaling Group will automatically provision more servers behind our Elastic Load Balancer should it be needed.</li>
+<li>Fault Tolerance - if one of our servers crash becomes unstable, our infrastructure will automatically provision a new healthy server and add that to our existing group.</li>
+<li>Resiliency - by deploying our application to multiple availability zones, we have provided a basic level of resiliency. If an additional level of resiliency is required, we could always make it multi-region.</li>
+</ul>
+
+<p>This is pretty damn cool if you ask me! And in terms of effort - it wasn&rsquo;t a huge lift in order to get a basic load balancer and auto-scaling group up and running in a symbiotic fashion.
+Hopefully, you enjoyed this article! If you want to learn more, then head over to my YouTube channel and subscribe or connect with me directly on Twitter at @Elliot_F.
+Do you have any questions about Terraform or experience you&rsquo;d like to share? Please drop a comment below - I&rsquo;d love to hear from you!</p>
+ 
+<div class="author-container">
+  <div class="author-image">
+    
+    <img src="../../images/svg/logo.svg" alt="CoTutorial" />
+    
+  </div>
+  <div class="author-info">
+    <h2>
+      CoTutorial<br />
+      <small
+        >Twitter: <a href="https://twitter.com/wisnusaputradev">@CoTutorial</a></small
+      >
+    </h2>
+    <p>
+      Hey, I'm Elliot and I've been working on TutorialEdge for the last 4 years! If my work has helped you in any way, shape, or form then please consider supporting my work.
+    </p>
+
+    <a style="float: left; margin-right: 10px;" href="#"><img class="patron" src="https://images.tutorialedge.net/images/patreon.png" alt="become a patron"/></a>
+    <a style="float: left;" href="#"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+    
+  </div>
+</div>
+
+
+                </article>
+                <div class="comments">
+          <div class="content">
+    
+    
+    
+
+    <script>
+        function loadAPI() {
+            var js = document.createElement('script');
+            js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=493615514813695&autoLogAppEvents=1';
+            document.body.appendChild(js);
+        }
+        window.onscroll = function () {
+            var rect = document.getElementById('comments').getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                loadAPI();
+                window.onscroll = null;
+            } 
+        }
+        </script>
+    <div id="fb-root"></div>
+    <div class="fb-comments" id="comments" data-href="http://example.org/cloud/build-scalable-rest-api-go-terraform-aws/" data-width="100%" data-numposts="5"></div>                  
+</div>
+
+        </div>
+            </div>
+
+            <div class="col-sm-3 col-md-2">
+                <div id="right-sidebar">
+                    <div class="toc">
+                        <h4>Table Of Contents</h4>
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#provisioning-an-ec2-using-terraform">Provisioning an EC2 using Terraform</a></li>
+<li><a href="#the-benefits-of-declarative-vs-procedural">The Benefits of Declarative vs. Procedural</a></li>
+<li><a href="#the-joys-of-destroy">The Joys of Destroy</a></li>
+<li><a href="#provisioning-an-auto-scaling-group">Provisioning an Auto Scaling Group</a></li>
+<li><a href="#provisioning-an-elastic-load-balancer">Provisioning an Elastic Load Balancer</a></li>
+<li><a href="#the-finished-application">The Finished Application!</a></li>
+</ul>
+</nav>
+                    </div>
+                    <hr/>
+                    <div id="codefund">
+                        
+                    </div>
+                    <script src="https://codefund.io/properties/330/funder.js" async="async"></script>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/sticky-sidebar.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.0/anchor.min.js"></script>
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sidebar = new StickySidebar("#right-sidebar", {
+            topSpacing: 10
+        });
+        anchors.options = {
+            visible: "always",
+            placement: "left"
+        };
+        anchors.add(
+            ".content > h1, .content > h2, .content > h3, .content > h4"
+        );
+    });
+</script>
+
+
+<div class="blue-spacer"></div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="http://example.org//python/">Python</a></li>
+                    <li><a href="http://example.org//angular/">Angular</a></li>
+                    <li><a href="http://example.org//golang/">Golang</a></li>
+                    <li><a href="http://example.org//artificial-intelligence/">Artificial Intelligence</a></li>
+                    <li><a href="http://example.org//webdev/">Web Development</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="http://example.org//search/">Search Page</a></li>
+                    <li><a href="http://example.org//about/">About</a></li>
+                    <li><a href="http://example.org//get-involved/">Get Involved</a></li>
+                </ul>
+                <h3>Suggested Resources</h3>
+                <ul>
+                    <li><a href="http://example.org//uses/">My Hardware + Software Recording Setup </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="padded">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><a href="https://twitter.com/wisnusaputradev">@wisnusaputradev</a></li>
+                    <li><a href="https://www.facebook.com/wisnusaputradev">Wisnu Saputra</a></li>
+                    <li><a href="https://github.com/saputrago">saputrago</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col l3 m12 s12 footer-special">
+            <div class="logo">
+                <a href="http://example.org//"><img alt="tutorialedge logo" src="../../images/svg/logo.svg" /> CoTutorial</a>
+            </div>
+            <div class="padded">
+                <p>CoTutorial is a totally free programming tutorial site that has been built with the intention of helping as many people as possible learn to program. The site is also completely opensourced and you can contribue here: <a href="https://github.com/saputrago">Project</a>,
+                    any pull requests will be greatly appreciated!</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright none">
+        <span class="float-left">CoTutorial © 2019 Copyright</span>
+        <span class="float-right" id="page-id">33429a042575c8f98e8af40618dff9e3</span>
+    </div>
+</footer>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10255990-23"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-10255990-23');
+</script>
+<script type="text/javascript">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        
+        
+        
+        
+        
+        for (var i = 0; i < imgDefer.length; i++) {
+            if (imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+            }
+        }
+
+    }
+
+    window.onload = init;
+</script>
+
+</div>
+</body>
+
+</html>

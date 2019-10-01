@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>graphql on My New Hugo Site</title>
+    <link>http://example.org/tags/graphql/</link>
+    <description>Recent content in graphql on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Dec 2018 20:56:55 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/graphql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go Graphql Beginners Tutorial - Part 2</title>
+      <link>http://example.org/golang/go-graphql-beginners-tutorial-part-2/</link>
+      <pubDate>Fri, 28 Dec 2018 20:56:55 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-graphql-beginners-tutorial-part-2/</guid>
+      <description>Note - This tutorial is part of a 2-part mini-series on GraphQL, the first part of this tutorial can be found here: Go GraphQL Beginners Tutorial - Part 1
+ Welcome fellow Gophers! In this tutorial, we are going to be expanding upon the work we did in our previous GraphQL Go tutorial and looking at mutations and implementing proper data-sources behind our GraphQL API.
+In the previous tutorial, we looked at some of the major benefits of GraphQL and how it could greatly improve the way we retrieve data for particular components within our applications.</description>
+    </item>
+    
+    <item>
+      <title>Go GraphQL Beginners Tutorial</title>
+      <link>http://example.org/golang/go-graphql-beginners-tutorial/</link>
+      <pubDate>Thu, 27 Dec 2018 18:46:19 +0000</pubDate>
+      
+      <guid>http://example.org/golang/go-graphql-beginners-tutorial/</guid>
+      <description>Welcome fellow Gophers! In this tutorial, we are going to be looking at how we can interact with a GraphQL server within our Go-based programs. By the end of this tutorial, we should hopefully know how to do the following:
+ The basics of GraphQL Build a Simple GraphQL Server in Go Perform basic queries against GraphQL  We&amp;rsquo;ll be focused on the data-retrieval side of GraphQL in this tutorial and we&amp;rsquo;ll back it with an in-memory data source.</description>
+    </item>
+    
+  </channel>
+</rss>

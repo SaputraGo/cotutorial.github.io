@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on My New Hugo Site</title>
+    <link>http://example.org/docker/</link>
+    <description>Recent content in Docker on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Jul 2018 22:33:43 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker for Go Developers</title>
+      <link>http://example.org/docker/docker-for-go-developers/</link>
+      <pubDate>Sat, 14 Jul 2018 22:33:43 +0100</pubDate>
+      
+      <guid>http://example.org/docker/docker-for-go-developers/</guid>
+      <description>In this tutorial, we are going to look at how we can leverage Docker as Go developers.
+By the end of this tutorial, we will have covered the following topics:
+ Creating a Simple Dockerfile for a simple Go Program Mounting Volumes in Docker Auto-build on changes  Our Basic Go Program For the purpose of this tutorial, we&amp;rsquo;ll be using the code from my go WebServer tutorial
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;html&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { http.</description>
+    </item>
+    
+    <item>
+      <title>Working With Docker and NodeJS - Tutorial</title>
+      <link>http://example.org/docker/working-with-docker-nodejs/</link>
+      <pubDate>Sun, 27 May 2018 21:40:20 +0100</pubDate>
+      
+      <guid>http://example.org/docker/working-with-docker-nodejs/</guid>
+      <description>The full source code for this tutorial can be found here: TutorialEdge/Docker/node-docker
+ In this tutorial, we are going to be looking at how you can dockerize an existing NodeJS application and ultimately leverage the benefits of Docker. We&amp;rsquo;ll be creating a Docker image that will dynamically pick up changes to a NodeJS application and automatically recompile and rerun our application without having to rebuild and re-run our docker image.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started With Docker</title>
+      <link>http://example.org/docker/getting-started-with-docker/</link>
+      <pubDate>Fri, 18 May 2018 14:25:51 +0100</pubDate>
+      
+      <guid>http://example.org/docker/getting-started-with-docker/</guid>
+      <description>In this tutorial, we are going to be taking a look at what Docker is, why it&amp;rsquo;s needed and how you can get up and running using Docker in your day-to-day development.
+What Is Docker? Docker is a containerization technology that allows you to package up your application into something that will run everywhere that Docker can run.
+You typically define absolutely everything you need for your application within your docker file and no more.</description>
+    </item>
+    
+  </channel>
+</rss>
