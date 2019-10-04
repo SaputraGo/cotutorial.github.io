@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CoTutorial</title>
+    <title>Home on CoTutorial</title>
     <link>https://cotutorial.github.io/</link>
-    <description>Recent content on CoTutorial</description>
+    <description>Recent content in Home on CoTutorial</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>id-ID</language>
-    <lastBuildDate>Fri, 14 Apr 2017 20:28:13 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2019 09:26:12 +0700</lastBuildDate>
     
 	<atom:link href="https://cotutorial.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Redirect</title>
-      <link>https://cotutorial.github.io/redirect/</link>
-      <pubDate>Fri, 14 Apr 2017 20:28:13 +0100</pubDate>
+      <title>Contact</title>
+      <link>https://cotutorial.github.io/contact/</link>
+      <pubDate>Fri, 04 Oct 2019 09:26:12 +0700</pubDate>
       
-      <guid>https://cotutorial.github.io/redirect/</guid>
-      <description></description>
+      <guid>https://cotutorial.github.io/contact/</guid>
+      <description>Kami akan sangat senang mendengar masukan dan saran dari anda. Silahkan hubungi kami melalui kontak form berikut.
+Name  Email  Pesan   Send   </description>
     </item>
     
     <item>
